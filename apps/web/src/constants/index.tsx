@@ -1,4 +1,3 @@
-import PageShell from '@/pages/PageShell'
 import {
   LayoutDashboard,
   TrendingUp,
@@ -10,125 +9,65 @@ import {
   Database,
   Settings,
 } from 'lucide-react'
-import { NavItem } from '@/interface'
+import type { NavItem } from '@/interface'
 
 export const NAV_ITEMS: NavItem[] = [
-  { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+  { id: 'dashboard', label: 'Dashboard', path: '/', icon: LayoutDashboard },
   {
     id: 'revenue',
     label: 'Revenue & Pricing',
+    path: '/revenue',
     icon: TrendingUp,
-    children: [
-      { id: 'revenue-overview', label: 'Overview' },
-      { id: 'rate-shopping', label: 'Rate Shopping' },
-      { id: 'booking-mix', label: 'Booking Mix' },
-    ],
+    // children: [
+    //   { id: 'revenue-overview', label: 'Overview', path: '/revenue/overview' },
+    //   { id: 'rate-shopping', label: 'Rate Shopping', path: '/revenue/rate-shopping' },
+    //   { id: 'booking-mix', label: 'Booking Mix', path: '/revenue/booking-mix' },
+    // ],
   },
   {
     id: 'ai',
     label: 'AI & Forecasting',
+    path: '/ai',
     icon: Brain,
-    children: [
-      { id: 'demand-forecast', label: 'Demand Forecast' },
-      { id: 'pricing-recs', label: 'Pricing Recommendations' },
-    ],
+    // children: [
+    //   { id: 'demand-forecast', label: 'Demand Forecast', path: '/ai/demand-forecast' },
+    //   { id: 'pricing-recs', label: 'Pricing Recommendations', path: '/ai/pricing-recs' },
+    // ],
   },
   {
     id: 'guest',
     label: 'Guest Experience',
+    path: '/guest',
     icon: Users,
-    children: [
-      { id: 'sentiment', label: 'Sentiment Feed' },
-      { id: 'guest-profiles', label: 'Guest Profiles' },
-      { id: 'service-recovery', label: 'Service Recovery' },
-    ],
+    // children: [
+    //   { id: 'sentiment', label: 'Sentiment Feed', path: '/guest/sentiment' },
+    //   { id: 'guest-profiles', label: 'Guest Profiles', path: '/guest/profiles' },
+    //   { id: 'service-recovery', label: 'Service Recovery', path: '/guest/service-recovery' },
+    // ],
   },
   {
     id: 'operations',
     label: 'Operations',
+    path: '/operations',
     icon: Settings2,
-    children: [
-      { id: 'labour', label: 'Labour & Roster' },
-      { id: 'energy', label: 'Energy' },
-      { id: 'maintenance', label: 'Maintenance Alerts' },
-      { id: 'housekeeping', label: 'Housekeeping' },
-    ],
+    // children: [
+    //   { id: 'labour', label: 'Labour & Roster', path: '/operations/labour' },
+    //   { id: 'energy', label: 'Energy', path: '/operations/energy' },
+    //   { id: 'maintenance', label: 'Maintenance Alerts', path: '/operations/maintenance' },
+    //   { id: 'housekeeping', label: 'Housekeeping', path: '/operations/housekeeping' },
+    // ],
   },
   {
     id: 'marketing',
     label: 'Marketing & Distribution',
+    path: '/marketing',
     icon: Megaphone,
-    children: [
-      { id: 'channel-roi', label: 'Channel ROI' },
-      { id: 'campaigns', label: 'Campaigns' },
-    ],
+    // children: [
+    //   { id: 'channel-roi', label: 'Channel ROI', path: '/marketing/channel-roi' },
+    //   { id: 'campaigns', label: 'Campaigns', path: '/marketing/campaigns' },
+    // ],
   },
-  { id: 'external', label: 'External Intelligence', icon: Globe },
-  { id: 'data', label: 'Data & Integrations', icon: Database },
-  { id: 'admin', label: 'Admin Settings', icon: Settings },
+  { id: 'external', label: 'External Intelligence', path: '/external', icon: Globe },
+  { id: 'data', label: 'Data & Integrations', path: '/data', icon: Database },
+  { id: 'admin', label: 'Admin Settings', path: '/admin', icon: Settings },
 ]
-
-export const PAGES = {
-  dashboard: () => (
-    <PageShell title="Dashboard" description="Hotel Intelligence Dashboard overview." />
-  ),
-  revenue: () => <PageShell title="Revenue & Pricing" description="Revenue & pricing overview." />,
-  'revenue-overview': () => (
-    <PageShell title="Revenue Overview" description="Revenue overview metrics." />
-  ),
-  'rate-shopping': () => (
-    <PageShell title="Rate Shopping" description="Competitor rate comparison table." />
-  ),
-  'booking-mix': () => <PageShell title="Booking Mix" description="Direct vs OTA booking mix." />,
-  ai: () => <PageShell title="AI & Forecasting" description="AI models and forecasting hub." />,
-  'demand-forecast': () => (
-    <PageShell title="Demand Forecast" description="30/60/90-day occupancy forecast." />
-  ),
-  'pricing-recs': () => (
-    <PageShell
-      title="Pricing Recommendations"
-      description="AI-generated pricing recommendations."
-    />
-  ),
-  guest: () => <PageShell title="Guest Experience" description="Guest experience overview." />,
-  sentiment: () => (
-    <PageShell
-      title="Sentiment Feed"
-      description="Live sentiment from Google, TripAdvisor & OTAs."
-    />
-  ),
-  'guest-profiles': () => (
-    <PageShell title="Guest Profiles" description="CRM guest profiles and history." />
-  ),
-  'service-recovery': () => (
-    <PageShell title="Service Recovery" description="Negative alert and recovery actions." />
-  ),
-  operations: () => <PageShell title="Operations" description="Operations overview." />,
-  labour: () => <PageShell title="Labour & Roster" description="Labour roster vs occupancy." />,
-  energy: () => <PageShell title="Energy" description="Energy usage by day and occupancy." />,
-  maintenance: () => (
-    <PageShell title="Maintenance Alerts" description="Predictive maintenance alerts." />
-  ),
-  housekeeping: () => (
-    <PageShell title="Housekeeping" description="Room turnaround times and task status." />
-  ),
-  marketing: () => <PageShell title="Marketing & Distribution" description="Marketing overview." />,
-  'channel-roi': () => (
-    <PageShell title="Channel ROI" description="Channel ROI ranking and wasted spend." />
-  ),
-  campaigns: () => (
-    <PageShell title="Campaigns" description="Pre-arrival offer campaign summary." />
-  ),
-  external: () => (
-    <PageShell
-      title="External Intelligence"
-      description="Events, weather, flights and market data."
-    />
-  ),
-  data: () => (
-    <PageShell title="Data & Integrations" description="Pipeline health and integration status." />
-  ),
-  admin: () => (
-    <PageShell title="Admin Settings" description="System configuration and user management." />
-  ),
-}

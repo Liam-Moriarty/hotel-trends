@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Hotel } from 'lucide-react'
-import type { AuthUser } from '@/providers/AuthProvider'
 import { MOCK_USERS } from '@/mocks'
+import { AuthUser } from '@/interface'
 
 interface LoginPageProps {
   onLogin: (user: AuthUser) => void

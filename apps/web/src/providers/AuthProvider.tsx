@@ -1,16 +1,5 @@
+import { AuthContextValue } from '@/interface'
 import { createContext, type ReactNode } from 'react'
-
-export interface AuthUser {
-  email: string
-  name: string
-  role: string
-  initials: string
-}
-
-export interface AuthContextValue {
-  user: AuthUser
-  logout: () => void
-}
 
 export const AuthContext = createContext<AuthContextValue | null>(null)
 

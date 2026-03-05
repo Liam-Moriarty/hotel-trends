@@ -1,15 +1,19 @@
 import { NAV_ITEMS } from '@/constants'
 import { useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { ChevronRight, Hotel, PanelLeftClose, PanelLeftOpen } from 'lucide-react'
 import UserFooter from './UserFooter'
+
 import { NavItem, SidebarProps } from '@/interface'
 
 function cn(...classes: (string | boolean | undefined | null)[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Sidebar = ({ currentPage, onNavigate, collapsed, onToggleCollapse }: SidebarProps) => {
+const Sidebar = ({ collapsed, onToggleCollapse }: SidebarProps) => {
   const [openGroups, setOpenGroups] = useState(['revenue'])
+  const location = useLocation()
+  const navigate = useNavigate()
 
   function toggleGroup(id: string) {
     setOpenGroups(prev => (prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]))
@@ -18,9 +22,10 @@ const Sidebar = ({ currentPage, onNavigate, collapsed, onToggleCollapse }: Sideb
   function isActive(item: NavItem) {
     if (item.children)
       return (
-        item.children.some((c: NavItem): boolean => c.id === currentPage) || currentPage === item.id
+        item.children.some((c: NavItem): boolean => location.pathname === c.path) ||
+        location.pathname === item.path
       )
-    return currentPage === item.id
+    return location.pathname === item.path
   }
 
   return (
@@ -85,7 +90,7 @@ const Sidebar = ({ currentPage, onNavigate, collapsed, onToggleCollapse }: Sideb
                 <button
                   onClick={() => {
                     if (collapsed) {
-                      onNavigate(item.id)
+                      navigate(item.path)
                       return
                     }
                     toggleGroup(item.id)
@@ -117,10 +122,10 @@ const Sidebar = ({ currentPage, onNavigate, collapsed, onToggleCollapse }: Sideb
                     {item.children.map(child => (
                       <button
                         key={child.id}
-                        onClick={() => onNavigate(child.id)}
+                        onClick={() => navigate(child.path)}
                         className={cn(
                           'w-full text-left text-sm px-2 py-1.5 rounded-md transition-colors',
-                          currentPage === child.id
+                          location.pathname === child.path
                             ? 'bg-primary/10 text-primary font-medium'
                             : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
                         )}
@@ -137,7 +142,7 @@ const Sidebar = ({ currentPage, onNavigate, collapsed, onToggleCollapse }: Sideb
           return (
             <button
               key={item.id}
-              onClick={() => onNavigate(item.id)}
+              onClick={() => navigate(item.path)}
               title={collapsed ? item.label : undefined}
               className={cn(
                 'w-full flex items-center gap-2.5 rounded-md px-2 py-2 text-sm transition-colors',

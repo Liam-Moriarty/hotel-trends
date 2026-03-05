@@ -1,8 +1,6 @@
 import { LucideIcon } from 'lucide-react'
 
 export interface SidebarProps {
-  currentPage: string
-  onNavigate: (page: string) => void
   collapsed: boolean
   onToggleCollapse: () => void
 }
@@ -10,11 +8,63 @@ export interface SidebarProps {
 export interface NavItem {
   id: string
   label: string
+  path: string
   icon?: LucideIcon
   children?: NavItem[]
 }
 
-export interface PageShellProps {
+export interface AuthUser {
+  email: string
+  name: string
+  role: string
+  initials: string
+}
+
+export interface AuthContextValue {
+  user: AuthUser
+  logout: () => void
+}
+
+// ── Dashboard types ───────────────────────────────────────────────────────────
+
+export type InsightVariant = 'destructive' | 'warning' | 'success' | 'secondary'
+
+export interface RevenueDataPoint {
+  day: string
+  actual: number
+  forecast: number
+}
+
+export interface RevparDataPoint {
+  month: string
+  actual: number | null
+  forecast: number | null
+}
+
+export interface Kpi {
+  label: string
+  value: string
+  sub: string
+  up: boolean
+}
+
+export interface Department {
+  name: string
+  score: number
+}
+
+export interface Insight {
+  badge: string
+  variant: InsightVariant
   title: string
-  description?: string
+  body: string
+  cta: string
+}
+
+export interface CapexItem {
+  name: string
+  roi: string
+  score: number
+  amount: string
+  bar: number
 }

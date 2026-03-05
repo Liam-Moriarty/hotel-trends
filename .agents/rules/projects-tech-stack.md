@@ -207,28 +207,3 @@ The following are **explicitly prohibited**. If a user or task requests them, de
 | Prettier     | 3.x             |
 | Firebase CLI | 13.x            |
 | gcloud CLI   | Latest          |
-
----
-
-## 14. Development Commands Reference
-
-| Command              | Description                                |
-| -------------------- | ------------------------------------------ |
-| `pnpm dev`           | Start Vite dev server + Firebase emulators |
-| `pnpm build`         | Production build across all packages       |
-| `pnpm test`          | Run Vitest across all packages             |
-| `pnpm test:coverage` | Tests with coverage report                 |
-| `pnpm lint`          | ESLint across all packages                 |
-| `pnpm lint:fix`      | Auto-fix lint issues                       |
-| `pnpm format`        | Prettier format all files                  |
-| `pnpm typecheck`     | TypeScript check across all packages       |
-| `pnpm precheck`      | Full pre-PR gate                           |
-| `pnpm emulators`     | Start Firebase Local Emulator Suite        |
-| `pnpm seed`          | Seed Firestore emulator with mock data     |
-| `pnpm changeset`     | Create a changeset for versioning          |
-| `pnpm sync:lint`     | Check dependency version consistency       |
-| `pnpm sync:fix`      | Auto-fix dependency mismatches             |
-
----
-
-_Generated from TDD v1.0 — March 2026. Update this file whenever the TDD is revised._
