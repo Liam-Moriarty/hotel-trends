@@ -1,11 +1,18 @@
 import type {
+  Anomaly,
   AuthUser,
   CapexItem,
+  ChurnGuest,
+  ClusterPoint,
   Department,
   HeatmapRow,
   Insight,
   Kpi,
   KpiCardData,
+  LabourDataPoint,
+  MaintenanceAlert,
+  OccupancyDataPoint,
+  Recommendation,
   RevenueDataPoint,
   RevparDataPoint,
   RoomRate,
@@ -193,4 +200,199 @@ export const rateTrendData = [
   { date: 'Mar 23', Standard: 199, Deluxe: 268, Suite: 410 },
   { date: 'Mar 26', Standard: 199, Deluxe: 268, Suite: 415 },
   { date: 'Mar 30', Standard: 199, Deluxe: 268, Suite: 420 },
+]
+
+// ── AI Page Data ───────────────────────────────────────────────────────────
+
+export const occupancyData: OccupancyDataPoint[] = [
+  { date: 'Mar 1', occ: 72 },
+  { date: 'Mar 3', occ: 75 },
+  { date: 'Mar 5', occ: 74 },
+  { date: 'Mar 7', occ: 88 },
+  { date: 'Mar 9', occ: 92 },
+  { date: 'Mar 11', occ: 96 },
+  { date: 'Mar 13', occ: 94 },
+  { date: 'Mar 15', occ: 89 },
+]
+
+export const labourData: LabourDataPoint[] = [
+  { week: 'W1', hours: 142 },
+  { week: 'W2', hours: 158 },
+  { week: 'W3', hours: 151 },
+  { week: 'W4', hours: 163 },
+  { week: 'W5', hours: 0 },
+  { week: 'W6', hours: 0 },
+]
+
+export const anomalies: Anomaly[] = [
+  {
+    id: 1,
+    title: 'Revenue Spike',
+    delta: '+34%',
+    desc: 'Unusual direct booking volume — local concert driving demand',
+    time: 'Mar 4, 14:22',
+    color: 'text-blue-400',
+    bg: 'bg-blue-900/30',
+    icon: 'triangle',
+    resolved: false,
+  },
+  {
+    id: 2,
+    title: 'Labor Overtime',
+    delta: '+22hrs',
+    desc: 'F&B team projected 22 overtime hours this week vs normal 8',
+    time: 'Mar 4, 09:15',
+    color: 'text-yellow-400',
+    bg: 'bg-yellow-900/20',
+    icon: 'warning',
+    resolved: false,
+  },
+  {
+    id: 3,
+    title: 'Review Velocity',
+    delta: '3 neg',
+    desc: '3 negative TripAdvisor reviews in 4 hours — possible incident',
+    time: 'Mar 3, 23:41',
+    color: 'text-red-400',
+    bg: 'bg-red-900/20',
+    icon: 'triangle',
+    resolved: true,
+  },
+  {
+    id: 4,
+    title: 'Energy Anomaly',
+    delta: '+18%',
+    desc: 'HVAC energy spike floor 4 — possible thermostat malfunction',
+    time: 'Mar 3, 18:00',
+    color: 'text-yellow-400',
+    bg: 'bg-yellow-900/20',
+    icon: 'warning',
+    resolved: false,
+  },
+]
+
+export const recommendations: Recommendation[] = [
+  {
+    id: 1,
+    title: 'Adjust Deluxe King Rate',
+    priority: 'HIGH',
+    priorityColor: 'bg-red-500',
+    impact: '+$8,400 revenue',
+    impactColor: 'text-green-400',
+    category: 'Pricing',
+    conf: 94,
+  },
+  {
+    id: 2,
+    title: 'Redeploy 4 Staff to F&B',
+    priority: 'HIGH',
+    priorityColor: 'bg-red-500',
+    impact: '-$2,100 overtime cost',
+    impactColor: 'text-green-400',
+    category: 'Operations',
+    conf: 87,
+  },
+  {
+    id: 3,
+    title: 'Launch Weekend Spa Package',
+    priority: 'MEDIUM',
+    priorityColor: 'bg-yellow-500',
+    impact: '+$5,200 upsell',
+    impactColor: 'text-green-400',
+    category: 'Marketing',
+    conf: 82,
+  },
+  {
+    id: 4,
+    title: 'Pre-check-in Email Campaign',
+    priority: 'MEDIUM',
+    priorityColor: 'bg-yellow-500',
+    impact: '+$3,100 ancillary rev',
+    impactColor: 'text-green-400',
+    category: 'Guest',
+    conf: 78,
+  },
+  {
+    id: 5,
+    title: 'Renegotiate Expedia Commission',
+    priority: 'LOW',
+    priorityColor: 'bg-blue-500',
+    impact: '-$18K annual cost',
+    impactColor: 'text-green-400',
+    category: 'Revenue',
+    conf: 71,
+  },
+]
+
+export const clusterData: ClusterPoint[] = [
+  { name: 'Business Solo', x: 2.1, y: 4.2, z: 30 },
+  { name: 'Business Solo', x: 2.3, y: 3.6, z: 25 },
+  { name: 'Business Solo', x: 1.8, y: 5.1, z: 28 },
+  { name: 'Leisure Family', x: 4.5, y: 8.4, z: 40 },
+  { name: 'Leisure Family', x: 5.2, y: 8.9, z: 38 },
+  { name: 'Leisure Family', x: 6.1, y: 8.1, z: 35 },
+  { name: 'Luxury Couple', x: 2.1, y: 2.4, z: 20 },
+  { name: 'Luxury Couple', x: 2.3, y: 2.8, z: 22 },
+  { name: 'Luxury Couple', x: 1.8, y: 2.2, z: 18 },
+  { name: 'Conference Group', x: 2.3, y: 6.4, z: 45 },
+  { name: 'Conference Group', x: 4.5, y: 3.4, z: 42 },
+]
+
+export const clusterColors: Record<string, string> = {
+  'Business Solo': '#8b5cf6',
+  'Leisure Family': '#22c55e',
+  'Luxury Couple': '#f59e0b',
+  'Conference Group': '#06b6d4',
+}
+
+export const maintenanceAlerts: MaintenanceAlert[] = [
+  { name: 'Boiler Unit B2', eta: 'Failure in 3–5 days', cost: '$4,200', pct: 92, color: '#ef4444' },
+  {
+    name: 'Elevator #3 Motor',
+    eta: 'Failure in 1–2 weeks',
+    cost: '$8,900',
+    pct: 76,
+    color: '#f59e0b',
+  },
+  {
+    name: 'Pool Pump System',
+    eta: 'Failure in 3–4 weeks',
+    cost: '$2,100',
+    pct: 61,
+    color: '#f59e0b',
+  },
+  {
+    name: 'HVAC Floor 6 Zone',
+    eta: 'Failure in 6–8 weeks',
+    cost: '$1,800',
+    pct: 45,
+    color: '#8b5cf6',
+  },
+]
+
+export const churnGuests: ChurnGuest[] = [
+  {
+    initials: 'S',
+    name: 'Sarah M.',
+    stays: '12 stays',
+    ltv: 'LTV $8,400',
+    churn: 78,
+    color: 'bg-orange-500',
+  },
+  {
+    initials: 'R',
+    name: 'Robert K.',
+    stays: '8 stays',
+    ltv: 'LTV $5,200',
+    churn: 65,
+    color: 'bg-blue-500',
+  },
+  {
+    initials: 'C',
+    name: 'Chen Wei',
+    stays: '15 stays',
+    ltv: 'LTV $11,300',
+    churn: 61,
+    color: 'bg-teal-500',
+  },
 ]

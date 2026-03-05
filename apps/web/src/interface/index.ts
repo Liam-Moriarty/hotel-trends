@@ -98,3 +98,62 @@ export interface HeatmapCell {
 }
 
 export type HeatmapRow = HeatmapCell[]
+
+// ── AI Page types ───────────────────────────────────────────────────────────
+
+export interface OccupancyDataPoint {
+  date: string
+  occ: number
+}
+
+export interface LabourDataPoint {
+  week: string
+  hours: number
+}
+
+export interface Anomaly {
+  id: number
+  title: string
+  delta: string
+  desc: string
+  time: string
+  color: string
+  bg: string
+  icon: string
+  resolved: boolean
+}
+
+export interface Recommendation {
+  id: number
+  title: string
+  priority: string
+  priorityColor: string
+  impact: string
+  impactColor: string
+  category: string
+  conf: number
+}
+
+export interface ClusterPoint {
+  name: string
+  x: number
+  y: number
+  z: number
+}
+
+export interface MaintenanceAlert {
+  name: string
+  eta: string
+  cost: string
+  pct: number
+  color: string
+}
+
+export interface ChurnGuest {
+  initials: string
+  name: string
+  stays: string
+  ltv: string
+  churn: number
+  color: string
+}
