@@ -1,5 +1,9 @@
 import { LucideIcon } from 'lucide-react'
 
+export type InsightVariant = 'destructive' | 'warning' | 'success' | 'secondary'
+
+// ── Component Types ───────────────────────────────────────────────────────────
+
 export interface SidebarProps {
   collapsed: boolean
   onToggleCollapse: () => void
@@ -12,6 +16,8 @@ export interface NavItem {
   icon?: LucideIcon
   children?: NavItem[]
 }
+
+// ── Auth types ───────────────────────────────────────────────────────────
 
 export interface AuthUser {
   email: string
@@ -26,8 +32,6 @@ export interface AuthContextValue {
 }
 
 // ── Dashboard types ───────────────────────────────────────────────────────────
-
-export type InsightVariant = 'destructive' | 'warning' | 'success' | 'secondary'
 
 export interface RevenueDataPoint {
   day: string
@@ -68,3 +72,29 @@ export interface CapexItem {
   amount: string
   bar: number
 }
+
+// ── Revenue types ───────────────────────────────────────────────────────────
+
+export interface KpiCardData {
+  label: string
+  value: string
+  change: string
+  positive: boolean
+  neutral?: boolean
+}
+
+export interface RoomRate {
+  type: string
+  current: number
+  compAvg: number
+  aiRec: number
+  delta: number
+  occupancy: number
+  applied: boolean
+}
+
+export interface HeatmapCell {
+  value: number | null
+}
+
+export type HeatmapRow = HeatmapCell[]
