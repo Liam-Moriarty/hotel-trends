@@ -1,8 +1,10 @@
 import { useAuth } from '@/hooks/useAuth'
-import { Bell, Search } from 'lucide-react'
+import { useTheme } from '@/providers/ThemeProvider'
+import { Bell, Moon, Search, Sun } from 'lucide-react'
 
 const Topbar = () => {
   const { user } = useAuth()
+  const { theme, toggleTheme } = useTheme()
   const now = new Date()
   const dateStr = now.toLocaleDateString('en-AU', {
     weekday: 'short',
@@ -39,6 +41,15 @@ const Topbar = () => {
         <span className="h-2 w-2 rounded-full bg-green-500 shrink-0" />
         <span className="text-sm font-medium">{user.role}</span>
       </div>
+
+      {/* Dark mode toggle */}
+      <button
+        onClick={toggleTheme}
+        className="p-2 rounded-md hover:bg-accent text-muted-foreground hover:text-foreground"
+        aria-label="Toggle dark mode"
+      >
+        {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+      </button>
 
       {/* Notifications */}
       <button className="relative p-2 rounded-md hover:bg-accent text-muted-foreground hover:text-foreground">

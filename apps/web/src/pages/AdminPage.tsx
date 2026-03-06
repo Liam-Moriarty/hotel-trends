@@ -66,91 +66,34 @@ const tabs = [
   { id: 'billing', label: 'Billing' },
 ]
 
-// Shadcn light theme tokens
-const theme = {
-  background: '#ffffff',
-  foreground: '#09090b',
-  muted: '#f4f4f5',
-  mutedForeground: '#71717a',
-  border: '#e4e4e7',
-  primary: '#18181b',
-  primaryForeground: '#fafafa',
-  secondary: '#f4f4f5',
-  secondaryForeground: '#18181b',
-  accent: '#f4f4f5',
-  accentForeground: '#18181b',
-  destructive: '#ef4444',
-  ring: '#18181b',
-  radius: '0.5rem',
-}
-
 export default function AdminPage() {
   const [activeTab, setActiveTab] = useState('user-management')
   const [menuOpen, setMenuOpen] = useState<string | null>(null)
 
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        background: theme.background,
-        color: theme.foreground,
-        fontFamily: `ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif`,
-        fontSize: '0.875rem',
-        padding: '2rem',
-      }}
-    >
-      <div style={{ maxWidth: 1100, margin: '0 auto' }}>
+    <div className="min-h-screen bg-background text-foreground p-8 text-sm">
+      <div className="max-w-5xl mx-auto">
         {/* Page Header */}
-        <div style={{ marginBottom: '1.5rem' }}>
-          <h1
-            style={{
-              fontSize: '1.5rem',
-              fontWeight: 600,
-              margin: 0,
-              letterSpacing: '-0.025em',
-              color: theme.foreground,
-            }}
-          >
-            Admin Settings
-          </h1>
-          <p style={{ color: theme.mutedForeground, fontSize: '0.875rem', marginTop: '0.25rem' }}>
+        <div className="mb-6">
+          <h1 className="text-2xl font-semibold tracking-tight">Admin Settings</h1>
+          <p className="text-muted-foreground text-sm mt-1">
             Manage users, roles, API keys, audit logs &amp; billing
           </p>
         </div>
 
-        {/* Tabs — Shadcn style */}
-        <div
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            background: theme.muted,
-            borderRadius: theme.radius,
-            padding: '0.25rem',
-            gap: '0.125rem',
-            marginBottom: '1.5rem',
-          }}
-        >
+        {/* Tabs */}
+        <div className="inline-flex items-center bg-muted rounded-lg p-1 gap-0.5 mb-6">
           {tabs.map(t => {
             const isActive = activeTab === t.id
             return (
               <button
                 key={t.id}
                 onClick={() => setActiveTab(t.id)}
-                style={{
-                  padding: '0.375rem 0.75rem',
-                  borderRadius: '0.375rem',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: '0.875rem',
-                  fontWeight: 500,
-                  transition: 'all 0.15s',
-                  background: isActive ? theme.background : 'transparent',
-                  color: isActive ? theme.foreground : theme.mutedForeground,
-                  boxShadow: isActive
-                    ? '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)'
-                    : 'none',
-                  lineHeight: '1.25rem',
-                }}
+                className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
+                  isActive
+                    ? 'bg-background text-foreground shadow-sm'
+                    : 'text-muted-foreground hover:text-foreground'
+                }`}
               >
                 {t.label}
               </button>
@@ -158,73 +101,27 @@ export default function AdminPage() {
           })}
         </div>
 
-        {/* User Management Tab Content */}
+        {/* User Management Tab */}
         {activeTab === 'user-management' && (
           <>
-            {/* Toolbar row */}
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                marginBottom: '1rem',
-              }}
-            >
-              <span style={{ fontSize: '0.875rem', color: theme.mutedForeground }}>
-                {users.length} team members
-              </span>
-              {/* Shadcn default Button */}
-              <button
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.375rem',
-                  background: theme.primary,
-                  color: theme.primaryForeground,
-                  border: 'none',
-                  borderRadius: theme.radius,
-                  padding: '0.5rem 1rem',
-                  fontSize: '0.875rem',
-                  fontWeight: 500,
-                  cursor: 'pointer',
-                  lineHeight: '1.25rem',
-                  boxShadow: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
-                }}
-              >
-                <span style={{ fontSize: '1rem', lineHeight: 1 }}>+</span>
+            {/* Toolbar */}
+            <div className="flex justify-between items-center mb-4">
+              <span className="text-sm text-muted-foreground">{users.length} team members</span>
+              <button className="inline-flex items-center gap-1.5 bg-primary text-primary-foreground rounded-lg px-4 py-2 text-sm font-medium shadow-sm hover:bg-primary/90 transition-colors">
+                <span className="text-base leading-none">+</span>
                 Invite User
               </button>
             </div>
 
-            {/* Table — Shadcn style */}
-            <div
-              style={{
-                border: `1px solid ${theme.border}`,
-                borderRadius: theme.radius,
-                overflow: 'hidden',
-                background: theme.background,
-              }}
-            >
-              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            {/* Table */}
+            <div className="border rounded-lg overflow-hidden bg-card">
+              <table className="w-full border-collapse">
                 <thead>
-                  <tr
-                    style={{
-                      borderBottom: `1px solid ${theme.border}`,
-                      background: theme.background,
-                    }}
-                  >
+                  <tr className="border-b bg-card">
                     {['USER', 'ROLE', 'STATUS', 'LAST LOGIN', 'ACTIONS'].map(h => (
                       <th
                         key={h}
-                        style={{
-                          padding: '0.75rem 1rem',
-                          textAlign: 'left',
-                          fontSize: '0.75rem',
-                          fontWeight: 500,
-                          color: theme.mutedForeground,
-                          letterSpacing: '0.05em',
-                          height: '2.75rem',
-                        }}
+                        className="px-4 py-3 text-left text-xs font-medium text-muted-foreground tracking-widest h-11"
                       >
                         {h}
                       </th>
@@ -235,169 +132,63 @@ export default function AdminPage() {
                   {users.map((u, i) => (
                     <tr
                       key={u.id}
-                      style={{
-                        borderBottom: i < users.length - 1 ? `1px solid ${theme.border}` : 'none',
-                        transition: 'background 0.1s',
-                      }}
-                      onMouseEnter={e => (e.currentTarget.style.background = theme.muted)}
-                      onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+                      className={`hover:bg-muted/50 transition-colors ${
+                        i < users.length - 1 ? 'border-b' : ''
+                      }`}
                     >
                       {/* User Cell */}
-                      <td style={{ padding: '1rem' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                          {/* Avatar */}
-                          <div
-                            style={{
-                              width: 36,
-                              height: 36,
-                              borderRadius: '50%',
-                              background: theme.muted,
-                              border: `1px solid ${theme.border}`,
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              fontSize: '0.75rem',
-                              fontWeight: 600,
-                              color: theme.foreground,
-                              flexShrink: 0,
-                            }}
-                          >
+                      <td className="px-4 py-4">
+                        <div className="flex items-center gap-3">
+                          <div className="w-9 h-9 rounded-full bg-muted border border-border flex items-center justify-center text-xs font-semibold text-foreground shrink-0">
                             {u.initials}
                           </div>
                           <div>
-                            <div
-                              style={{
-                                fontWeight: 500,
-                                fontSize: '0.875rem',
-                                color: theme.foreground,
-                              }}
-                            >
-                              {u.name}
-                            </div>
-                            <div
-                              style={{
-                                fontSize: '0.75rem',
-                                color: theme.mutedForeground,
-                                marginTop: 2,
-                              }}
-                            >
-                              {u.email}
-                            </div>
+                            <div className="font-medium text-sm text-foreground">{u.name}</div>
+                            <div className="text-xs text-muted-foreground mt-0.5">{u.email}</div>
                           </div>
                         </div>
                       </td>
 
-                      {/* Role — Shadcn Badge (secondary) */}
-                      <td style={{ padding: '1rem' }}>
-                        <span
-                          style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            background: theme.secondary,
-                            color: theme.secondaryForeground,
-                            borderRadius: '9999px',
-                            padding: '0.125rem 0.625rem',
-                            fontSize: '0.75rem',
-                            fontWeight: 600,
-                            lineHeight: '1.25rem',
-                            border: `1px solid transparent`,
-                          }}
-                        >
+                      {/* Role Badge */}
+                      <td className="px-4 py-4">
+                        <span className="inline-flex items-center bg-secondary text-secondary-foreground rounded-full px-2.5 py-0.5 text-xs font-semibold border border-transparent">
                           {u.role}
                         </span>
                       </td>
 
                       {/* Status */}
-                      <td style={{ padding: '1rem' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <td className="px-4 py-4">
+                        <div className="flex items-center gap-2">
                           <span
-                            style={{
-                              width: 8,
-                              height: 8,
-                              borderRadius: '50%',
-                              background: u.status === 'Active' ? '#22c55e' : theme.mutedForeground,
-                              display: 'inline-block',
-                              flexShrink: 0,
-                            }}
+                            className={`w-2 h-2 rounded-full shrink-0 ${
+                              u.status === 'Active' ? 'bg-green-500' : 'bg-muted-foreground'
+                            }`}
                           />
-                          <span style={{ fontSize: '0.875rem', color: theme.foreground }}>
-                            {u.status}
-                          </span>
+                          <span className="text-sm text-foreground">{u.status}</span>
                         </div>
                       </td>
 
                       {/* Last Login */}
-                      <td
-                        style={{
-                          padding: '1rem',
-                          fontSize: '0.875rem',
-                          color: theme.mutedForeground,
-                        }}
-                      >
-                        {u.lastLogin}
-                      </td>
+                      <td className="px-4 py-4 text-sm text-muted-foreground">{u.lastLogin}</td>
 
-                      {/* Actions — Shadcn ghost icon button + dropdown */}
-                      <td style={{ padding: '1rem', position: 'relative' }}>
+                      {/* Actions */}
+                      <td className="px-4 py-4 relative">
                         <button
                           onClick={() => setMenuOpen(menuOpen === u.id ? null : u.id)}
-                          style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            width: 32,
-                            height: 32,
-                            borderRadius: theme.radius,
-                            background: 'transparent',
-                            border: 'none',
-                            cursor: 'pointer',
-                            color: theme.mutedForeground,
-                            fontSize: '1rem',
-                          }}
-                          onMouseEnter={e => (e.currentTarget.style.background = theme.accent)}
-                          onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
+                          className="inline-flex items-center justify-center w-8 h-8 rounded-md text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
                         >
                           ···
                         </button>
 
                         {menuOpen === u.id && (
-                          <div
-                            style={{
-                              position: 'absolute',
-                              right: '1rem',
-                              top: '3rem',
-                              zIndex: 50,
-                              background: theme.background,
-                              border: `1px solid ${theme.border}`,
-                              borderRadius: theme.radius,
-                              minWidth: 140,
-                              boxShadow:
-                                '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
-                              padding: '0.25rem',
-                            }}
-                          >
+                          <div className="absolute right-4 top-12 z-50 bg-popover border border-border rounded-lg shadow-md min-w-[140px] p-1">
                             {['Edit', 'Change Role', 'Remove'].map(action => (
                               <button
                                 key={action}
                                 onClick={() => setMenuOpen(null)}
-                                style={{
-                                  display: 'block',
-                                  width: '100%',
-                                  textAlign: 'left',
-                                  background: 'transparent',
-                                  border: 'none',
-                                  cursor: 'pointer',
-                                  padding: '0.375rem 0.5rem',
-                                  fontSize: '0.875rem',
-                                  borderRadius: '0.25rem',
-                                  color: action === 'Remove' ? theme.destructive : theme.foreground,
-                                }}
-                                onMouseEnter={e =>
-                                  (e.currentTarget.style.background = theme.accent)
-                                }
-                                onMouseLeave={e =>
-                                  (e.currentTarget.style.background = 'transparent')
-                                }
+                                className={`block w-full text-left px-2 py-1.5 text-sm rounded hover:bg-accent transition-colors ${
+                                  action === 'Remove' ? 'text-destructive' : 'text-foreground'
+                                }`}
                               >
                                 {action}
                               </button>
@@ -415,19 +206,14 @@ export default function AdminPage() {
 
         {/* Other tabs placeholder */}
         {activeTab !== 'user-management' && (
-          <p style={{ color: theme.mutedForeground, marginTop: '2rem' }}>
+          <p className="text-muted-foreground mt-8">
             {tabs.find(t => t.id === activeTab)?.label} — coming soon.
           </p>
         )}
       </div>
 
       {/* Overlay to close dropdown */}
-      {menuOpen && (
-        <div
-          style={{ position: 'fixed', inset: 0, zIndex: 40 }}
-          onClick={() => setMenuOpen(null)}
-        />
-      )}
+      {menuOpen && <div className="fixed inset-0 z-40" onClick={() => setMenuOpen(null)} />}
     </div>
   )
 }
