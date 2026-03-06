@@ -451,7 +451,10 @@ export default function DataPage() {
                 stroke="hsl(var(--muted-foreground))"
               />
               <Tooltip
-                formatter={(v: number) => [`${v.toLocaleString()} records/hr`, 'Throughput']}
+                formatter={(v: number | undefined) => [
+                  `${v?.toLocaleString()} records/hr`,
+                  'Throughput',
+                ]}
                 contentStyle={{
                   background: 'hsl(var(--card))',
                   border: '1px solid hsl(var(--border))',

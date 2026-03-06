@@ -183,7 +183,7 @@ export default function MarketingPage() {
                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                 <XAxis dataKey="week" axisLine={false} tickLine={false} />
                 <YAxis tickFormatter={v => `$${v / 1000}k`} axisLine={false} tickLine={false} />
-                <Tooltip formatter={(v: number) => `$${v.toLocaleString()}`} />
+                <Tooltip formatter={(v: number | undefined) => `$${v?.toLocaleString()}`} />
                 <Legend />
                 <Bar
                   dataKey="googleSpend"

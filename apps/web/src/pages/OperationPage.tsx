@@ -372,7 +372,7 @@ export default function OperationsPage() {
                 <XAxis dataKey="time" tick={{ fontSize: 11 }} />
                 <YAxis tickFormatter={v => `${v}kWh`} tick={{ fontSize: 11 }} />
                 <Tooltip
-                  formatter={(v: number, n: string) => [
+                  formatter={(v: number | undefined, n: string | undefined) => [
                     `${v} kWh`,
                     n === 'actual' ? 'Actual' : 'Target',
                   ]}
