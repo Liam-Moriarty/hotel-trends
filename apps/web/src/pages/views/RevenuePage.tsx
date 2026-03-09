@@ -1,144 +1,19 @@
 import { useState } from 'react'
-import { Badge } from '@/components/ui/badge'
+import { initialRooms, kpiCardData } from '@/mocks'
+import type { RoomRate } from '@/interface'
+import { RevenueKpiCard } from '@/components/RevenueKpiCard'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
+import { Card, CardContent } from '@/components/ui/card'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from 'recharts'
-import { heatmapRows, initialRooms, kpiCardData, rateTrendData } from '@/mocks'
-import { KpiCardData, RoomRate } from '@/interface'
-
-// ─── Helpers ──────────────────────────────────────────────────────────────────
-
-function occupancyColor(occ: number): string {
-  if (occ >= 85) return 'bg-green-500'
-  if (occ >= 60) return 'bg-yellow-500'
-  return 'bg-red-500'
-}
-
-function heatmapBg(val: number | null): string {
-  if (val === null) return 'bg-transparent text-transparent'
-  if (val >= 85) return 'bg-indigo-600 text-white'
-  if (val >= 70) return 'bg-indigo-500 text-white'
-  if (val >= 55) return 'bg-indigo-400 text-white'
-  return 'bg-slate-700 text-slate-400'
-}
-
-// ─── Sub-components ───────────────────────────────────────────────────────────
-
-function KpiCard({ label, value, change, positive, neutral }: KpiCardData) {
-  const changeColor = neutral ? 'text-yellow-400' : positive ? 'text-blue-400' : 'text-green-400'
-  return (
-    <Card>
-      <CardContent className="pt-6">
-        <p className="text-sm text-muted-foreground">{label}</p>
-        <p className="text-3xl font-bold mt-1">{value}</p>
-        <p className={`text-sm mt-1 ${changeColor}`}>↗ {change}</p>
-      </CardContent>
-    </Card>
-  )
-}
-
-function OccupancyBar({ pct }: { pct: number }) {
-  return (
-    <div className="flex items-center gap-2">
-      <div className="w-20 h-2 rounded-full bg-muted overflow-hidden">
-        <div
-          className={`h-full rounded-full ${occupancyColor(pct)}`}
-          style={{ width: `${pct}%` }}
-        />
-      </div>
-      <span className="text-sm text-muted-foreground">{pct}%</span>
-    </div>
-  )
-}
-
-function OccupancyHeatmap() {
-  const days = ['M', 'T', 'W', 'T', 'F', 'S', 'S']
-  return (
-    <Card className="h-full">
-      <CardHeader>
-        <CardTitle className="text-base">Occupancy Heatmap</CardTitle>
-        <CardDescription>March 2026 – by week &amp; day</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="grid grid-cols-7 gap-1 mb-2">
-          {days.map((d, i) => (
-            <div key={i} className="text-center text-xs text-muted-foreground font-medium">
-              {d}
-            </div>
-          ))}
-        </div>
-        {heatmapRows.map((row, ri) => (
-          <div key={ri} className="grid grid-cols-7 gap-1 mb-1">
-            {row.map((cell, ci) => (
-              <div
-                key={ci}
-                className={`rounded text-center text-xs py-1.5 font-medium ${heatmapBg(cell.value)}`}
-              >
-                {cell.value ?? ''}
-              </div>
-            ))}
-          </div>
-        ))}
-        <div className="flex items-center justify-between mt-3 text-xs text-muted-foreground">
-          <span>Low</span>
-          <div className="flex gap-1">
-            <div className="w-5 h-3 rounded bg-slate-700" />
-            <div className="w-5 h-3 rounded bg-indigo-400" />
-            <div className="w-5 h-3 rounded bg-indigo-600" />
-          </div>
-          <span>High</span>
-        </div>
-      </CardContent>
-    </Card>
-  )
-}
-
-function RateTrendChart() {
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-base">Rate Trend by Room Type</CardTitle>
-        <CardDescription>4-week forward pricing schedule</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <ResponsiveContainer width="100%" height={220}>
-          <LineChart data={rateTrendData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-            <XAxis dataKey="date" tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} />
-            <YAxis
-              tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }}
-              tickFormatter={v => `$${v}`}
-            />
-            <Tooltip formatter={(v: number | undefined) => (v != null ? `${v}` : '')} />
-            <Legend />
-            <Line type="monotone" dataKey="Standard" stroke="#6366f1" dot={false} strokeWidth={2} />
-            <Line type="monotone" dataKey="Deluxe" stroke="#06b6d4" dot={false} strokeWidth={2} />
-            <Line type="monotone" dataKey="Suite" stroke="#eab308" dot={false} strokeWidth={2} />
-          </LineChart>
-        </ResponsiveContainer>
-      </CardContent>
-    </Card>
-  )
-}
-
-// ─── Main Page ────────────────────────────────────────────────────────────────
+import OccupancyHeatmap from '@/sections/revenue/OccupancyHeatmap'
+import RateTrendChart from '@/sections/revenue/RateTrendChart'
+import RoomRateTable from '@/sections/revenue/RoomRateTable'
 
 export default function RevenuePage() {
   const [rooms, setRooms] = useState<RoomRate[]>(initialRooms)
 
-  const applyRate = (idx: number) => {
+  const applyRate = (idx: number) =>
     setRooms(prev => prev.map((r, i) => (i === idx ? { ...r, applied: true } : r)))
-  }
 
   const applyAll = () => setRooms(prev => prev.map(r => ({ ...r, applied: true })))
 
@@ -173,7 +48,7 @@ export default function RevenuePage() {
       {/* KPI Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {kpiCardData.map(k => (
-          <KpiCard key={k.label} {...k} />
+          <RevenueKpiCard key={k.label} {...k} />
         ))}
       </div>
 
@@ -186,71 +61,14 @@ export default function RevenuePage() {
           <TabsTrigger value="rate-shopping">Rate Shopping</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="dynamic-pricing" className="mt-4">
+        <TabsContent value="dynamic-pricing" className="mt-4 space-y-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            {/* Room Rate Table */}
             <div className="lg:col-span-2">
-              <Card>
-                <CardHeader>
-                  <CardTitle className="text-base">Room Rate Optimization</CardTitle>
-                  <CardDescription>AI vs competitor vs current rate comparison</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="text-muted-foreground text-xs uppercase tracking-wide border-b border-border">
-                        <th className="text-left pb-3 font-medium">Room Type</th>
-                        <th className="text-left pb-3 font-medium">Current Rate</th>
-                        <th className="text-left pb-3 font-medium">Comp Set Avg</th>
-                        <th className="text-left pb-3 font-medium">AI Recommended</th>
-                        <th className="text-left pb-3 font-medium">Occupancy</th>
-                        <th className="text-left pb-3 font-medium">Action</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {rooms.map((room, i) => (
-                        <tr key={room.type} className="border-b border-border last:border-0">
-                          <td className="py-3 font-medium">{room.type}</td>
-                          <td className="py-3 font-bold">${room.current}</td>
-                          <td className="py-3 text-muted-foreground">${room.compAvg}</td>
-                          <td className="py-3">
-                            <span className="text-green-400 font-semibold">${room.aiRec}</span>
-                            <Badge
-                              variant="secondary"
-                              className="ml-2 text-green-400 bg-green-400/10 text-xs"
-                            >
-                              +{room.delta}
-                            </Badge>
-                          </td>
-                          <td className="py-3">
-                            <OccupancyBar pct={room.occupancy} />
-                          </td>
-                          <td className="py-3">
-                            <Button
-                              size="sm"
-                              variant={room.applied ? 'secondary' : 'default'}
-                              disabled={room.applied}
-                              onClick={() => applyRate(i)}
-                            >
-                              {room.applied ? 'Applied' : 'Apply'}
-                            </Button>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </CardContent>
-              </Card>
+              <RoomRateTable rooms={rooms} onApply={applyRate} />
             </div>
-
-            {/* Heatmap */}
             <OccupancyHeatmap />
           </div>
-
-          {/* Rate Trend */}
-          <div className="mt-4">
-            <RateTrendChart />
-          </div>
+          <RateTrendChart />
         </TabsContent>
 
         <TabsContent value="demand-forecast">
