@@ -5,7 +5,7 @@ import { AuthUser } from './interface'
 import { AuthContext } from './providers/AuthProvider'
 import { ThemeProvider } from './providers/ThemeProvider'
 
-// Pages
+// Pages...
 import LoginPage from './pages/LoginPage'
 import DashboardPage from './pages/DashboardPage'
 import RevenuePage from './pages/RevenuePage'
