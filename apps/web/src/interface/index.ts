@@ -324,3 +324,20 @@ export interface ThroughputDataPoint {
   time: string
   value: number
 }
+
+// ── Admin Settings types ──────────────────────────────────────────────────
+
+export interface AdminUser {
+  id: string
+  name: string
+  email: string
+  role: string
+  status: 'Active' | 'Inactive'
+  lastLogin: string
+  initials: string
+}
+
+export interface AdminTab {
+  id: string
+  label: string
+}

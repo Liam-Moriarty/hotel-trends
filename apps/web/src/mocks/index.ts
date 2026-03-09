@@ -2,6 +2,8 @@ import type {
   Anomaly,
   AdsPerformanceDataPoint,
   AttributionDataPoint,
+  AdminUser,
+  AdminTab,
   AuthUser,
   CapexItem,
   ChurnGuest,
@@ -955,4 +957,62 @@ export const smartBuildingMocks: Integration[] = [
     uptime: 99.1,
     latency: '67ms',
   },
+]
+
+// ── Admin Settings Data ─────────────────────────────────────────────────────
+
+export const adminUsers: AdminUser[] = [
+  {
+    id: '1',
+    name: 'James Wilson',
+    email: 'j.wilson@grandazure.com',
+    role: 'Revenue Manager',
+    status: 'Active',
+    lastLogin: '2 min ago',
+    initials: 'JW',
+  },
+  {
+    id: '2',
+    name: 'Sarah Chen',
+    email: 's.chen@grandazure.com',
+    role: 'Executive',
+    status: 'Active',
+    lastLogin: '1h ago',
+    initials: 'SC',
+  },
+  {
+    id: '3',
+    name: 'Mark Okafor',
+    email: 'm.okafor@grandazure.com',
+    role: 'Operations Head',
+    status: 'Active',
+    lastLogin: '3h ago',
+    initials: 'MO',
+  },
+  {
+    id: '4',
+    name: 'Lisa Park',
+    email: 'l.park@grandazure.com',
+    role: 'Marketing Manager',
+    status: 'Active',
+    lastLogin: 'Yesterday',
+    initials: 'LP',
+  },
+  {
+    id: '5',
+    name: 'Tom Bradley',
+    email: 't.bradley@grandazure.com',
+    role: 'Front Desk Lead',
+    status: 'Inactive',
+    lastLogin: '5 days ago',
+    initials: 'TB',
+  },
+]
+
+export const adminTabs: AdminTab[] = [
+  { id: 'user-management', label: 'User Management' },
+  { id: 'role-permissions', label: 'Role Permissions' },
+  { id: 'api-keys', label: 'API Keys' },
+  { id: 'audit-log', label: 'Audit Log' },
+  { id: 'billing', label: 'Billing' },
 ]
