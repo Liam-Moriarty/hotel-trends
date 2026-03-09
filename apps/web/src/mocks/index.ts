@@ -5,6 +5,8 @@ import type {
   ChurnGuest,
   ClusterPoint,
   Department,
+  GuestPlatform,
+  GuestReview,
   HeatmapRow,
   Insight,
   KpiItem,
@@ -15,6 +17,9 @@ import type {
   RevenueDataPoint,
   RevparDataPoint,
   RoomRate,
+  SentimentBreakdown,
+  SentimentDataPoint,
+  TouchpointScore,
 } from '@/interface'
 
 // ── Auth Page Data ───────────────────────────────────────────────────────────
@@ -392,5 +397,62 @@ export const churnGuests: ChurnGuest[] = [
     ltv: 'LTV $11,300',
     churn: 61,
     color: 'bg-teal-500',
+  },
+]
+
+// ── Guest Experience Page Data ────────────────────────────────────────────────
+
+export const guestPlatforms: GuestPlatform[] = [
+  { name: 'Google', initial: 'G', reviews: '1,842 reviews', score: 4.6, outOf: 5 },
+  { name: 'TripAdvisor', initial: 'T', reviews: '956 reviews', score: 4.4, outOf: 5 },
+  { name: 'Booking.com', initial: 'B', reviews: '2,341 reviews', score: 8.7, outOf: 10 },
+  { name: 'Expedia', initial: 'E', reviews: '621 reviews', score: 8.3, outOf: 10 },
+]
+
+export const guestSentimentTrend: SentimentDataPoint[] = [
+  { month: 'Oct', score: 7.9 },
+  { month: 'Nov', score: 8.1 },
+  { month: 'Dec', score: 8.4 },
+  { month: 'Jan', score: 8.2 },
+  { month: 'Feb', score: 8.6 },
+  { month: 'Mar', score: 8.9 },
+]
+
+export const guestSentimentBreakdown: SentimentBreakdown[] = [
+  { label: 'Positive', value: 68, color: '#22c55e' },
+  { label: 'Mixed', value: 22, color: '#f59e0b' },
+  { label: 'Negative', value: 10, color: '#ef4444' },
+]
+
+export const guestTouchpoints: TouchpointScore[] = [
+  { label: 'Check-in', score: 8.7, color: '#22c55e' },
+  { label: 'Room Quality', score: 8.9, color: '#22c55e' },
+  { label: 'F&B', score: 7.1, color: '#f59e0b' },
+  { label: 'Spa & Wellness', score: 8.5, color: '#22c55e' },
+  { label: 'Housekeeping', score: 8.3, color: '#22c55e' },
+  { label: 'Check-out', score: 7.8, color: '#818cf8' },
+  { label: 'Concierge', score: 7.0, color: '#f59e0b' },
+]
+
+export const guestReviews: GuestReview[] = [
+  {
+    initial: 'Y',
+    name: 'Yuki T.',
+    platform: 'via Booking.com',
+    stars: 5,
+    text: 'Perfect anniversary stay. Staff remembered our special occasion — champagne was a lovely surprise!',
+    tags: ['Staff', 'Anniversary'],
+    time: '6h ago',
+    positive: true,
+  },
+  {
+    initial: 'C',
+    name: 'Carlos M.',
+    platform: 'via Google',
+    stars: 3,
+    text: 'Good location but F&B prices are excessive. Breakfast quality has dropped compared to last year.',
+    tags: ['F&B', 'Value'],
+    time: '8h ago',
+    positive: false,
   },
 ]

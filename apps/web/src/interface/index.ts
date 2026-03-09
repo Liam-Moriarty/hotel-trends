@@ -151,3 +151,41 @@ export interface ChurnGuest {
   churn: number
   color: string
 }
+
+// ── Guest Experience types ────────────────────────────────────────────────────
+
+export interface GuestPlatform {
+  name: string
+  initial: string
+  reviews: string
+  score: number
+  outOf: number
+}
+
+export interface SentimentDataPoint {
+  month: string
+  score: number
+}
+
+export interface SentimentBreakdown {
+  label: string
+  value: number
+  color: string
+}
+
+export interface TouchpointScore {
+  label: string
+  score: number
+  color: string
+}
+
+export interface GuestReview {
+  initial: string
+  name: string
+  platform: string
+  stars: number
+  text: string
+  tags: string[]
+  time: string
+  positive: boolean
+}
