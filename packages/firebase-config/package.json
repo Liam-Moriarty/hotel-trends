@@ -6,5 +6,8 @@
   "types": "./src/client.ts",
   "dependencies": {
     "firebase": "^12.10.0"
+  },
+  "devDependencies": {
+    "vite": "^5.1.4"
   }
 }
