@@ -189,3 +189,58 @@ export interface GuestReview {
   time: string
   positive: boolean
 }
+
+// ── Marketing types ───────────────────────────────────────────────────────────
+
+export type AttributionMode = 'First Touch' | 'Last Touch' | 'Linear'
+
+export interface MarketingKpi {
+  title: string
+  value: string
+  change: string
+  positive: boolean
+  icon: LucideIcon
+}
+
+export interface AdsPerformanceDataPoint {
+  week: string
+  googleSpend: number
+  metaSpend: number
+  googleRevenue: number
+  metaRevenue: number
+}
+
+export interface FunnelStep {
+  label: string
+  value: number
+  dropOff: string | null
+  color: string
+}
+
+export interface RoasChannel {
+  name: string
+  roas: number
+  spend: string
+  pct: number
+  color: string
+  status: string | null
+}
+
+export interface WastedSpendItem {
+  label: string
+  amount: string
+}
+
+export interface AttributionDataPoint {
+  channel: string
+  value: number
+}
+
+export interface EmailCampaign {
+  name: string
+  revenue: string
+  sent: number
+  opens: string
+  clicks: string
+  bookings: number
+}

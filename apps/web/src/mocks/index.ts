@@ -1,10 +1,14 @@
 import type {
   Anomaly,
+  AdsPerformanceDataPoint,
+  AttributionDataPoint,
   AuthUser,
   CapexItem,
   ChurnGuest,
   ClusterPoint,
   Department,
+  EmailCampaign,
+  FunnelStep,
   GuestPlatform,
   GuestReview,
   HeatmapRow,
@@ -12,15 +16,19 @@ import type {
   KpiItem,
   LabourDataPoint,
   MaintenanceAlert,
+  MarketingKpi,
   OccupancyDataPoint,
   Recommendation,
   RevenueDataPoint,
   RevparDataPoint,
+  RoasChannel,
   RoomRate,
   SentimentBreakdown,
   SentimentDataPoint,
   TouchpointScore,
+  WastedSpendItem,
 } from '@/interface'
+import { DollarSign, TrendingUp, Target, BookOpen } from 'lucide-react'
 
 // ── Auth Page Data ───────────────────────────────────────────────────────────
 
@@ -454,5 +462,118 @@ export const guestReviews: GuestReview[] = [
     tags: ['F&B', 'Value'],
     time: '8h ago',
     positive: false,
+  },
+]
+
+// ── Marketing Page Data ────────────────────────────────────────────────────────
+
+export const marketingKpis: MarketingKpi[] = [
+  {
+    title: 'Total Ad Spend (MTD)',
+    value: '$37.8K',
+    change: '+12%',
+    positive: false,
+    icon: DollarSign,
+  },
+  { title: 'Total Ad Revenue', value: '$136.7K', change: '+24%', positive: true, icon: TrendingUp },
+  { title: 'Blended ROAS', value: '3.6x', change: '+0.4x', positive: true, icon: Target },
+  {
+    title: 'Direct Booking Conv.',
+    value: '1.95%',
+    change: '+0.3pp',
+    positive: true,
+    icon: BookOpen,
+  },
+]
+
+export const adsPerformanceData: AdsPerformanceDataPoint[] = [
+  { week: 'W1', googleSpend: 4200, metaSpend: 2100, googleRevenue: 15800, metaRevenue: 7200 },
+  { week: 'W2', googleSpend: 5100, metaSpend: 2800, googleRevenue: 18200, metaRevenue: 9100 },
+  { week: 'W3', googleSpend: 4700, metaSpend: 2400, googleRevenue: 17100, metaRevenue: 8400 },
+  { week: 'W4', googleSpend: 4400, metaSpend: 2500, googleRevenue: 16600, metaRevenue: 8800 },
+]
+
+export const marketingFunnelSteps: FunnelStep[] = [
+  { label: 'Website Visits', value: 48200, dropOff: '62% drop-off', color: 'bg-violet-600' },
+  { label: 'Room Page Views', value: 18400, dropOff: '63% drop-off', color: 'bg-violet-500' },
+  { label: 'Rate Check / Search', value: 6800, dropOff: '68% drop-off', color: 'bg-violet-400' },
+  { label: 'Booking Started', value: 2200, dropOff: '57% drop-off', color: 'bg-violet-300' },
+  { label: 'Booking Completed', value: 940, dropOff: null, color: 'bg-green-400' },
+]
+
+export const roasChannels: RoasChannel[] = [
+  {
+    name: 'Email Direct',
+    roas: 8.7,
+    spend: '$0.8k',
+    pct: 100,
+    color: 'bg-green-500',
+    status: null,
+  },
+  {
+    name: 'Google Search',
+    roas: 4.4,
+    spend: '$18.4k',
+    pct: 50,
+    color: 'bg-green-500',
+    status: null,
+  },
+  { name: 'Meta Feed', roas: 3.2, spend: '$9.8k', pct: 36, color: 'bg-green-500', status: null },
+  {
+    name: 'Google Display',
+    roas: 2.1,
+    spend: '$5.2k',
+    pct: 24,
+    color: 'bg-red-500',
+    status: 'Below target',
+  },
+  {
+    name: 'Meta Stories',
+    roas: 1.8,
+    spend: '$3.6k',
+    pct: 20,
+    color: 'bg-red-500',
+    status: 'Below target',
+  },
+]
+
+export const wastedSpend: WastedSpendItem[] = [
+  { label: 'Google Display', amount: '-$1,840' },
+  { label: 'Meta Broad Targeting', amount: '-$1,240' },
+  { label: 'Generic Keywords', amount: '-$960' },
+]
+
+export const attributionData: AttributionDataPoint[] = [
+  { channel: 'Google Ads', value: 31 },
+  { channel: 'Meta Ads', value: 22 },
+  { channel: 'Email', value: 20 },
+  { channel: 'Direct', value: 28 },
+  { channel: 'OTA Referral', value: 14 },
+]
+
+export const attributionColors: Record<string, string> = {
+  'Google Ads': '#6366f1',
+  'Meta Ads': '#3b82f6',
+  Email: '#22c55e',
+  Direct: '#f59e0b',
+  'OTA Referral': '#ef4444',
+}
+
+export const emailCampaigns: EmailCampaign[] = [
+  {
+    name: 'Pre-Arrival Upgrade Offer',
+    revenue: '$28.4k rev',
+    sent: 3420,
+    opens: '48%',
+    clicks: '14%',
+    bookings: 82,
+  },
+  {
+    name: 'Spring Staycation Package',
+    revenue: '$41.2k rev',
+    sent: 8200,
+    opens: '36%',
+    clicks: '9%',
+    bookings: 94,
   },
 ]
