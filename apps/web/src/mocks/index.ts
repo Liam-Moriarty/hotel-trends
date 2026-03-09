@@ -7,8 +7,7 @@ import type {
   Department,
   HeatmapRow,
   Insight,
-  Kpi,
-  KpiCardData,
+  KpiItem,
   LabourDataPoint,
   MaintenanceAlert,
   OccupancyDataPoint,
@@ -64,12 +63,17 @@ export const revparData: RevparDataPoint[] = [
   { month: 'Aug', actual: null, forecast: 222 },
 ]
 
-export const kpis: Kpi[] = [
-  { label: 'Total Revenue', value: '$482K', sub: '+8.4% vs last month', up: true },
-  { label: 'Gross Operating Profit', value: '$142K', sub: '+12.1% · GOP margin 29.5%', up: true },
-  { label: 'ADR', value: '$218', sub: '+5.6% Avg Daily Rate', up: true },
-  { label: 'Occupancy', value: '84.2%', sub: '−2.1% vs 86.3% prior month', up: false },
-  { label: 'RevPAR', value: '$183', sub: '+3.2% Revenue per avail. room', up: true },
+export const kpis: KpiItem[] = [
+  { label: 'Total Revenue', value: '$482K', sub: '+8.4% vs last month', variant: 'up' },
+  {
+    label: 'Gross Operating Profit',
+    value: '$142K',
+    sub: '+12.1% · GOP margin 29.5%',
+    variant: 'up',
+  },
+  { label: 'ADR', value: '$218', sub: '+5.6% Avg Daily Rate', variant: 'up' },
+  { label: 'Occupancy', value: '84.2%', sub: '−2.1% vs 86.3% prior month', variant: 'down' },
+  { label: 'RevPAR', value: '$183', sub: '+3.2% Revenue per avail. room', variant: 'up' },
 ]
 
 export const depts: Department[] = [
@@ -121,17 +125,11 @@ export const capex: CapexItem[] = [
 
 // ── Revenue Page Data ───────────────────────────────────────────────────────────
 
-export const kpiCardData: KpiCardData[] = [
-  { label: 'Avg ADR', value: '$218', change: '+5.6%', positive: true },
-  { label: 'RevPAR', value: '$183', change: '+3.2%', positive: true },
-  { label: 'Direct Booking %', value: '40%', change: '+7pp', positive: true },
-  {
-    label: 'OTA Commission Cost',
-    value: '$24.8K',
-    change: '-$3.1K',
-    positive: false,
-    neutral: true,
-  },
+export const kpiCardData: KpiItem[] = [
+  { label: 'Avg ADR', value: '$218', sub: '+5.6%', variant: 'info' },
+  { label: 'RevPAR', value: '$183', sub: '+3.2%', variant: 'info' },
+  { label: 'Direct Booking %', value: '40%', sub: '+7pp', variant: 'info' },
+  { label: 'OTA Commission Cost', value: '$24.8K', sub: '-$3.1K', variant: 'neutral' },
 ]
 
 export const initialRooms: RoomRate[] = [

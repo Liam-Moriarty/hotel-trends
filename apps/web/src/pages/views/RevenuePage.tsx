@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { initialRooms, kpiCardData } from '@/mocks'
 import type { RoomRate } from '@/interface'
-import { RevenueKpiCard } from '@/components/RevenueKpiCard'
+import { KpiCard } from '@/components/KpiCard'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
@@ -48,7 +48,7 @@ export default function RevenuePage() {
       {/* KPI Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {kpiCardData.map(k => (
-          <RevenueKpiCard key={k.label} {...k} />
+          <KpiCard key={k.label} {...k} />
         ))}
       </div>
 

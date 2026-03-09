@@ -37,7 +37,7 @@ export default function ExecutiveDashboardPage() {
       <div className="flex gap-3 mb-4 flex-wrap">
         <HealthScore />
         {kpis.map(k => (
-          <KpiCard key={k.label} {...k} />
+          <KpiCard key={k.label} {...k} className="flex-1 min-w-[140px]" />
         ))}
       </div>
 

@@ -45,11 +45,13 @@ export interface RevparDataPoint {
   forecast: number | null
 }
 
-export interface Kpi {
+export type KpiVariant = 'up' | 'down' | 'info' | 'neutral'
+
+export interface KpiItem {
   label: string
   value: string
   sub: string
-  up: boolean
+  variant: KpiVariant
 }
 
 export interface Department {
@@ -74,14 +76,6 @@ export interface CapexItem {
 }
 
 // ── Revenue types ───────────────────────────────────────────────────────────
-
-export interface KpiCardData {
-  label: string
-  value: string
-  change: string
-  positive: boolean
-  neutral?: boolean
-}
 
 export interface RoomRate {
   type: string
