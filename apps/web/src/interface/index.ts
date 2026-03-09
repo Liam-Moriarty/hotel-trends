@@ -341,3 +341,47 @@ export interface AdminTab {
   id: string
   label: string
 }
+// ── Operations types ────────────────────────────────────────────────────────
+
+export type RosterStatus = 'ok' | 'understaffed' | 'overtime'
+
+export interface RosterDept {
+  name: string
+  shift: string
+  staffed: number
+  required: number
+  status: RosterStatus
+  overtime?: string
+}
+
+export type RoomTaskStatus = 'Clean' | 'In Progress' | 'Inspecting' | 'Dirty' | 'Blocked'
+
+export interface RoomTask {
+  room: string
+  status: RoomTaskStatus
+}
+
+export interface EnergyDataPoint {
+  time: string
+  actual: number
+  target: number
+}
+
+export interface FoodWasteDataPoint {
+  day: string
+  kg: number
+}
+
+export interface InventoryItem {
+  name: string
+  units: number
+  max: number
+  status: 'OK' | 'LOW' | 'CRITICAL'
+}
+
+export interface SupplierInsight {
+  name: string
+  current: string
+  save: string
+  tip: string
+}

@@ -39,6 +39,12 @@ import type {
   VisaAlert,
   WastedSpendItem,
   WeatherDay,
+  EnergyDataPoint,
+  FoodWasteDataPoint,
+  InventoryItem,
+  SupplierInsight,
+  RosterDept,
+  RoomTask,
 } from '@/interface'
 import { DollarSign, TrendingUp, Target, BookOpen } from 'lucide-react'
 
@@ -1015,4 +1021,97 @@ export const adminTabs: AdminTab[] = [
   { id: 'api-keys', label: 'API Keys' },
   { id: 'audit-log', label: 'Audit Log' },
   { id: 'billing', label: 'Billing' },
+]
+
+// ── Operations Settings Data ───────────────────────────────────────────
+
+export const rosterData: RosterDept[] = [
+  { name: 'Front Desk', shift: '6am–2pm', staffed: 4, required: 4, status: 'ok' },
+  {
+    name: 'Housekeeping',
+    shift: '7am–3pm',
+    staffed: 14,
+    required: 18,
+    status: 'understaffed',
+    overtime: '+2h OT',
+  },
+  {
+    name: 'F&B Restaurant',
+    shift: '6am–2pm',
+    staffed: 8,
+    required: 8,
+    status: 'ok',
+    overtime: '+1h OT',
+  },
+  { name: 'F&B Bar', shift: '2pm–10pm', staffed: 5, required: 6, status: 'understaffed' },
+  { name: 'Spa & Wellness', shift: '9am–7pm', staffed: 6, required: 6, status: 'ok' },
+  { name: 'Maintenance', shift: '8am–4pm', staffed: 3, required: 3, status: 'ok' },
+  {
+    name: 'Concierge',
+    shift: '7am–11pm',
+    staffed: 3,
+    required: 4,
+    status: 'understaffed',
+    overtime: '+1h OT',
+  },
+]
+
+export const operationsRoomTasks: RoomTask[] = [
+  { room: '101', status: 'Clean' },
+  { room: '102', status: 'In Progress' },
+  { room: '103', status: 'Dirty' },
+  { room: '201', status: 'Clean' },
+  { room: '202', status: 'Inspecting' },
+  { room: '203', status: 'Dirty' },
+  { room: '301', status: 'Clean' },
+  { room: '302', status: 'In Progress' },
+  { room: '401', status: 'Blocked' },
+  { room: '402', status: 'Dirty' },
+  { room: '501', status: 'Clean' },
+  { room: '502', status: 'In Progress' },
+]
+
+export const energyUsageData: EnergyDataPoint[] = [
+  { time: '00:00', actual: 28, target: 27 },
+  { time: '04:00', actual: 22, target: 23 },
+  { time: '08:00', actual: 55, target: 50 },
+  { time: '12:00', actual: 88, target: 82 },
+  { time: '16:00', actual: 95, target: 88 },
+  { time: '20:00', actual: 78, target: 72 },
+  { time: '23:00', actual: 60, target: 56 },
+]
+
+export const foodWasteKgData: FoodWasteDataPoint[] = [
+  { day: 'Mon', kg: 11 },
+  { day: 'Tue', kg: 9 },
+  { day: 'Wed', kg: 14 },
+  { day: 'Thu', kg: 7 },
+  { day: 'Fri', kg: 10 },
+  { day: 'Sat', kg: 16 },
+  { day: 'Sun', kg: 13 },
+]
+
+export const operationsInventory: InventoryItem[] = [
+  { name: 'Bed Linens (sets)', units: 280, max: 320, status: 'OK' },
+  { name: 'Towel Sets', units: 180, max: 320, status: 'LOW' },
+  { name: 'Minibar Beverages', units: 95, max: 320, status: 'CRITICAL' },
+  { name: 'Toiletry Kits', units: 340, max: 400, status: 'OK' },
+  { name: 'Cleaning Supplies', units: 120, max: 160, status: 'OK' },
+  { name: 'F&B Breakfast Items', units: 55, max: 320, status: 'CRITICAL' },
+]
+
+export const supplierInsightsData: SupplierInsight[] = [
+  {
+    name: 'LinenCo International',
+    current: '$84K/yr',
+    save: 'Save $12K',
+    tip: 'Renegotiate - 3yr volume deal',
+  },
+  {
+    name: 'FoodPro Distributors',
+    current: '$124K/yr',
+    save: 'Save $18K',
+    tip: 'Switch to regional supplier',
+  },
+  { name: 'CleanStar Products', current: '$36K/yr', save: 'Save $6K', tip: 'Consolidate SKUs' },
 ]
