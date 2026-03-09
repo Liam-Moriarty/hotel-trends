@@ -6,8 +6,10 @@ import type {
   CapexItem,
   ChurnGuest,
   ClusterPoint,
+  CompetitorPromo,
   Department,
   EmailCampaign,
+  FlightArrival,
   FunnelStep,
   GuestPlatform,
   GuestReview,
@@ -15,9 +17,13 @@ import type {
   Insight,
   KpiItem,
   LabourDataPoint,
+  LocalEvent,
+  MacroIndicator,
   MaintenanceAlert,
   MarketingKpi,
+  OccupancyData,
   OccupancyDataPoint,
+  PublicHoliday,
   Recommendation,
   RevenueDataPoint,
   RevparDataPoint,
@@ -26,7 +32,9 @@ import type {
   SentimentBreakdown,
   SentimentDataPoint,
   TouchpointScore,
+  VisaAlert,
   WastedSpendItem,
+  WeatherDay,
 } from '@/interface'
 import { DollarSign, TrendingUp, Target, BookOpen } from 'lucide-react'
 
@@ -576,4 +584,190 @@ export const emailCampaigns: EmailCampaign[] = [
     clicks: '9%',
     bookings: 94,
   },
+]
+
+// ── External Intelligence Page Data ───────────────────────────────────────────
+
+export const externalWeatherDays: WeatherDay[] = [
+  { day: 'Thu', icon: '☀️', high: 22, low: 14 },
+  { day: 'Fri', icon: '⛅', high: 24, low: 15 },
+  { day: 'Sat', icon: '🌧️', high: 19, low: 12 },
+  { day: 'Sun', icon: '🌧️', high: 17, low: 11 },
+  { day: 'Mon', icon: '☀️', high: 21, low: 13 },
+  { day: 'Tue', icon: '☀️', high: 25, low: 16 },
+  { day: 'Wed', icon: '⛅', high: 23, low: 15 },
+]
+
+export const externalOccupancyData: OccupancyData[] = [
+  { month: 'Jan', value: 72 },
+  { month: 'Feb', value: 74 },
+  { month: 'Mar', value: 76 },
+  { month: 'Apr', value: 80 },
+  { month: 'May', value: 85 },
+]
+
+export const externalEvents: LocalEvent[] = [
+  {
+    dateRange: '8–10',
+    month: 'Mar',
+    name: 'Tech Summit 2026',
+    venue: 'City Convention Centre · 8,200 expected',
+    tags: ['Conference'],
+    impact: 'Very High',
+    impactColor: 'destructive',
+  },
+  {
+    dateRange: '14–16',
+    month: 'Mar',
+    name: 'Spring Food Festival',
+    venue: 'Waterfront Park · 25,000 expected',
+    tags: ['Festival'],
+    impact: 'High',
+    impactColor: 'default',
+  },
+  {
+    dateRange: '22',
+    month: 'Mar',
+    name: 'International Marathon',
+    venue: 'City Downtown · 12,000 expected',
+    tags: ['Sports'],
+    impact: 'Medium',
+    impactColor: 'secondary',
+  },
+  {
+    dateRange: '25–30',
+    month: 'Mar',
+    name: 'Art & Culture Week',
+    venue: 'Museum District · 18,000 expected',
+    tags: ['Culture'],
+    impact: 'High',
+    impactColor: 'default',
+  },
+  {
+    dateRange: '3',
+    month: 'Apr',
+    name: 'Business Awards Gala',
+    venue: 'Grand Ballroom · 1,200 expected',
+    tags: ['Corporate'],
+    impact: 'Low',
+    impactColor: 'outline',
+  },
+]
+
+export const externalFlights: FlightArrival[] = [
+  {
+    time: '06:30',
+    origin: 'New York (JFK)',
+    flight: 'AA 4821',
+    pax: 180,
+    status: 'On Time',
+    statusColor: 'text-green-600',
+  },
+  {
+    time: '08:15',
+    origin: 'London (LHR)',
+    flight: 'BA 0284',
+    pax: 240,
+    status: 'On Time',
+    statusColor: 'text-green-600',
+  },
+  {
+    time: '09:40',
+    origin: 'Frankfurt (FRA)',
+    flight: 'LH 0452',
+    pax: 195,
+    status: 'Delayed 45m',
+    statusColor: 'text-yellow-600',
+  },
+  {
+    time: '11:00',
+    origin: 'Dubai (DXB)',
+    flight: 'EK 0211',
+    pax: 380,
+    status: 'On Time',
+    statusColor: 'text-green-600',
+  },
+  {
+    time: '13:25',
+    origin: 'Singapore (SIN)',
+    flight: 'SQ 0316',
+    pax: 290,
+    status: 'On Time',
+    statusColor: 'text-green-600',
+  },
+  {
+    time: '15:50',
+    origin: 'Paris (CDG)',
+    flight: 'AF 1684',
+    pax: 168,
+    status: 'Cancelled',
+    statusColor: 'text-red-600',
+  },
+]
+
+export const externalCompetitors: CompetitorPromo[] = [
+  {
+    name: 'The Grand Palace',
+    promo: 'Stay 3, Pay 2',
+    period: 'Mar 8–15',
+    impact: 'HIGH IMPACT',
+    impactColor: 'destructive',
+  },
+  {
+    name: 'Azure Bay Resort',
+    promo: 'Free Breakfast',
+    period: 'Ongoing',
+    impact: 'MEDIUM IMPACT',
+    impactColor: 'default',
+  },
+  {
+    name: 'Skyline Hotel',
+    promo: 'Corp Rate -20%',
+    period: 'Mar 1–31',
+    impact: 'HIGH IMPACT',
+    impactColor: 'destructive',
+  },
+  {
+    name: 'Ocean View Suites',
+    promo: 'Spa Package $99',
+    period: 'Weekends',
+    impact: 'LOW IMPACT',
+    impactColor: 'outline',
+  },
+]
+
+export const externalMacroIndicators: MacroIndicator[] = [
+  { label: 'Tourism GDP Contribution', value: '+3.2%', change: '+0.4%', up: true },
+  { label: 'Consumer Confidence Index', value: '108.4', change: '+2.1', up: true },
+  { label: 'Business Travel Spend', value: '$284B', change: '+8.1% YoY', up: true },
+  { label: 'Forex Rate (USD/EUR)', value: '0.921', change: '-0.8%', up: false },
+  { label: 'Inflation Rate', value: '2.8%', change: '-0.3pp', up: false },
+  { label: 'Hotel ADR Index', value: '+5.6%', change: '+1.2pp', up: true },
+]
+
+export const externalVisaAlerts: VisaAlert[] = [
+  {
+    country: 'India',
+    tag: 'eVisa Expanded',
+    tagColor: 'default',
+    desc: '30-day eVisa now available. Expected +12% Indian traveler volume.',
+  },
+  {
+    country: 'China',
+    tag: 'Group Travel Policy',
+    tagColor: 'secondary',
+    desc: 'New group tour regulations effective Apr 1. MICE groups may be affected.',
+  },
+  {
+    country: 'GCC Countries',
+    tag: 'Visa on Arrival',
+    tagColor: 'default',
+    desc: 'New visa-on-arrival for 6 Gulf nations. Luxury segment opportunity.',
+  },
+]
+
+export const externalPublicHolidays: PublicHoliday[] = [
+  { name: "International Women's Day", date: 'Mar 8' },
+  { name: 'Spring Equinox', date: 'Mar 20' },
+  { name: 'Good Friday', date: 'Apr 4' },
 ]

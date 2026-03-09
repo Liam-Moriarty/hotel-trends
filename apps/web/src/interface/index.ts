@@ -244,3 +244,63 @@ export interface EmailCampaign {
   clicks: string
   bookings: number
 }
+
+// ── External Intelligence types ─────────────────────────────────────────────
+
+export interface WeatherDay {
+  day: string
+  icon: string
+  high: number
+  low: number
+}
+
+export interface OccupancyData {
+  month: string
+  value: number
+}
+
+export interface LocalEvent {
+  dateRange: string
+  month: string
+  name: string
+  venue: string
+  tags: string[]
+  impact: string
+  impactColor: 'destructive' | 'default' | 'secondary' | 'outline'
+}
+
+export interface FlightArrival {
+  time: string
+  origin: string
+  flight: string
+  pax: number
+  status: string
+  statusColor: string
+}
+
+export interface CompetitorPromo {
+  name: string
+  promo: string
+  period: string
+  impact: string
+  impactColor: 'destructive' | 'default' | 'outline'
+}
+
+export interface MacroIndicator {
+  label: string
+  value: string
+  change: string
+  up: boolean
+}
+
+export interface VisaAlert {
+  country: string
+  tag: string
+  tagColor: 'default' | 'secondary'
+  desc: string
+}
+
+export interface PublicHoliday {
+  name: string
+  date: string
+}
