@@ -33,6 +33,9 @@ pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+*.log
+type_errors.log
+typecheck-errors.log
 
 # =============================================================================
 # IDE & EDITOR
