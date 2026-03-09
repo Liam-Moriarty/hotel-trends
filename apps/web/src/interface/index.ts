@@ -304,3 +304,23 @@ export interface PublicHoliday {
   name: string
   date: string
 }
+
+// ── Data & Integrations types ────────────────────────────────────────────────
+
+export type IntegrationStatus = 'healthy' | 'warning' | 'error'
+
+export interface Integration {
+  id: string
+  name: string
+  vendor: string
+  status: IntegrationStatus
+  lastSync: string
+  records: string
+  uptime: number
+  latency: string
+}
+
+export interface ThroughputDataPoint {
+  time: string
+  value: number
+}
