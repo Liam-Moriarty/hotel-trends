@@ -1,7 +1,7 @@
 {
   "projects": {
-    "default": "hotel-trends",
-    "staging": "hotel-trends-stage"
+    "prod": "hotel-trends-prod",
+    "dev": "hotel-trends-stage"
   },
   "targets": {},
   "etags": {}
