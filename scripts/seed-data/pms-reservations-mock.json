@@ -1,0 +1,1823 @@
+{
+  "reservations": {
+    "hotelId": "SAND01",
+    "reservationInfo": [
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123701" },
+          { "type": "Confirmation", "id": "CA3QMBCISO" },
+          { "type": "External", "id": "EXP-99821" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-01-05",
+          "departureDate": "2024-01-09",
+          "expectedArrivalTime": "2024-01-05T14:00:00",
+          "totalAmount": { "amount": 1250.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "DLX",
+            "roomNumber": "101",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "DIR", "marketCode": "DIR", "sourceCode": "COLD" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "BILLY", "surname": "JONES", "nameType": "Primary" }],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "GOLD", "membershipNumber": "123456" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790000" }]
+          }
+        },
+        "paymentMethod": "CA",
+        "guaranteeCode": "4PMHOLD",
+        "vipCode": "CEL",
+        "createdBy": "44654",
+        "externalReference": "CA3QMBCISO",
+        "blockInfo": { "blockCode": "ORACLE", "blockId": "998877" }
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123702" },
+          { "type": "Confirmation", "id": "CB4XNDKJTP" },
+          { "type": "External", "id": "BKG-10045" }
+        ],
+        "reservationStatus": "CheckedIn",
+        "roomStay": {
+          "arrivalDate": "2024-01-08",
+          "departureDate": "2024-01-12",
+          "expectedArrivalTime": "2024-01-08T15:30:00",
+          "totalAmount": { "amount": 2100.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STE",
+            "roomNumber": "501",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "BKGCOM" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "SARAH", "surname": "MITCHELL", "nameType": "Primary" }],
+            "membership": [
+              {
+                "membershipType": "OZ",
+                "membershipLevel": "PLATINUM",
+                "membershipNumber": "234567"
+              }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790001" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44655",
+        "externalReference": "CB4XNDKJTP",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123703" },
+          { "type": "Confirmation", "id": "CC5YOELJUQ" },
+          { "type": "External", "id": "EXP-10192" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-01-15",
+          "departureDate": "2024-01-18",
+          "expectedArrivalTime": "2024-01-15T12:00:00",
+          "totalAmount": { "amount": 870.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STD",
+            "roomNumber": "203",
+            "housekeepingRoomStatus": "Dirty",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "EXPDIA" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "JAMES", "surname": "THORNTON", "nameType": "Primary" }],
+            "membership": [],
+            "profileIdList": [{ "type": "Profile", "id": "6412790002" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44656",
+        "externalReference": "CC5YOELJUQ",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123704" },
+          { "type": "Confirmation", "id": "CD6ZPFMKVR" }
+        ],
+        "reservationStatus": "CheckedIn",
+        "roomStay": {
+          "arrivalDate": "2024-01-10",
+          "departureDate": "2024-01-14",
+          "expectedArrivalTime": "2024-01-10T16:00:00",
+          "totalAmount": { "amount": 3400.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "PSTE",
+            "roomNumber": "701",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Presidential"
+          },
+          "ratePlans": [{ "ratePlanCode": "CORP", "marketCode": "CORP", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "AMELIA", "surname": "HARTLEY", "nameType": "Primary" }],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "DIAMOND", "membershipNumber": "345678" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790003" }]
+          }
+        },
+        "paymentMethod": "CA",
+        "guaranteeCode": "4PMHOLD",
+        "vipCode": "VIP1",
+        "createdBy": "44654",
+        "externalReference": "CD6ZPFMKVR",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123705" },
+          { "type": "Confirmation", "id": "CE7AQGNLWS" },
+          { "type": "External", "id": "BKG-20311" }
+        ],
+        "reservationStatus": "CheckedOut",
+        "roomStay": {
+          "arrivalDate": "2024-01-02",
+          "departureDate": "2024-01-07",
+          "expectedArrivalTime": "2024-01-02T13:00:00",
+          "totalAmount": { "amount": 1575.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "DLX",
+            "roomNumber": "302",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "BKGCOM" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "LIAM", "surname": "NGUYEN", "nameType": "Primary" }],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "SILVER", "membershipNumber": "456789" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790004" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44657",
+        "externalReference": "CE7AQGNLWS",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123706" },
+          { "type": "Confirmation", "id": "CF8BRHOMXT" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-01-20",
+          "departureDate": "2024-01-25",
+          "expectedArrivalTime": "2024-01-20T14:00:00",
+          "totalAmount": { "amount": 1900.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "JNR",
+            "roomNumber": "405",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Junior Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "PKG", "marketCode": "LEIS", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [
+              { "givenName": "EMMA", "surname": "WATSON", "nameType": "Primary" },
+              { "givenName": "OLIVER", "surname": "WATSON", "nameType": "Accompanying" }
+            ],
+            "membership": [],
+            "profileIdList": [{ "type": "Profile", "id": "6412790005" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44658",
+        "externalReference": "CF8BRHOMXT",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123707" },
+          { "type": "Confirmation", "id": "CG9CSIPNYU" },
+          { "type": "External", "id": "EXP-30441" }
+        ],
+        "reservationStatus": "CheckedIn",
+        "roomStay": {
+          "arrivalDate": "2024-01-11",
+          "departureDate": "2024-01-13",
+          "expectedArrivalTime": "2024-01-11T18:00:00",
+          "totalAmount": { "amount": 540.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STD",
+            "roomNumber": "108",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "EXPDIA" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "NOAH", "surname": "PATEL", "nameType": "Primary" }],
+            "membership": [],
+            "profileIdList": [{ "type": "Profile", "id": "6412790006" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44659",
+        "externalReference": "CG9CSIPNYU",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123708" },
+          { "type": "Confirmation", "id": "CH0DTJQOZV" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-02-01",
+          "departureDate": "2024-02-05",
+          "expectedArrivalTime": "2024-02-01T15:00:00",
+          "totalAmount": { "amount": 2200.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STE",
+            "roomNumber": "502",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "CORP", "marketCode": "CORP", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "SOPHIA", "surname": "CHEN", "nameType": "Primary" }],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "GOLD", "membershipNumber": "567890" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790007" }]
+          }
+        },
+        "paymentMethod": "CA",
+        "guaranteeCode": "CORPBILL",
+        "vipCode": "VIP2",
+        "createdBy": "44654",
+        "externalReference": "CH0DTJQOZV",
+        "blockInfo": { "blockCode": "TECHCONF", "blockId": "998878" }
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123709" },
+          { "type": "Confirmation", "id": "CI1EURKPAW" },
+          { "type": "External", "id": "BKG-30567" }
+        ],
+        "reservationStatus": "Cancelled",
+        "roomStay": {
+          "arrivalDate": "2024-01-28",
+          "departureDate": "2024-01-30",
+          "expectedArrivalTime": "2024-01-28T14:00:00",
+          "totalAmount": { "amount": 0.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STD",
+            "roomNumber": null,
+            "housekeepingRoomStatus": null,
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "BKGCOM" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "ETHAN", "surname": "WILLIAMS", "nameType": "Primary" }],
+            "membership": [],
+            "profileIdList": [{ "type": "Profile", "id": "6412790008" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44660",
+        "externalReference": "CI1EURKPAW",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123710" },
+          { "type": "Confirmation", "id": "CJ2FVSLQBX" }
+        ],
+        "reservationStatus": "CheckedIn",
+        "roomStay": {
+          "arrivalDate": "2024-01-12",
+          "departureDate": "2024-01-16",
+          "expectedArrivalTime": "2024-01-12T16:30:00",
+          "totalAmount": { "amount": 1680.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "DLX",
+            "roomNumber": "305",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "DIR", "marketCode": "DIR", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [
+              { "givenName": "ISABELLA", "surname": "FERRARI", "nameType": "Primary" }
+            ],
+            "membership": [
+              {
+                "membershipType": "OZ",
+                "membershipLevel": "PLATINUM",
+                "membershipNumber": "678901"
+              }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790009" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": "VIP1",
+        "createdBy": "44655",
+        "externalReference": "CJ2FVSLQBX",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123711" },
+          { "type": "Confirmation", "id": "CK3GWTMRCY" },
+          { "type": "External", "id": "EXP-40822" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-02-10",
+          "departureDate": "2024-02-14",
+          "expectedArrivalTime": "2024-02-10T13:00:00",
+          "totalAmount": { "amount": 980.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STD",
+            "roomNumber": "210",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "EXPDIA" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "MASON", "surname": "KUMAR", "nameType": "Primary" }],
+            "membership": [],
+            "profileIdList": [{ "type": "Profile", "id": "6412790010" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44661",
+        "externalReference": "CK3GWTMRCY",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123712" },
+          { "type": "Confirmation", "id": "CL4HXUNSDZF" }
+        ],
+        "reservationStatus": "CheckedOut",
+        "roomStay": {
+          "arrivalDate": "2024-01-03",
+          "departureDate": "2024-01-06",
+          "expectedArrivalTime": "2024-01-03T14:00:00",
+          "totalAmount": { "amount": 1125.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "DLX",
+            "roomNumber": "401",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "PKG", "marketCode": "LEIS", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [
+              { "givenName": "CHARLOTTE", "surname": "DUBOIS", "nameType": "Primary" },
+              { "givenName": "PIERRE", "surname": "DUBOIS", "nameType": "Accompanying" }
+            ],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "GOLD", "membershipNumber": "789012" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790011" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44656",
+        "externalReference": "CL4HXUNSDZF",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123713" },
+          { "type": "Confirmation", "id": "CM5IYVOTEG" },
+          { "type": "External", "id": "BKG-40988" }
+        ],
+        "reservationStatus": "CheckedIn",
+        "roomStay": {
+          "arrivalDate": "2024-01-13",
+          "departureDate": "2024-01-17",
+          "expectedArrivalTime": "2024-01-13T17:00:00",
+          "totalAmount": { "amount": 1760.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "JNR",
+            "roomNumber": "408",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Junior Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "BKGCOM" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "OLIVER", "surname": "SCHMIDT", "nameType": "Primary" }],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "SILVER", "membershipNumber": "890123" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790012" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44657",
+        "externalReference": "CM5IYVOTEG",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123714" },
+          { "type": "Confirmation", "id": "CN6JZWPUFH" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-02-14",
+          "departureDate": "2024-02-17",
+          "expectedArrivalTime": "2024-02-14T15:00:00",
+          "totalAmount": { "amount": 2550.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STE",
+            "roomNumber": "505",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "PKG", "marketCode": "LEIS", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [
+              { "givenName": "AIDEN", "surname": "THOMPSON", "nameType": "Primary" },
+              { "givenName": "GRACE", "surname": "THOMPSON", "nameType": "Accompanying" }
+            ],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "GOLD", "membershipNumber": "901234" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790013" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44658",
+        "externalReference": "CN6JZWPUFH",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123715" },
+          { "type": "Confirmation", "id": "CO7KAXQVGI" },
+          { "type": "External", "id": "EXP-51003" }
+        ],
+        "reservationStatus": "CheckedOut",
+        "roomStay": {
+          "arrivalDate": "2024-01-01",
+          "departureDate": "2024-01-04",
+          "expectedArrivalTime": "2024-01-01T14:00:00",
+          "totalAmount": { "amount": 895.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STD",
+            "roomNumber": "115",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "EXPDIA" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "MIA", "surname": "ANDERSON", "nameType": "Primary" }],
+            "membership": [],
+            "profileIdList": [{ "type": "Profile", "id": "6412790014" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44659",
+        "externalReference": "CO7KAXQVGI",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123716" },
+          { "type": "Confirmation", "id": "CP8LBYRHWJ" }
+        ],
+        "reservationStatus": "CheckedIn",
+        "roomStay": {
+          "arrivalDate": "2024-01-14",
+          "departureDate": "2024-01-19",
+          "expectedArrivalTime": "2024-01-14T16:00:00",
+          "totalAmount": { "amount": 4250.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "PSTE",
+            "roomNumber": "702",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Presidential"
+          },
+          "ratePlans": [{ "ratePlanCode": "CORP", "marketCode": "CORP", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "LUCAS", "surname": "ZHAO", "nameType": "Primary" }],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "DIAMOND", "membershipNumber": "012345" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790015" }]
+          }
+        },
+        "paymentMethod": "CA",
+        "guaranteeCode": "4PMHOLD",
+        "vipCode": "CEL",
+        "createdBy": "44654",
+        "externalReference": "CP8LBYRHWJ",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123717" },
+          { "type": "Confirmation", "id": "CQ9MCZSIXA" },
+          { "type": "External", "id": "BKG-51234" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-02-20",
+          "departureDate": "2024-02-24",
+          "expectedArrivalTime": "2024-02-20T13:30:00",
+          "totalAmount": { "amount": 1340.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "DLX",
+            "roomNumber": "308",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "DIR", "marketCode": "DIR", "sourceCode": "COLD" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "HARPER", "surname": "OKAFOR", "nameType": "Primary" }],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "SILVER", "membershipNumber": "112233" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790016" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44660",
+        "externalReference": "CQ9MCZSIXA",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123718" },
+          { "type": "Confirmation", "id": "CR0NDATJYB" }
+        ],
+        "reservationStatus": "CheckedOut",
+        "roomStay": {
+          "arrivalDate": "2024-01-06",
+          "departureDate": "2024-01-10",
+          "expectedArrivalTime": "2024-01-06T14:00:00",
+          "totalAmount": { "amount": 1600.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "JNR",
+            "roomNumber": "410",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Junior Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "PKG", "marketCode": "LEIS", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [
+              { "givenName": "EVELYN", "surname": "MORRISON", "nameType": "Primary" },
+              { "givenName": "JACK", "surname": "MORRISON", "nameType": "Accompanying" }
+            ],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "GOLD", "membershipNumber": "223344" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790017" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44661",
+        "externalReference": "CR0NDATJYB",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123719" },
+          { "type": "Confirmation", "id": "CS1OEBUKZC" },
+          { "type": "External", "id": "EXP-61445" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-03-01",
+          "departureDate": "2024-03-05",
+          "expectedArrivalTime": "2024-03-01T15:00:00",
+          "totalAmount": { "amount": 1100.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STD",
+            "roomNumber": "220",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "EXPDIA" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "HENRY", "surname": "SILVA", "nameType": "Primary" }],
+            "membership": [],
+            "profileIdList": [{ "type": "Profile", "id": "6412790018" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44655",
+        "externalReference": "CS1OEBUKZC",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123720" },
+          { "type": "Confirmation", "id": "CT2PFCVLAD" }
+        ],
+        "reservationStatus": "CheckedIn",
+        "roomStay": {
+          "arrivalDate": "2024-01-15",
+          "departureDate": "2024-01-20",
+          "expectedArrivalTime": "2024-01-15T17:30:00",
+          "totalAmount": { "amount": 2750.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STE",
+            "roomNumber": "508",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "CORP", "marketCode": "CORP", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "ABIGAIL", "surname": "TANAKA", "nameType": "Primary" }],
+            "membership": [
+              {
+                "membershipType": "OZ",
+                "membershipLevel": "PLATINUM",
+                "membershipNumber": "334455"
+              }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790019" }]
+          }
+        },
+        "paymentMethod": "CA",
+        "guaranteeCode": "CORPBILL",
+        "vipCode": "VIP2",
+        "createdBy": "44654",
+        "externalReference": "CT2PFCVLAD",
+        "blockInfo": { "blockCode": "FINCONF", "blockId": "998879" }
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123721" },
+          { "type": "Confirmation", "id": "CU3QGDWMBE" },
+          { "type": "External", "id": "BKG-61567" }
+        ],
+        "reservationStatus": "CheckedOut",
+        "roomStay": {
+          "arrivalDate": "2024-01-08",
+          "departureDate": "2024-01-11",
+          "expectedArrivalTime": "2024-01-08T12:00:00",
+          "totalAmount": { "amount": 785.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STD",
+            "roomNumber": "112",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "BKGCOM" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [
+              { "givenName": "SEBASTIAN", "surname": "MURPHY", "nameType": "Primary" }
+            ],
+            "membership": [],
+            "profileIdList": [{ "type": "Profile", "id": "6412790020" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44656",
+        "externalReference": "CU3QGDWMBE",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123722" },
+          { "type": "Confirmation", "id": "CV4RHEXNCF" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-03-10",
+          "departureDate": "2024-03-15",
+          "expectedArrivalTime": "2024-03-10T14:00:00",
+          "totalAmount": { "amount": 3100.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "PSTE",
+            "roomNumber": "703",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Presidential"
+          },
+          "ratePlans": [{ "ratePlanCode": "DIR", "marketCode": "DIR", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "VICTORIA", "surname": "PARK", "nameType": "Primary" }],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "DIAMOND", "membershipNumber": "445566" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790021" }]
+          }
+        },
+        "paymentMethod": "CA",
+        "guaranteeCode": "4PMHOLD",
+        "vipCode": "VIP1",
+        "createdBy": "44654",
+        "externalReference": "CV4RHEXNCF",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123723" },
+          { "type": "Confirmation", "id": "CW5SIFYODG" },
+          { "type": "External", "id": "EXP-71666" }
+        ],
+        "reservationStatus": "CheckedIn",
+        "roomStay": {
+          "arrivalDate": "2024-01-16",
+          "departureDate": "2024-01-18",
+          "expectedArrivalTime": "2024-01-16T19:00:00",
+          "totalAmount": { "amount": 490.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STD",
+            "roomNumber": "118",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "EXPDIA" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "DANIEL", "surname": "KOWALSKI", "nameType": "Primary" }],
+            "membership": [],
+            "profileIdList": [{ "type": "Profile", "id": "6412790022" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44657",
+        "externalReference": "CW5SIFYODG",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123724" },
+          { "type": "Confirmation", "id": "CX6TJGZPEH" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-03-20",
+          "departureDate": "2024-03-25",
+          "expectedArrivalTime": "2024-03-20T14:00:00",
+          "totalAmount": { "amount": 1875.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "JNR",
+            "roomNumber": "412",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Junior Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "PKG", "marketCode": "LEIS", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [
+              { "givenName": "PENELOPE", "surname": "GARCIA", "nameType": "Primary" },
+              { "givenName": "CARLOS", "surname": "GARCIA", "nameType": "Accompanying" }
+            ],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "GOLD", "membershipNumber": "556677" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790023" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44658",
+        "externalReference": "CX6TJGZPEH",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123725" },
+          { "type": "Confirmation", "id": "CY7UKHAQFI" },
+          { "type": "External", "id": "BKG-71789" }
+        ],
+        "reservationStatus": "CheckedOut",
+        "roomStay": {
+          "arrivalDate": "2024-01-09",
+          "departureDate": "2024-01-13",
+          "expectedArrivalTime": "2024-01-09T15:00:00",
+          "totalAmount": { "amount": 1420.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "DLX",
+            "roomNumber": "310",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "BKGCOM" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "RYAN", "surname": "O'BRIEN", "nameType": "Primary" }],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "SILVER", "membershipNumber": "667788" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790024" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44659",
+        "externalReference": "CY7UKHAQFI",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123726" },
+          { "type": "Confirmation", "id": "CZ8VLIBRGJ" }
+        ],
+        "reservationStatus": "CheckedIn",
+        "roomStay": {
+          "arrivalDate": "2024-01-17",
+          "departureDate": "2024-01-22",
+          "expectedArrivalTime": "2024-01-17T16:00:00",
+          "totalAmount": { "amount": 3750.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STE",
+            "roomNumber": "510",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "CORP", "marketCode": "CORP", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [
+              { "givenName": "AURORA", "surname": "LINDQVIST", "nameType": "Primary" }
+            ],
+            "membership": [
+              {
+                "membershipType": "OZ",
+                "membershipLevel": "PLATINUM",
+                "membershipNumber": "778899"
+              }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790025" }]
+          }
+        },
+        "paymentMethod": "CA",
+        "guaranteeCode": "CORPBILL",
+        "vipCode": "VIP2",
+        "createdBy": "44654",
+        "externalReference": "CZ8VLIBRGJ",
+        "blockInfo": { "blockCode": "MEDCONF", "blockId": "998880" }
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123727" },
+          { "type": "Confirmation", "id": "DA9WMJCSHK" },
+          { "type": "External", "id": "EXP-81887" }
+        ],
+        "reservationStatus": "Cancelled",
+        "roomStay": {
+          "arrivalDate": "2024-02-05",
+          "departureDate": "2024-02-08",
+          "expectedArrivalTime": "2024-02-05T14:00:00",
+          "totalAmount": { "amount": 0.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "DLX",
+            "roomNumber": null,
+            "housekeepingRoomStatus": null,
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "EXPDIA" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "FELIX", "surname": "MÜLLER", "nameType": "Primary" }],
+            "membership": [],
+            "profileIdList": [{ "type": "Profile", "id": "6412790026" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44660",
+        "externalReference": "DA9WMJCSHK",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123728" },
+          { "type": "Confirmation", "id": "DB0XNKDTIL" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-04-01",
+          "departureDate": "2024-04-06",
+          "expectedArrivalTime": "2024-04-01T13:00:00",
+          "totalAmount": { "amount": 2450.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STE",
+            "roomNumber": "512",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "DIR", "marketCode": "DIR", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "ISLA", "surname": "CAMPBELL", "nameType": "Primary" }],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "GOLD", "membershipNumber": "889900" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790027" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44661",
+        "externalReference": "DB0XNKDTIL",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123729" },
+          { "type": "Confirmation", "id": "DC1YOLEUJM" },
+          { "type": "External", "id": "BKG-82010" }
+        ],
+        "reservationStatus": "CheckedIn",
+        "roomStay": {
+          "arrivalDate": "2024-01-18",
+          "departureDate": "2024-01-21",
+          "expectedArrivalTime": "2024-01-18T14:30:00",
+          "totalAmount": { "amount": 1050.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "DLX",
+            "roomNumber": "312",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "BKGCOM" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "THOMAS", "surname": "NAKAMURA", "nameType": "Primary" }],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "SILVER", "membershipNumber": "990011" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790028" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44655",
+        "externalReference": "DC1YOLEUJM",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123730" },
+          { "type": "Confirmation", "id": "DD2ZPMFVKN" }
+        ],
+        "reservationStatus": "CheckedOut",
+        "roomStay": {
+          "arrivalDate": "2024-01-10",
+          "departureDate": "2024-01-15",
+          "expectedArrivalTime": "2024-01-10T15:00:00",
+          "totalAmount": { "amount": 2100.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "JNR",
+            "roomNumber": "415",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Junior Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "PKG", "marketCode": "LEIS", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [
+              { "givenName": "ELEANOR", "surname": "ROSS", "nameType": "Primary" },
+              { "givenName": "GEORGE", "surname": "ROSS", "nameType": "Accompanying" }
+            ],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "GOLD", "membershipNumber": "101112" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790029" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44656",
+        "externalReference": "DD2ZPMFVKN",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123731" },
+          { "type": "Confirmation", "id": "DE3AQNGWLO" },
+          { "type": "External", "id": "EXP-92228" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-04-15",
+          "departureDate": "2024-04-20",
+          "expectedArrivalTime": "2024-04-15T14:00:00",
+          "totalAmount": { "amount": 1650.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "DLX",
+            "roomNumber": "315",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "EXPDIA" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "WILLIAM", "surname": "IBRAHIM", "nameType": "Primary" }],
+            "membership": [],
+            "profileIdList": [{ "type": "Profile", "id": "6412790030" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44657",
+        "externalReference": "DE3AQNGWLO",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123732" },
+          { "type": "Confirmation", "id": "DF4BROHXMP" }
+        ],
+        "reservationStatus": "CheckedIn",
+        "roomStay": {
+          "arrivalDate": "2024-01-19",
+          "departureDate": "2024-01-24",
+          "expectedArrivalTime": "2024-01-19T16:00:00",
+          "totalAmount": { "amount": 4800.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "PSTE",
+            "roomNumber": "704",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Presidential"
+          },
+          "ratePlans": [{ "ratePlanCode": "CORP", "marketCode": "CORP", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [
+              { "givenName": "JAMES", "surname": "WELLINGTON", "nameType": "Primary" }
+            ],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "DIAMOND", "membershipNumber": "213141" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790031" }]
+          }
+        },
+        "paymentMethod": "CA",
+        "guaranteeCode": "4PMHOLD",
+        "vipCode": "CEL",
+        "createdBy": "44654",
+        "externalReference": "DF4BROHXMP",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123733" },
+          { "type": "Confirmation", "id": "DG5CSPIYNQ" },
+          { "type": "External", "id": "BKG-92451" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-05-01",
+          "departureDate": "2024-05-04",
+          "expectedArrivalTime": "2024-05-01T13:00:00",
+          "totalAmount": { "amount": 920.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STD",
+            "roomNumber": "225",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "BKGCOM" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "ZARA", "surname": "PETROV", "nameType": "Primary" }],
+            "membership": [],
+            "profileIdList": [{ "type": "Profile", "id": "6412790032" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44658",
+        "externalReference": "DG5CSPIYNQ",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123734" },
+          { "type": "Confirmation", "id": "DH6DTQJZOR" }
+        ],
+        "reservationStatus": "CheckedOut",
+        "roomStay": {
+          "arrivalDate": "2024-01-11",
+          "departureDate": "2024-01-16",
+          "expectedArrivalTime": "2024-01-11T14:00:00",
+          "totalAmount": { "amount": 1980.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STE",
+            "roomNumber": "515",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "DIR", "marketCode": "DIR", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "NATHANIEL", "surname": "OSEI", "nameType": "Primary" }],
+            "membership": [
+              {
+                "membershipType": "OZ",
+                "membershipLevel": "PLATINUM",
+                "membershipNumber": "314151"
+              }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790033" }]
+          }
+        },
+        "paymentMethod": "CA",
+        "guaranteeCode": "4PMHOLD",
+        "vipCode": "VIP1",
+        "createdBy": "44659",
+        "externalReference": "DH6DTQJZOR",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123735" },
+          { "type": "Confirmation", "id": "DI7EURKAPS" },
+          { "type": "External", "id": "EXP-02669" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-05-10",
+          "departureDate": "2024-05-15",
+          "expectedArrivalTime": "2024-05-10T15:00:00",
+          "totalAmount": { "amount": 2200.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "JNR",
+            "roomNumber": "418",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Junior Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "PKG", "marketCode": "LEIS", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [
+              { "givenName": "LUNA", "surname": "FERRARI", "nameType": "Primary" },
+              { "givenName": "MARCO", "surname": "FERRARI", "nameType": "Accompanying" }
+            ],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "GOLD", "membershipNumber": "415161" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790034" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44660",
+        "externalReference": "DI7EURKAPS",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123736" },
+          { "type": "Confirmation", "id": "DJ8FVSLBQT" }
+        ],
+        "reservationStatus": "CheckedIn",
+        "roomStay": {
+          "arrivalDate": "2024-01-20",
+          "departureDate": "2024-01-23",
+          "expectedArrivalTime": "2024-01-20T18:00:00",
+          "totalAmount": { "amount": 730.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STD",
+            "roomNumber": "228",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "EXPDIA" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "CHLOE", "surname": "HASSAN", "nameType": "Primary" }],
+            "membership": [],
+            "profileIdList": [{ "type": "Profile", "id": "6412790035" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44661",
+        "externalReference": "DJ8FVSLBQT",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123737" },
+          { "type": "Confirmation", "id": "DK9GWTMCRU" },
+          { "type": "External", "id": "BKG-02890" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-06-01",
+          "departureDate": "2024-06-07",
+          "expectedArrivalTime": "2024-06-01T14:00:00",
+          "totalAmount": { "amount": 3300.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STE",
+            "roomNumber": "518",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "CORP", "marketCode": "CORP", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [
+              { "givenName": "ALEXANDER", "surname": "JOHANSSON", "nameType": "Primary" }
+            ],
+            "membership": [
+              {
+                "membershipType": "OZ",
+                "membershipLevel": "PLATINUM",
+                "membershipNumber": "516171"
+              }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790036" }]
+          }
+        },
+        "paymentMethod": "CA",
+        "guaranteeCode": "CORPBILL",
+        "vipCode": "VIP2",
+        "createdBy": "44654",
+        "externalReference": "DK9GWTMCRU",
+        "blockInfo": { "blockCode": "LEGALCONF", "blockId": "998881" }
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123738" },
+          { "type": "Confirmation", "id": "DL0HXUNDSVW" }
+        ],
+        "reservationStatus": "CheckedOut",
+        "roomStay": {
+          "arrivalDate": "2024-01-12",
+          "departureDate": "2024-01-17",
+          "expectedArrivalTime": "2024-01-12T15:30:00",
+          "totalAmount": { "amount": 1750.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "DLX",
+            "roomNumber": "318",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "DIR", "marketCode": "DIR", "sourceCode": "COLD" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "FREYA", "surname": "ANDERSEN", "nameType": "Primary" }],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "SILVER", "membershipNumber": "617181" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790037" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44655",
+        "externalReference": "DL0HXUNDSVW",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123739" },
+          { "type": "Confirmation", "id": "DM1IYVOETX" },
+          { "type": "External", "id": "EXP-13007" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-06-15",
+          "departureDate": "2024-06-19",
+          "expectedArrivalTime": "2024-06-15T14:00:00",
+          "totalAmount": { "amount": 1480.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "DLX",
+            "roomNumber": "320",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "BKGCOM" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "OSCAR", "surname": "REYES", "nameType": "Primary" }],
+            "membership": [],
+            "profileIdList": [{ "type": "Profile", "id": "6412790038" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44656",
+        "externalReference": "DM1IYVOETX",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123740" },
+          { "type": "Confirmation", "id": "DN2JZWPFUY" }
+        ],
+        "reservationStatus": "CheckedIn",
+        "roomStay": {
+          "arrivalDate": "2024-01-21",
+          "departureDate": "2024-01-26",
+          "expectedArrivalTime": "2024-01-21T16:00:00",
+          "totalAmount": { "amount": 5200.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "PSTE",
+            "roomNumber": "705",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Presidential"
+          },
+          "ratePlans": [{ "ratePlanCode": "CORP", "marketCode": "CORP", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "DIANA", "surname": "VOLKOV", "nameType": "Primary" }],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "DIAMOND", "membershipNumber": "718191" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790039" }]
+          }
+        },
+        "paymentMethod": "CA",
+        "guaranteeCode": "4PMHOLD",
+        "vipCode": "CEL",
+        "createdBy": "44654",
+        "externalReference": "DN2JZWPFUY",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123741" },
+          { "type": "Confirmation", "id": "DO3KAXQGVZ" },
+          { "type": "External", "id": "BKG-13228" }
+        ],
+        "reservationStatus": "Cancelled",
+        "roomStay": {
+          "arrivalDate": "2024-03-15",
+          "departureDate": "2024-03-18",
+          "expectedArrivalTime": "2024-03-15T14:00:00",
+          "totalAmount": { "amount": 0.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STD",
+            "roomNumber": null,
+            "housekeepingRoomStatus": null,
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "EXPDIA" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "GEORGE", "surname": "HAYASHI", "nameType": "Primary" }],
+            "membership": [],
+            "profileIdList": [{ "type": "Profile", "id": "6412790040" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44657",
+        "externalReference": "DO3KAXQGVZ",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123742" },
+          { "type": "Confirmation", "id": "DP4LBYRHWA" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-07-01",
+          "departureDate": "2024-07-06",
+          "expectedArrivalTime": "2024-07-01T15:00:00",
+          "totalAmount": { "amount": 2800.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STE",
+            "roomNumber": "520",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "PKG", "marketCode": "LEIS", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [
+              { "givenName": "ARIA", "surname": "NKOSI", "nameType": "Primary" },
+              { "givenName": "KWAME", "surname": "NKOSI", "nameType": "Accompanying" }
+            ],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "GOLD", "membershipNumber": "819202" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790041" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44658",
+        "externalReference": "DP4LBYRHWA",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123743" },
+          { "type": "Confirmation", "id": "DQ5MCZSIAXB" },
+          { "type": "External", "id": "EXP-23446" }
+        ],
+        "reservationStatus": "CheckedOut",
+        "roomStay": {
+          "arrivalDate": "2024-01-13",
+          "departureDate": "2024-01-16",
+          "expectedArrivalTime": "2024-01-13T13:30:00",
+          "totalAmount": { "amount": 870.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STD",
+            "roomNumber": "230",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "BKGCOM" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "KIERAN", "surname": "WALSH", "nameType": "Primary" }],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "SILVER", "membershipNumber": "920212" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790042" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44659",
+        "externalReference": "DQ5MCZSIAXB",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123744" },
+          { "type": "Confirmation", "id": "DR6NDATJYC" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-07-15",
+          "departureDate": "2024-07-20",
+          "expectedArrivalTime": "2024-07-15T14:00:00",
+          "totalAmount": { "amount": 1950.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "JNR",
+            "roomNumber": "420",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Junior Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "DIR", "marketCode": "DIR", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "NORA", "surname": "ERIKSSON", "nameType": "Primary" }],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "GOLD", "membershipNumber": "021222" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790043" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44660",
+        "externalReference": "DR6NDATJYC",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123745" },
+          { "type": "Confirmation", "id": "DS7OEBUKZD" },
+          { "type": "External", "id": "BKG-23667" }
+        ],
+        "reservationStatus": "CheckedIn",
+        "roomStay": {
+          "arrivalDate": "2024-01-22",
+          "departureDate": "2024-01-28",
+          "expectedArrivalTime": "2024-01-22T17:00:00",
+          "totalAmount": { "amount": 3600.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STE",
+            "roomNumber": "522",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "CORP", "marketCode": "CORP", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "MARCUS", "surname": "ADEYEMI", "nameType": "Primary" }],
+            "membership": [
+              {
+                "membershipType": "OZ",
+                "membershipLevel": "PLATINUM",
+                "membershipNumber": "122232"
+              }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790044" }]
+          }
+        },
+        "paymentMethod": "CA",
+        "guaranteeCode": "CORPBILL",
+        "vipCode": "VIP2",
+        "createdBy": "44654",
+        "externalReference": "DS7OEBUKZD",
+        "blockInfo": { "blockCode": "PROPCONF", "blockId": "998882" }
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123746" },
+          { "type": "Confirmation", "id": "DT8PFCVLAE" }
+        ],
+        "reservationStatus": "CheckedOut",
+        "roomStay": {
+          "arrivalDate": "2024-01-14",
+          "departureDate": "2024-01-18",
+          "expectedArrivalTime": "2024-01-14T14:00:00",
+          "totalAmount": { "amount": 1320.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "DLX",
+            "roomNumber": "322",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "EXPDIA" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "IVY", "surname": "MACDONALD", "nameType": "Primary" }],
+            "membership": [],
+            "profileIdList": [{ "type": "Profile", "id": "6412790045" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44661",
+        "externalReference": "DT8PFCVLAE",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123747" },
+          { "type": "Confirmation", "id": "DU9QGDWMBF" },
+          { "type": "External", "id": "EXP-33885" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-08-01",
+          "departureDate": "2024-08-05",
+          "expectedArrivalTime": "2024-08-01T15:00:00",
+          "totalAmount": { "amount": 1560.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "DLX",
+            "roomNumber": "325",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Standard"
+          },
+          "ratePlans": [{ "ratePlanCode": "DIR", "marketCode": "DIR", "sourceCode": "COLD" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "SAMUEL", "surname": "NGUYEN", "nameType": "Primary" }],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "SILVER", "membershipNumber": "223242" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790046" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44655",
+        "externalReference": "DU9QGDWMBF",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123748" },
+          { "type": "Confirmation", "id": "DV0RHEXNCG" }
+        ],
+        "reservationStatus": "CheckedIn",
+        "roomStay": {
+          "arrivalDate": "2024-01-23",
+          "departureDate": "2024-01-26",
+          "expectedArrivalTime": "2024-01-23T16:30:00",
+          "totalAmount": { "amount": 1140.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "JNR",
+            "roomNumber": "422",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Junior Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "OTA", "marketCode": "OTA", "sourceCode": "BKGCOM" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [
+              { "givenName": "CLAIRE", "surname": "BEAUMONT", "nameType": "Primary" },
+              { "givenName": "JEAN", "surname": "BEAUMONT", "nameType": "Accompanying" }
+            ],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "GOLD", "membershipNumber": "324252" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790047" }]
+          }
+        },
+        "paymentMethod": "CC",
+        "guaranteeCode": "CC",
+        "vipCode": null,
+        "createdBy": "44656",
+        "externalReference": "DV0RHEXNCG",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123749" },
+          { "type": "Confirmation", "id": "DW1SIFYODH" },
+          { "type": "External", "id": "BKG-34108" }
+        ],
+        "reservationStatus": "Reserved",
+        "roomStay": {
+          "arrivalDate": "2024-08-15",
+          "departureDate": "2024-08-20",
+          "expectedArrivalTime": "2024-08-15T14:00:00",
+          "totalAmount": { "amount": 2650.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STE",
+            "roomNumber": "525",
+            "housekeepingRoomStatus": "Clean",
+            "roomClass": "Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "PKG", "marketCode": "LEIS", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [{ "givenName": "RAPHAEL", "surname": "SANTOS", "nameType": "Primary" }],
+            "membership": [
+              {
+                "membershipType": "OZ",
+                "membershipLevel": "PLATINUM",
+                "membershipNumber": "425262"
+              }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790048" }]
+          }
+        },
+        "paymentMethod": "CA",
+        "guaranteeCode": "4PMHOLD",
+        "vipCode": "VIP1",
+        "createdBy": "44657",
+        "externalReference": "DW1SIFYODH",
+        "blockInfo": null
+      },
+      {
+        "reservationIdList": [
+          { "type": "Reservation", "id": "123750" },
+          { "type": "Confirmation", "id": "DX2TJGZPEI" }
+        ],
+        "reservationStatus": "CheckedOut",
+        "roomStay": {
+          "arrivalDate": "2024-01-15",
+          "departureDate": "2024-01-20",
+          "expectedArrivalTime": "2024-01-15T15:00:00",
+          "totalAmount": { "amount": 2300.0, "currencyCode": "AUD" },
+          "roomDetails": {
+            "roomType": "STE",
+            "roomNumber": "528",
+            "housekeepingRoomStatus": "Inspected",
+            "roomClass": "Suite"
+          },
+          "ratePlans": [{ "ratePlanCode": "CORP", "marketCode": "CORP", "sourceCode": "DIRECT" }]
+        },
+        "guestDetails": {
+          "customer": {
+            "personName": [
+              { "givenName": "ELEANOR", "surname": "BLACKWOOD", "nameType": "Primary" }
+            ],
+            "membership": [
+              { "membershipType": "OZ", "membershipLevel": "DIAMOND", "membershipNumber": "526272" }
+            ],
+            "profileIdList": [{ "type": "Profile", "id": "6412790049" }]
+          }
+        },
+        "paymentMethod": "CA",
+        "guaranteeCode": "CORPBILL",
+        "vipCode": "VIP2",
+        "createdBy": "44654",
+        "externalReference": "DX2TJGZPEI",
+        "blockInfo": { "blockCode": "HRCONF", "blockId": "998883" }
+      }
+    ],
+    "totalResults": 50
+  }
+}

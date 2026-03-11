@@ -1,0 +1,92 @@
+{
+  "ratePlans": {
+    "hotelId": "SAND01",
+    "plans": [
+      {
+        "ratePlanCode": "DIR",
+        "ratePlanName": "Direct Best Available Rate",
+        "marketCode": "DIR",
+        "sourceCode": "COLD",
+        "channel": "Direct",
+        "isRefundable": true,
+        "cancellationPolicy": "24 hours before arrival",
+        "commissionPct": 0.0,
+        "rates": [
+          { "roomType": "STD", "ratePerNight": 270.0 },
+          { "roomType": "DLX", "ratePerNight": 350.0 },
+          { "roomType": "JNR", "ratePerNight": 400.0 },
+          { "roomType": "STE", "ratePerNight": 550.0 },
+          { "roomType": "PSTE", "ratePerNight": 860.0 }
+        ]
+      },
+      {
+        "ratePlanCode": "OTA",
+        "ratePlanName": "Booking.com Rate",
+        "marketCode": "OTA",
+        "sourceCode": "BKGCOM",
+        "channel": "Booking.com",
+        "isRefundable": true,
+        "cancellationPolicy": "48 hours before arrival",
+        "commissionPct": 15.0,
+        "rates": [
+          { "roomType": "STD", "ratePerNight": 285.0 },
+          { "roomType": "DLX", "ratePerNight": 368.0 },
+          { "roomType": "JNR", "ratePerNight": 420.0 },
+          { "roomType": "STE", "ratePerNight": 578.0 },
+          { "roomType": "PSTE", "ratePerNight": 903.0 }
+        ]
+      },
+      {
+        "ratePlanCode": "OTA",
+        "ratePlanName": "Expedia Rate",
+        "marketCode": "OTA",
+        "sourceCode": "EXPDIA",
+        "channel": "Expedia",
+        "isRefundable": true,
+        "cancellationPolicy": "48 hours before arrival",
+        "commissionPct": 18.0,
+        "rates": [
+          { "roomType": "STD", "ratePerNight": 290.0 },
+          { "roomType": "DLX", "ratePerNight": 375.0 },
+          { "roomType": "JNR", "ratePerNight": 428.0 },
+          { "roomType": "STE", "ratePerNight": 589.0 },
+          { "roomType": "PSTE", "ratePerNight": 920.0 }
+        ]
+      },
+      {
+        "ratePlanCode": "CORP",
+        "ratePlanName": "Corporate Negotiated Rate",
+        "marketCode": "CORP",
+        "sourceCode": "DIRECT",
+        "channel": "Direct",
+        "isRefundable": true,
+        "cancellationPolicy": "Same day cancellation allowed",
+        "commissionPct": 0.0,
+        "rates": [
+          { "roomType": "STD", "ratePerNight": 250.0 },
+          { "roomType": "DLX", "ratePerNight": 325.0 },
+          { "roomType": "JNR", "ratePerNight": 375.0 },
+          { "roomType": "STE", "ratePerNight": 520.0 },
+          { "roomType": "PSTE", "ratePerNight": 820.0 }
+        ]
+      },
+      {
+        "ratePlanCode": "PKG",
+        "ratePlanName": "Leisure Package Rate",
+        "marketCode": "LEIS",
+        "sourceCode": "DIRECT",
+        "channel": "Direct",
+        "isRefundable": false,
+        "cancellationPolicy": "Non-refundable",
+        "commissionPct": 0.0,
+        "rates": [
+          { "roomType": "STD", "ratePerNight": 295.0 },
+          { "roomType": "DLX", "ratePerNight": 380.0 },
+          { "roomType": "JNR", "ratePerNight": 435.0 },
+          { "roomType": "STE", "ratePerNight": 595.0 },
+          { "roomType": "PSTE", "ratePerNight": 930.0 }
+        ]
+      }
+    ]
+  }
+}

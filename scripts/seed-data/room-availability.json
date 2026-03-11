@@ -1,0 +1,1682 @@
+{
+  "roomAvailability": {
+    "hotelId": "SAND01",
+    "totalRooms": 47,
+    "periodStart": "2024-01-01",
+    "periodEnd": "2024-08-20",
+    "dailySummary": [
+      {
+        "date": "2024-01-01",
+        "totalRooms": 47,
+        "occupiedRooms": 1,
+        "availableRooms": 46,
+        "occupancyRate": 2.1
+      },
+      {
+        "date": "2024-01-02",
+        "totalRooms": 47,
+        "occupiedRooms": 2,
+        "availableRooms": 45,
+        "occupancyRate": 4.3
+      },
+      {
+        "date": "2024-01-03",
+        "totalRooms": 47,
+        "occupiedRooms": 3,
+        "availableRooms": 44,
+        "occupancyRate": 6.4
+      },
+      {
+        "date": "2024-01-04",
+        "totalRooms": 47,
+        "occupiedRooms": 2,
+        "availableRooms": 45,
+        "occupancyRate": 4.3
+      },
+      {
+        "date": "2024-01-05",
+        "totalRooms": 47,
+        "occupiedRooms": 3,
+        "availableRooms": 44,
+        "occupancyRate": 6.4
+      },
+      {
+        "date": "2024-01-06",
+        "totalRooms": 47,
+        "occupiedRooms": 3,
+        "availableRooms": 44,
+        "occupancyRate": 6.4
+      },
+      {
+        "date": "2024-01-07",
+        "totalRooms": 47,
+        "occupiedRooms": 2,
+        "availableRooms": 45,
+        "occupancyRate": 4.3
+      },
+      {
+        "date": "2024-01-08",
+        "totalRooms": 47,
+        "occupiedRooms": 4,
+        "availableRooms": 43,
+        "occupancyRate": 8.5
+      },
+      {
+        "date": "2024-01-09",
+        "totalRooms": 47,
+        "occupiedRooms": 4,
+        "availableRooms": 43,
+        "occupancyRate": 8.5
+      },
+      {
+        "date": "2024-01-10",
+        "totalRooms": 47,
+        "occupiedRooms": 5,
+        "availableRooms": 42,
+        "occupancyRate": 10.6
+      }
+    ],
+    "roomNightDetail": [
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "101",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "108",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "112",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "115",
+        "roomType": "STD",
+        "status": "Occupied",
+        "isOccupied": true
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "118",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "203",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "210",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "220",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "225",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "228",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "230",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "302",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "305",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "308",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "310",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "312",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "315",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "318",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "320",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "322",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "325",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "401",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "405",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "408",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "410",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "412",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "415",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "418",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "420",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "422",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "501",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "502",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "505",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "508",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "510",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "512",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "515",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "518",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "520",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "522",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "525",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "528",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "701",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "702",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "703",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "704",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-01",
+        "roomNumber": "705",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "101",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "108",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "112",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "115",
+        "roomType": "STD",
+        "status": "Occupied",
+        "isOccupied": true
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "118",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "203",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "210",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "220",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "225",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "228",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "230",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "302",
+        "roomType": "DLX",
+        "status": "Occupied",
+        "isOccupied": true
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "305",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "308",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "310",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "312",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "315",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "318",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "320",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "322",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "325",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "401",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "405",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "408",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "410",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "412",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "415",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "418",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "420",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "422",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "501",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "502",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "505",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "508",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "510",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "512",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "515",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "518",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "520",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "522",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "525",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "528",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "701",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "702",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "703",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "704",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-02",
+        "roomNumber": "705",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "101",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "108",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "112",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "115",
+        "roomType": "STD",
+        "status": "Occupied",
+        "isOccupied": true
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "118",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "203",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "210",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "220",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "225",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "228",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "230",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "302",
+        "roomType": "DLX",
+        "status": "Occupied",
+        "isOccupied": true
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "305",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "308",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "310",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "312",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "315",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "318",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "320",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "322",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "325",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "401",
+        "roomType": "JNR",
+        "status": "Occupied",
+        "isOccupied": true
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "405",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "408",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "410",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "412",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "415",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "418",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "420",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "422",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "501",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "502",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "505",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "508",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "510",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "512",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "515",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "518",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "520",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "522",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "525",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "528",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "701",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "702",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "703",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "704",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-03",
+        "roomNumber": "705",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "101",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "108",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "112",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "115",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "118",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "203",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "210",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "220",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "225",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "228",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "230",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "302",
+        "roomType": "DLX",
+        "status": "Occupied",
+        "isOccupied": true
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "305",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "308",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "310",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "312",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "315",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "318",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "320",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "322",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "325",
+        "roomType": "DLX",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "401",
+        "roomType": "JNR",
+        "status": "Occupied",
+        "isOccupied": true
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "405",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "408",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "410",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "412",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "415",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "418",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "420",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "422",
+        "roomType": "JNR",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "501",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "502",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "505",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "508",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "510",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "512",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "515",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "518",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "520",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "522",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "525",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "528",
+        "roomType": "STE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "701",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "702",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "703",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "704",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-04",
+        "roomNumber": "705",
+        "roomType": "PSTE",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-05",
+        "roomNumber": "101",
+        "roomType": "STD",
+        "status": "Occupied",
+        "isOccupied": true
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-05",
+        "roomNumber": "108",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-05",
+        "roomNumber": "112",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-05",
+        "roomNumber": "115",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-05",
+        "roomNumber": "118",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-05",
+        "roomNumber": "203",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-05",
+        "roomNumber": "210",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-05",
+        "roomNumber": "220",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-05",
+        "roomNumber": "225",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-05",
+        "roomNumber": "228",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-05",
+        "roomNumber": "230",
+        "roomType": "STD",
+        "status": "Available",
+        "isOccupied": false
+      },
+      {
+        "hotelId": "SAND01",
+        "date": "2024-01-05",
+        "roomNumber": "302",
+        "roomType": "DLX",
+        "status": "Occupied",
+        "isOccupied": true
+      }
+    ]
+  }
+}
