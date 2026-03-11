@@ -1,0 +1,445 @@
+{
+  "hotel": {
+    "hotelId": "SAND01",
+    "hotelName": "Sandcastle Melbourne",
+    "starRating": 5,
+    "city": "Melbourne",
+    "country": "Australia",
+    "currencyCode": "AUD",
+    "timezone": "Australia/Melbourne",
+    "totalRooms": 47,
+    "floors": 7,
+    "rooms": [
+      {
+        "roomNumber": "101",
+        "roomType": "STD",
+        "roomClass": "Standard",
+        "floor": 1,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 270.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "108",
+        "roomType": "STD",
+        "roomClass": "Standard",
+        "floor": 1,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 270.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "112",
+        "roomType": "STD",
+        "roomClass": "Standard",
+        "floor": 1,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 270.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "115",
+        "roomType": "STD",
+        "roomClass": "Standard",
+        "floor": 1,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 270.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "118",
+        "roomType": "STD",
+        "roomClass": "Standard",
+        "floor": 1,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 270.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "203",
+        "roomType": "STD",
+        "roomClass": "Standard",
+        "floor": 2,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 270.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "210",
+        "roomType": "STD",
+        "roomClass": "Standard",
+        "floor": 2,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 270.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "220",
+        "roomType": "STD",
+        "roomClass": "Standard",
+        "floor": 2,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 270.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "225",
+        "roomType": "STD",
+        "roomClass": "Standard",
+        "floor": 2,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 270.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "228",
+        "roomType": "STD",
+        "roomClass": "Standard",
+        "floor": 2,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 270.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "230",
+        "roomType": "STD",
+        "roomClass": "Standard",
+        "floor": 2,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 270.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "302",
+        "roomType": "DLX",
+        "roomClass": "Standard",
+        "floor": 3,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 350.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "305",
+        "roomType": "DLX",
+        "roomClass": "Standard",
+        "floor": 3,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 350.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "308",
+        "roomType": "DLX",
+        "roomClass": "Standard",
+        "floor": 3,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 350.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "310",
+        "roomType": "DLX",
+        "roomClass": "Standard",
+        "floor": 3,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 350.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "312",
+        "roomType": "DLX",
+        "roomClass": "Standard",
+        "floor": 3,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 350.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "315",
+        "roomType": "DLX",
+        "roomClass": "Standard",
+        "floor": 3,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 350.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "318",
+        "roomType": "DLX",
+        "roomClass": "Standard",
+        "floor": 3,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 350.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "320",
+        "roomType": "DLX",
+        "roomClass": "Standard",
+        "floor": 3,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 350.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "322",
+        "roomType": "DLX",
+        "roomClass": "Standard",
+        "floor": 3,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 350.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "325",
+        "roomType": "DLX",
+        "roomClass": "Standard",
+        "floor": 3,
+        "maxOccupancy": 2,
+        "baseRatePerNight": 350.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "401",
+        "roomType": "JNR",
+        "roomClass": "Junior Suite",
+        "floor": 4,
+        "maxOccupancy": 3,
+        "baseRatePerNight": 400.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "405",
+        "roomType": "JNR",
+        "roomClass": "Junior Suite",
+        "floor": 4,
+        "maxOccupancy": 3,
+        "baseRatePerNight": 400.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "408",
+        "roomType": "JNR",
+        "roomClass": "Junior Suite",
+        "floor": 4,
+        "maxOccupancy": 3,
+        "baseRatePerNight": 400.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "410",
+        "roomType": "JNR",
+        "roomClass": "Junior Suite",
+        "floor": 4,
+        "maxOccupancy": 3,
+        "baseRatePerNight": 400.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "412",
+        "roomType": "JNR",
+        "roomClass": "Junior Suite",
+        "floor": 4,
+        "maxOccupancy": 3,
+        "baseRatePerNight": 400.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "415",
+        "roomType": "JNR",
+        "roomClass": "Junior Suite",
+        "floor": 4,
+        "maxOccupancy": 3,
+        "baseRatePerNight": 400.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "418",
+        "roomType": "JNR",
+        "roomClass": "Junior Suite",
+        "floor": 4,
+        "maxOccupancy": 3,
+        "baseRatePerNight": 400.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "420",
+        "roomType": "JNR",
+        "roomClass": "Junior Suite",
+        "floor": 4,
+        "maxOccupancy": 3,
+        "baseRatePerNight": 400.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "422",
+        "roomType": "JNR",
+        "roomClass": "Junior Suite",
+        "floor": 4,
+        "maxOccupancy": 3,
+        "baseRatePerNight": 400.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "501",
+        "roomType": "STE",
+        "roomClass": "Suite",
+        "floor": 5,
+        "maxOccupancy": 4,
+        "baseRatePerNight": 550.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "502",
+        "roomType": "STE",
+        "roomClass": "Suite",
+        "floor": 5,
+        "maxOccupancy": 4,
+        "baseRatePerNight": 550.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "505",
+        "roomType": "STE",
+        "roomClass": "Suite",
+        "floor": 5,
+        "maxOccupancy": 4,
+        "baseRatePerNight": 550.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "508",
+        "roomType": "STE",
+        "roomClass": "Suite",
+        "floor": 5,
+        "maxOccupancy": 4,
+        "baseRatePerNight": 550.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "510",
+        "roomType": "STE",
+        "roomClass": "Suite",
+        "floor": 5,
+        "maxOccupancy": 4,
+        "baseRatePerNight": 550.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "512",
+        "roomType": "STE",
+        "roomClass": "Suite",
+        "floor": 5,
+        "maxOccupancy": 4,
+        "baseRatePerNight": 550.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "515",
+        "roomType": "STE",
+        "roomClass": "Suite",
+        "floor": 5,
+        "maxOccupancy": 4,
+        "baseRatePerNight": 550.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "518",
+        "roomType": "STE",
+        "roomClass": "Suite",
+        "floor": 5,
+        "maxOccupancy": 4,
+        "baseRatePerNight": 550.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "520",
+        "roomType": "STE",
+        "roomClass": "Suite",
+        "floor": 5,
+        "maxOccupancy": 4,
+        "baseRatePerNight": 550.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "522",
+        "roomType": "STE",
+        "roomClass": "Suite",
+        "floor": 5,
+        "maxOccupancy": 4,
+        "baseRatePerNight": 550.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "525",
+        "roomType": "STE",
+        "roomClass": "Suite",
+        "floor": 5,
+        "maxOccupancy": 4,
+        "baseRatePerNight": 550.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "528",
+        "roomType": "STE",
+        "roomClass": "Suite",
+        "floor": 5,
+        "maxOccupancy": 4,
+        "baseRatePerNight": 550.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "701",
+        "roomType": "PSTE",
+        "roomClass": "Presidential",
+        "floor": 7,
+        "maxOccupancy": 6,
+        "baseRatePerNight": 860.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "702",
+        "roomType": "PSTE",
+        "roomClass": "Presidential",
+        "floor": 7,
+        "maxOccupancy": 6,
+        "baseRatePerNight": 860.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "703",
+        "roomType": "PSTE",
+        "roomClass": "Presidential",
+        "floor": 7,
+        "maxOccupancy": 6,
+        "baseRatePerNight": 860.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "704",
+        "roomType": "PSTE",
+        "roomClass": "Presidential",
+        "floor": 7,
+        "maxOccupancy": 6,
+        "baseRatePerNight": 860.0,
+        "isActive": true
+      },
+      {
+        "roomNumber": "705",
+        "roomType": "PSTE",
+        "roomClass": "Presidential",
+        "floor": 7,
+        "maxOccupancy": 6,
+        "baseRatePerNight": 860.0,
+        "isActive": true
+      }
+    ],
+    "roomTypeSummary": [
+      { "roomType": "STD", "roomClass": "Standard", "count": 11, "baseRatePerNight": 270.0 },
+      { "roomType": "DLX", "roomClass": "Standard", "count": 10, "baseRatePerNight": 350.0 },
+      { "roomType": "JNR", "roomClass": "Junior Suite", "count": 9, "baseRatePerNight": 400.0 },
+      { "roomType": "STE", "roomClass": "Suite", "count": 12, "baseRatePerNight": 550.0 },
+      { "roomType": "PSTE", "roomClass": "Presidential", "count": 5, "baseRatePerNight": 860.0 }
+    ]
+  }
+}
