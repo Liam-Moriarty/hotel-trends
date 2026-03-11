@@ -19,17 +19,9 @@
     "changeset": "changeset",
     "version": "changeset version",
     "release": "changeset publish",
-    "precheck": "pnpm lint && pnpm typecheck && pnpm build && pnpm test"
-  },
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./schemas": {
-      "types": "./dist/schemas/index.d.ts",
-      "import": "./dist/schemas/index.js"
-    }
+    "precheck": "pnpm lint && pnpm typecheck && pnpm build && pnpm test",
+    "seed": "tsx scripts/seed-firestore.ts",
+    "seed:dev": "tsx scripts/seed-firestore.ts --env dev"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
@@ -41,6 +33,7 @@
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "syncpack": "^13.0.0",
+    "tsx": "^4.21.0",
     "turbo": "^2.7.5"
   },
   "packageManager": "pnpm@8.15.6",
@@ -55,5 +48,9 @@
     "*.{json,md,yaml,yml}": [
       "prettier --write"
     ]
+  },
+  "dependencies": {
+    "firebase-admin": "^12.0.0",
+    "zod": "^3.23.8"
   }
 }
