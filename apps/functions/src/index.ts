@@ -67,6 +67,6 @@ export const embed_on_snapshot = onDocumentCreated(
 export const nightly_embed = onSchedule(
   { schedule: '0 2 * * *', timeZone: 'Australia/Melbourne' },
   async () => {
-    await indexHotelData('PILOT_HOTEL_ID')
+    await indexHotelData('SAND01')
   }
 )

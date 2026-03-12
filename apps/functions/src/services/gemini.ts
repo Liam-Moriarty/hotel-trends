@@ -5,8 +5,8 @@ import { VertexAI } from '@google-cloud/vertexai'
 // Gemini and returns a natural language answer
 
 const vertexai = new VertexAI({
-  project: 'hotel-health-dev',
-  location: 'asia-southeast1',
+  project: 'hotel-trends-stage',
+  location: 'us-central1',
 })
 
 export async function askGemini(
@@ -14,7 +14,7 @@ export async function askGemini(
   question: string
 ): Promise<string> {
   const model = vertexai.getGenerativeModel({
-    model: 'gemini-1.5-flash',
+    model: 'gemini-2.0-flash-001',
     generationConfig: { maxOutputTokens: 512 },
   })
 

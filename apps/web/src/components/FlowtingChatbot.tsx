@@ -13,7 +13,7 @@ export const FlowtingChatbot = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'bot', text: 'Hello! Ask me anything about your hotel data or insights.' },
+    { role: 'bot', text: 'What is our occupancy tonight?' },
   ])
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -39,7 +39,7 @@ export const FlowtingChatbot = () => {
 
     try {
       const response = await askMutation.mutateAsync({
-        hotelId: 'PILOT_HOTEL_ID', // Hardcoded for Pilot Phase
+        hotelId: 'SAND01', // Hardcoded for Pilot Phase
         question: userMessage,
       })
 
