@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { MessageCircle, X, Send, User, Bot, Loader2 } from 'lucide-react'
+import { MessageCircle, X, Send, User, Bot, Loader2, RotateCcw } from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { trpc } from '@/lib/trpc'
@@ -14,9 +14,16 @@ interface Message {
 export const FlowtingChatbot = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [input, setInput] = useState('')
-  const [messages, setMessages] = useState<Message[]>([
-    { role: 'bot', text: 'What is our occupancy tonight?' },
-  ])
+  const [messages, setMessages] = useState<Message[]>(() => {
+    const saved = localStorage.getItem('chat_history')
+    return saved
+      ? JSON.parse(saved)
+      : [{ role: 'bot', text: 'Hello! I am your AI assistant. How can I help you today?' }]
+  })
+
+  useEffect(() => {
+    localStorage.setItem('chat_history', JSON.stringify(messages))
+  }, [messages])
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
@@ -35,13 +42,20 @@ export const FlowtingChatbot = () => {
     if (!input.trim()) return
 
     const userMessage = input.trim()
+    const currentMessages = [...messages]
     setInput('')
     setMessages(prev => [...prev, { role: 'user', text: userMessage }])
+
+    const history = currentMessages.map(msg => ({
+      role: (msg.role === 'user' ? 'user' : 'model') as 'user' | 'model',
+      parts: [{ text: msg.text }],
+    }))
 
     try {
       const response = await askMutation.mutateAsync({
         hotelId: 'SAND01',
         question: userMessage,
+        history,
       })
 
       setMessages(prev => [...prev, { role: 'bot', text: response.answer }])
@@ -50,6 +64,16 @@ export const FlowtingChatbot = () => {
         ...prev,
         { role: 'bot', text: 'Sorry, I encountered an error connecting to the AI.' },
       ])
+    }
+  }
+
+  const handleReset = () => {
+    if (confirm('Are you sure you want to clear the chat history?')) {
+      const initialMessage: Message[] = [
+        { role: 'bot', text: 'Hello! I am your AI assistant. How can I help you today?' },
+      ]
+      setMessages(initialMessage)
+      localStorage.removeItem('chat_history')
     }
   }
 
@@ -62,14 +86,25 @@ export const FlowtingChatbot = () => {
               <Bot size={18} />
               AI Assistant
             </CardTitle>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-primary-foreground hover:bg-primary/90 h-8 w-8"
-              onClick={() => setIsOpen(false)}
-            >
-              <X size={18} />
-            </Button>
+            <div className="flex items-center gap-1">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-primary-foreground hover:bg-primary/90 h-8 w-8"
+                onClick={handleReset}
+                title="Reset Chat"
+              >
+                <RotateCcw size={16} />
+              </Button>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-primary-foreground hover:bg-primary/90 h-8 w-8"
+                onClick={() => setIsOpen(false)}
+              >
+                <X size={18} />
+              </Button>
+            </div>
           </CardHeader>
 
           <CardContent className="flex-1 overflow-y-auto p-4 space-y-4 max-h-[400px] min-h-[300px] bg-muted/20">

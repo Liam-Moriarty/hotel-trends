@@ -1,5 +1,6 @@
-import { VertexAI, SchemaType } from '@google-cloud/vertexai'
+import { VertexAI, SchemaType, Content } from '@google-cloud/vertexai'
 import { runBigQuery, BQ_SCHEMA_HINT } from './bigquery.js'
+import { ChatMessage } from '@repo/shared'
 
 // The Gemini Answer Service
 // Uses function calling so Gemini can query BigQuery for structured data
@@ -34,21 +35,12 @@ const bqTool = {
 
 export async function askGemini(
   contextDocs: Record<string, unknown>[],
-  question: string
+  question: string,
+  history: ChatMessage[] = []
 ): Promise<string> {
-  const model = vertexai.getGenerativeModel({
-    model: 'gemini-2.0-flash-001',
-    generationConfig: { maxOutputTokens: 1024 },
-    tools: [bqTool],
-  })
-
-  const context = contextDocs
-    .map((d, i) => `Document ${i + 1}:\n${JSON.stringify(d, null, 2)}`)
-    .join('\n\n')
-
-  const systemPrompt = `You are an AI assistant for a hotel management platform called Hytel.
+  const systemInstruction = `You are an AI assistant for a hotel management platform called Hytel.
 You have two sources of information:
-1. CONTEXT DOCUMENTS below (qualitative data: sentiment, alerts, performance snapshots)
+1. CONTEXT DOCUMENTS provided with each question (qualitative data: sentiment, alerts, performance snapshots)
 2. A BigQuery tool to query structured data (reservations, revenue, occupancy, rate plans, rooms)
 
 Use context documents for questions about guest sentiment, alerts, and performance summaries.
@@ -62,15 +54,32 @@ Format your responses using markdown:
 - Use **bold** for key metrics or important values
 - Keep responses concise but complete
 
-${BQ_SCHEMA_HINT}
+${BQ_SCHEMA_HINT}`
 
-CONTEXT DOCUMENTS:
+  const model = vertexai.getGenerativeModel({
+    model: 'gemini-2.0-flash-001',
+    generationConfig: { maxOutputTokens: 1024 },
+    tools: [bqTool],
+    systemInstruction: {
+      role: 'system',
+      parts: [{ text: systemInstruction }],
+    },
+  })
+
+  const context = contextDocs
+    .map((d, i) => `Document ${i + 1}:\n${JSON.stringify(d, null, 2)}`)
+    .join('\n\n')
+
+  const userPrompt = `CONTEXT DOCUMENTS:
 ${context || 'No context documents available.'}
 
 QUESTION: ${question}`
 
-  const chat = model.startChat({ tools: [bqTool] })
-  let result = await chat.sendMessage(systemPrompt)
+  const chat = model.startChat({
+    tools: [bqTool],
+    history: history as Content[],
+  })
+  let result = await chat.sendMessage(userPrompt)
 
   // Agentic loop: Gemini may call BigQuery one or more times before answering
   for (let i = 0; i < 3; i++) {
