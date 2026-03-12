@@ -4,6 +4,7 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/componen
 import { Button } from '@/components/ui/button'
 import { trpc } from '@/lib/trpc'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 interface Message {
   role: 'user' | 'bot'
@@ -19,7 +20,6 @@ export const FlowtingChatbot = () => {
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
-  // Connect to our backend ragQuery via tRPC!
   const askMutation = trpc.dashboard.ask.useMutation()
 
   const scrollToBottom = () => {
@@ -40,7 +40,7 @@ export const FlowtingChatbot = () => {
 
     try {
       const response = await askMutation.mutateAsync({
-        hotelId: 'SAND01', // Hardcoded for Pilot Phase
+        hotelId: 'SAND01',
         question: userMessage,
       })
 
@@ -90,7 +90,51 @@ export const FlowtingChatbot = () => {
                       : 'bg-muted text-foreground'
                   }`}
                 >
-                  {msg.role === 'bot' ? <ReactMarkdown>{msg.text}</ReactMarkdown> : msg.text}
+                  {msg.role === 'bot' ? (
+                    <ReactMarkdown
+                      remarkPlugins={[remarkGfm]}
+                      components={{
+                        table: ({ children }) => (
+                          <div className="overflow-x-auto my-2">
+                            <table className="w-full text-xs border-collapse">{children}</table>
+                          </div>
+                        ),
+                        thead: ({ children }) => (
+                          <thead className="bg-primary/10">{children}</thead>
+                        ),
+                        th: ({ children }) => (
+                          <th className="px-2 py-1 text-left font-semibold border border-border/50 whitespace-nowrap">
+                            {children}
+                          </th>
+                        ),
+                        td: ({ children }) => (
+                          <td className="px-2 py-1 border border-border/50 whitespace-nowrap">
+                            {children}
+                          </td>
+                        ),
+                        tr: ({ children }) => <tr className="even:bg-muted/50">{children}</tr>,
+                        p: ({ children }) => <p className="mb-1 last:mb-0">{children}</p>,
+                        ul: ({ children }) => (
+                          <ul className="list-disc pl-4 mb-1 space-y-0.5">{children}</ul>
+                        ),
+                        ol: ({ children }) => (
+                          <ol className="list-decimal pl-4 mb-1 space-y-0.5">{children}</ol>
+                        ),
+                        strong: ({ children }) => (
+                          <strong className="font-semibold">{children}</strong>
+                        ),
+                        code: ({ children }) => (
+                          <code className="bg-background/50 rounded px-1 py-0.5 text-xs font-mono">
+                            {children}
+                          </code>
+                        ),
+                      }}
+                    >
+                      {msg.text}
+                    </ReactMarkdown>
+                  ) : (
+                    msg.text
+                  )}
                 </div>
                 {msg.role === 'user' && (
                   <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
@@ -132,7 +176,6 @@ export const FlowtingChatbot = () => {
         </Card>
       )}
 
-      {/* Floating Toggle Button */}
       <Button
         onClick={() => setIsOpen(!isOpen)}
         className="h-14 w-14 rounded-full shadow-xl bg-primary hover:bg-primary/90 transition-transform hover:scale-105"
