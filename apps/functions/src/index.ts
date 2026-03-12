@@ -3,6 +3,11 @@ import { nodeHTTPRequestHandler } from '@trpc/server/adapters/node-http'
 import { appRouter } from './trpc/router.js'
 import { initializeApp } from 'firebase-admin/app'
 
+import { onDocumentCreated } from 'firebase-functions/v2/firestore'
+import { onSchedule } from 'firebase-functions/v2/scheduler'
+import { embedText } from './services/vertexai'
+import { indexHotelData } from './services/indexAll'
+
 // Initialize Firebase Admin
 initializeApp()
 
@@ -14,7 +19,7 @@ export { appRouter, type AppRouter } from './trpc/router.js'
  */
 export const api = onRequest(
   {
-    region: 'australia-southeast1', // Updated for Melbourne pilot project
+    region: 'asia-southeast1',
     cors: true, // Enable CORS for easier development/access
   },
   async (req, res) => {
@@ -32,5 +37,29 @@ export const api = onRequest(
         .replace(/^\/trpc/, '')
         .substring(1),
     })
+  }
+)
+
+// auto-embed whenever a new snapshot is written
+export const embed_on_snapshot = onDocumentCreated(
+  'hotels/{hotelId}/snapshots/{date}',
+  async event => {
+    const data = event.data?.data()
+    if (!data) return
+
+    const text =
+      `Snapshot ${data.date}: occupancy ${data.occupancy}%, ` +
+      `RevPAR $${data.revpar}, health score ${data.healthScore}.`
+
+    const embedding = await embedText(text)
+    await event.data!.ref.update({ embedding })
+  }
+)
+
+// nightly catch-all for any docs missing embeddings
+export const nightly_embed = onSchedule(
+  { schedule: '0 2 * * *', timeZone: 'Australia/Melbourne' },
+  async () => {
+    await indexHotelData('PILOT_HOTEL_ID')
   }
 )
