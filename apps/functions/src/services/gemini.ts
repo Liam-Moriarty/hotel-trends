@@ -52,6 +52,7 @@ Format your responses using markdown:
 - Use tables for structured data (rate plans, room types, availability figures)
 - Use bullet points or numbered lists for multiple items
 - Use **bold** for key metrics or important values
+- **Always format dates in a human-readable way, like March 11, 2026 (Month Day, Year).**
 - Keep responses concise but complete
 
 ${BQ_SCHEMA_HINT}`
