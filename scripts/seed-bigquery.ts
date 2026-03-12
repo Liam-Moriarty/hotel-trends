@@ -82,6 +82,31 @@ const SCHEMAS = {
     { name: 'baseRatePerNight', type: 'FLOAT' },
     { name: 'isActive', type: 'BOOLEAN' },
   ],
+  snapshots: [
+    { name: 'hotelId', type: 'STRING' },
+    { name: 'date', type: 'DATE' },
+    { name: 'occupancy', type: 'INTEGER' },
+    { name: 'revpar', type: 'FLOAT' },
+    { name: 'adr', type: 'FLOAT' },
+    { name: 'healthScore', type: 'INTEGER' },
+  ],
+  alerts: [
+    { name: 'hotelId', type: 'STRING' },
+    { name: 'alertId', type: 'STRING' },
+    { name: 'createdAt', type: 'TIMESTAMP' },
+    { name: 'title', type: 'STRING' },
+    { name: 'description', type: 'STRING' },
+    { name: 'severity', type: 'STRING' },
+    { name: 'resolved', type: 'BOOLEAN' },
+  ],
+  sentiment: [
+    { name: 'hotelId', type: 'STRING' },
+    { name: 'sentimentId', type: 'STRING' },
+    { name: 'source', type: 'STRING' },
+    { name: 'date', type: 'DATE' },
+    { name: 'score', type: 'INTEGER' },
+    { name: 'reviewText', type: 'STRING' },
+  ],
 }
 
 // ---------------------------------------------------------------------------
@@ -251,6 +276,44 @@ function transformRooms(): Record<string, unknown>[] {
   }))
 }
 
+function transformSnapshots(): Record<string, unknown>[] {
+  const raw = loadJson('rag-snapshots.json') as Array<{
+    date: string
+    occupancy: number
+    revpar: number
+    adr: number
+    healthScore: number
+  }>
+  return raw.map(s => ({ hotelId: HOTEL_ID, ...s }))
+}
+
+function transformAlerts(): Record<string, unknown>[] {
+  const raw = loadJson('rag-alerts.json') as Array<{
+    alertId: string
+    createdAt: string
+    title: string
+    description: string
+    severity: string
+    resolved: boolean
+  }>
+  return raw.map(a => ({
+    hotelId: HOTEL_ID,
+    ...a,
+    createdAt: new Date(a.createdAt).toISOString().replace('T', ' ').replace('Z', ''),
+  }))
+}
+
+function transformSentiment(): Record<string, unknown>[] {
+  const raw = loadJson('rag-sentiment.json') as Array<{
+    sentimentId: string
+    source: string
+    date: string
+    score: number
+    reviewText: string
+  }>
+  return raw.map(s => ({ hotelId: HOTEL_ID, ...s }))
+}
+
 // ---------------------------------------------------------------------------
 // BigQuery helpers
 // ---------------------------------------------------------------------------
@@ -309,6 +372,15 @@ async function main(): Promise<void> {
 
     console.log('\n🛏️  Loading rooms...')
     await loadTable('rooms', transformRooms())
+
+    console.log('\n📊 Loading snapshots...')
+    await loadTable('snapshots', transformSnapshots())
+
+    console.log('\n🚨 Loading alerts...')
+    await loadTable('alerts', transformAlerts())
+
+    console.log('\n⭐ Loading sentiment...')
+    await loadTable('sentiment', transformSentiment())
 
     console.log('\n╔══════════════════════════════════════════════╗')
     console.log('║       ✅ BigQuery seed complete!             ║')

@@ -9,7 +9,7 @@ import { ChatMessage } from '@repo/shared'
 
 const vertexai = new VertexAI({
   project: 'hotel-trends-stage',
-  location: 'asia-southeast1',
+  location: 'us-central1',
 })
 
 // Tool definition: lets Gemini call BigQuery when it needs structured data

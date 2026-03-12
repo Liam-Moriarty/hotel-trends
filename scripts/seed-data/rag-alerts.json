@@ -1,0 +1,42 @@
+[
+  {
+    "alertId": "ALT001",
+    "createdAt": "2026-03-10T08:15:00Z",
+    "title": "High no-show rate detected",
+    "description": "No-show rate reached 8% on 2026-03-09, significantly above the 3% threshold. Revenue impact estimated at AUD $1,800. Review overbooking strategy.",
+    "severity": "high",
+    "resolved": false
+  },
+  {
+    "alertId": "ALT002",
+    "createdAt": "2026-03-09T14:30:00Z",
+    "title": "Weekend occupancy forecast above 95%",
+    "description": "Forecast models predict 96% occupancy for the upcoming weekend (2026-03-14 to 2026-03-16). Consider selective rate uplift on remaining inventory.",
+    "severity": "info",
+    "resolved": false
+  },
+  {
+    "alertId": "ALT003",
+    "createdAt": "2026-03-08T09:00:00Z",
+    "title": "OTA commission cost spike",
+    "description": "Booking.com channel commissions increased 12% MoM. Direct booking share has dropped to 31%. Recommend activating loyalty rate promotion.",
+    "severity": "medium",
+    "resolved": false
+  },
+  {
+    "alertId": "ALT004",
+    "createdAt": "2026-03-07T11:45:00Z",
+    "title": "Housekeeping delay — Floor 4",
+    "description": "Rooms 401–412 flagged late checkout. 6 rooms not ready by 3 PM check-in window. Guest complaints logged for rooms 405 and 409.",
+    "severity": "medium",
+    "resolved": true
+  },
+  {
+    "alertId": "ALT005",
+    "createdAt": "2026-03-06T16:00:00Z",
+    "title": "RevPAR below budget target",
+    "description": "RevPAR for the week of 2026-03-03 came in at $185.5 vs budget of $195.0 (-5.1%). Midweek leisure demand underperforming expectations.",
+    "severity": "medium",
+    "resolved": false
+  }
+]

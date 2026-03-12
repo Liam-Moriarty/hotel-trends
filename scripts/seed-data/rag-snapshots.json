@@ -1,0 +1,86 @@
+[
+  {
+    "date": "2026-03-01",
+    "occupancy": 82,
+    "revpar": 185.5,
+    "adr": 226.2,
+    "healthScore": 88
+  },
+  {
+    "date": "2026-03-02",
+    "occupancy": 79,
+    "revpar": 178.2,
+    "adr": 225.6,
+    "healthScore": 85
+  },
+  {
+    "date": "2026-03-03",
+    "occupancy": 91,
+    "revpar": 205.3,
+    "adr": 225.6,
+    "healthScore": 94
+  },
+  {
+    "date": "2026-03-04",
+    "occupancy": 95,
+    "revpar": 214.2,
+    "adr": 225.5,
+    "healthScore": 97
+  },
+  {
+    "date": "2026-03-05",
+    "occupancy": 88,
+    "revpar": 198.6,
+    "adr": 225.7,
+    "healthScore": 91
+  },
+  {
+    "date": "2026-03-06",
+    "occupancy": 74,
+    "revpar": 166.9,
+    "adr": 225.5,
+    "healthScore": 79
+  },
+  {
+    "date": "2026-03-07",
+    "occupancy": 70,
+    "revpar": 157.9,
+    "adr": 225.6,
+    "healthScore": 75
+  },
+  {
+    "date": "2026-03-08",
+    "occupancy": 83,
+    "revpar": 187.2,
+    "adr": 225.5,
+    "healthScore": 89
+  },
+  {
+    "date": "2026-03-09",
+    "occupancy": 86,
+    "revpar": 194.0,
+    "adr": 225.6,
+    "healthScore": 92
+  },
+  {
+    "date": "2026-03-10",
+    "occupancy": 93,
+    "revpar": 209.8,
+    "adr": 225.6,
+    "healthScore": 96
+  },
+  {
+    "date": "2026-03-11",
+    "occupancy": 97,
+    "revpar": 218.8,
+    "adr": 225.6,
+    "healthScore": 98
+  },
+  {
+    "date": "2026-03-12",
+    "occupancy": 90,
+    "revpar": 203.0,
+    "adr": 225.6,
+    "healthScore": 93
+  }
+]
