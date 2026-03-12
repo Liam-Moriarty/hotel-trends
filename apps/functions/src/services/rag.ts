@@ -2,6 +2,10 @@ import { embedText } from './vertexai'
 import { findSimilarDocs } from './vectorSearch'
 import { askGemini } from './gemini'
 
+// The RAG Orchestrator
+// This service ties everything together.
+// It embeds the question, searches Firestore, and calls Gemini:
+
 export async function ragQuery(
   hotelId: string,
   question: string

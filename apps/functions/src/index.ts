@@ -40,6 +40,10 @@ export const api = onRequest(
   }
 )
 
+// Expose as a tRPC Procedure
+// Wire the ragQuery service into the dashboard tRPC
+// router so the frontend can call it
+
 // auto-embed whenever a new snapshot is written
 export const embed_on_snapshot = onDocumentCreated(
   'hotels/{hotelId}/snapshots/{date}',

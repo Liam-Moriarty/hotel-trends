@@ -1,6 +1,9 @@
 import { PredictionServiceClient } from '@google-cloud/aiplatform'
 import { helpers } from '@google-cloud/aiplatform'
 
+// Embedding Service
+// This helper converts any text string into a 768-dimension vector using Vertex AI
+
 const PROJECT = 'hotel-trends-stage'
 const LOCATION = 'asia-southeast1'
 const MODEL = 'text-embedding-004'

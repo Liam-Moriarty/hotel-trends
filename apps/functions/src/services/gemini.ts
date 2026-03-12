@@ -1,5 +1,8 @@
 import { VertexAI } from '@google-cloud/vertexai'
 
+// The Gemini Answer Service
+// This helper sends the retrieved documents plus the question to Gemini and returns a natural language answer
+
 const vertexai = new VertexAI({
   project: 'hotel-health-dev',
   location: 'asia-southeast1',

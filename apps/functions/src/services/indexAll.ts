@@ -1,5 +1,8 @@
 import { indexCollection } from './indexing'
 
+// Call the Indexing Function for Each Collection
+// Create a top-level indexing entry point that indexes all relevant collections:
+
 export async function indexHotelData(hotelId: string) {
   await indexCollection(
     hotelId,

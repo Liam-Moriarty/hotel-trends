@@ -2,6 +2,10 @@ import { getFirestore } from 'firebase-admin/firestore'
 import { embedText } from './vertexai'
 import { FieldValue } from 'firebase-admin/firestore'
 
+// Indexing Function
+// This function reads Firestore documents that do not yet have an embedding field,
+// generates the embedding, and writes it back.
+
 export async function indexCollection(
   hotelId: string,
   collectionName: string,
