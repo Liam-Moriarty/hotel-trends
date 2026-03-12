@@ -1,6 +1,6 @@
-import { embedText } from './vertexai'
-import { findSimilarDocs } from './vectorSearch'
-import { askGemini } from './gemini'
+import { embedText } from './vertexai.js'
+import { findSimilarDocs } from './vectorSearch.js'
+import { askGemini } from './gemini.js'
 
 // The RAG Orchestrator
 // This service ties everything together.

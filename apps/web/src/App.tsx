@@ -4,6 +4,7 @@ import AppLayout from './layouts/AppLayout'
 import { AuthUser } from './interface'
 import { AuthContext } from './providers/AuthProvider'
 import { ThemeProvider } from './providers/ThemeProvider'
+import { QueryProvider } from './providers/QueryProvider'
 
 // Pages...
 import LoginPage from './pages/auth/LoginPage'
@@ -42,32 +43,36 @@ const App = () => {
 
   if (!user)
     return (
-      <ThemeProvider>
-        <LoginPage onLogin={handleLogin} />
-      </ThemeProvider>
+      <QueryProvider>
+        <ThemeProvider>
+          <LoginPage onLogin={handleLogin} />
+        </ThemeProvider>
+      </QueryProvider>
     )
 
   return (
-    <ThemeProvider>
-      <AuthContext.Provider value={{ user, logout }}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<AppLayout />}>
-              <Route index element={<DashboardPage />} />
-              <Route path="revenue" element={<RevenuePage />} />
-              <Route path="ai" element={<AiPage />} />
-              <Route path="guest" element={<GuestPage />} />
-              <Route path="operations" element={<OperationPage />} />
-              <Route path="marketing" element={<MarketingPage />} />
-              <Route path="external" element={<ExternalPage />} />
-              <Route path="data" element={<DataPage />} />
-              <Route path="admin" element={<AdminPage />} />
-              <Route path="*" element={<NotFoundPage />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
-      </AuthContext.Provider>
-    </ThemeProvider>
+    <QueryProvider>
+      <ThemeProvider>
+        <AuthContext.Provider value={{ user, logout }}>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<AppLayout />}>
+                <Route index element={<DashboardPage />} />
+                <Route path="revenue" element={<RevenuePage />} />
+                <Route path="ai" element={<AiPage />} />
+                <Route path="guest" element={<GuestPage />} />
+                <Route path="operations" element={<OperationPage />} />
+                <Route path="marketing" element={<MarketingPage />} />
+                <Route path="external" element={<ExternalPage />} />
+                <Route path="data" element={<DataPage />} />
+                <Route path="admin" element={<AdminPage />} />
+                <Route path="*" element={<NotFoundPage />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </AuthContext.Provider>
+      </ThemeProvider>
+    </QueryProvider>
   )
 }
 

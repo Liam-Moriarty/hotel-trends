@@ -5,8 +5,8 @@ import { initializeApp } from 'firebase-admin/app'
 
 import { onDocumentCreated } from 'firebase-functions/v2/firestore'
 import { onSchedule } from 'firebase-functions/v2/scheduler'
-import { embedText } from './services/vertexai'
-import { indexHotelData } from './services/indexAll'
+import { embedText } from './services/vertexai.js'
+import { indexHotelData } from './services/indexAll.js'
 
 // Initialize Firebase Admin
 initializeApp()
@@ -23,15 +23,18 @@ export const api = onRequest(
     cors: true, // Enable CORS for easier development/access
   },
   async (req, res) => {
-    // tRPC expects the path without the '/api' prefix if rewritten
-    // but the nodeHTTPRequestHandler handles the URL parsing from req.url
     return nodeHTTPRequestHandler({
       req,
       res,
       router: appRouter,
-      createContext: () => ({}),
-      // This is crucial: since firebase hosting rewrites /api/trpc to the 'api' function,
-      // the function sees /trpc/... as the path
+      createContext: () => {
+        // Extract userId from the Authorization header.
+        // Production: verify a real Firebase ID token via admin.auth().verifyIdToken()
+        // Local dev: the web client sends 'Bearer {userEmail}' as a stand-in
+        const authHeader = req.headers['authorization'] ?? ''
+        const token = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : undefined
+        return { userId: token || undefined }
+      },
       path: req.path
         .replace(/^\/api/, '')
         .replace(/^\/trpc/, '')

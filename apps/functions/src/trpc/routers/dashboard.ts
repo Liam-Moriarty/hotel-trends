@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { router, protectedProcedure } from '../trpc'
-import { ragQuery } from '../../services/rag'
+import { router, protectedProcedure } from '../trpc.js'
+import { ragQuery } from '../../services/rag.js'
 
 export const dashboardRouter = router({
   ask: protectedProcedure

@@ -10,6 +10,18 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  server: {
+    proxy: {
+      // Firebase Functions emulator uses the format:
+      // http://127.0.0.1:5001/{projectId}/{region}/{functionName}/{path}
+      // So /api/trpc/... → /hotel-trends-stage/asia-southeast1/api/trpc/...
+      '/api': {
+        target: 'http://127.0.0.1:5001',
+        changeOrigin: true,
+        rewrite: path => `/hotel-trends-stage/asia-southeast1${path}`,
+      },
+    },
+  },
   test: {
     environment: 'jsdom',
     globals: true,

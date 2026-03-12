@@ -1,8 +1,8 @@
 import { router } from './trpc.js'
-import { userRouter } from './routers/user.js'
+import { dashboardRouter } from './routers/dashboard.js'
 
 export const appRouter = router({
-  user: userRouter,
+  dashboard: dashboardRouter,
 })
 
 export type AppRouter = typeof appRouter

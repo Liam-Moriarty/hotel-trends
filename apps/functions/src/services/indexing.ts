@@ -1,5 +1,5 @@
 import { getFirestore } from 'firebase-admin/firestore'
-import { embedText } from './vertexai'
+import { embedText } from './vertexai.js'
 import { FieldValue } from 'firebase-admin/firestore'
 
 // Indexing Function
