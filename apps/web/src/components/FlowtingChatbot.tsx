@@ -3,6 +3,7 @@ import { MessageCircle, X, Send, User, Bot, Loader2 } from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { trpc } from '@/lib/trpc'
+import ReactMarkdown from 'react-markdown'
 
 interface Message {
   role: 'user' | 'bot'
@@ -89,7 +90,7 @@ export const FlowtingChatbot = () => {
                       : 'bg-muted text-foreground'
                   }`}
                 >
-                  {msg.text}
+                  {msg.role === 'bot' ? <ReactMarkdown>{msg.text}</ReactMarkdown> : msg.text}
                 </div>
                 {msg.role === 'user' && (
                   <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">

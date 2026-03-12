@@ -21,7 +21,11 @@
     "release": "changeset publish",
     "precheck": "pnpm lint && pnpm typecheck && pnpm build && pnpm test",
     "seed": "tsx scripts/seed-firestore.ts",
-    "seed:dev": "tsx scripts/seed-firestore.ts --env dev"
+    "seed:dev": "tsx scripts/seed-firestore.ts --env dev",
+    "seed:rag": "tsx scripts/seed-rag-data.ts",
+    "seed:rag:dev": "tsx scripts/seed-rag-data.ts --env dev",
+    "index:rag": "tsx scripts/run-index.ts",
+    "index:rag:dev": "tsx scripts/run-index.ts --env dev"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",

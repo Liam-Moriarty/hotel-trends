@@ -27,5 +27,11 @@ export async function findSimilarDocs(
     })
     .get()
 
-  return snap.docs.map(d => d.data())
+  return snap.docs.map(d => {
+    const { embedding, embeddedAt, seededAt, ...rest } = d.data()
+    void embedding
+    void embeddedAt
+    void seededAt
+    return rest
+  })
 }

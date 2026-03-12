@@ -14,8 +14,7 @@ export async function indexCollection(
   const db = getFirestore()
   const ref = db.collection('hotels').doc(hotelId).collection(collectionName)
 
-  // only process docs that haven't been embedded yet
-  const snap = await ref.where('embedding', '==', null).limit(500).get()
+  const snap = await ref.limit(500).get()
 
   console.log(`Embedding ${snap.size} docs in ${collectionName}`)
 
@@ -26,7 +25,7 @@ export async function indexCollection(
     const embedding = await embedText(text)
 
     batch.update(doc.ref, {
-      embedding,
+      embedding: FieldValue.vector(embedding),
       embeddedAt: FieldValue.serverTimestamp(),
     })
   }
