@@ -1,0 +1,107 @@
+# Adess PR Review — sends PR diff to Adess backend for AI review.
+# Payload schema is fixed by the backend; do not add extra properties (e.g. model) or ingest returns 400.
+name: Adess PR Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  adess-review:
+    name: Adess Code Review
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    # Only run if Adess is enabled for this repo
+    if: ${{ vars.ADESS_ENABLED == 'true' }}
+
+    steps:
+      - name: Checkout PR code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Full history needed for diff
+
+      - name: Generate diff
+        id: diff
+        run: |
+          # Get the merge-base between PR head and base
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+
+          # Generate unified diff (cap at 100KB to avoid payload limits)
+          DIFF=$(git diff "$BASE_SHA" "$HEAD_SHA" | head -c 100000)
+
+          # Get changed files list
+          CHANGED_FILES=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" | jq -R . | jq -s .)
+
+          # Generate a unique run ID
+          RUN_ID="gha-${{ github.run_id }}-${{ github.run_attempt }}"
+
+          # Write outputs to files to handle multi-line content
+          echo "$DIFF" > /tmp/adess_diff.txt
+          echo "$CHANGED_FILES" > /tmp/adess_files.json
+          echo "run_id=$RUN_ID" >> "$GITHUB_OUTPUT"
+          echo "base_sha=$BASE_SHA" >> "$GITHUB_OUTPUT"
+          echo "head_sha=$HEAD_SHA" >> "$GITHUB_OUTPUT"
+
+      - name: Send to Adess backend
+        env:
+          # ── Required GitHub repo config ──
+          # Variable: ADESS_BACKEND_URL  — Cloud Run base URL, e.g. https://api-lwcm4mbm6q-uc.a.run.app/api/v1
+          # Secret:  ADESS_INGEST_SECRET — shared HMAC key (same value set in backend env)
+          ADESS_BACKEND_URL: ${{ vars.ADESS_BACKEND_URL }}
+          ADESS_INGEST_SECRET: ${{ secrets.ADESS_INGEST_SECRET }}
+        run: |
+          # Build the JSON payload
+          DIFF_CONTENT=$(cat /tmp/adess_diff.txt | jq -Rs .)
+          CHANGED_FILES=$(cat /tmp/adess_files.json)
+          REPO_ID="${{ github.repository }}"
+          PR_NUMBER="${{ github.event.pull_request.number }}"
+          ACTOR="${{ github.actor }}"
+          RUN_ID="${{ steps.diff.outputs.run_id }}"
+          BASE_SHA="${{ steps.diff.outputs.base_sha }}"
+          HEAD_SHA="${{ steps.diff.outputs.head_sha }}"
+
+          PAYLOAD=$(jq -n \
+            --arg repoId "$REPO_ID" \
+            --argjson prNumber "$PR_NUMBER" \
+            --arg headSha "$HEAD_SHA" \
+            --arg baseSha "$BASE_SHA" \
+            --arg actor "$ACTOR" \
+            --arg reviewMode "inline" \
+            --argjson diff "$DIFF_CONTENT" \
+            --argjson changedFiles "$CHANGED_FILES" \
+            --arg runId "$RUN_ID" \
+            '{
+              repoId: $repoId,
+              prNumber: $prNumber,
+              headSha: $headSha,
+              baseSha: $baseSha,
+              actor: $actor,
+              reviewMode: $reviewMode,
+              diff: $diff,
+              changedFiles: $changedFiles,
+              runId: $runId
+            }')
+
+          # Compute HMAC-SHA256 over the exact JSON payload
+          SIGNATURE="sha256=$(echo -n "$PAYLOAD" | openssl dgst -sha256 -hmac "$ADESS_INGEST_SECRET" | sed 's/^.* //')"
+
+          # POST to backend ingest endpoint (Cloud Run, NOT Firebase Hosting)
+          RESPONSE=$(curl -s -w "\n%{http_code}" \
+            -X POST \
+            "${ADESS_BACKEND_URL}/pr-review/ingest" \
+            -H "Content-Type: application/json" \
+            -H "X-Hub-Signature-256: $SIGNATURE" \
+            -d "$PAYLOAD")
+
+          HTTP_CODE=$(echo "$RESPONSE" | tail -1)
+          BODY=$(echo "$RESPONSE" | sed '$d')
+
+          echo "HTTP Status: $HTTP_CODE"
+          echo "Response: $BODY"
+
+          if [ "$HTTP_CODE" -ge 400 ]; then
+            echo "::error::Adess ingest failed with HTTP $HTTP_CODE"
+            exit 1
+          fi
