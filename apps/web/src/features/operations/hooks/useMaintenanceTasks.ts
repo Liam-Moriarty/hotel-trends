@@ -1,13 +1,14 @@
-// MOCK — reads from static mock file
-// TODO: replace mockTasks with Firestore collection('hubos-tasks') read
-
 import { useQuery } from '@tanstack/react-query'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '@repo/firebase-config'
+import { HubOSTaskSchema } from '@repo/shared'
 import type { HubOSTask } from '@repo/shared'
-import { mockTasks } from '../mock/hubos-tasks.mock'
+
+const HOTEL_ID = 'SAND01'
 
 async function fetchMaintenanceTasks(): Promise<HubOSTask[]> {
-  // MOCK — swap this function body for a Firestore getDocs call
-  return Promise.resolve(mockTasks)
+  const snap = await getDocs(collection(db, 'hotels', HOTEL_ID, 'hubos-tasks'))
+  return snap.docs.map(doc => HubOSTaskSchema.parse(doc.data()))
 }
 
 export function useMaintenanceTasks() {

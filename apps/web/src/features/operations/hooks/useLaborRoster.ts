@@ -1,13 +1,14 @@
-// MOCK — reads from static mock file
-// TODO: replace mockRoster with Firestore collection('hubos-roster') read
-
 import { useQuery } from '@tanstack/react-query'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '@repo/firebase-config'
+import { HubOSRosterEntrySchema } from '@repo/shared'
 import type { HubOSRosterEntry } from '@repo/shared'
-import { mockRoster } from '../mock/hubos-roster.mock'
+
+const HOTEL_ID = 'SAND01'
 
 async function fetchLaborRoster(): Promise<HubOSRosterEntry[]> {
-  // MOCK — swap this function body for a Firestore getDocs call
-  return Promise.resolve(mockRoster)
+  const snap = await getDocs(collection(db, 'hotels', HOTEL_ID, 'hubos-roster'))
+  return snap.docs.map(doc => HubOSRosterEntrySchema.parse(doc.data()))
 }
 
 export function useLaborRoster() {

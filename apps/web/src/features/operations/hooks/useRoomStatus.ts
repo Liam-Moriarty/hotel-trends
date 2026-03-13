@@ -1,13 +1,14 @@
-// MOCK — reads from static mock file
-// TODO: replace mockRooms with Firestore collection('hubos-rooms') read
-
 import { useQuery } from '@tanstack/react-query'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '@repo/firebase-config'
+import { HubOSRoomSchema } from '@repo/shared'
 import type { HubOSRoom } from '@repo/shared'
-import { mockRooms } from '../mock/hubos-rooms.mock'
+
+const HOTEL_ID = 'SAND01'
 
 async function fetchRoomStatus(): Promise<HubOSRoom[]> {
-  // MOCK — swap this function body for a Firestore getDocs call
-  return Promise.resolve(mockRooms)
+  const snap = await getDocs(collection(db, 'hotels', HOTEL_ID, 'hubos-rooms'))
+  return snap.docs.map(doc => HubOSRoomSchema.parse(doc.data()))
 }
 
 export function useRoomStatus() {
