@@ -1,0 +1,51 @@
+[
+  {
+    "sentimentId": "SEN001",
+    "source": "Google Reviews",
+    "date": "2026-03-11",
+    "score": 5,
+    "reviewText": "Absolutely stunning views from the upper floors. Staff were incredibly attentive and the breakfast was exceptional. Will definitely return for our next Melbourne trip."
+  },
+  {
+    "sentimentId": "SEN002",
+    "source": "Booking.com",
+    "date": "2026-03-10",
+    "score": 4,
+    "reviewText": "Great location in the CBD, easy walk to restaurants and shopping. Room was clean and comfortable. Check-in was a bit slow but staff were friendly once we got to the desk."
+  },
+  {
+    "sentimentId": "SEN003",
+    "source": "TripAdvisor",
+    "date": "2026-03-09",
+    "score": 2,
+    "reviewText": "Disappointed with the room on level 3 — noise from the street was loud all night. Requested a room change but was told the hotel was fully booked. Bed was comfortable but sleep quality suffered."
+  },
+  {
+    "sentimentId": "SEN004",
+    "source": "Google Reviews",
+    "date": "2026-03-08",
+    "score": 5,
+    "reviewText": "Stayed for a conference at the convention centre next door. Perfect location. The restaurant on-site served excellent food. Room service was prompt. Highly recommend the suite upgrade."
+  },
+  {
+    "sentimentId": "SEN005",
+    "source": "Expedia",
+    "date": "2026-03-07",
+    "score": 3,
+    "reviewText": "Average stay overall. The room felt dated compared to the photos online. Air conditioning was noisy. However, the pool area was lovely and the concierge was very helpful with restaurant recommendations."
+  },
+  {
+    "sentimentId": "SEN006",
+    "source": "Booking.com",
+    "date": "2026-03-06",
+    "score": 4,
+    "reviewText": "Good value for a Melbourne city hotel. Parking was expensive but convenient. The gym facilities were well-maintained. Would stay again for business travel."
+  },
+  {
+    "sentimentId": "SEN007",
+    "source": "TripAdvisor",
+    "date": "2026-03-05",
+    "score": 5,
+    "reviewText": "Celebrated our anniversary here. The team arranged a surprise room decoration with champagne — it was magical. Cannot fault the service or the room quality. Best hotel experience in Melbourne."
+  }
+]
