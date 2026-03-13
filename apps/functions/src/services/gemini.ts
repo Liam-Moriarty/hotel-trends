@@ -1,4 +1,4 @@
-import { VertexAI, SchemaType, Content } from '@google-cloud/vertexai'
+import { GoogleGenerativeAI, SchemaType, Content, Part, Tool, Schema } from '@google/generative-ai'
 import { runBigQuery, BQ_SCHEMA_HINT } from './bigquery.js'
 import { ChatMessage } from '@repo/shared'
 
@@ -7,13 +7,10 @@ import { ChatMessage } from '@repo/shared'
 // (revenue, occupancy, rate plans, rooms) while also using RAG context docs
 // for unstructured data (sentiment, alerts, snapshots).
 
-const vertexai = new VertexAI({
-  project: 'hotel-trends-stage',
-  location: 'us-central1',
-})
+const genai = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!)
 
 // Tool definition: lets Gemini call BigQuery when it needs structured data
-const bqTool = {
+const bqTool: Tool = {
   functionDeclarations: [
     {
       name: 'query_hotel_data',
@@ -25,7 +22,7 @@ const bqTool = {
           sql: {
             type: SchemaType.STRING,
             description: 'A valid BigQuery standard SQL query.',
-          },
+          } as Schema,
         },
         required: ['sql'],
       },
@@ -57,14 +54,11 @@ Format your responses using markdown:
 
 ${BQ_SCHEMA_HINT}`
 
-  const model = vertexai.getGenerativeModel({
-    model: 'gemini-2.0-flash-001',
+  const model = genai.getGenerativeModel({
+    model: 'gemini-2.5-flash',
     generationConfig: { maxOutputTokens: 1024 },
     tools: [bqTool],
-    systemInstruction: {
-      role: 'system',
-      parts: [{ text: systemInstruction }],
-    },
+    systemInstruction,
   })
 
   const context = contextDocs
@@ -76,23 +70,25 @@ ${context || 'No context documents available.'}
 
 QUESTION: ${question}`
 
-  const chat = model.startChat({
-    tools: [bqTool],
-    history: history as Content[],
-  })
+  // SDK requires history to start with 'user' — drop any leading model messages
+  const rawHistory = history as Content[]
+  const firstUserIdx = rawHistory.findIndex(m => m.role === 'user')
+  const safeHistory = firstUserIdx >= 0 ? rawHistory.slice(firstUserIdx) : []
+
+  const chat = model.startChat({ history: safeHistory })
   let result = await chat.sendMessage(userPrompt)
 
   // Agentic loop: Gemini may call BigQuery one or more times before answering
   for (let i = 0; i < 3; i++) {
     const candidate = result.response.candidates?.[0]
-    if (!candidate) break
+    if (!candidate?.content) break
 
-    const functionCalls = candidate.content.parts.filter(p => p.functionCall)
+    const functionCalls = candidate.content.parts.filter((p: Part) => p.functionCall)
     if (functionCalls.length === 0) break
 
     // Execute each BigQuery function call and return results to Gemini
     const functionResponses = await Promise.all(
-      functionCalls.map(async part => {
+      functionCalls.map(async (part: Part) => {
         const call = part.functionCall!
         let queryResult: unknown
         try {
@@ -114,9 +110,11 @@ QUESTION: ${question}`
   }
 
   const finalCandidate = result.response.candidates?.[0]
-  if (!finalCandidate) throw new Error('No response from Gemini')
+  if (!finalCandidate?.content) throw new Error('No response from Gemini')
 
-  const text = finalCandidate.content.parts.find(p => p.text)?.text
+  const text = finalCandidate.content.parts.find(
+    (p: Part) => p.text && !(p as unknown as Record<string, unknown>).thought
+  )?.text
   if (!text) throw new Error('No text in response from Gemini')
 
   return text
