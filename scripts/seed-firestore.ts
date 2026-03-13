@@ -37,6 +37,12 @@ import {
   getLengthOfStay,
 } from '../packages/shared/src/schemas/integrations'
 
+import {
+  HubOSRoomSchema,
+  HubOSTaskSchema,
+  HubOSRosterEntrySchema,
+} from '../packages/shared/src/schemas/hubos'
+
 // ---------------------------------------------------------------------------
 // Zod schemas for supplementary seed data files
 // ---------------------------------------------------------------------------
@@ -129,6 +135,17 @@ const RoomAvailabilitySchema = z.object({
   }),
 })
 
+const HubOSPayloadSchema = z.object({
+  hubos: z.object({
+    hotelId: z.string().min(1),
+    rooms: z.array(HubOSRoomSchema),
+    tasks: z.array(HubOSTaskSchema),
+    roster: z.array(HubOSRosterEntrySchema),
+  }),
+})
+
+type HubOSPayload = z.infer<typeof HubOSPayloadSchema>
+
 // Inferred types
 type HotelMaster = z.infer<typeof HotelMasterSchema>
 type RatePlanMaster = z.infer<typeof RatePlanMasterSchema>
@@ -214,7 +231,56 @@ interface GuestDoc {
   seededAt: admin.firestore.FieldValue
 }
 
-type FirestoreDoc = HotelDoc | RoomDoc | RatePlanDoc | AvailabilityDoc | RevenueDoc | GuestDoc
+interface HubOSRoomDoc {
+  hotelId: string
+  roomNumber: string
+  floor: number
+  roomType: string
+  status: string
+  assignedAttendant: string | null
+  guestName: string | null
+  checkoutTime: string | null
+  notes: string | null
+  lastUpdated: string
+  seededAt: admin.firestore.FieldValue
+}
+
+interface HubOSTaskDoc {
+  hotelId: string
+  taskId: string
+  roomNumber: string | null
+  area: string
+  description: string
+  status: string
+  priority: string
+  assignedTo: string | null
+  reportedAt: string
+  resolvedAt: string | null
+  seededAt: admin.firestore.FieldValue
+}
+
+interface HubOSRosterDoc {
+  hotelId: string
+  department: string
+  shiftStart: string
+  shiftEnd: string
+  scheduled: number
+  actual: number
+  overtimeHours: number
+  staffingStatus: string
+  seededAt: admin.firestore.FieldValue
+}
+
+type FirestoreDoc =
+  | HotelDoc
+  | RoomDoc
+  | RatePlanDoc
+  | AvailabilityDoc
+  | RevenueDoc
+  | GuestDoc
+  | HubOSRoomDoc
+  | HubOSTaskDoc
+  | HubOSRosterDoc
 
 type WriteOperation = {
   ref: admin.firestore.DocumentReference
@@ -461,6 +527,46 @@ async function confirm(message: string): Promise<boolean> {
   })
 }
 
+async function seedHubOS(data: HubOSPayload): Promise<void> {
+  console.log('\n🏨 Seeding Hub OS data...')
+
+  const roomWrites: WriteOperation[] = data.hubos.rooms.map(room => ({
+    ref: db.collection('hotels').doc(HOTEL_ID).collection('hubos-rooms').doc(room.roomNumber),
+    data: {
+      ...room,
+      hotelId: HOTEL_ID,
+      seededAt: admin.firestore.FieldValue.serverTimestamp(),
+    } satisfies HubOSRoomDoc,
+  }))
+
+  const taskWrites: WriteOperation[] = data.hubos.tasks.map(task => ({
+    ref: db.collection('hotels').doc(HOTEL_ID).collection('hubos-tasks').doc(task.taskId),
+    data: {
+      ...task,
+      hotelId: HOTEL_ID,
+      seededAt: admin.firestore.FieldValue.serverTimestamp(),
+    } satisfies HubOSTaskDoc,
+  }))
+
+  const rosterWrites: WriteOperation[] = data.hubos.roster.map(entry => ({
+    ref: db.collection('hotels').doc(HOTEL_ID).collection('hubos-roster').doc(entry.department),
+    data: {
+      ...entry,
+      hotelId: HOTEL_ID,
+      seededAt: admin.firestore.FieldValue.serverTimestamp(),
+    } satisfies HubOSRosterDoc,
+  }))
+
+  await batchWrite(roomWrites)
+  console.log(`  ✅ ${roomWrites.length} rooms → /hotels/${HOTEL_ID}/hubos-rooms`)
+
+  await batchWrite(taskWrites)
+  console.log(`  ✅ ${taskWrites.length} tasks → /hotels/${HOTEL_ID}/hubos-tasks`)
+
+  await batchWrite(rosterWrites)
+  console.log(`  ✅ ${rosterWrites.length} roster entries → /hotels/${HOTEL_ID}/hubos-roster`)
+}
+
 // ---------------------------------------------------------------------------
 // 6. Main
 // ---------------------------------------------------------------------------
@@ -497,6 +603,8 @@ async function main(): Promise<void> {
     await seedRatePlans(ratePlanData)
     await seedAvailability(availabilityData)
     await seedReservations(reservationData)
+    const hubosData = loadAndValidate('hubos-mock.json', HubOSPayloadSchema)
+    await seedHubOS(hubosData)
 
     console.log('\n╔══════════════════════════════════════════════╗')
     console.log('║           ✅ Seed complete!                  ║')
