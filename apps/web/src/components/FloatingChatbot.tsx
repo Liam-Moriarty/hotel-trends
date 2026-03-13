@@ -11,7 +11,7 @@ interface Message {
   text: string
 }
 
-export const FlowtingChatbot = () => {
+export const FloatingChatbot = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [input, setInput] = useState('')
   const [messages, setMessages] = useState<Message[]>(() => {
