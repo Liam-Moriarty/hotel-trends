@@ -1,0 +1,188 @@
+{
+  "hubos": {
+    "hotelId": "SAND01",
+    "rooms": [
+      {
+        "roomNumber": "101",
+        "floor": 1,
+        "roomType": "STD",
+        "status": "Clean",
+        "assignedAttendant": "Maria Santos",
+        "guestName": null,
+        "checkoutTime": null,
+        "notes": null,
+        "lastUpdated": "2026-03-11T06:45:00+11:00"
+      },
+      {
+        "roomNumber": "108",
+        "floor": 1,
+        "roomType": "STD",
+        "status": "InProgress",
+        "assignedAttendant": "Maria Santos",
+        "guestName": "Chen, Wei",
+        "checkoutTime": "2026-03-11T11:00:00+11:00",
+        "notes": "Guest requested extra towels before departure",
+        "lastUpdated": "2026-03-11T08:20:00+11:00"
+      },
+      {
+        "roomNumber": "203",
+        "floor": 2,
+        "roomType": "STD",
+        "status": "Dirty",
+        "assignedAttendant": null,
+        "guestName": null,
+        "checkoutTime": null,
+        "notes": null,
+        "lastUpdated": "2026-03-11T07:00:00+11:00"
+      },
+      {
+        "roomNumber": "302",
+        "floor": 3,
+        "roomType": "DLX",
+        "status": "Inspecting",
+        "assignedAttendant": "Priya Nair",
+        "guestName": "Okafor, Emeka",
+        "checkoutTime": null,
+        "notes": null,
+        "lastUpdated": "2026-03-11T09:05:00+11:00"
+      },
+      {
+        "roomNumber": "401",
+        "floor": 4,
+        "roomType": "JNR",
+        "status": "Blocked",
+        "assignedAttendant": "James Tran",
+        "guestName": null,
+        "checkoutTime": null,
+        "notes": "Maintenance — AC unit fault, awaiting parts",
+        "lastUpdated": "2026-03-10T15:30:00+11:00"
+      },
+      {
+        "roomNumber": "501",
+        "floor": 5,
+        "roomType": "STE",
+        "status": "Clean",
+        "assignedAttendant": "Priya Nair",
+        "guestName": null,
+        "checkoutTime": null,
+        "notes": null,
+        "lastUpdated": "2026-03-11T07:30:00+11:00"
+      },
+      {
+        "roomNumber": "701",
+        "floor": 7,
+        "roomType": "PSTE",
+        "status": "Inspecting",
+        "assignedAttendant": "Maria Santos",
+        "guestName": "Wellington, James",
+        "checkoutTime": "2026-03-11T12:00:00+11:00",
+        "notes": "VIP — priority turnover",
+        "lastUpdated": "2026-03-11T09:15:00+11:00"
+      }
+    ],
+    "tasks": [
+      {
+        "taskId": "TASK-001",
+        "roomNumber": "401",
+        "area": "Room 401",
+        "description": "AC unit not cooling — guest complained on arrival. Unit making rattling noise.",
+        "status": "InProgress",
+        "priority": "Critical",
+        "assignedTo": "James Tran",
+        "reportedAt": "2026-03-10T14:45:00+11:00",
+        "resolvedAt": null
+      },
+      {
+        "taskId": "TASK-002",
+        "roomNumber": "210",
+        "area": "Room 210",
+        "description": "Bathroom exhaust fan not working.",
+        "status": "Open",
+        "priority": "Medium",
+        "assignedTo": null,
+        "reportedAt": "2026-03-11T07:30:00+11:00",
+        "resolvedAt": null
+      },
+      {
+        "taskId": "TASK-003",
+        "roomNumber": null,
+        "area": "Pool Area",
+        "description": "Pool pump pressure low — maintenance inspection required.",
+        "status": "Open",
+        "priority": "High",
+        "assignedTo": "Derek Muller",
+        "reportedAt": "2026-03-11T06:00:00+11:00",
+        "resolvedAt": null
+      },
+      {
+        "taskId": "TASK-004",
+        "roomNumber": "318",
+        "area": "Room 318",
+        "description": "TV remote not working — likely dead batteries.",
+        "status": "Completed",
+        "priority": "Low",
+        "assignedTo": "Maria Santos",
+        "reportedAt": "2026-03-11T08:10:00+11:00",
+        "resolvedAt": "2026-03-11T08:35:00+11:00"
+      },
+      {
+        "taskId": "TASK-005",
+        "roomNumber": null,
+        "area": "Lobby",
+        "description": "Lift 2 door slow to close — logged with service provider, awaiting technician.",
+        "status": "Blocked",
+        "priority": "High",
+        "assignedTo": null,
+        "reportedAt": "2026-03-10T11:00:00+11:00",
+        "resolvedAt": null
+      }
+    ],
+    "roster": [
+      {
+        "department": "FrontDesk",
+        "shiftStart": "06:00",
+        "shiftEnd": "14:00",
+        "scheduled": 4,
+        "actual": 4,
+        "overtimeHours": 0,
+        "staffingStatus": "Fully Staffed"
+      },
+      {
+        "department": "Housekeeping",
+        "shiftStart": "07:00",
+        "shiftEnd": "15:00",
+        "scheduled": 18,
+        "actual": 14,
+        "overtimeHours": 2,
+        "staffingStatus": "Understaffed"
+      },
+      {
+        "department": "FBRestaurant",
+        "shiftStart": "06:00",
+        "shiftEnd": "14:00",
+        "scheduled": 8,
+        "actual": 8,
+        "overtimeHours": 1,
+        "staffingStatus": "Fully Staffed"
+      },
+      {
+        "department": "FBBar",
+        "shiftStart": "14:00",
+        "shiftEnd": "22:00",
+        "scheduled": 6,
+        "actual": 5,
+        "overtimeHours": 0,
+        "staffingStatus": "Understaffed"
+      },
+      {
+        "department": "Concierge",
+        "shiftStart": "07:00",
+        "shiftEnd": "23:00",
+        "scheduled": 4,
+        "actual": 3,
+        "overtimeHours": 1,
+        "staffingStatus": "Understaffed"
+      }
+    ]
+  }
+}
