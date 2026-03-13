@@ -34,8 +34,10 @@ export const FloatingChatbot = () => {
   }
 
   useEffect(() => {
-    scrollToBottom()
-  }, [messages])
+    if (isOpen) {
+      scrollToBottom()
+    }
+  }, [messages, isOpen])
 
   const handleSend = async (e?: React.FormEvent) => {
     e?.preventDefault()
