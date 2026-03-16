@@ -12,7 +12,7 @@ export async function runBigQuery(sql: string): Promise<Record<string, unknown>[
   const bq = new BigQuery({ projectId: PROJECT_ID })
   const [rows] = await bq.query({
     query: sql,
-    location: 'us-central1',
+    location: 'asia-southeast1',
     maximumBytesBilled: String(100 * 1024 * 1024), // 100 MB cap
   })
 
