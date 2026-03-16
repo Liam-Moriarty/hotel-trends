@@ -1,15 +1,19 @@
 # ============================================================================
-# deploy-dev.yml - Development Environment Deployment
+# deploy-dev.yml - Continuous Deployment (CD) to Development
 # ============================================================================
-# Deploys to the "dev" environment when code is pushed to the dev branch.
+# CD: Deploys to the "dev" environment when code is pushed to the dev branch.
+# - Web app: Deployed by Firebase App Hosting (GitHub integration triggers
+#   rollout on push to dev). No Hosting step here.
+# - Functions: Deployed by this workflow via Firebase CLI.
 # Uses Workload Identity Federation (WIF) for secure, keyless authentication.
 #
 # Required GitHub Secrets:
-#   - GCP_WORKLOAD_IDENTITY_PROVIDER: WIF provider path
-#   - GCP_SA_EMAIL: Service account email
+#   - GCP_WORKLOAD_IDENTITY_PROVIDER: Full WIF provider resource name, e.g.:
+#     projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/providers/PROVIDER_ID
+#   - GCP_SA_EMAIL: Service account email (e.g. sa@project-id.iam.gserviceaccount.com)
 # ============================================================================
 
-name: Deploy to Dev
+name: CD — Deploy to Dev
 
 # ============================================================================
 # TRIGGERS
@@ -54,8 +58,8 @@ jobs:
     # ========================================================================
     environment:
       name: dev
-      # TODO: Update with your dev URL
-      url: https://dev.example.com
+      # Firebase App Hosting URL (update if your backend/project differ)
+      url: https://hotel-trends-v1--hotel-trends-stage.us-central1.hosted.app
 
     steps:
       - name: Checkout repository
@@ -91,7 +95,8 @@ jobs:
       # WIF Authentication
       # ======================================================================
       # Uses secrets configured in GitHub repository settings.
-      # No hardcoded credentials - WIF provides short-lived tokens.
+      # create_credentials_file: true so Firebase CLI can use ADC.
+      # access_token_scopes must include Firebase for firebase deploy.
       # ======================================================================
       - name: Authenticate to Google Cloud
         id: auth
@@ -99,17 +104,22 @@ jobs:
         with:
           workload_identity_provider: ${{ secrets.GCP_WORKLOAD_IDENTITY_PROVIDER }}
           service_account: ${{ secrets.GCP_SA_EMAIL }}
+          create_credentials_file: true
+          access_token_scopes: |
+            email
+            openid
+            https://www.googleapis.com/auth/cloud-platform
+            https://www.googleapis.com/auth/firebase
 
       # ======================================================================
-      # Deploy to Firebase
+      # CD: Deploy to Firebase (Functions only; web app via App Hosting)
       # ======================================================================
-      # Firebase CLI auto-detects project from .firebaserc or authenticated
-      # service account. No explicit project ID needed.
+      # Web app is deployed by Firebase App Hosting when you push to dev.
+      # This step deploys only Firebase Functions (e.g. API).
+      # GOOGLE_APPLICATION_CREDENTIALS is set by the auth step above.
       # ======================================================================
-      - name: Deploy to Firebase Hosting
-        run: |
-          npm install -g firebase-tools
-          firebase deploy --only hosting --project dev
+      - name: Install Firebase CLI
+        run: npm install -g firebase-tools
 
       - name: Deploy Firebase Functions
         run: firebase deploy --only functions --project dev
@@ -117,9 +127,10 @@ jobs:
 
       - name: Deployment Summary
         run: |
-          echo "## 🚀 Dev Deployment Complete" >> $GITHUB_STEP_SUMMARY
+          echo "## 🚀 CD — Dev Deployment Complete" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "- **Environment**: dev" >> $GITHUB_STEP_SUMMARY
+          echo "- **Web app**: Deployed by [Firebase App Hosting](https://hotel-trends-v1--hotel-trends-stage.us-central1.hosted.app) (on push to \`dev\`)" >> $GITHUB_STEP_SUMMARY
           echo "- **Branch**: ${{ github.ref_name }}" >> $GITHUB_STEP_SUMMARY
           echo "- **Commit**: \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
           echo "- **Deployed by**: @${{ github.actor }}" >> $GITHUB_STEP_SUMMARY

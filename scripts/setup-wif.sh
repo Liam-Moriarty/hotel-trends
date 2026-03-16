@@ -192,14 +192,20 @@ echo "Service account binding complete."
 # ============================================================================
 # After running this script, you'll need these values in your GitHub Actions
 # workflow or as repository secrets.
+#
+# IMPORTANT: GCP_WORKLOAD_IDENTITY_PROVIDER must use PROJECT_NUMBER (numeric),
+# not PROJECT_ID. The STS token API rejects audience with project ID.
+
+PROJECT_NUMBER="$(gcloud projects describe "${PROJECT_ID}" --format='value(projectNumber)')"
+WIF_PROVIDER_FULL="projects/${PROJECT_NUMBER}/locations/global/workloadIdentityPools/${POOL_NAME}/providers/${PROVIDER_NAME}"
 
 echo ""
 echo "============================================================================"
 echo "SETUP COMPLETE - Save these values for GitHub Actions:"
 echo "============================================================================"
 echo ""
-echo "WORKLOAD_IDENTITY_PROVIDER:"
-echo "  projects/${PROJECT_ID}/locations/global/workloadIdentityPools/${POOL_NAME}/providers/${PROVIDER_NAME}"
+echo "WORKLOAD_IDENTITY_PROVIDER (use PROJECT_NUMBER, not PROJECT_ID):"
+echo "  ${WIF_PROVIDER_FULL}"
 echo ""
 echo "SERVICE_ACCOUNT:"
 echo "  ${SERVICE_ACCOUNT_EMAIL}"
@@ -207,7 +213,7 @@ echo ""
 echo "Add these as GitHub repository secrets:"
 echo "  - GCP_PROJECT_ID: ${PROJECT_ID}"
 echo "  - GCP_SA_EMAIL: ${SERVICE_ACCOUNT_EMAIL}"
-echo "  - GCP_WORKLOAD_IDENTITY_PROVIDER: (the provider string above)"
+echo "  - GCP_WORKLOAD_IDENTITY_PROVIDER: (copy the full line above, no quotes)"
 echo ""
 echo "============================================================================"
 echo "Next steps:"
