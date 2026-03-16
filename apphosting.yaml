@@ -3,7 +3,7 @@
 
 scripts:
   buildCommand: pnpm install --frozen-lockfile && pnpm build
-  runCommand: npx serve apps/web/dist -s -l $PORT
+  runCommand: npx serve apps/web/dist -s -l tcp://0.0.0.0:8080
 
 # Keep build output and node_modules so "serve" can run at runtime
 outputFiles:
