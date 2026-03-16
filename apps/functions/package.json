@@ -5,8 +5,21 @@
   "type": "module",
   "main": "dist/index.js",
   "exports": {
-    ".": "./dist/index.js",
-    "./router": "./dist/trpc/router.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./router": {
+      "types": "./dist/trpc/router.d.ts",
+      "import": "./dist/trpc/router.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "router": [
+        "dist/trpc/router.d.ts"
+      ]
+    }
   },
   "scripts": {
     "build": "node scripts/build.mjs",

@@ -1,0 +1,3 @@
+secrets:
+  - variable: VITE_FIREBASE_API_KEY
+    secret: vite-firebase-api-key

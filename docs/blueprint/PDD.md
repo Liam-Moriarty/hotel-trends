@@ -1,4 +1,4 @@
-# Hotel Trends
+# Hotel Trends.
 
 ## Product Design Document (PDD)
 
