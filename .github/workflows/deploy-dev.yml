@@ -123,6 +123,8 @@ jobs:
 
       - name: Deploy Firebase Functions
         run: firebase deploy --only functions --project dev
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
         continue-on-error: true # Skip if no functions configured
 
       - name: Deployment Summary
