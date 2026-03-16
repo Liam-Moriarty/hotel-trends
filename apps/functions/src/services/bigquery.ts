@@ -8,12 +8,11 @@ import { BigQuery } from '@google-cloud/bigquery'
 const PROJECT_ID = 'hotel-trends-stage'
 const DATASET_ID = 'hotel_trends'
 
-const bq = new BigQuery({ projectId: PROJECT_ID })
-
 export async function runBigQuery(sql: string): Promise<Record<string, unknown>[]> {
+  const bq = new BigQuery({ projectId: PROJECT_ID })
   const [rows] = await bq.query({
     query: sql,
-    location: 'asia-southeast1',
+    location: 'us-central1',
     maximumBytesBilled: String(100 * 1024 * 1024), // 100 MB cap
   })
 

@@ -7,8 +7,6 @@ import { ChatMessage } from '@repo/shared'
 // (revenue, occupancy, rate plans, rooms) while also using RAG context docs
 // for unstructured data (sentiment, alerts, snapshots).
 
-const genai = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!)
-
 // Tool definition: lets Gemini call BigQuery when it needs structured data
 const bqTool: Tool = {
   functionDeclarations: [
@@ -35,6 +33,7 @@ export async function askGemini(
   question: string,
   history: ChatMessage[] = []
 ): Promise<string> {
+  const genai = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!)
   const systemInstruction = `You are an AI assistant for a hotel management platform called Hytel.
 You have two sources of information:
 1. CONTEXT DOCUMENTS provided with each question (qualitative data: sentiment, alerts, performance snapshots)

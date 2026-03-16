@@ -19,8 +19,11 @@ export { appRouter, type AppRouter } from './trpc/router.js'
  */
 export const api = onRequest(
   {
-    region: 'asia-southeast1',
-    cors: true, // Enable CORS for easier development/access
+    region: 'us-central1',
+    cors: true,
+    invoker: 'public',
+    secrets: ['GEMINI_API_KEY'],
+    memory: '512MiB',
   },
   async (req, res) => {
     return nodeHTTPRequestHandler({
