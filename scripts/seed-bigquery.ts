@@ -322,7 +322,7 @@ async function ensureDataset(): Promise<void> {
   const dataset = bq.dataset(DATASET_ID)
   const [exists] = await dataset.exists()
   if (!exists) {
-    await dataset.create({ location: 'asia-southeast1' })
+    await dataset.create({ location: 'us-central1' })
     console.log(`  ✅ Dataset ${DATASET_ID} created`)
   } else {
     console.log(`  ℹ️  Dataset ${DATASET_ID} already exists`)

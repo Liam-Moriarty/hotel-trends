@@ -19,8 +19,8 @@
       "codebase": "default",
       "runtime": "nodejs20",
       "predeploy": [
-        "pnpm --filter @repo/functions run build",
-        "npm install --prefix apps/functions/dist --no-package-lock"
+        "pnpm -C apps/functions run build",
+        "npm install --prefix apps/functions/dist --no-package-lock --no-save"
       ]
     }
   ],

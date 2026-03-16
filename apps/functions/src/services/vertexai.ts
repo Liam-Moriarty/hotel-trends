@@ -5,16 +5,14 @@ import { helpers } from '@google-cloud/aiplatform'
 // This helper converts any text string into a 768-dimension vector using Vertex AI
 
 const PROJECT = 'hotel-trends-stage'
-const LOCATION = 'asia-southeast1'
+const LOCATION = 'us-central1'
 const MODEL = 'text-embedding-004'
 
-// Embedding Service
-
-const client = new PredictionServiceClient({
-  apiEndpoint: `${LOCATION}-aiplatform.googleapis.com`,
-})
-
 export async function embedText(text: string): Promise<number[]> {
+  const client = new PredictionServiceClient({
+    apiEndpoint: `${LOCATION}-aiplatform.googleapis.com`,
+  })
+
   const endpoint =
     `projects/${PROJECT}/locations/${LOCATION}` + `/publishers/google/models/${MODEL}`
 
@@ -24,7 +22,7 @@ export async function embedText(text: string): Promise<number[]> {
   const [response] = await client.predict({
     endpoint,
     instances,
-    parameters: helpers.toValue({ outputDimensity: 768 }),
+    parameters: helpers.toValue({ outputDimensionality: 768 }),
   })
 
   //   null check before accessing the predictions
