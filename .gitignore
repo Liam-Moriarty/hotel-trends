@@ -90,5 +90,3 @@ database-debug.log
 server/dist
 public/dist
 *.pem
-apphosting.emulator.yaml
-apphosting.yaml
