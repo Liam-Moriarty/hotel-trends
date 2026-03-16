@@ -52,7 +52,11 @@ export const api = onRequest(
 
 // auto-embed whenever a new snapshot is written
 export const embed_on_snapshot = onDocumentCreated(
-  'hotels/{hotelId}/snapshots/{date}',
+  {
+    document: 'hotels/{hotelId}/snapshots/{date}',
+    region: 'us-central1',
+    memory: '512MiB',
+  },
   async event => {
     const data = event.data?.data()
     if (!data) return
@@ -68,7 +72,12 @@ export const embed_on_snapshot = onDocumentCreated(
 
 // nightly catch-all for any docs missing embeddings
 export const nightly_embed = onSchedule(
-  { schedule: '0 2 * * *', timeZone: 'Australia/Melbourne' },
+  {
+    schedule: '0 2 * * *',
+    timeZone: 'Australia/Melbourne',
+    region: 'us-central1',
+    memory: '512MiB',
+  },
   async () => {
     await indexHotelData('SAND01')
   }
