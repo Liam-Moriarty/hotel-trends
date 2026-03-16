@@ -1,0 +1,11 @@
+# Firebase App Hosting config for Vite/React SPA
+# Build produces static files in apps/web/dist; run command serves them on PORT 8080.
+
+scripts:
+  buildCommand: pnpm install --frozen-lockfile && pnpm build
+  runCommand: npx serve apps/web/dist -s -l $PORT
+
+# Keep build output and node_modules so "serve" can run at runtime
+outputFiles:
+  serverApp:
+    include: ['.']
