@@ -19,7 +19,7 @@ env:
     availability:
       - BUILD
   - variable: VITE_FIREBASE_API_KEY
-    value: AIzaSyDkXiWuFkQOwBnVjgGginXV3vybUMBMxkc
+    secret: vite-firebase-api-key
     availability:
       - BUILD
   - variable: VITE_FIREBASE_APP_ID

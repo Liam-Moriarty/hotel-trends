@@ -15,10 +15,10 @@
   },
   "functions": [
     {
-      "source": "apps/functions",
+      "source": "apps/functions/dist",
       "codebase": "default",
-      "ignore": ["node_modules", ".turbo", "dist"],
-      "runtime": "nodejs20"
+      "runtime": "nodejs20",
+      "predeploy": ["pnpm --filter @repo/functions run build"]
     }
   ],
   "emulators": {
