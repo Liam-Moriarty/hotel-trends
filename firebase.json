@@ -18,7 +18,10 @@
       "source": "apps/functions/dist",
       "codebase": "default",
       "runtime": "nodejs20",
-      "predeploy": ["pnpm --filter @repo/functions run build"]
+      "predeploy": [
+        "pnpm --filter @repo/functions run build",
+        "npm install --prefix apps/functions/dist --no-package-lock"
+      ]
     }
   ],
   "emulators": {
