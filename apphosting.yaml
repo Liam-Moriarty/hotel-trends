@@ -2,6 +2,10 @@
 # Build produces static files in apps/web/dist; run command serves them on PORT 8080.
 
 env:
+  - variable: VITE_API_URL
+    value: https://us-central1-hotel-trends-stage.cloudfunctions.net/api/trpc
+    availability:
+      - BUILD
   - variable: VITE_FIREBASE_PROJECT_ID
     value: hotel-trends-stage
     availability:
