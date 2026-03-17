@@ -1,86 +1,449 @@
 [
   {
+    "date": "2026-01-06",
+    "occupancy": 75,
+    "revpar": 185.0,
+    "adr": 246.7,
+    "healthScore": 82,
+    "revenue": 27750,
+    "revenueForecasted": 28500,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 84, "F&B": 71, "Spa": 89, "Events": 64, "Ops": 79 }
+  },
+  {
+    "date": "2026-01-13",
+    "occupancy": 78,
+    "revpar": 189.0,
+    "adr": 242.3,
+    "healthScore": 84,
+    "revenue": 28350,
+    "revenueForecasted": 28800,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 85, "F&B": 72, "Spa": 90, "Events": 65, "Ops": 80 }
+  },
+  {
+    "date": "2026-01-20",
+    "occupancy": 76,
+    "revpar": 186.5,
+    "adr": 245.4,
+    "healthScore": 83,
+    "revenue": 27975,
+    "revenueForecasted": 28200,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 84, "F&B": 71, "Spa": 89, "Events": 64, "Ops": 79 }
+  },
+  {
+    "date": "2026-01-27",
+    "occupancy": 80,
+    "revpar": 192.0,
+    "adr": 240.0,
+    "healthScore": 86,
+    "revenue": 28800,
+    "revenueForecasted": 29000,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 86, "F&B": 73, "Spa": 91, "Events": 66, "Ops": 81 }
+  },
+
+  {
+    "date": "2026-02-03",
+    "occupancy": 80,
+    "revpar": 194.0,
+    "adr": 242.5,
+    "healthScore": 87,
+    "revenue": 29100,
+    "revenueForecasted": 29200,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 86, "F&B": 73, "Spa": 91, "Events": 66, "Ops": 81 }
+  },
+  {
+    "date": "2026-02-10",
+    "occupancy": 83,
+    "revpar": 198.0,
+    "adr": 238.6,
+    "healthScore": 89,
+    "revenue": 29700,
+    "revenueForecasted": 29500,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 87, "F&B": 74, "Spa": 91, "Events": 67, "Ops": 82 }
+  },
+  {
+    "date": "2026-02-17",
+    "occupancy": 81,
+    "revpar": 195.5,
+    "adr": 241.4,
+    "healthScore": 88,
+    "revenue": 29325,
+    "revenueForecasted": 29300,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 86, "F&B": 73, "Spa": 91, "Events": 66, "Ops": 81 }
+  },
+  {
+    "date": "2026-02-24",
+    "occupancy": 84,
+    "revpar": 201.5,
+    "adr": 239.9,
+    "healthScore": 90,
+    "revenue": 30225,
+    "revenueForecasted": 29800,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 87, "F&B": 75, "Spa": 92, "Events": 68, "Ops": 82 }
+  },
+
+  {
     "date": "2026-03-01",
     "occupancy": 82,
     "revpar": 185.5,
     "adr": 226.2,
-    "healthScore": 88
+    "healthScore": 88,
+    "revenue": 27825,
+    "revenueForecasted": 29000,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 85, "F&B": 72, "Spa": 90, "Events": 65, "Ops": 80 }
   },
   {
     "date": "2026-03-02",
     "occupancy": 79,
     "revpar": 178.2,
     "adr": 225.6,
-    "healthScore": 85
+    "healthScore": 85,
+    "revenue": 26730,
+    "revenueForecasted": 28000,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 83, "F&B": 70, "Spa": 88, "Events": 63, "Ops": 78 }
   },
   {
     "date": "2026-03-03",
     "occupancy": 91,
     "revpar": 205.3,
     "adr": 225.6,
-    "healthScore": 94
+    "healthScore": 94,
+    "revenue": 30795,
+    "revenueForecasted": 29500,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 88, "F&B": 75, "Spa": 92, "Events": 69, "Ops": 83 }
   },
   {
     "date": "2026-03-04",
     "occupancy": 95,
     "revpar": 214.2,
     "adr": 225.5,
-    "healthScore": 97
+    "healthScore": 97,
+    "revenue": 32130,
+    "revenueForecasted": 31000,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 90, "F&B": 78, "Spa": 94, "Events": 71, "Ops": 85 }
   },
   {
     "date": "2026-03-05",
     "occupancy": 88,
     "revpar": 198.6,
     "adr": 225.7,
-    "healthScore": 91
+    "healthScore": 91,
+    "revenue": 29790,
+    "revenueForecasted": 30500,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 87, "F&B": 74, "Spa": 91, "Events": 68, "Ops": 82 }
   },
   {
     "date": "2026-03-06",
     "occupancy": 74,
     "revpar": 166.9,
     "adr": 225.5,
-    "healthScore": 79
+    "healthScore": 79,
+    "revenue": 25035,
+    "revenueForecasted": 26500,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 82, "F&B": 69, "Spa": 87, "Events": 62, "Ops": 77 }
   },
   {
     "date": "2026-03-07",
     "occupancy": 70,
     "revpar": 157.9,
     "adr": 225.6,
-    "healthScore": 75
+    "healthScore": 75,
+    "revenue": 23685,
+    "revenueForecasted": 25000,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 80, "F&B": 67, "Spa": 85, "Events": 60, "Ops": 75 }
   },
   {
     "date": "2026-03-08",
     "occupancy": 83,
     "revpar": 187.2,
     "adr": 225.5,
-    "healthScore": 89
+    "healthScore": 89,
+    "revenue": 28080,
+    "revenueForecasted": 27500,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 86, "F&B": 73, "Spa": 90, "Events": 66, "Ops": 81 }
   },
   {
     "date": "2026-03-09",
     "occupancy": 86,
     "revpar": 194.0,
     "adr": 225.6,
-    "healthScore": 92
+    "healthScore": 92,
+    "revenue": 29100,
+    "revenueForecasted": 28000,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 87, "F&B": 75, "Spa": 91, "Events": 68, "Ops": 82 }
   },
   {
     "date": "2026-03-10",
     "occupancy": 93,
     "revpar": 209.8,
     "adr": 225.6,
-    "healthScore": 96
+    "healthScore": 96,
+    "revenue": 31470,
+    "revenueForecasted": 30000,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 89, "F&B": 77, "Spa": 93, "Events": 70, "Ops": 84 }
   },
   {
     "date": "2026-03-11",
     "occupancy": 97,
     "revpar": 218.8,
     "adr": 225.6,
-    "healthScore": 98
+    "healthScore": 98,
+    "revenue": 32820,
+    "revenueForecasted": 31500,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 91, "F&B": 79, "Spa": 95, "Events": 72, "Ops": 86 }
   },
   {
     "date": "2026-03-12",
     "occupancy": 90,
     "revpar": 203.0,
     "adr": 225.6,
-    "healthScore": 93
+    "healthScore": 93,
+    "revenue": 30450,
+    "revenueForecasted": 29000,
+    "revparForecasted": 0,
+    "deptScores": { "Rooms": 88, "F&B": 76, "Spa": 92, "Events": 69, "Ops": 83 }
+  },
+
+  {
+    "date": "2026-04-06",
+    "occupancy": 87,
+    "revpar": 207.0,
+    "adr": 237.9,
+    "healthScore": 91,
+    "revenue": 31050,
+    "revenueForecasted": 30800,
+    "revparForecasted": 205.5,
+    "deptScores": { "Rooms": 88, "F&B": 75, "Spa": 92, "Events": 69, "Ops": 83 }
+  },
+  {
+    "date": "2026-04-13",
+    "occupancy": 89,
+    "revpar": 207.0,
+    "adr": 232.6,
+    "healthScore": 92,
+    "revenue": 31050,
+    "revenueForecasted": 31000,
+    "revparForecasted": 207.0,
+    "deptScores": { "Rooms": 88, "F&B": 75, "Spa": 92, "Events": 69, "Ops": 83 }
+  },
+  {
+    "date": "2026-04-20",
+    "occupancy": 91,
+    "revpar": 208.0,
+    "adr": 228.6,
+    "healthScore": 93,
+    "revenue": 31200,
+    "revenueForecasted": 31400,
+    "revparForecasted": 208.0,
+    "deptScores": { "Rooms": 89, "F&B": 76, "Spa": 93, "Events": 70, "Ops": 84 }
+  },
+  {
+    "date": "2026-04-27",
+    "occupancy": 88,
+    "revpar": 207.0,
+    "adr": 235.2,
+    "healthScore": 91,
+    "revenue": 31050,
+    "revenueForecasted": 30800,
+    "revparForecasted": 207.5,
+    "deptScores": { "Rooms": 88, "F&B": 75, "Spa": 92, "Events": 69, "Ops": 83 }
+  },
+
+  {
+    "date": "2026-05-04",
+    "occupancy": 88,
+    "revpar": 210.0,
+    "adr": 238.6,
+    "healthScore": 92,
+    "revenue": 31500,
+    "revenueForecasted": 31200,
+    "revparForecasted": 209.0,
+    "deptScores": { "Rooms": 88, "F&B": 75, "Spa": 92, "Events": 69, "Ops": 83 }
+  },
+  {
+    "date": "2026-05-11",
+    "occupancy": 90,
+    "revpar": 210.5,
+    "adr": 233.9,
+    "healthScore": 93,
+    "revenue": 31575,
+    "revenueForecasted": 31600,
+    "revparForecasted": 210.5,
+    "deptScores": { "Rooms": 89, "F&B": 76, "Spa": 93, "Events": 70, "Ops": 84 }
+  },
+  {
+    "date": "2026-05-18",
+    "occupancy": 89,
+    "revpar": 210.0,
+    "adr": 236.0,
+    "healthScore": 92,
+    "revenue": 31500,
+    "revenueForecasted": 31400,
+    "revparForecasted": 210.0,
+    "deptScores": { "Rooms": 89, "F&B": 75, "Spa": 93, "Events": 70, "Ops": 83 }
+  },
+  {
+    "date": "2026-05-25",
+    "occupancy": 91,
+    "revpar": 211.5,
+    "adr": 232.4,
+    "healthScore": 94,
+    "revenue": 31725,
+    "revenueForecasted": 31800,
+    "revparForecasted": 211.5,
+    "deptScores": { "Rooms": 90, "F&B": 77, "Spa": 93, "Events": 71, "Ops": 85 }
+  },
+
+  {
+    "date": "2026-06-01",
+    "occupancy": 89,
+    "revpar": 213.5,
+    "adr": 240.0,
+    "healthScore": 93,
+    "revenue": 32025,
+    "revenueForecasted": 31800,
+    "revparForecasted": 213.5,
+    "deptScores": { "Rooms": 89, "F&B": 76, "Spa": 93, "Events": 70, "Ops": 84 }
+  },
+  {
+    "date": "2026-06-08",
+    "occupancy": 91,
+    "revpar": 215.5,
+    "adr": 236.8,
+    "healthScore": 94,
+    "revenue": 32325,
+    "revenueForecasted": 32200,
+    "revparForecasted": 215.0,
+    "deptScores": { "Rooms": 90, "F&B": 76, "Spa": 93, "Events": 71, "Ops": 84 }
+  },
+  {
+    "date": "2026-06-15",
+    "occupancy": 92,
+    "revpar": 215.5,
+    "adr": 234.2,
+    "healthScore": 94,
+    "revenue": 32325,
+    "revenueForecasted": 32400,
+    "revparForecasted": 215.5,
+    "deptScores": { "Rooms": 90, "F&B": 77, "Spa": 94, "Events": 71, "Ops": 85 }
+  },
+  {
+    "date": "2026-06-22",
+    "occupancy": 93,
+    "revpar": 216.0,
+    "adr": 232.3,
+    "healthScore": 95,
+    "revenue": 32400,
+    "revenueForecasted": 32600,
+    "revparForecasted": 216.0,
+    "deptScores": { "Rooms": 91, "F&B": 77, "Spa": 94, "Events": 72, "Ops": 85 }
+  },
+
+  {
+    "date": "2026-07-06",
+    "occupancy": 91,
+    "revpar": 218.5,
+    "adr": 240.1,
+    "healthScore": 94,
+    "revenue": 32775,
+    "revenueForecasted": 32500,
+    "revparForecasted": 218.0,
+    "deptScores": { "Rooms": 90, "F&B": 77, "Spa": 94, "Events": 71, "Ops": 85 }
+  },
+  {
+    "date": "2026-07-13",
+    "occupancy": 92,
+    "revpar": 219.0,
+    "adr": 238.0,
+    "healthScore": 95,
+    "revenue": 32850,
+    "revenueForecasted": 32800,
+    "revparForecasted": 219.0,
+    "deptScores": { "Rooms": 91, "F&B": 77, "Spa": 94, "Events": 72, "Ops": 85 }
+  },
+  {
+    "date": "2026-07-20",
+    "occupancy": 93,
+    "revpar": 219.5,
+    "adr": 236.0,
+    "healthScore": 95,
+    "revenue": 32925,
+    "revenueForecasted": 33000,
+    "revparForecasted": 219.5,
+    "deptScores": { "Rooms": 91, "F&B": 78, "Spa": 94, "Events": 72, "Ops": 86 }
+  },
+  {
+    "date": "2026-07-27",
+    "occupancy": 94,
+    "revpar": 220.0,
+    "adr": 234.0,
+    "healthScore": 96,
+    "revenue": 33000,
+    "revenueForecasted": 33200,
+    "revparForecasted": 220.0,
+    "deptScores": { "Rooms": 91, "F&B": 78, "Spa": 95, "Events": 72, "Ops": 86 }
+  },
+
+  {
+    "date": "2026-08-03",
+    "occupancy": 92,
+    "revpar": 221.0,
+    "adr": 240.2,
+    "healthScore": 95,
+    "revenue": 33150,
+    "revenueForecasted": 33000,
+    "revparForecasted": 221.0,
+    "deptScores": { "Rooms": 91, "F&B": 77, "Spa": 94, "Events": 72, "Ops": 85 }
+  },
+  {
+    "date": "2026-08-10",
+    "occupancy": 93,
+    "revpar": 222.0,
+    "adr": 238.7,
+    "healthScore": 95,
+    "revenue": 33300,
+    "revenueForecasted": 33300,
+    "revparForecasted": 222.0,
+    "deptScores": { "Rooms": 91, "F&B": 78, "Spa": 95, "Events": 72, "Ops": 86 }
+  },
+  {
+    "date": "2026-08-17",
+    "occupancy": 94,
+    "revpar": 222.5,
+    "adr": 236.7,
+    "healthScore": 96,
+    "revenue": 33375,
+    "revenueForecasted": 33500,
+    "revparForecasted": 222.5,
+    "deptScores": { "Rooms": 92, "F&B": 78, "Spa": 95, "Events": 73, "Ops": 86 }
+  },
+  {
+    "date": "2026-08-24",
+    "occupancy": 95,
+    "revpar": 223.5,
+    "adr": 235.3,
+    "healthScore": 96,
+    "revenue": 33525,
+    "revenueForecasted": 33700,
+    "revparForecasted": 223.5,
+    "deptScores": { "Rooms": 92, "F&B": 79, "Spa": 95, "Events": 73, "Ops": 87 }
   }
 ]

@@ -35,7 +35,7 @@
     "@repo/shared": "workspace:*",
     "@trpc/server": "^11.0.0-rc.660",
     "firebase-admin": "^12.0.0",
-    "firebase-functions": "^6.0.0",
+    "firebase-functions": "^7.2.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {
