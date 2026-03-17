@@ -1,4 +1,3 @@
-import { kpis } from '@/mocks'
 import { KpiCard, KpiSkeleton } from '@/components/KpiCard'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -13,8 +12,7 @@ import { useSnapshotKpis } from '@/hooks/useSnapshotKpis'
 
 export default function ExecutiveDashboardPage() {
   const { data, isLoading } = useSnapshotKpis()
-
-  const displayKpis = kpis.map(k => data?.kpis.find(r => r.label === k.label) ?? k)
+  const kpis = data?.kpis ?? []
 
   return (
     <div className="min-h-screen bg-background text-foreground p-6 font-sans">
@@ -42,9 +40,15 @@ export default function ExecutiveDashboardPage() {
       <div className="flex gap-3 mb-4 flex-wrap">
         <HealthScore />
 
-        {isLoading
-          ? kpis.map(k => <KpiSkeleton key={k.label} />)
-          : displayKpis.map(k => <KpiCard key={k.label} {...k} className="flex-1 min-w-[140px]" />)}
+        {isLoading ? (
+          Array.from({ length: 4 }).map((_, i) => <KpiSkeleton key={i} />)
+        ) : kpis.length > 0 ? (
+          kpis.map(k => <KpiCard key={k.label} {...k} className="flex-1 min-w-[140px]" />)
+        ) : (
+          <div className="flex flex-1 min-w-[140px] items-center justify-center">
+            <h1 className="text-xl font-bold tracking-tight mb-1">No data available</h1>
+          </div>
+        )}
       </div>
 
       {/* Row 2 — Revenue Chart + Department Performance */}

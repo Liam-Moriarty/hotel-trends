@@ -30,6 +30,10 @@ env:
     value: 1:791396753068:web:312429346e625974dcc909
     availability:
       - BUILD
+  - variable: VITE_HOTEL_ID
+    value: SAND01
+    availability:
+      - BUILD
 
 scripts:
   buildCommand: pnpm install --frozen-lockfile && pnpm build

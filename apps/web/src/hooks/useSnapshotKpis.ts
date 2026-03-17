@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------------------
 // Fetches the latest 31 daily snapshots and computes KPI items for
-// ADR, Occupancy, and RevPAR with % change vs 30 days ago.
+// Total Revenue, GOP, ADR, Occupancy, and RevPAR with % change vs 30 days ago.
 // Also exposes raw healthScore, occupancy, and adr for the HealthScore widget.
 // ---------------------------------------------------------------------------
 import { useQuery } from '@tanstack/react-query'
@@ -18,6 +18,8 @@ const SnapshotSchema = z.object({
   revpar: z.number(),
   healthScore: z.number(),
   hotelId: z.string(),
+  revenue: z.number().default(0),
+  grossOperatingProfit: z.number().default(0),
 })
 
 type Snapshot = z.infer<typeof SnapshotSchema>
@@ -36,6 +38,12 @@ function pctChange(current: number, previous: number): number {
 
 function sign(n: number) {
   return n >= 0 ? '+' : ''
+}
+
+function fmtK(n: number): string {
+  if (n >= 1_000_000) return `$${(n / 1_000_000).toFixed(1)}M`
+  if (n >= 1_000) return `$${Math.round(n / 1_000)}K`
+  return `$${n.toFixed(0)}`
 }
 
 export function useSnapshotKpis() {
@@ -64,12 +72,28 @@ export function useSnapshotKpis() {
         return docDiff < closestDiff ? doc : closest
       })
 
+      const revChange = pctChange(latest.revenue, prior.revenue)
+      const gopChange = pctChange(latest.grossOperatingProfit, prior.grossOperatingProfit)
+      const gopMargin =
+        latest.revenue > 0 ? (latest.grossOperatingProfit / latest.revenue) * 100 : 0
       const adrChange = pctChange(latest.adr, prior.adr)
       const occChange = pctChange(latest.occupancy, prior.occupancy)
       const revparChange = pctChange(latest.revpar, prior.revpar)
 
       return {
         kpis: [
+          {
+            label: 'Total Revenue',
+            value: fmtK(latest.revenue),
+            sub: `${sign(revChange)}${revChange.toFixed(1)}% vs last month`,
+            variant: revChange >= 0 ? 'up' : 'down',
+          },
+          {
+            label: 'Gross Operating Profit',
+            value: fmtK(latest.grossOperatingProfit),
+            sub: `${sign(gopChange)}${gopChange.toFixed(1)}% · GOP margin ${gopMargin.toFixed(1)}%`,
+            variant: gopChange >= 0 ? 'up' : 'down',
+          },
           {
             label: 'ADR',
             value: `$${latest.adr.toFixed(0)}`,
@@ -79,7 +103,7 @@ export function useSnapshotKpis() {
           {
             label: 'Occupancy',
             value: `${latest.occupancy}%`,
-            sub: `${sign(occChange)}${occChange.toFixed(1)}% vs ${prior.occupancy}% prior period`,
+            sub: `${sign(occChange)}${occChange.toFixed(1)}% vs ${prior.occupancy}% prior month`,
             variant: occChange >= 0 ? 'up' : 'down',
           },
           {
