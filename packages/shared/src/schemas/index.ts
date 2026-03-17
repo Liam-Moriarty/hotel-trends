@@ -27,4 +27,4 @@ export type {
   HubOSRosterEntry,
 } from './hubos.js'
 
-// adess test
+export * from './hubos-guest-sentiments.js'

@@ -12,7 +12,7 @@ import {
   guestSentimentBreakdown,
   guestTouchpoints,
   guestReviews,
-} from '@/mocks'
+} from '@/mocks/hubos-guest-sentiments-adapter'
 
 export default function GuestPage() {
   return (
