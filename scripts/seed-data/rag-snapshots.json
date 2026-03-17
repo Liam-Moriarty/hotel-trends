@@ -6,6 +6,7 @@
     "adr": 246.7,
     "healthScore": 82,
     "revenue": 27750,
+    "grossOperatingProfit": 8048,
     "revenueForecasted": 28500,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 84, "F&B": 71, "Spa": 89, "Events": 64, "Ops": 79 }
@@ -17,6 +18,7 @@
     "adr": 242.3,
     "healthScore": 84,
     "revenue": 28350,
+    "grossOperatingProfit": 8222,
     "revenueForecasted": 28800,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 85, "F&B": 72, "Spa": 90, "Events": 65, "Ops": 80 }
@@ -28,6 +30,7 @@
     "adr": 245.4,
     "healthScore": 83,
     "revenue": 27975,
+    "grossOperatingProfit": 8113,
     "revenueForecasted": 28200,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 84, "F&B": 71, "Spa": 89, "Events": 64, "Ops": 79 }
@@ -39,6 +42,7 @@
     "adr": 240.0,
     "healthScore": 86,
     "revenue": 28800,
+    "grossOperatingProfit": 8352,
     "revenueForecasted": 29000,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 86, "F&B": 73, "Spa": 91, "Events": 66, "Ops": 81 }
@@ -51,6 +55,7 @@
     "adr": 242.5,
     "healthScore": 87,
     "revenue": 29100,
+    "grossOperatingProfit": 8439,
     "revenueForecasted": 29200,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 86, "F&B": 73, "Spa": 91, "Events": 66, "Ops": 81 }
@@ -62,6 +67,7 @@
     "adr": 238.6,
     "healthScore": 89,
     "revenue": 29700,
+    "grossOperatingProfit": 8613,
     "revenueForecasted": 29500,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 87, "F&B": 74, "Spa": 91, "Events": 67, "Ops": 82 }
@@ -73,6 +79,7 @@
     "adr": 241.4,
     "healthScore": 88,
     "revenue": 29325,
+    "grossOperatingProfit": 8504,
     "revenueForecasted": 29300,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 86, "F&B": 73, "Spa": 91, "Events": 66, "Ops": 81 }
@@ -84,6 +91,7 @@
     "adr": 239.9,
     "healthScore": 90,
     "revenue": 30225,
+    "grossOperatingProfit": 8765,
     "revenueForecasted": 29800,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 87, "F&B": 75, "Spa": 92, "Events": 68, "Ops": 82 }
@@ -96,6 +104,7 @@
     "adr": 226.2,
     "healthScore": 88,
     "revenue": 27825,
+    "grossOperatingProfit": 8069,
     "revenueForecasted": 29000,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 85, "F&B": 72, "Spa": 90, "Events": 65, "Ops": 80 }
@@ -107,6 +116,7 @@
     "adr": 225.6,
     "healthScore": 85,
     "revenue": 26730,
+    "grossOperatingProfit": 7752,
     "revenueForecasted": 28000,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 83, "F&B": 70, "Spa": 88, "Events": 63, "Ops": 78 }
@@ -118,6 +128,7 @@
     "adr": 225.6,
     "healthScore": 94,
     "revenue": 30795,
+    "grossOperatingProfit": 8931,
     "revenueForecasted": 29500,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 88, "F&B": 75, "Spa": 92, "Events": 69, "Ops": 83 }
@@ -129,6 +140,7 @@
     "adr": 225.5,
     "healthScore": 97,
     "revenue": 32130,
+    "grossOperatingProfit": 9318,
     "revenueForecasted": 31000,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 90, "F&B": 78, "Spa": 94, "Events": 71, "Ops": 85 }
@@ -140,6 +152,7 @@
     "adr": 225.7,
     "healthScore": 91,
     "revenue": 29790,
+    "grossOperatingProfit": 8639,
     "revenueForecasted": 30500,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 87, "F&B": 74, "Spa": 91, "Events": 68, "Ops": 82 }
@@ -151,6 +164,7 @@
     "adr": 225.5,
     "healthScore": 79,
     "revenue": 25035,
+    "grossOperatingProfit": 7260,
     "revenueForecasted": 26500,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 82, "F&B": 69, "Spa": 87, "Events": 62, "Ops": 77 }
@@ -162,6 +176,7 @@
     "adr": 225.6,
     "healthScore": 75,
     "revenue": 23685,
+    "grossOperatingProfit": 6869,
     "revenueForecasted": 25000,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 80, "F&B": 67, "Spa": 85, "Events": 60, "Ops": 75 }
@@ -173,6 +188,7 @@
     "adr": 225.5,
     "healthScore": 89,
     "revenue": 28080,
+    "grossOperatingProfit": 8143,
     "revenueForecasted": 27500,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 86, "F&B": 73, "Spa": 90, "Events": 66, "Ops": 81 }
@@ -184,6 +200,7 @@
     "adr": 225.6,
     "healthScore": 92,
     "revenue": 29100,
+    "grossOperatingProfit": 8439,
     "revenueForecasted": 28000,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 87, "F&B": 75, "Spa": 91, "Events": 68, "Ops": 82 }
@@ -195,6 +212,7 @@
     "adr": 225.6,
     "healthScore": 96,
     "revenue": 31470,
+    "grossOperatingProfit": 9126,
     "revenueForecasted": 30000,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 89, "F&B": 77, "Spa": 93, "Events": 70, "Ops": 84 }
@@ -206,6 +224,7 @@
     "adr": 225.6,
     "healthScore": 98,
     "revenue": 32820,
+    "grossOperatingProfit": 9518,
     "revenueForecasted": 31500,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 91, "F&B": 79, "Spa": 95, "Events": 72, "Ops": 86 }
@@ -217,6 +236,7 @@
     "adr": 225.6,
     "healthScore": 93,
     "revenue": 30450,
+    "grossOperatingProfit": 8831,
     "revenueForecasted": 29000,
     "revparForecasted": 0,
     "deptScores": { "Rooms": 88, "F&B": 76, "Spa": 92, "Events": 69, "Ops": 83 }
@@ -229,6 +249,7 @@
     "adr": 237.9,
     "healthScore": 91,
     "revenue": 31050,
+    "grossOperatingProfit": 9005,
     "revenueForecasted": 30800,
     "revparForecasted": 205.5,
     "deptScores": { "Rooms": 88, "F&B": 75, "Spa": 92, "Events": 69, "Ops": 83 }
@@ -240,6 +261,7 @@
     "adr": 232.6,
     "healthScore": 92,
     "revenue": 31050,
+    "grossOperatingProfit": 9005,
     "revenueForecasted": 31000,
     "revparForecasted": 207.0,
     "deptScores": { "Rooms": 88, "F&B": 75, "Spa": 92, "Events": 69, "Ops": 83 }
@@ -251,6 +273,7 @@
     "adr": 228.6,
     "healthScore": 93,
     "revenue": 31200,
+    "grossOperatingProfit": 9048,
     "revenueForecasted": 31400,
     "revparForecasted": 208.0,
     "deptScores": { "Rooms": 89, "F&B": 76, "Spa": 93, "Events": 70, "Ops": 84 }
@@ -262,6 +285,7 @@
     "adr": 235.2,
     "healthScore": 91,
     "revenue": 31050,
+    "grossOperatingProfit": 9005,
     "revenueForecasted": 30800,
     "revparForecasted": 207.5,
     "deptScores": { "Rooms": 88, "F&B": 75, "Spa": 92, "Events": 69, "Ops": 83 }
@@ -274,6 +298,7 @@
     "adr": 238.6,
     "healthScore": 92,
     "revenue": 31500,
+    "grossOperatingProfit": 9135,
     "revenueForecasted": 31200,
     "revparForecasted": 209.0,
     "deptScores": { "Rooms": 88, "F&B": 75, "Spa": 92, "Events": 69, "Ops": 83 }
@@ -285,6 +310,7 @@
     "adr": 233.9,
     "healthScore": 93,
     "revenue": 31575,
+    "grossOperatingProfit": 9157,
     "revenueForecasted": 31600,
     "revparForecasted": 210.5,
     "deptScores": { "Rooms": 89, "F&B": 76, "Spa": 93, "Events": 70, "Ops": 84 }
@@ -296,6 +322,7 @@
     "adr": 236.0,
     "healthScore": 92,
     "revenue": 31500,
+    "grossOperatingProfit": 9135,
     "revenueForecasted": 31400,
     "revparForecasted": 210.0,
     "deptScores": { "Rooms": 89, "F&B": 75, "Spa": 93, "Events": 70, "Ops": 83 }
@@ -307,6 +334,7 @@
     "adr": 232.4,
     "healthScore": 94,
     "revenue": 31725,
+    "grossOperatingProfit": 9200,
     "revenueForecasted": 31800,
     "revparForecasted": 211.5,
     "deptScores": { "Rooms": 90, "F&B": 77, "Spa": 93, "Events": 71, "Ops": 85 }
@@ -319,6 +347,7 @@
     "adr": 240.0,
     "healthScore": 93,
     "revenue": 32025,
+    "grossOperatingProfit": 9287,
     "revenueForecasted": 31800,
     "revparForecasted": 213.5,
     "deptScores": { "Rooms": 89, "F&B": 76, "Spa": 93, "Events": 70, "Ops": 84 }
@@ -330,6 +359,7 @@
     "adr": 236.8,
     "healthScore": 94,
     "revenue": 32325,
+    "grossOperatingProfit": 9374,
     "revenueForecasted": 32200,
     "revparForecasted": 215.0,
     "deptScores": { "Rooms": 90, "F&B": 76, "Spa": 93, "Events": 71, "Ops": 84 }
@@ -341,6 +371,7 @@
     "adr": 234.2,
     "healthScore": 94,
     "revenue": 32325,
+    "grossOperatingProfit": 9374,
     "revenueForecasted": 32400,
     "revparForecasted": 215.5,
     "deptScores": { "Rooms": 90, "F&B": 77, "Spa": 94, "Events": 71, "Ops": 85 }
@@ -352,6 +383,7 @@
     "adr": 232.3,
     "healthScore": 95,
     "revenue": 32400,
+    "grossOperatingProfit": 9396,
     "revenueForecasted": 32600,
     "revparForecasted": 216.0,
     "deptScores": { "Rooms": 91, "F&B": 77, "Spa": 94, "Events": 72, "Ops": 85 }
@@ -364,6 +396,7 @@
     "adr": 240.1,
     "healthScore": 94,
     "revenue": 32775,
+    "grossOperatingProfit": 9505,
     "revenueForecasted": 32500,
     "revparForecasted": 218.0,
     "deptScores": { "Rooms": 90, "F&B": 77, "Spa": 94, "Events": 71, "Ops": 85 }
@@ -375,6 +408,7 @@
     "adr": 238.0,
     "healthScore": 95,
     "revenue": 32850,
+    "grossOperatingProfit": 9527,
     "revenueForecasted": 32800,
     "revparForecasted": 219.0,
     "deptScores": { "Rooms": 91, "F&B": 77, "Spa": 94, "Events": 72, "Ops": 85 }
@@ -386,6 +420,7 @@
     "adr": 236.0,
     "healthScore": 95,
     "revenue": 32925,
+    "grossOperatingProfit": 9548,
     "revenueForecasted": 33000,
     "revparForecasted": 219.5,
     "deptScores": { "Rooms": 91, "F&B": 78, "Spa": 94, "Events": 72, "Ops": 86 }
@@ -397,6 +432,7 @@
     "adr": 234.0,
     "healthScore": 96,
     "revenue": 33000,
+    "grossOperatingProfit": 9570,
     "revenueForecasted": 33200,
     "revparForecasted": 220.0,
     "deptScores": { "Rooms": 91, "F&B": 78, "Spa": 95, "Events": 72, "Ops": 86 }
@@ -409,6 +445,7 @@
     "adr": 240.2,
     "healthScore": 95,
     "revenue": 33150,
+    "grossOperatingProfit": 9614,
     "revenueForecasted": 33000,
     "revparForecasted": 221.0,
     "deptScores": { "Rooms": 91, "F&B": 77, "Spa": 94, "Events": 72, "Ops": 85 }
@@ -420,6 +457,7 @@
     "adr": 238.7,
     "healthScore": 95,
     "revenue": 33300,
+    "grossOperatingProfit": 9657,
     "revenueForecasted": 33300,
     "revparForecasted": 222.0,
     "deptScores": { "Rooms": 91, "F&B": 78, "Spa": 95, "Events": 72, "Ops": 86 }
@@ -431,6 +469,7 @@
     "adr": 236.7,
     "healthScore": 96,
     "revenue": 33375,
+    "grossOperatingProfit": 9679,
     "revenueForecasted": 33500,
     "revparForecasted": 222.5,
     "deptScores": { "Rooms": 92, "F&B": 78, "Spa": 95, "Events": 73, "Ops": 86 }
@@ -442,6 +481,7 @@
     "adr": 235.3,
     "healthScore": 96,
     "revenue": 33525,
+    "grossOperatingProfit": 9722,
     "revenueForecasted": 33700,
     "revparForecasted": 223.5,
     "deptScores": { "Rooms": 92, "F&B": 79, "Spa": 95, "Events": 73, "Ops": 87 }
