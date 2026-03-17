@@ -1,5 +1,6 @@
 import type { KpiItem, KpiVariant } from '@/interface'
 import { Card, CardContent } from '@/components/ui/card'
+import { Skeleton } from '@/components/ui/skeleton'
 
 interface Props extends KpiItem {
   className?: string
@@ -14,7 +15,7 @@ const changeColor: Record<KpiVariant, string> = {
 
 const arrow: Record<KpiVariant, string> = {
   up: '↑',
-  down: '↘',
+  down: '↓',
   info: '↗',
   neutral: '↗',
 }
@@ -28,6 +29,18 @@ export function KpiCard({ label, value, sub, variant, className }: Props) {
         <p className={`text-xs font-medium ${changeColor[variant]}`}>
           {arrow[variant]} {sub}
         </p>
+      </CardContent>
+    </Card>
+  )
+}
+
+export function KpiSkeleton({ className }: { className?: string }) {
+  return (
+    <Card className={className}>
+      <CardContent className="p-5 space-y-2">
+        <Skeleton className="h-3 w-36" />
+        <Skeleton className="h-7 w-36" />
+        <Skeleton className="h-3 w-36" />
       </CardContent>
     </Card>
   )

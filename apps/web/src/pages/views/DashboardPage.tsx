@@ -1,5 +1,5 @@
 import { kpis } from '@/mocks'
-import { KpiCard } from '@/components/KpiCard'
+import { KpiCard, KpiSkeleton } from '@/components/KpiCard'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import HealthScore from '@/sections/dashboard/HealthScore'
@@ -9,8 +9,13 @@ import InsightsPanel from '@/sections/dashboard/InsightsPanel'
 import ScenarioSimulator from '@/sections/dashboard/ScenarioSimulator'
 import RevparForecast from '@/sections/dashboard/RevparForecast'
 import CapExPanel from '@/sections/dashboard/CapExPanel'
+import { useSnapshotKpis } from '@/hooks/useSnapshotKpis'
 
 export default function ExecutiveDashboardPage() {
+  const { data: snapshotKpis, isLoading } = useSnapshotKpis()
+
+  const displayKpis = kpis.map(k => snapshotKpis?.find(r => r.label === k.label) ?? k)
+  console.log(snapshotKpis)
   return (
     <div className="min-h-screen bg-background text-foreground p-6 font-sans">
       {/* Header */}
@@ -36,9 +41,10 @@ export default function ExecutiveDashboardPage() {
       {/* Row 1 — Health Score + KPIs */}
       <div className="flex gap-3 mb-4 flex-wrap">
         <HealthScore />
-        {kpis.map(k => (
-          <KpiCard key={k.label} {...k} className="flex-1 min-w-[140px]" />
-        ))}
+
+        {isLoading
+          ? kpis.map(k => <KpiSkeleton key={k.label} />)
+          : displayKpis.map(k => <KpiCard key={k.label} {...k} className="flex-1 min-w-[140px]" />)}
       </div>
 
       {/* Row 2 — Revenue Chart + Department Performance */}
