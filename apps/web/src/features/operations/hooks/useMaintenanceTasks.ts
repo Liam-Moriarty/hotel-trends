@@ -4,7 +4,7 @@ import { db } from '@repo/firebase-config'
 import { HubOSTaskSchema } from '@repo/shared'
 import type { HubOSTask } from '@repo/shared'
 
-const HOTEL_ID = 'SAND01'
+const HOTEL_ID = import.meta.env.VITE_HOTEL_ID as string
 
 async function fetchMaintenanceTasks(): Promise<HubOSTask[]> {
   const snap = await getDocs(collection(db, 'hotels', HOTEL_ID, 'hubos-tasks'))

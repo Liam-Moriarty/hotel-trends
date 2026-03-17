@@ -4,7 +4,7 @@ import { db } from '@repo/firebase-config'
 import { HubOSRosterEntrySchema } from '@repo/shared'
 import type { HubOSRosterEntry } from '@repo/shared'
 
-const HOTEL_ID = 'SAND01'
+const HOTEL_ID = import.meta.env.VITE_HOTEL_ID as string
 
 async function fetchLaborRoster(): Promise<HubOSRosterEntry[]> {
   const snap = await getDocs(collection(db, 'hotels', HOTEL_ID, 'hubos-roster'))

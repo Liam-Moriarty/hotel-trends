@@ -1,0 +1,23 @@
+{
+  "hubosEnergy": {
+    "hotelId": "SAND01",
+    "energyReadings": [
+      { "hotelId": "SAND01", "date": "2024-01-15", "time": "06:00", "actual": 42, "target": 38 },
+      { "hotelId": "SAND01", "date": "2024-01-15", "time": "07:00", "actual": 58, "target": 52 },
+      { "hotelId": "SAND01", "date": "2024-01-15", "time": "08:00", "actual": 74, "target": 66 },
+      { "hotelId": "SAND01", "date": "2024-01-15", "time": "09:00", "actual": 71, "target": 66 },
+      { "hotelId": "SAND01", "date": "2024-01-15", "time": "10:00", "actual": 55, "target": 53 },
+      { "hotelId": "SAND01", "date": "2024-01-15", "time": "11:00", "actual": 49, "target": 48 },
+      { "hotelId": "SAND01", "date": "2024-01-15", "time": "12:00", "actual": 63, "target": 57 }
+    ],
+    "foodWaste": [
+      { "hotelId": "SAND01", "date": "2024-01-15", "day": "Mon", "kg": 9.2 },
+      { "hotelId": "SAND01", "date": "2024-01-16", "day": "Tue", "kg": 11.4 },
+      { "hotelId": "SAND01", "date": "2024-01-17", "day": "Wed", "kg": 13.1 },
+      { "hotelId": "SAND01", "date": "2024-01-18", "day": "Thu", "kg": 10.8 },
+      { "hotelId": "SAND01", "date": "2024-01-19", "day": "Fri", "kg": 14.2 },
+      { "hotelId": "SAND01", "date": "2024-01-20", "day": "Sat", "kg": 12.6 },
+      { "hotelId": "SAND01", "date": "2024-01-21", "day": "Sun", "kg": 9.4 }
+    ]
+  }
+}

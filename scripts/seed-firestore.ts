@@ -153,6 +153,34 @@ type RoomAvailability = z.infer<typeof RoomAvailabilitySchema>
 type Room = z.infer<typeof RoomSchema>
 type RatePlan = z.infer<typeof RatePlanSchema>
 
+const HubOsEnergyReadingSchema = z.object({
+  hotelId: z.string(),
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  time: z.string(),
+  actual: z.number(),
+  target: z.number(),
+  source: z.enum(['HVAC', 'Lighting', 'Kitchen', 'Mixed']).optional(),
+  zone: z.string().optional(),
+})
+
+const HubOsFoodWasteSchema = z.object({
+  hotelId: z.string(),
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  day: z.string(),
+  kg: z.number(),
+  mealPeriod: z.enum(['Breakfast', 'Lunch', 'Dinner', 'All Day']).optional(),
+  notes: z.string().optional(),
+})
+
+const HubOsEnergyPayloadSchema = z.object({
+  hubosEnergy: z.object({
+    hotelId: z.string(),
+    energyReadings: z.array(HubOsEnergyReadingSchema),
+    foodWaste: z.array(HubOsFoodWasteSchema),
+  }),
+})
+
+type HubOsEnergyPayload = z.infer<typeof HubOsEnergyPayloadSchema>
 // ---------------------------------------------------------------------------
 // Firestore document interfaces (what gets written — no `any`, no `object`)
 // ---------------------------------------------------------------------------
@@ -271,6 +299,27 @@ interface HubOSRosterDoc {
   seededAt: admin.firestore.FieldValue
 }
 
+interface HubOsEnergyDoc {
+  hotelId: string
+  date: string
+  time: string
+  actual: number
+  target: number
+  source?: string
+  zone?: string
+  seededAt: admin.firestore.FieldValue
+}
+
+interface HubOsFoodWasteDoc {
+  hotelId: string
+  date: string
+  day: string
+  kg: number
+  mealPeriod?: string
+  notes?: string
+  seededAt: admin.firestore.FieldValue
+}
+
 type FirestoreDoc =
   | HotelDoc
   | RoomDoc
@@ -281,6 +330,8 @@ type FirestoreDoc =
   | HubOSRoomDoc
   | HubOSTaskDoc
   | HubOSRosterDoc
+  | HubOsEnergyDoc
+  | HubOsFoodWasteDoc
 
 type WriteOperation = {
   ref: admin.firestore.DocumentReference
@@ -567,6 +618,38 @@ async function seedHubOS(data: HubOSPayload): Promise<void> {
   console.log(`  ✅ ${rosterWrites.length} roster entries → /hotels/${HOTEL_ID}/hubos-roster`)
 }
 
+async function seedHubOsEnergy(data: HubOsEnergyPayload): Promise<void> {
+  console.log('\n⚡ Seeding Hub OS energy + food waste...')
+
+  const energyWrites: WriteOperation[] = data.hubosEnergy.energyReadings.map(reading => ({
+    ref: db
+      .collection('hotels')
+      .doc(HOTEL_ID)
+      .collection('hubos-energy')
+      .doc(`${reading.date}_${reading.time}`),
+    data: {
+      ...reading,
+      seededAt: admin.firestore.FieldValue.serverTimestamp(),
+    } satisfies HubOsEnergyDoc,
+  }))
+
+  const foodWasteWrites: WriteOperation[] = data.hubosEnergy.foodWaste.map(entry => ({
+    ref: db.collection('hotels').doc(HOTEL_ID).collection('hubos-food-waste').doc(entry.date),
+    data: {
+      ...entry,
+      seededAt: admin.firestore.FieldValue.serverTimestamp(),
+    } satisfies HubOsFoodWasteDoc,
+  }))
+
+  await batchWrite(energyWrites)
+  console.log(`  ✅ ${energyWrites.length} energy docs → /hotels/${HOTEL_ID}/hubos-energy`)
+
+  await batchWrite(foodWasteWrites)
+  console.log(
+    `  ✅ ${foodWasteWrites.length} food waste docs → /hotels/${HOTEL_ID}/hubos-food-waste`
+  )
+}
+
 // ---------------------------------------------------------------------------
 // 6. Main
 // ---------------------------------------------------------------------------
@@ -605,6 +688,8 @@ async function main(): Promise<void> {
     await seedReservations(reservationData)
     const hubosData = loadAndValidate('hubos-mock.json', HubOSPayloadSchema)
     await seedHubOS(hubosData)
+    const energyData = loadAndValidate('hubos-energy-mock.json', HubOsEnergyPayloadSchema)
+    await seedHubOsEnergy(energyData)
 
     console.log('\n╔══════════════════════════════════════════════╗')
     console.log('║           ✅ Seed complete!                  ║')
