@@ -18,7 +18,7 @@ export default defineConfig({
       '/api': {
         target: 'http://127.0.0.1:5001',
         changeOrigin: true,
-        rewrite: path => `/hotel-trends-stage/asia-southeast1${path}`,
+        rewrite: path => `/hotel-trends-stage/us-central1${path}`,
       },
     },
   },
