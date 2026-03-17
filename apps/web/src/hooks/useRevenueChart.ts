@@ -6,7 +6,7 @@
 // Falls back to 0 if either field is missing (backward-compatible).
 // ---------------------------------------------------------------------------
 import { useQuery } from '@tanstack/react-query'
-import { collection, getDocs, orderBy, limit, query } from 'firebase/firestore'
+import { collection, getDocs, orderBy, limit, query, where } from 'firebase/firestore'
 import { z } from 'zod'
 import { db } from '@repo/firebase-config'
 import type { RevenueDataPoint } from '@/interface'
@@ -27,8 +27,9 @@ export function useRevenueChart() {
     queryKey: ['revenue-chart', HOTEL_ID],
     queryFn: async (): Promise<RevenueDataPoint[]> => {
       const col = collection(db, `hotels/${HOTEL_ID}/snapshots`)
-      // Fetch the 7 most-recent snapshots (one per day).
-      const q = query(col, orderBy('date', 'desc'), limit(7))
+      // Fetch the 7 most-recent past snapshots (one per day).
+      const today = new Date().toISOString().slice(0, 10)
+      const q = query(col, where('date', '<=', today), orderBy('date', 'desc'), limit(7))
       const snap = await getDocs(q)
 
       const docs = snap.docs
