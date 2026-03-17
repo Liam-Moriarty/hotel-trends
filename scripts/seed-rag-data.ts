@@ -30,6 +30,14 @@ const SnapshotSchema = z.object({
   // Added for RevenueChart: actual and forecasted daily revenue
   revenue: z.number().nonnegative(),
   revenueForecasted: z.number().nonnegative(),
+  // Added for DeptPerformance: performance index (0–100) per department
+  deptScores: z.object({
+    Rooms: z.number().min(0).max(100),
+    'F&B': z.number().min(0).max(100),
+    Spa: z.number().min(0).max(100),
+    Events: z.number().min(0).max(100),
+    Ops: z.number().min(0).max(100),
+  }),
 })
 
 const AlertSchema = z.object({
