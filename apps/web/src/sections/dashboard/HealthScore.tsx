@@ -1,16 +1,47 @@
 import { Card, CardContent } from '@/components/ui/card'
+import { Skeleton } from '@/components/ui/skeleton'
+import { useSnapshotKpis } from '@/hooks/useSnapshotKpis'
 
-const score = 78
 const r = 52,
   cx = 70,
   cy = 70
 const circ = 2 * Math.PI * r
 const sweep = 270
 const dashLen = (sweep / 360) * circ
-const filled = (score / 100) * dashLen
 const offset = -circ * (90 / 360)
 
+function scoreLabel(n: number): string {
+  if (n >= 90) return 'EXCELLENT'
+  if (n >= 70) return 'GOOD'
+  if (n >= 50) return 'OK'
+  return 'POOR'
+}
+
 export default function HealthScore() {
+  const { data, isLoading } = useSnapshotKpis()
+
+  if (isLoading) {
+    return (
+      <Card className="min-w-[200px]">
+        <CardContent className="p-5">
+          <Skeleton className="h-3 w-32 mb-3" />
+          <div className="flex justify-center">
+            <Skeleton className="h-[100px] w-[140px] rounded-xl" />
+          </div>
+          <div className="flex justify-around mt-4">
+            <Skeleton className="h-8 w-12" />
+            <Skeleton className="h-8 w-12" />
+          </div>
+        </CardContent>
+      </Card>
+    )
+  }
+
+  const score = data?.healthScore ?? 0
+  const occupancy = data?.occupancy ?? 0
+  const adr = data?.adr ?? 0
+  const filled = (score / 100) * dashLen
+
   return (
     <Card className="min-w-[200px]">
       <CardContent className="p-5">
@@ -61,15 +92,14 @@ export default function HealthScore() {
               fontSize={11}
               fontWeight={600}
             >
-              GOOD
+              {scoreLabel(score)}
             </text>
           </svg>
         </div>
         <div className="flex justify-around mt-2">
           {[
-            ['84%', 'OCC'],
-            ['$218', 'RATE'],
-            ['4.6', 'CSAT'],
+            [`${occupancy}%`, 'OCC'],
+            [`$${adr.toFixed(0)}`, 'RATE'],
           ].map(([v, l]) => (
             <div key={l} className="text-center">
               <p className="text-sm font-bold text-foreground">{v}</p>

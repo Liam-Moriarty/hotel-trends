@@ -12,10 +12,11 @@ import CapExPanel from '@/sections/dashboard/CapExPanel'
 import { useSnapshotKpis } from '@/hooks/useSnapshotKpis'
 
 export default function ExecutiveDashboardPage() {
-  const { data: snapshotKpis, isLoading } = useSnapshotKpis()
+  const { data, isLoading } = useSnapshotKpis()
 
-  const displayKpis = kpis.map(k => snapshotKpis?.find(r => r.label === k.label) ?? k)
-  console.log(snapshotKpis)
+  const displayKpis = kpis.map(k => data?.kpis.find(r => r.label === k.label) ?? k)
+
+  console.log(data)
   return (
     <div className="min-h-screen bg-background text-foreground p-6 font-sans">
       {/* Header */}
