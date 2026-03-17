@@ -27,6 +27,9 @@ const SnapshotSchema = z.object({
   revpar: z.number().nonnegative(),
   adr: z.number().nonnegative(),
   healthScore: z.number().min(0).max(100),
+  // Added for RevenueChart: actual and forecasted daily revenue
+  revenue: z.number().nonnegative(),
+  revenueForecasted: z.number().nonnegative(),
 })
 
 const AlertSchema = z.object({

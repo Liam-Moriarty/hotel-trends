@@ -16,7 +16,6 @@ export default function ExecutiveDashboardPage() {
 
   const displayKpis = kpis.map(k => data?.kpis.find(r => r.label === k.label) ?? k)
 
-  console.log(data)
   return (
     <div className="min-h-screen bg-background text-foreground p-6 font-sans">
       {/* Header */}
