@@ -7,8 +7,6 @@ import { useDeptPerformance } from '@/hooks/useDeptPerformance'
 export default function DeptPerformance() {
   const { data: depts, isLoading } = useDeptPerformance()
 
-  console.log(depts)
-
   const avg =
     depts && depts.length > 0
       ? (depts.reduce((s, d) => s + d.score, 0) / depts.length).toFixed(1)
