@@ -1,6 +1,7 @@
 // ---------------------------------------------------------------------------
 // Fetches the latest 31 daily snapshots and computes KPI items for
-// Total Revenue, GOP, ADR, Occupancy, and RevPAR with % change vs 30 days ago.
+// Total Revenue, Gross Operating Profit, ADR, Occupancy, and RevPAR
+// with % change vs 30 days ago.
 // Also exposes raw healthScore, occupancy, and adr for the HealthScore widget.
 // ---------------------------------------------------------------------------
 import { useQuery } from '@tanstack/react-query'
@@ -18,8 +19,8 @@ const SnapshotSchema = z.object({
   revpar: z.number(),
   healthScore: z.number(),
   hotelId: z.string(),
-  revenue: z.number().default(0),
-  grossOperatingProfit: z.number().default(0),
+  revenue: z.number().optional().default(0),
+  grossOperatingProfit: z.number().optional().default(0),
 })
 
 type Snapshot = z.infer<typeof SnapshotSchema>
@@ -40,10 +41,8 @@ function sign(n: number) {
   return n >= 0 ? '+' : ''
 }
 
-function fmtK(n: number): string {
-  if (n >= 1_000_000) return `$${(n / 1_000_000).toFixed(1)}M`
-  if (n >= 1_000) return `$${Math.round(n / 1_000)}K`
-  return `$${n.toFixed(0)}`
+function formatK(n: number): string {
+  return n >= 1000 ? `$${(n / 1000).toFixed(1)}K` : `$${n.toFixed(0)}`
 }
 
 export function useSnapshotKpis() {
@@ -72,26 +71,29 @@ export function useSnapshotKpis() {
         return docDiff < closestDiff ? doc : closest
       })
 
-      const revChange = pctChange(latest.revenue, prior.revenue)
+      const revenueChange = pctChange(latest.revenue, prior.revenue)
       const gopChange = pctChange(latest.grossOperatingProfit, prior.grossOperatingProfit)
-      const gopMargin =
-        latest.revenue > 0 ? (latest.grossOperatingProfit / latest.revenue) * 100 : 0
       const adrChange = pctChange(latest.adr, prior.adr)
       const occChange = pctChange(latest.occupancy, prior.occupancy)
       const revparChange = pctChange(latest.revpar, prior.revpar)
+
+      const gopMargin =
+        latest.revenue > 0
+          ? ` · GOP margin ${((latest.grossOperatingProfit / latest.revenue) * 100).toFixed(1)}%`
+          : ''
 
       return {
         kpis: [
           {
             label: 'Total Revenue',
-            value: fmtK(latest.revenue),
-            sub: `${sign(revChange)}${revChange.toFixed(1)}% vs last month`,
-            variant: revChange >= 0 ? 'up' : 'down',
+            value: formatK(latest.revenue),
+            sub: `${sign(revenueChange)}${revenueChange.toFixed(1)}% vs last period`,
+            variant: revenueChange >= 0 ? 'up' : 'down',
           },
           {
             label: 'Gross Operating Profit',
-            value: fmtK(latest.grossOperatingProfit),
-            sub: `${sign(gopChange)}${gopChange.toFixed(1)}% · GOP margin ${gopMargin.toFixed(1)}%`,
+            value: formatK(latest.grossOperatingProfit),
+            sub: `${sign(gopChange)}${gopChange.toFixed(1)}%${gopMargin}`,
             variant: gopChange >= 0 ? 'up' : 'down',
           },
           {

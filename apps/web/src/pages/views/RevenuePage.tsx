@@ -1,21 +1,63 @@
-import { useState } from 'react'
-import { initialRooms, kpiCardData } from '@/mocks'
-import type { RoomRate } from '@/interface'
-import { KpiCard } from '@/components/KpiCard'
+import { KpiCard, KpiSkeleton } from '@/components/KpiCard'
+import { useRevenueKpis } from '@/features/revenue-pricing/hooks/useRevenueKpis'
+import { useRoomRates } from '@/features/revenue-pricing/hooks/useRoomRates'
+import { useAppliedRates } from '@/features/revenue-pricing/hooks/useAppliedRates'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import OccupancyHeatmap from '@/sections/revenue/OccupancyHeatmap'
 import RateTrendChart from '@/sections/revenue/RateTrendChart'
-import RoomRateTable from '@/sections/revenue/RoomRateTable'
+import RoomRateTable, { RoomRateTableSkeleton } from '@/sections/revenue/RoomRateTable'
 
 export default function RevenuePage() {
-  const [rooms, setRooms] = useState<RoomRate[]>(initialRooms)
+  const { data: revenueKpis, isLoading: kpisLoading, isError: kpisError } = useRevenueKpis()
+  const {
+    data: roomsData,
+    isLoading: roomsLoading,
+    isError: roomsError,
+    error: roomsErrorObj,
+  } = useRoomRates()
+  const { applied, toggleRate, applyAll } = useAppliedRates()
 
-  const applyRate = (idx: number) =>
-    setRooms(prev => prev.map((r, i) => (i === idx ? { ...r, applied: true } : r)))
+  const rooms = (roomsData ?? []).map(r => ({ ...r, applied: applied.has(r.type) }))
 
-  const applyAll = () => setRooms(prev => prev.map(r => ({ ...r, applied: true })))
+  const handleApplyRate = (idx: number) => {
+    const roomType = roomsData?.[idx]?.type
+    if (roomType) toggleRate(roomType)
+  }
+
+  const handleApplyAll = () => {
+    applyAll((roomsData ?? []).map(r => r.type))
+  }
+
+  function renderRoomRateTable() {
+    if (roomsLoading) return <RoomRateTableSkeleton />
+    if (roomsError) {
+      return (
+        <Card>
+          <CardContent className="pt-6 text-destructive text-sm">
+            Failed to load room rates:{' '}
+            {roomsErrorObj instanceof Error ? roomsErrorObj.message : 'Unknown error'}
+          </CardContent>
+        </Card>
+      )
+    }
+    return <RoomRateTable rooms={rooms} onApply={handleApplyRate} />
+  }
+
+  function renderKpiCards() {
+    if (kpisLoading) return Array.from({ length: 4 }).map((_, i) => <KpiSkeleton key={i} />)
+    if (kpisError) {
+      return (
+        <Card className="col-span-2 md:col-span-4">
+          <CardContent className="pt-6 text-destructive text-sm">
+            Failed to load KPI data.
+          </CardContent>
+        </Card>
+      )
+    }
+    return revenueKpis?.map(k => <KpiCard key={k.label} {...k} />)
+  }
 
   return (
     <div className="p-6 space-y-6 min-h-screen bg-background text-foreground">
@@ -39,18 +81,14 @@ export default function RevenuePage() {
             </svg>
             Filter
           </Button>
-          <Button size="sm" onClick={applyAll}>
+          <Button size="sm" onClick={handleApplyAll}>
             ⚡ Apply AI Rates
           </Button>
         </div>
       </div>
 
       {/* KPI Cards */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {kpiCardData.map(k => (
-          <KpiCard key={k.label} {...k} />
-        ))}
-      </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">{renderKpiCards()}</div>
 
       {/* Tabs */}
       <Tabs defaultValue="dynamic-pricing">
@@ -63,9 +101,7 @@ export default function RevenuePage() {
 
         <TabsContent value="dynamic-pricing" className="mt-4 space-y-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-            <div className="lg:col-span-2">
-              <RoomRateTable rooms={rooms} onApply={applyRate} />
-            </div>
+            <div className="lg:col-span-2">{renderRoomRateTable()}</div>
             <OccupancyHeatmap />
           </div>
           <RateTrendChart />

@@ -2,7 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Progress } from '@/components/ui/progress'
 import { Separator } from '@/components/ui/separator'
 import { Skeleton } from '@/components/ui/skeleton'
-import { useDeptPerformance } from '@/hooks/useDeptPerformance'
+import { useDeptPerformance } from '@/features/dashboard/hooks/useDeptPerformance'
 
 export default function DeptPerformance() {
   const { data: depts, isLoading } = useDeptPerformance()
