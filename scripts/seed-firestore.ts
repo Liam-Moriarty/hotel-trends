@@ -181,6 +181,25 @@ const HubOsEnergyPayloadSchema = z.object({
 })
 
 type HubOsEnergyPayload = z.infer<typeof HubOsEnergyPayloadSchema>
+
+const CompetitorSchema = z.object({
+  competitorId: z.string().min(1),
+  competitorName: z.string().min(1),
+  starRating: z.number().int().min(1).max(5),
+  city: z.string().min(1),
+  rates: z.record(z.string(), z.number().positive()),
+})
+
+const CompSetPayloadSchema = z.object({
+  compSet: z.object({
+    hotelId: z.string().min(1),
+    scrapedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    competitors: z.array(CompetitorSchema).min(1),
+  }),
+})
+
+type CompSetPayload = z.infer<typeof CompSetPayloadSchema>
+
 // ---------------------------------------------------------------------------
 // Firestore document interfaces (what gets written — no `any`, no `object`)
 // ---------------------------------------------------------------------------
@@ -320,6 +339,17 @@ interface HubOsFoodWasteDoc {
   seededAt: admin.firestore.FieldValue
 }
 
+interface CompSetDoc {
+  hotelId: string
+  competitorId: string
+  competitorName: string
+  starRating: number
+  city: string
+  scrapedAt: string
+  rates: Record<string, number>
+  seededAt: admin.firestore.FieldValue
+}
+
 type FirestoreDoc =
   | HotelDoc
   | RoomDoc
@@ -332,6 +362,7 @@ type FirestoreDoc =
   | HubOSRosterDoc
   | HubOsEnergyDoc
   | HubOsFoodWasteDoc
+  | CompSetDoc
 
 type WriteOperation = {
   ref: admin.firestore.DocumentReference
@@ -650,6 +681,27 @@ async function seedHubOsEnergy(data: HubOsEnergyPayload): Promise<void> {
   )
 }
 
+async function seedCompSet(data: CompSetPayload): Promise<void> {
+  console.log('\n🏨 Seeding competitor set rates...')
+
+  const writes: WriteOperation[] = data.compSet.competitors.map(competitor => ({
+    ref: db.collection('hotels').doc(HOTEL_ID).collection('compSet').doc(competitor.competitorId),
+    data: {
+      hotelId: HOTEL_ID,
+      competitorId: competitor.competitorId,
+      competitorName: competitor.competitorName,
+      starRating: competitor.starRating,
+      city: competitor.city,
+      scrapedAt: data.compSet.scrapedAt,
+      rates: competitor.rates,
+      seededAt: admin.firestore.FieldValue.serverTimestamp(),
+    } satisfies CompSetDoc,
+  }))
+
+  await batchWrite(writes)
+  console.log(`  ✅ ${writes.length} competitors → /hotels/${HOTEL_ID}/compSet`)
+}
+
 // ---------------------------------------------------------------------------
 // 6. Main
 // ---------------------------------------------------------------------------
@@ -690,6 +742,8 @@ async function main(): Promise<void> {
     await seedHubOS(hubosData)
     const energyData = loadAndValidate('hubos-energy-mock.json', HubOsEnergyPayloadSchema)
     await seedHubOsEnergy(energyData)
+    const compSetData = loadAndValidate('comp-set-rates.json', CompSetPayloadSchema)
+    await seedCompSet(compSetData)
 
     console.log('\n╔══════════════════════════════════════════════╗')
     console.log('║           ✅ Seed complete!                  ║')

@@ -1,0 +1,60 @@
+{
+  "compSet": {
+    "hotelId": "SAND01",
+    "scrapedAt": "2026-03-18",
+    "competitors": [
+      {
+        "competitorId": "grand-hyatt-melbourne",
+        "competitorName": "Grand Hyatt Melbourne",
+        "starRating": 5,
+        "city": "Melbourne",
+        "rates": {
+          "STD": 285,
+          "DLX": 365,
+          "JNR": 425,
+          "STE": 580,
+          "PSTE": 920
+        }
+      },
+      {
+        "competitorId": "westin-melbourne",
+        "competitorName": "The Westin Melbourne",
+        "starRating": 5,
+        "city": "Melbourne",
+        "rates": {
+          "STD": 265,
+          "DLX": 345,
+          "JNR": 395,
+          "STE": 540,
+          "PSTE": 840
+        }
+      },
+      {
+        "competitorId": "intercontinental-rialto",
+        "competitorName": "InterContinental Melbourne The Rialto",
+        "starRating": 5,
+        "city": "Melbourne",
+        "rates": {
+          "STD": 275,
+          "DLX": 355,
+          "JNR": 410,
+          "STE": 560,
+          "PSTE": 875
+        }
+      },
+      {
+        "competitorId": "crown-towers-melbourne",
+        "competitorName": "Crown Towers Melbourne",
+        "starRating": 5,
+        "city": "Melbourne",
+        "rates": {
+          "STD": 295,
+          "DLX": 380,
+          "JNR": 445,
+          "STE": 610,
+          "PSTE": 950
+        }
+      }
+    ]
+  }
+}
