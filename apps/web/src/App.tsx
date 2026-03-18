@@ -17,6 +17,7 @@ import MarketingPage from './pages/views/MarketingPage'
 import ExternalPage from './pages/views/ExternalPage'
 import DataPage from './pages/views/DataPage'
 import AdminPage from './pages/views/AdminPage'
+import AlertsPage from './pages/views/AlertsPage'
 import NotFoundPage from './pages/views/NotFoundPage'
 
 const STORAGE_KEY = 'auth_user'
@@ -66,6 +67,7 @@ const App = () => {
                 <Route path="external" element={<ExternalPage />} />
                 <Route path="data" element={<DataPage />} />
                 <Route path="admin" element={<AdminPage />} />
+                <Route path="alerts" element={<AlertsPage />} />
                 <Route path="*" element={<NotFoundPage />} />
               </Route>
             </Routes>
