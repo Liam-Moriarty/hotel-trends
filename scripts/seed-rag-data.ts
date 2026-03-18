@@ -32,8 +32,8 @@ const SnapshotSchema = z.object({
   revenueForecasted: z.number().nonnegative(),
   // Added for RevparForecast: AI-forecasted daily RevPAR (0 for past months)
   revparForecasted: z.number().nonnegative(),
-  // Added for GOP KPI card
-  grossOperatingProfit: z.number().nonnegative(),
+  // Added for Dashboard KPI cards: Total Revenue and GOP
+  grossOperatingProfit: z.number().nonnegative().default(0),
   // Added for Revenue & Pricing KPI cards
   directBookingPct: z.number().min(0).max(100).default(0),
   otaCommissionCost: z.number().nonnegative().default(0),
