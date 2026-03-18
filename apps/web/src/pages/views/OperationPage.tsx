@@ -9,6 +9,7 @@ import { OperationsKpiCards } from '@/sections/operations/OperationsKpiCards'
 import { LaborHousekeepingSection } from '@/sections/operations/LaborHousekeepingSection'
 import { EnergyWasteSection } from '@/sections/operations/EnergyWasteSection'
 import { ProcurementSupplierSection } from '@/sections/operations/ProcurementSupplierSection'
+import { OperationsPageSkeleton } from '@/sections/operations/OperationsPageSkeleton'
 
 // MOCK: hardcoded to the seeded date — replace with dynamic date when live
 const ENERGY_DATE = '2024-01-15'
@@ -32,7 +33,7 @@ export default function OperationsPage() {
     isEnergyLoading ||
     isFoodWasteLoading
   ) {
-    return <div className="p-6 text-muted-foreground">Loading operations data...</div>
+    return <OperationsPageSkeleton />
   }
 
   const roster = rosterData ?? []
