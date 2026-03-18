@@ -77,6 +77,15 @@ export interface CapexItem {
 
 // ── Revenue types ───────────────────────────────────────────────────────────
 
+export interface RateTrendDataPoint {
+  date: string
+  STD: number
+  DLX: number
+  JNR: number
+  STE: number
+  PSTE: number
+}
+
 export interface RoomRate {
   type: string
   current: number
