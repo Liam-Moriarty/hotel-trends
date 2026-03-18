@@ -34,6 +34,9 @@ const SnapshotSchema = z.object({
   revparForecasted: z.number().nonnegative(),
   // Added for GOP KPI card
   grossOperatingProfit: z.number().nonnegative(),
+  // Added for Revenue & Pricing KPI cards
+  directBookingPct: z.number().min(0).max(100).default(0),
+  otaCommissionCost: z.number().nonnegative().default(0),
   // Added for DeptPerformance: performance index (0–100) per department
   deptScores: z.object({
     Rooms: z.number().min(0).max(100),
@@ -97,7 +100,7 @@ const HOTEL_ID = 'SAND01'
 // 3. Helper to load and validate JSON
 // ---------------------------------------------------------------------------
 
-function loadAndValidate<T>(filename: string, schema: z.ZodSchema<T[]>): T[] {
+function loadAndValidate<S extends z.ZodTypeAny>(filename: string, schema: S): z.output<S> {
   const filePath = path.resolve(__dirname, 'seed-data', filename)
   if (!fs.existsSync(filePath)) {
     throw new Error(`Seed data file not found: ${filePath}`)

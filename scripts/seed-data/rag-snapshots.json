@@ -9,6 +9,8 @@
     "grossOperatingProfit": 8048,
     "revenueForecasted": 28500,
     "revparForecasted": 0,
+    "directBookingPct": 38,
+    "otaCommissionCost": 22800,
     "deptScores": { "Rooms": 84, "F&B": 71, "Spa": 89, "Events": 64, "Ops": 79 }
   },
   {
@@ -21,6 +23,8 @@
     "grossOperatingProfit": 8222,
     "revenueForecasted": 28800,
     "revparForecasted": 0,
+    "directBookingPct": 39,
+    "otaCommissionCost": 23400,
     "deptScores": { "Rooms": 85, "F&B": 72, "Spa": 90, "Events": 65, "Ops": 80 }
   },
   {
@@ -33,6 +37,8 @@
     "grossOperatingProfit": 8113,
     "revenueForecasted": 28200,
     "revparForecasted": 0,
+    "directBookingPct": 38,
+    "otaCommissionCost": 22900,
     "deptScores": { "Rooms": 84, "F&B": 71, "Spa": 89, "Events": 64, "Ops": 79 }
   },
   {
@@ -45,6 +51,8 @@
     "grossOperatingProfit": 8352,
     "revenueForecasted": 29000,
     "revparForecasted": 0,
+    "directBookingPct": 40,
+    "otaCommissionCost": 24000,
     "deptScores": { "Rooms": 86, "F&B": 73, "Spa": 91, "Events": 66, "Ops": 81 }
   },
 
@@ -58,6 +66,8 @@
     "grossOperatingProfit": 8439,
     "revenueForecasted": 29200,
     "revparForecasted": 0,
+    "directBookingPct": 40,
+    "otaCommissionCost": 24100,
     "deptScores": { "Rooms": 86, "F&B": 73, "Spa": 91, "Events": 66, "Ops": 81 }
   },
   {
@@ -70,6 +80,8 @@
     "grossOperatingProfit": 8613,
     "revenueForecasted": 29500,
     "revparForecasted": 0,
+    "directBookingPct": 41,
+    "otaCommissionCost": 24800,
     "deptScores": { "Rooms": 87, "F&B": 74, "Spa": 91, "Events": 67, "Ops": 82 }
   },
   {
@@ -82,6 +94,8 @@
     "grossOperatingProfit": 8504,
     "revenueForecasted": 29300,
     "revparForecasted": 0,
+    "directBookingPct": 40,
+    "otaCommissionCost": 24300,
     "deptScores": { "Rooms": 86, "F&B": 73, "Spa": 91, "Events": 66, "Ops": 81 }
   },
   {
@@ -94,6 +108,8 @@
     "grossOperatingProfit": 8765,
     "revenueForecasted": 29800,
     "revparForecasted": 0,
+    "directBookingPct": 42,
+    "otaCommissionCost": 25200,
     "deptScores": { "Rooms": 87, "F&B": 75, "Spa": 92, "Events": 68, "Ops": 82 }
   },
 
@@ -107,6 +123,8 @@
     "grossOperatingProfit": 8069,
     "revenueForecasted": 29000,
     "revparForecasted": 0,
+    "directBookingPct": 41,
+    "otaCommissionCost": 24600,
     "deptScores": { "Rooms": 85, "F&B": 72, "Spa": 90, "Events": 65, "Ops": 80 }
   },
   {
@@ -119,6 +137,8 @@
     "grossOperatingProfit": 7752,
     "revenueForecasted": 28000,
     "revparForecasted": 0,
+    "directBookingPct": 39,
+    "otaCommissionCost": 23700,
     "deptScores": { "Rooms": 83, "F&B": 70, "Spa": 88, "Events": 63, "Ops": 78 }
   },
   {
@@ -131,6 +151,8 @@
     "grossOperatingProfit": 8931,
     "revenueForecasted": 29500,
     "revparForecasted": 0,
+    "directBookingPct": 44,
+    "otaCommissionCost": 27300,
     "deptScores": { "Rooms": 88, "F&B": 75, "Spa": 92, "Events": 69, "Ops": 83 }
   },
   {
@@ -143,6 +165,8 @@
     "grossOperatingProfit": 9318,
     "revenueForecasted": 31000,
     "revparForecasted": 0,
+    "directBookingPct": 46,
+    "otaCommissionCost": 28500,
     "deptScores": { "Rooms": 90, "F&B": 78, "Spa": 94, "Events": 71, "Ops": 85 }
   },
   {
@@ -155,6 +179,8 @@
     "grossOperatingProfit": 8639,
     "revenueForecasted": 30500,
     "revparForecasted": 0,
+    "directBookingPct": 43,
+    "otaCommissionCost": 26400,
     "deptScores": { "Rooms": 87, "F&B": 74, "Spa": 91, "Events": 68, "Ops": 82 }
   },
   {
@@ -167,6 +193,8 @@
     "grossOperatingProfit": 7260,
     "revenueForecasted": 26500,
     "revparForecasted": 0,
+    "directBookingPct": 37,
+    "otaCommissionCost": 22200,
     "deptScores": { "Rooms": 82, "F&B": 69, "Spa": 87, "Events": 62, "Ops": 77 }
   },
   {
@@ -179,6 +207,8 @@
     "grossOperatingProfit": 6869,
     "revenueForecasted": 25000,
     "revparForecasted": 0,
+    "directBookingPct": 36,
+    "otaCommissionCost": 21000,
     "deptScores": { "Rooms": 80, "F&B": 67, "Spa": 85, "Events": 60, "Ops": 75 }
   },
   {
@@ -191,6 +221,8 @@
     "grossOperatingProfit": 8143,
     "revenueForecasted": 27500,
     "revparForecasted": 0,
+    "directBookingPct": 41,
+    "otaCommissionCost": 24900,
     "deptScores": { "Rooms": 86, "F&B": 73, "Spa": 90, "Events": 66, "Ops": 81 }
   },
   {
@@ -203,6 +235,8 @@
     "grossOperatingProfit": 8439,
     "revenueForecasted": 28000,
     "revparForecasted": 0,
+    "directBookingPct": 42,
+    "otaCommissionCost": 25800,
     "deptScores": { "Rooms": 87, "F&B": 75, "Spa": 91, "Events": 68, "Ops": 82 }
   },
   {
@@ -215,6 +249,8 @@
     "grossOperatingProfit": 9126,
     "revenueForecasted": 30000,
     "revparForecasted": 0,
+    "directBookingPct": 45,
+    "otaCommissionCost": 27900,
     "deptScores": { "Rooms": 89, "F&B": 77, "Spa": 93, "Events": 70, "Ops": 84 }
   },
   {
@@ -227,6 +263,8 @@
     "grossOperatingProfit": 9518,
     "revenueForecasted": 31500,
     "revparForecasted": 0,
+    "directBookingPct": 47,
+    "otaCommissionCost": 29100,
     "deptScores": { "Rooms": 91, "F&B": 79, "Spa": 95, "Events": 72, "Ops": 86 }
   },
   {
@@ -239,6 +277,8 @@
     "grossOperatingProfit": 8831,
     "revenueForecasted": 29000,
     "revparForecasted": 0,
+    "directBookingPct": 44,
+    "otaCommissionCost": 27000,
     "deptScores": { "Rooms": 88, "F&B": 76, "Spa": 92, "Events": 69, "Ops": 83 }
   },
 
@@ -252,6 +292,8 @@
     "grossOperatingProfit": 9005,
     "revenueForecasted": 30800,
     "revparForecasted": 205.5,
+    "directBookingPct": 42,
+    "otaCommissionCost": 26100,
     "deptScores": { "Rooms": 88, "F&B": 75, "Spa": 92, "Events": 69, "Ops": 83 }
   },
   {
@@ -264,6 +306,8 @@
     "grossOperatingProfit": 9005,
     "revenueForecasted": 31000,
     "revparForecasted": 207.0,
+    "directBookingPct": 43,
+    "otaCommissionCost": 26700,
     "deptScores": { "Rooms": 88, "F&B": 75, "Spa": 92, "Events": 69, "Ops": 83 }
   },
   {
@@ -276,6 +320,8 @@
     "grossOperatingProfit": 9048,
     "revenueForecasted": 31400,
     "revparForecasted": 208.0,
+    "directBookingPct": 44,
+    "otaCommissionCost": 27300,
     "deptScores": { "Rooms": 89, "F&B": 76, "Spa": 93, "Events": 70, "Ops": 84 }
   },
   {
@@ -288,6 +334,8 @@
     "grossOperatingProfit": 9005,
     "revenueForecasted": 30800,
     "revparForecasted": 207.5,
+    "directBookingPct": 43,
+    "otaCommissionCost": 26400,
     "deptScores": { "Rooms": 88, "F&B": 75, "Spa": 92, "Events": 69, "Ops": 83 }
   },
 
@@ -301,6 +349,8 @@
     "grossOperatingProfit": 9135,
     "revenueForecasted": 31200,
     "revparForecasted": 209.0,
+    "directBookingPct": 43,
+    "otaCommissionCost": 26400,
     "deptScores": { "Rooms": 88, "F&B": 75, "Spa": 92, "Events": 69, "Ops": 83 }
   },
   {
@@ -313,6 +363,8 @@
     "grossOperatingProfit": 9157,
     "revenueForecasted": 31600,
     "revparForecasted": 210.5,
+    "directBookingPct": 44,
+    "otaCommissionCost": 27000,
     "deptScores": { "Rooms": 89, "F&B": 76, "Spa": 93, "Events": 70, "Ops": 84 }
   },
   {
@@ -325,6 +377,8 @@
     "grossOperatingProfit": 9135,
     "revenueForecasted": 31400,
     "revparForecasted": 210.0,
+    "directBookingPct": 43,
+    "otaCommissionCost": 26700,
     "deptScores": { "Rooms": 89, "F&B": 75, "Spa": 93, "Events": 70, "Ops": 83 }
   },
   {
@@ -337,6 +391,8 @@
     "grossOperatingProfit": 9200,
     "revenueForecasted": 31800,
     "revparForecasted": 211.5,
+    "directBookingPct": 44,
+    "otaCommissionCost": 27300,
     "deptScores": { "Rooms": 90, "F&B": 77, "Spa": 93, "Events": 71, "Ops": 85 }
   },
 
@@ -350,6 +406,8 @@
     "grossOperatingProfit": 9287,
     "revenueForecasted": 31800,
     "revparForecasted": 213.5,
+    "directBookingPct": 43,
+    "otaCommissionCost": 26700,
     "deptScores": { "Rooms": 89, "F&B": 76, "Spa": 93, "Events": 70, "Ops": 84 }
   },
   {
@@ -362,6 +420,8 @@
     "grossOperatingProfit": 9374,
     "revenueForecasted": 32200,
     "revparForecasted": 215.0,
+    "directBookingPct": 44,
+    "otaCommissionCost": 27300,
     "deptScores": { "Rooms": 90, "F&B": 76, "Spa": 93, "Events": 71, "Ops": 84 }
   },
   {
@@ -374,6 +434,8 @@
     "grossOperatingProfit": 9374,
     "revenueForecasted": 32400,
     "revparForecasted": 215.5,
+    "directBookingPct": 45,
+    "otaCommissionCost": 27600,
     "deptScores": { "Rooms": 90, "F&B": 77, "Spa": 94, "Events": 71, "Ops": 85 }
   },
   {
@@ -386,6 +448,8 @@
     "grossOperatingProfit": 9396,
     "revenueForecasted": 32600,
     "revparForecasted": 216.0,
+    "directBookingPct": 45,
+    "otaCommissionCost": 27900,
     "deptScores": { "Rooms": 91, "F&B": 77, "Spa": 94, "Events": 72, "Ops": 85 }
   },
 
@@ -399,6 +463,8 @@
     "grossOperatingProfit": 9505,
     "revenueForecasted": 32500,
     "revparForecasted": 218.0,
+    "directBookingPct": 44,
+    "otaCommissionCost": 27300,
     "deptScores": { "Rooms": 90, "F&B": 77, "Spa": 94, "Events": 71, "Ops": 85 }
   },
   {
@@ -411,6 +477,8 @@
     "grossOperatingProfit": 9527,
     "revenueForecasted": 32800,
     "revparForecasted": 219.0,
+    "directBookingPct": 45,
+    "otaCommissionCost": 27600,
     "deptScores": { "Rooms": 91, "F&B": 77, "Spa": 94, "Events": 72, "Ops": 85 }
   },
   {
@@ -423,6 +491,8 @@
     "grossOperatingProfit": 9548,
     "revenueForecasted": 33000,
     "revparForecasted": 219.5,
+    "directBookingPct": 45,
+    "otaCommissionCost": 27900,
     "deptScores": { "Rooms": 91, "F&B": 78, "Spa": 94, "Events": 72, "Ops": 86 }
   },
   {
@@ -435,6 +505,8 @@
     "grossOperatingProfit": 9570,
     "revenueForecasted": 33200,
     "revparForecasted": 220.0,
+    "directBookingPct": 46,
+    "otaCommissionCost": 28200,
     "deptScores": { "Rooms": 91, "F&B": 78, "Spa": 95, "Events": 72, "Ops": 86 }
   },
 
@@ -448,6 +520,8 @@
     "grossOperatingProfit": 9614,
     "revenueForecasted": 33000,
     "revparForecasted": 221.0,
+    "directBookingPct": 45,
+    "otaCommissionCost": 27600,
     "deptScores": { "Rooms": 91, "F&B": 77, "Spa": 94, "Events": 72, "Ops": 85 }
   },
   {
@@ -460,6 +534,8 @@
     "grossOperatingProfit": 9657,
     "revenueForecasted": 33300,
     "revparForecasted": 222.0,
+    "directBookingPct": 45,
+    "otaCommissionCost": 27900,
     "deptScores": { "Rooms": 91, "F&B": 78, "Spa": 95, "Events": 72, "Ops": 86 }
   },
   {
@@ -472,6 +548,8 @@
     "grossOperatingProfit": 9679,
     "revenueForecasted": 33500,
     "revparForecasted": 222.5,
+    "directBookingPct": 46,
+    "otaCommissionCost": 28200,
     "deptScores": { "Rooms": 92, "F&B": 78, "Spa": 95, "Events": 73, "Ops": 86 }
   },
   {
@@ -484,6 +562,8 @@
     "grossOperatingProfit": 9722,
     "revenueForecasted": 33700,
     "revparForecasted": 223.5,
+    "directBookingPct": 46,
+    "otaCommissionCost": 28500,
     "deptScores": { "Rooms": 92, "F&B": 79, "Spa": 95, "Events": 73, "Ops": 87 }
   }
 ]

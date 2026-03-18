@@ -10,7 +10,7 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
-import { useRevparForecast } from '@/hooks/useRevparForecast'
+import { useRevparForecast } from '@/features/dashboard/hooks/useRevparForecast'
 
 export default function RevparForecast() {
   const { data, isLoading } = useRevparForecast()

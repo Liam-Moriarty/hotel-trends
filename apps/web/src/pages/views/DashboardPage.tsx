@@ -8,7 +8,7 @@ import InsightsPanel from '@/sections/dashboard/InsightsPanel'
 import ScenarioSimulator from '@/sections/dashboard/ScenarioSimulator'
 import RevparForecast from '@/sections/dashboard/RevparForecast'
 import CapExPanel from '@/sections/dashboard/CapExPanel'
-import { useSnapshotKpis } from '@/hooks/useSnapshotKpis'
+import { useSnapshotKpis } from '@/features/dashboard/hooks/useSnapshotKpis'
 
 export default function ExecutiveDashboardPage() {
   const { data, isLoading } = useSnapshotKpis()

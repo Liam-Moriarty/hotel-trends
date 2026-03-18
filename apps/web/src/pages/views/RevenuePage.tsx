@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { initialRooms, kpiCardData } from '@/mocks'
+import { initialRooms } from '@/mocks'
 import type { RoomRate } from '@/interface'
-import { KpiCard } from '@/components/KpiCard'
+import { KpiCard, KpiSkeleton } from '@/components/KpiCard'
+import { useRevenueKpis } from '@/features/revenue-pricing/hooks/useRevenueKpis'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
@@ -10,6 +11,7 @@ import RateTrendChart from '@/sections/revenue/RateTrendChart'
 import RoomRateTable from '@/sections/revenue/RoomRateTable'
 
 export default function RevenuePage() {
+  const { data: revenueKpis, isLoading: kpisLoading } = useRevenueKpis()
   const [rooms, setRooms] = useState<RoomRate[]>(initialRooms)
 
   const applyRate = (idx: number) =>
@@ -47,9 +49,9 @@ export default function RevenuePage() {
 
       {/* KPI Cards */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {kpiCardData.map(k => (
-          <KpiCard key={k.label} {...k} />
-        ))}
+        {kpisLoading
+          ? Array.from({ length: 4 }).map((_, i) => <KpiSkeleton key={i} />)
+          : revenueKpis?.map(k => <KpiCard key={k.label} {...k} />)}
       </div>
 
       {/* Tabs */}

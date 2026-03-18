@@ -1,6 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
-import { useSnapshotKpis } from '@/hooks/useSnapshotKpis'
+import { useSnapshotKpis } from '@/features/dashboard/hooks/useSnapshotKpis'
 
 const r = 52,
   cx = 70,
