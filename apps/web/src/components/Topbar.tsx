@@ -1,10 +1,16 @@
+import { useState } from 'react'
 import { useAuth } from '@/hooks/useAuth'
 import { useTheme } from '@/providers/ThemeProvider'
 import { Bell, Moon, Search, Sun } from 'lucide-react'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { NotificationDropdown } from '@/components/NotificationDropdown'
+import { MOCK_NOTIFICATIONS } from '@/lib/mock-notifications'
 
 const Topbar = () => {
   const { user } = useAuth()
   const { theme, toggleTheme } = useTheme()
+  const [open, setOpen] = useState(false)
+  const unreadCount = MOCK_NOTIFICATIONS.filter(n => !n.read).length
   const now = new Date()
   const dateStr = now.toLocaleDateString('en-AU', {
     weekday: 'short',
@@ -52,12 +58,21 @@ const Topbar = () => {
       </button>
 
       {/* Notifications */}
-      <button className="relative p-2 rounded-md hover:bg-accent text-muted-foreground hover:text-foreground">
-        <Bell className="h-4 w-4" />
-        <span className="absolute top-1 right-1 h-3.5 w-3.5 rounded-full bg-destructive text-[9px] text-white flex items-center justify-center font-bold">
-          4
-        </span>
-      </button>
+      <Popover open={open} onOpenChange={setOpen}>
+        <PopoverTrigger asChild>
+          <button className="relative p-2 rounded-md hover:bg-accent text-muted-foreground hover:text-foreground">
+            <Bell className="h-4 w-4" />
+            {unreadCount > 0 && (
+              <span className="absolute top-1 right-1 h-3.5 w-3.5 rounded-full bg-destructive text-[9px] text-white flex items-center justify-center font-bold">
+                {unreadCount}
+              </span>
+            )}
+          </button>
+        </PopoverTrigger>
+        <PopoverContent align="end" sideOffset={8} className="p-0 w-auto">
+          <NotificationDropdown onViewAll={() => setOpen(false)} />
+        </PopoverContent>
+      </Popover>
 
       {/* Avatar */}
       <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-xs font-bold shrink-0">

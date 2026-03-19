@@ -181,6 +181,40 @@ const HubOsEnergyPayloadSchema = z.object({
 })
 
 type HubOsEnergyPayload = z.infer<typeof HubOsEnergyPayloadSchema>
+
+const CompetitorSchema = z.object({
+  competitorId: z.string().min(1),
+  competitorName: z.string().min(1),
+  starRating: z.number().int().min(1).max(5),
+  city: z.string().min(1),
+  rates: z.record(z.string(), z.number().positive()),
+})
+
+const CompSetPayloadSchema = z.object({
+  compSet: z.object({
+    hotelId: z.string().min(1),
+    scrapedAt: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+    competitors: z.array(CompetitorSchema).min(1),
+  }),
+})
+
+type CompSetPayload = z.infer<typeof CompSetPayloadSchema>
+
+const RateTrendEntrySchema = z.object({
+  date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+  STD: z.number().positive(),
+  DLX: z.number().positive(),
+  JNR: z.number().positive(),
+  STE: z.number().positive(),
+  PSTE: z.number().positive(),
+})
+
+const RateTrendPayloadSchema = z.object({
+  rateTrends: z.array(RateTrendEntrySchema).min(1),
+})
+
+type RateTrendPayload = z.infer<typeof RateTrendPayloadSchema>
+
 // ---------------------------------------------------------------------------
 // Firestore document interfaces (what gets written — no `any`, no `object`)
 // ---------------------------------------------------------------------------
@@ -320,6 +354,28 @@ interface HubOsFoodWasteDoc {
   seededAt: admin.firestore.FieldValue
 }
 
+interface CompSetDoc {
+  hotelId: string
+  competitorId: string
+  competitorName: string
+  starRating: number
+  city: string
+  scrapedAt: string
+  rates: Record<string, number>
+  seededAt: admin.firestore.FieldValue
+}
+
+interface RateTrendDoc {
+  hotelId: string
+  date: string
+  STD: number
+  DLX: number
+  JNR: number
+  STE: number
+  PSTE: number
+  seededAt: admin.firestore.FieldValue
+}
+
 type FirestoreDoc =
   | HotelDoc
   | RoomDoc
@@ -332,6 +388,8 @@ type FirestoreDoc =
   | HubOSRosterDoc
   | HubOsEnergyDoc
   | HubOsFoodWasteDoc
+  | CompSetDoc
+  | RateTrendDoc
 
 type WriteOperation = {
   ref: admin.firestore.DocumentReference
@@ -650,6 +708,48 @@ async function seedHubOsEnergy(data: HubOsEnergyPayload): Promise<void> {
   )
 }
 
+async function seedCompSet(data: CompSetPayload): Promise<void> {
+  console.log('\n🏨 Seeding competitor set rates...')
+
+  const writes: WriteOperation[] = data.compSet.competitors.map(competitor => ({
+    ref: db.collection('hotels').doc(HOTEL_ID).collection('compSet').doc(competitor.competitorId),
+    data: {
+      hotelId: HOTEL_ID,
+      competitorId: competitor.competitorId,
+      competitorName: competitor.competitorName,
+      starRating: competitor.starRating,
+      city: competitor.city,
+      scrapedAt: data.compSet.scrapedAt,
+      rates: competitor.rates,
+      seededAt: admin.firestore.FieldValue.serverTimestamp(),
+    } satisfies CompSetDoc,
+  }))
+
+  await batchWrite(writes)
+  console.log(`  ✅ ${writes.length} competitors → /hotels/${HOTEL_ID}/compSet`)
+}
+
+async function seedRateTrends(data: RateTrendPayload): Promise<void> {
+  console.log('\n📈 Seeding rate trend data...')
+
+  const writes: WriteOperation[] = data.rateTrends.map(entry => ({
+    ref: db.collection('hotels').doc(HOTEL_ID).collection('rateTrends').doc(entry.date),
+    data: {
+      hotelId: HOTEL_ID,
+      date: entry.date,
+      STD: entry.STD,
+      DLX: entry.DLX,
+      JNR: entry.JNR,
+      STE: entry.STE,
+      PSTE: entry.PSTE,
+      seededAt: admin.firestore.FieldValue.serverTimestamp(),
+    } satisfies RateTrendDoc,
+  }))
+
+  await batchWrite(writes)
+  console.log(`  ✅ ${writes.length} rate trend docs → /hotels/${HOTEL_ID}/rateTrends`)
+}
+
 // ---------------------------------------------------------------------------
 // 6. Main
 // ---------------------------------------------------------------------------
@@ -690,6 +790,10 @@ async function main(): Promise<void> {
     await seedHubOS(hubosData)
     const energyData = loadAndValidate('hubos-energy-mock.json', HubOsEnergyPayloadSchema)
     await seedHubOsEnergy(energyData)
+    const compSetData = loadAndValidate('comp-set-rates.json', CompSetPayloadSchema)
+    await seedCompSet(compSetData)
+    const rateTrendData = loadAndValidate('rate-trends.json', RateTrendPayloadSchema)
+    await seedRateTrends(rateTrendData)
 
     console.log('\n╔══════════════════════════════════════════════╗')
     console.log('║           ✅ Seed complete!                  ║')

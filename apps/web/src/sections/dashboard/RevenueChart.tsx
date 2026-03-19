@@ -10,7 +10,7 @@ import {
 } from 'recharts'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
-import { useRevenueChart } from '@/hooks/useRevenueChart'
+import { useRevenueChart } from '@/features/dashboard/hooks/useRevenueChart'
 
 export default function RevenueChart() {
   const { data, isLoading } = useRevenueChart()
