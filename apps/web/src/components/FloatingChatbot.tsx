@@ -1,83 +1,19 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState } from 'react'
 import { MessageCircle, X, Send, User, Bot, Loader2, RotateCcw } from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { trpc } from '@/lib/trpc'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { useChat } from '@/hooks/useChat'
 
-interface Message {
-  role: 'user' | 'bot'
-  text: string
-}
+// Read from env so this works across any project without touching source code.
+// Falls back to 'SAND01' so existing .env.local files without the var still work.
+const HOTEL_ID = import.meta.env.VITE_HOTEL_ID ?? 'SAND01'
 
 export const FloatingChatbot = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [input, setInput] = useState('')
-  const [messages, setMessages] = useState<Message[]>(() => {
-    const saved = localStorage.getItem('chat_history')
-    return saved
-      ? JSON.parse(saved)
-      : [{ role: 'bot', text: 'Hello! I am your AI assistant. How can I help you today?' }]
-  })
-
-  useEffect(() => {
-    localStorage.setItem('chat_history', JSON.stringify(messages))
-  }, [messages])
-
-  const messagesEndRef = useRef<HTMLDivElement>(null)
-
-  const askMutation = trpc.dashboard.ask.useMutation()
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  useEffect(() => {
-    if (isOpen) {
-      scrollToBottom()
-    }
-  }, [messages, isOpen])
-
-  const handleSend = async (e?: React.FormEvent) => {
-    e?.preventDefault()
-    if (!input.trim()) return
-
-    const userMessage = input.trim()
-    const currentMessages = [...messages]
-    setInput('')
-    setMessages(prev => [...prev, { role: 'user', text: userMessage }])
-
-    const history = currentMessages.map(msg => ({
-      role: (msg.role === 'user' ? 'user' : 'model') as 'user' | 'model',
-      parts: [{ text: msg.text }],
-    }))
-
-    try {
-      const response = await askMutation.mutateAsync({
-        hotelId: 'SAND01',
-        question: userMessage,
-        history,
-      })
-
-      setMessages(prev => [...prev, { role: 'bot', text: response.answer }])
-    } catch (err) {
-      setMessages(prev => [
-        ...prev,
-        { role: 'bot', text: 'Sorry, I encountered an error connecting to the AI.' },
-      ])
-    }
-  }
-
-  const handleReset = () => {
-    if (confirm('Are you sure you want to clear the chat history?')) {
-      const initialMessage: Message[] = [
-        { role: 'bot', text: 'Hello! I am your AI assistant. How can I help you today?' },
-      ]
-      setMessages(initialMessage)
-      localStorage.removeItem('chat_history')
-    }
-  }
+  const { messages, input, setInput, isPending, messagesEndRef, handleSend, handleReset } =
+    useChat(HOTEL_ID)
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
@@ -181,7 +117,7 @@ export const FloatingChatbot = () => {
               </div>
             ))}
 
-            {askMutation.isPending && (
+            {isPending && (
               <div className="flex gap-2 justify-start">
                 <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                   <Bot size={16} className="text-primary" />
@@ -203,9 +139,9 @@ export const FloatingChatbot = () => {
                 onChange={e => setInput(e.target.value)}
                 placeholder="Ask a question..."
                 className="flex-1 bg-transparent px-3 py-2 text-sm outline-none border rounded-md focus:ring-1 focus:ring-primary"
-                disabled={askMutation.isPending}
+                disabled={isPending}
               />
-              <Button type="submit" size="icon" disabled={askMutation.isPending || !input.trim()}>
+              <Button type="submit" size="icon" disabled={isPending || !input.trim()}>
                 <Send size={16} />
               </Button>
             </form>
