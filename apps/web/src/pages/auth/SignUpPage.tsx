@@ -45,7 +45,14 @@ const SignUpPage = ({ onSignUp }: SignUpPageProps) => {
     try {
       const auth = getAuth(app)
       const credential = await createUserWithEmailAndPassword(auth, email, password)
-      await updateProfile(credential.user, { displayName: displayName.trim() })
+
+      try {
+        await updateProfile(credential.user, { displayName: displayName.trim() })
+      } catch {
+        await credential.user.delete()
+        throw new Error('Signup failed due to a connection issue. Please try again.')
+      }
+
       const user: AuthUser = {
         uid: credential.user.uid,
         email: credential.user.email ?? '',
@@ -53,7 +60,7 @@ const SignUpPage = ({ onSignUp }: SignUpPageProps) => {
       }
       onSignUp(user)
     } catch (err: unknown) {
-      setError(getFirebaseAuthError(err))
+      setError(err instanceof Error ? err.message : getFirebaseAuthError(err))
     } finally {
       setLoading(false)
     }
