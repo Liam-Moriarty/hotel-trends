@@ -6,6 +6,18 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { NotificationDropdown } from '@/components/NotificationDropdown'
 import { MOCK_NOTIFICATIONS } from '@/lib/mock-notifications'
 
+const getInitials = (displayName: string, email: string): string => {
+  if (displayName) {
+    return displayName
+      .split(' ')
+      .map(n => n[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2)
+  }
+  return email[0].toUpperCase()
+}
+
 const Topbar = () => {
   const { user } = useAuth()
   const { theme, toggleTheme } = useTheme()
@@ -18,6 +30,8 @@ const Topbar = () => {
     day: 'numeric',
     year: 'numeric',
   })
+
+  const initials = user ? getInitials(user.displayName, user.email) : '?'
 
   return (
     <header className="h-14 border-b bg-card flex items-center gap-3 px-4 shrink-0">
@@ -45,7 +59,7 @@ const Topbar = () => {
       {/* Role badge */}
       <div className="flex items-center gap-1.5 border rounded-md px-2.5 py-1">
         <span className="h-2 w-2 rounded-full bg-green-500 shrink-0" />
-        <span className="text-sm font-medium">{user.role}</span>
+        <span className="text-sm font-medium">Hotel Staff</span>
       </div>
 
       {/* Dark mode toggle */}
@@ -76,7 +90,7 @@ const Topbar = () => {
 
       {/* Avatar */}
       <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-xs font-bold shrink-0">
-        {user.initials}
+        {initials}
       </div>
     </header>
   )
