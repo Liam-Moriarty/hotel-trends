@@ -1,54 +1,57 @@
 import { useState } from 'react'
 import { Hotel } from 'lucide-react'
-import { AuthUser } from '@/interface'
-import { signInWithEmailAndPassword, getAuth } from 'firebase/auth'
+import { createUserWithEmailAndPassword, updateProfile, getAuth } from 'firebase/auth'
 import { app } from '@repo/firebase-config'
+import { AuthUser } from '@/interface'
 import { useNavigate } from 'react-router-dom'
 
-interface LoginPageProps {
-  onLogin: (user: AuthUser) => void
+interface SignUpPageProps {
+  onSignUp: (user: AuthUser) => void
 }
 
 const getFirebaseAuthError = (err: unknown): string => {
   if (err && typeof err === 'object' && 'code' in err) {
     const code = (err as { code: string }).code
-    if (
-      code === 'auth/user-not-found' ||
-      code === 'auth/wrong-password' ||
-      code === 'auth/invalid-credential'
-    ) {
-      return 'Invalid email or password.'
-    }
-    if (code === 'auth/too-many-requests') {
-      return 'Too many attempts. Please try again later.'
-    }
-    if (code === 'auth/user-disabled') {
-      return 'This account has been disabled.'
-    }
+    if (code === 'auth/email-already-in-use') return 'An account with this email already exists.'
+    if (code === 'auth/invalid-email') return 'Please enter a valid email address.'
+    if (code === 'auth/weak-password') return 'Password must be at least 6 characters.'
   }
   return 'Something went wrong. Please try again.'
 }
 
-const LoginPage = ({ onLogin }: LoginPageProps) => {
-  const navigate = useNavigate() // ✅ inside the component
+const SignUpPage = ({ onSignUp }: SignUpPageProps) => {
+  const navigate = useNavigate()
+  const [displayName, setDisplayName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
 
   const handleSubmit = async () => {
     setError('')
+
+    if (!displayName.trim()) {
+      setError('Please enter your full name.')
+      return
+    }
+
+    if (password !== confirmPassword) {
+      setError('Passwords do not match.')
+      return
+    }
+
     setLoading(true)
     try {
       const auth = getAuth(app)
-      const credential = await signInWithEmailAndPassword(auth, email, password)
-      const firebaseUser = credential.user
+      const credential = await createUserWithEmailAndPassword(auth, email, password)
+      await updateProfile(credential.user, { displayName: displayName.trim() })
       const user: AuthUser = {
-        uid: firebaseUser.uid,
-        email: firebaseUser.email ?? '',
-        displayName: firebaseUser.displayName ?? firebaseUser.email ?? '',
+        uid: credential.user.uid,
+        email: credential.user.email ?? '',
+        displayName: displayName.trim(),
       }
-      onLogin(user)
+      onSignUp(user)
     } catch (err: unknown) {
       setError(getFirebaseAuthError(err))
     } finally {
@@ -70,12 +73,22 @@ const LoginPage = ({ onLogin }: LoginPageProps) => {
               <div className="text-xs text-muted-foreground tracking-widest">TRENDS AI</div>
             </div>
           </div>
-          <p className="text-muted-foreground text-sm mt-2 text-center">Sign in to your account</p>
+          <p className="text-muted-foreground text-sm mt-2 text-center">Create your account</p>
         </div>
 
         {/* Card */}
         <div className="border rounded-xl bg-card shadow-sm p-6 space-y-5">
           <div className="space-y-4">
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium">Full Name</label>
+              <input
+                type="text"
+                value={displayName}
+                onChange={e => setDisplayName(e.target.value)}
+                placeholder="Jane Smith"
+                className="w-full border rounded-md px-3 py-2 text-sm bg-background focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+            </div>
             <div className="space-y-1.5">
               <label className="text-sm font-medium">Email</label>
               <input
@@ -93,6 +106,16 @@ const LoginPage = ({ onLogin }: LoginPageProps) => {
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 placeholder="••••••••"
+                className="w-full border rounded-md px-3 py-2 text-sm bg-background focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+            </div>
+            <div className="space-y-1.5">
+              <label className="text-sm font-medium">Confirm Password</label>
+              <input
+                type="password"
+                value={confirmPassword}
+                onChange={e => setConfirmPassword(e.target.value)}
+                placeholder="••••••••"
                 onKeyDown={e => e.key === 'Enter' && handleSubmit()}
                 className="w-full border rounded-md px-3 py-2 text-sm bg-background focus:outline-none focus:ring-2 focus:ring-ring"
               />
@@ -103,19 +126,19 @@ const LoginPage = ({ onLogin }: LoginPageProps) => {
               disabled={loading}
               className="w-full bg-primary text-primary-foreground rounded-md py-2 text-sm font-medium hover:bg-primary/90 transition disabled:opacity-60"
             >
-              {loading ? 'Signing in…' : 'Sign In'}
+              {loading ? 'Creating account…' : 'Create Account'}
             </button>
           </div>
 
-          {/* Sign up link */}
+          {/* Login link */}
           <div className="border-t pt-4 text-center">
             <p className="text-xs text-muted-foreground">
-              Don't have an account?{' '}
+              Already have an account?{' '}
               <button
-                onClick={() => navigate('/signup')}
+                onClick={() => navigate('/login')}
                 className="text-primary hover:underline font-medium"
               >
-                Create one
+                Sign in
               </button>
             </p>
           </div>
@@ -125,4 +148,4 @@ const LoginPage = ({ onLogin }: LoginPageProps) => {
   )
 }
 
-export default LoginPage
+export default SignUpPage

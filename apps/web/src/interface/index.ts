@@ -20,14 +20,13 @@ export interface NavItem {
 // ── Auth types ───────────────────────────────────────────────────────────
 
 export interface AuthUser {
+  uid: string
   email: string
-  name: string
-  role: string
-  initials: string
+  displayName: string
 }
 
 export interface AuthContextValue {
-  user: AuthUser
+  user: AuthUser | null
   logout: () => void
 }
 
