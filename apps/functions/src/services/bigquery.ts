@@ -1,14 +1,17 @@
-import { BigQuery } from '@google-cloud/bigquery'
-
 // BigQuery Service
 // Executes SQL queries against the hotel_trends dataset.
 // Called by Gemini via function calling when the question requires
 // structured/analytical data (revenue, occupancy trends, rate plans, rooms).
+//
+// WHY dynamic import: @google-cloud/bigquery (like @google-cloud/aiplatform) loads
+// gRPC and probes for Google credentials at module load time. Same fix as vertexai.ts.
 
 const PROJECT_ID = 'hotel-trends-stage'
 const DATASET_ID = 'hotel_trends'
 
 export async function runBigQuery(sql: string): Promise<Record<string, unknown>[]> {
+  const { BigQuery } = await import('@google-cloud/bigquery')
+
   const bq = new BigQuery({ projectId: PROJECT_ID })
   const [rows] = await bq.query({
     query: sql,
