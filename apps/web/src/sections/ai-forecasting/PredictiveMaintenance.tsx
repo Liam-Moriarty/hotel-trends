@@ -17,7 +17,12 @@ export default function PredictiveMaintenance() {
               <p className="text-xs text-muted-foreground">{m.eta}</p>
             </div>
             <div className="text-right shrink-0">
-              <p className="font-semibold text-sm text-yellow-400">{m.cost}</p>
+              <p
+                className="font-semibold text-sm tabular-nums"
+                style={{ color: 'var(--status-warning)' }}
+              >
+                {m.cost}
+              </p>
               <p className="text-xs text-muted-foreground">est. repair</p>
             </div>
           </div>

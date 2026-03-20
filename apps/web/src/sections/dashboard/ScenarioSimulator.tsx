@@ -25,12 +25,14 @@ export default function ScenarioSimulator() {
   return (
     <Card className="flex-1 min-w-[260px]">
       <CardContent className="p-5">
-        <p className="font-semibold text-sm mb-5">⊙ Scenario Simulator</p>
+        <p className="font-semibold text-sm mb-5 flex items-center gap-2">
+          <span style={{ color: 'var(--accent-cool)' }}>⊙</span> Scenario Simulator
+        </p>
         {sliders.map((s, i) => (
           <div key={s.label} className="mb-5">
             <div className="flex justify-between mb-2">
               <span className="text-sm text-muted-foreground">{s.label}</span>
-              <span className="text-sm font-semibold">{s.fmt(values[i])}</span>
+              <span className="text-sm font-semibold tabular-nums">{s.fmt(values[i])}</span>
             </div>
             <Slider
               value={values[i]}
@@ -41,12 +43,21 @@ export default function ScenarioSimulator() {
             />
           </div>
         ))}
-        <div className="rounded-md border bg-muted/40 p-4 mb-3">
-          <p className="text-[10px] font-semibold text-muted-foreground tracking-widest uppercase mb-1.5">
+        <div
+          className="rounded-md p-4 mb-3"
+          style={{
+            background: 'var(--surface-container-high)',
+            border: '1px solid var(--border-subtle)',
+          }}
+        >
+          <p className="text-[10px] font-bold text-muted-foreground tracking-widest uppercase mb-1.5">
             Projected RevPAR
           </p>
-          <p className="text-3xl font-bold tracking-tight mb-1">${projected}</p>
-          <p className={`text-xs font-medium ${diff >= 0 ? 'text-green-600' : 'text-destructive'}`}>
+          <p className="text-3xl font-bold tracking-tight mb-1 tabular-nums">${projected}</p>
+          <p
+            className="text-xs font-medium"
+            style={{ color: diff >= 0 ? 'var(--status-success)' : 'var(--status-error)' }}
+          >
             {diff >= 0 ? '▲' : '▼'} {Math.abs(diff)} vs current baseline
           </p>
         </div>

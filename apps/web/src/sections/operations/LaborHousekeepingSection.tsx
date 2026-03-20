@@ -7,26 +7,29 @@ interface LaborHousekeepingSectionProps {
   rooms: HubOSRoom[]
 }
 
+const roomStatusColors: Record<RoomStatus, string> = {
+  Clean: 'var(--status-success)',
+  InProgress: 'var(--status-info)',
+  Inspecting: 'var(--status-info)',
+  Dirty: 'var(--status-warning)',
+  Blocked: 'var(--status-error)',
+}
+
 function RoomStatusDot({ status }: { status: RoomStatus }) {
-  const colors: Record<RoomStatus, string> = {
-    Clean: 'bg-green-500',
-    InProgress: 'bg-blue-500',
-    Inspecting: 'bg-cyan-400',
-    Dirty: 'bg-yellow-500',
-    Blocked: 'bg-red-500',
-  }
-  return <span className={`inline-block w-2.5 h-2.5 rounded-full ${colors[status]}`} />
+  return (
+    <span
+      className="inline-block w-2.5 h-2.5 rounded-full"
+      style={{ background: roomStatusColors[status] }}
+    />
+  )
 }
 
 function RoomStatusText({ status }: { status: RoomStatus }) {
-  const colors: Record<RoomStatus, string> = {
-    Clean: 'text-green-500',
-    InProgress: 'text-blue-400',
-    Inspecting: 'text-cyan-400',
-    Dirty: 'text-yellow-500',
-    Blocked: 'text-red-500',
-  }
-  return <span className={`text-xs font-medium ${colors[status]}`}>{status}</span>
+  return (
+    <span className="text-xs font-medium" style={{ color: roomStatusColors[status] }}>
+      {status}
+    </span>
+  )
 }
 
 export function LaborHousekeepingSection({ roster, rooms }: LaborHousekeepingSectionProps) {
@@ -49,7 +52,11 @@ export function LaborHousekeepingSection({ roster, rooms }: LaborHousekeepingSec
                   {dept.staffingStatus === 'Understaffed' && (
                     <Badge
                       variant="outline"
-                      className="text-yellow-500 border-yellow-500 text-xs px-1.5 py-0"
+                      style={{
+                        color: 'var(--status-warning)',
+                        borderColor: 'var(--status-warning)',
+                      }}
+                      className="text-xs px-1.5 py-0"
                     >
                       UNDERSTAFFED
                     </Badge>
@@ -59,11 +66,19 @@ export function LaborHousekeepingSection({ roster, rooms }: LaborHousekeepingSec
               </div>
               <div className="flex items-center gap-2">
                 <span
-                  className={`font-bold text-sm ${dept.actual < dept.scheduled ? 'text-yellow-500' : 'text-green-500'}`}
+                  className="font-bold text-sm tabular-nums"
+                  style={{
+                    color:
+                      dept.actual < dept.scheduled
+                        ? 'var(--status-warning)'
+                        : 'var(--status-success)',
+                  }}
                 >
                   {dept.actual}
                 </span>
-                <span className="text-sm text-muted-foreground">/ {dept.scheduled}</span>
+                <span className="text-sm text-muted-foreground tabular-nums">
+                  / {dept.scheduled}
+                </span>
                 {dept.overtimeHours > 0 && (
                   <Badge variant="destructive" className="text-xs px-1.5 py-0">
                     +{dept.overtimeHours} OT
@@ -92,17 +107,8 @@ export function LaborHousekeepingSection({ roster, rooms }: LaborHousekeepingSec
             {rooms.map(t => (
               <div key={t.roomNumber} className="rounded-md border p-2 text-center">
                 <p
-                  className={`text-sm font-bold ${
-                    t.status === 'Clean'
-                      ? 'text-green-500'
-                      : t.status === 'InProgress'
-                        ? 'text-blue-400'
-                        : t.status === 'Inspecting'
-                          ? 'text-cyan-400'
-                          : t.status === 'Dirty'
-                            ? 'text-yellow-500'
-                            : 'text-red-500'
-                  }`}
+                  className="text-sm font-bold tabular-nums"
+                  style={{ color: roomStatusColors[t.status] }}
                 >
                   {t.roomNumber}
                 </p>

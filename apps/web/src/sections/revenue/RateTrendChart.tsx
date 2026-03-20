@@ -11,73 +11,95 @@ import {
 } from 'recharts'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
+// Chart uses accent-cool, accent-violet, and the three status colors — no other hues
+const LINE_COLORS = {
+  STD: 'var(--accent-cool)',
+  DLX: 'var(--accent-violet)',
+  JNR: 'var(--status-warning)',
+  STE: 'var(--status-success)',
+  PSTE: 'var(--status-error)',
+}
+
 export default function RateTrendChart() {
   const { data, isLoading, isError } = useRateTrend()
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-base">Rate Trend by Room Type</CardTitle>
+        <CardTitle className="text-sm">Rate Trend by Room Type</CardTitle>
         <CardDescription>4-week forward pricing schedule</CardDescription>
       </CardHeader>
       <CardContent>
         {isLoading ? (
           <div className="h-[220px] animate-pulse rounded-md bg-muted" />
         ) : isError ? (
-          <div className="h-[220px] flex items-center justify-center text-destructive text-sm">
+          <div
+            className="h-[220px] flex items-center justify-center text-sm"
+            style={{ color: 'var(--status-error)' }}
+          >
             Failed to load rate trend data.
           </div>
         ) : (
           <ResponsiveContainer width="100%" height={220}>
             <LineChart data={data}>
-              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-              <XAxis dataKey="date" tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }} />
+              <CartesianGrid
+                strokeDasharray=""
+                stroke="var(--surface-container-high)"
+                horizontal={true}
+                vertical={false}
+              />
+              <XAxis
+                dataKey="date"
+                tick={{ fontSize: 11, fill: 'var(--text-muted)' }}
+                axisLine={false}
+                tickLine={false}
+              />
               <YAxis
-                tick={{ fontSize: 11, fill: 'hsl(var(--muted-foreground))' }}
+                tick={{ fontSize: 11, fill: 'var(--text-muted)' }}
                 tickFormatter={v => `$${v}`}
+                axisLine={false}
+                tickLine={false}
+                stroke="var(--surface-hover)"
               />
-              <Tooltip formatter={(v: number | undefined) => (v != null ? `$${v}` : '')} />
-              <Legend />
-              <Line
-                type="monotone"
-                dataKey="STD"
-                name="Standard"
-                stroke="#6366f1"
-                dot={false}
-                strokeWidth={2}
+              <Tooltip
+                contentStyle={{
+                  background: 'var(--surface-glass)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid var(--border-default)',
+                  borderRadius: 8,
+                  fontSize: 12,
+                  color: 'var(--text-primary)',
+                }}
+                formatter={(v: number | undefined) => (v != null ? `$${v}` : '')}
               />
-              <Line
-                type="monotone"
-                dataKey="DLX"
-                name="Deluxe"
-                stroke="#06b6d4"
-                dot={false}
-                strokeWidth={2}
+              <Legend
+                formatter={(v: string) => (
+                  <span style={{ color: 'var(--text-muted)', fontSize: 11 }}>{v}</span>
+                )}
               />
-              <Line
-                type="monotone"
-                dataKey="JNR"
-                name="Junior Suite"
-                stroke="#f97316"
-                dot={false}
-                strokeWidth={2}
-              />
-              <Line
-                type="monotone"
-                dataKey="STE"
-                name="Suite"
-                stroke="#eab308"
-                dot={false}
-                strokeWidth={2}
-              />
-              <Line
-                type="monotone"
-                dataKey="PSTE"
-                name="Presidential"
-                stroke="#ec4899"
-                dot={false}
-                strokeWidth={2}
-              />
+              {(Object.entries(LINE_COLORS) as [keyof typeof LINE_COLORS, string][]).map(
+                ([key, color]) => (
+                  <Line
+                    key={key}
+                    type="monotone"
+                    dataKey={key}
+                    name={
+                      key === 'STD'
+                        ? 'Standard'
+                        : key === 'DLX'
+                          ? 'Deluxe'
+                          : key === 'JNR'
+                            ? 'Junior Suite'
+                            : key === 'STE'
+                              ? 'Suite'
+                              : 'Presidential'
+                    }
+                    stroke={color}
+                    dot={false}
+                    strokeWidth={2}
+                  />
+                )
+              )}
             </LineChart>
           </ResponsiveContainer>
         )}

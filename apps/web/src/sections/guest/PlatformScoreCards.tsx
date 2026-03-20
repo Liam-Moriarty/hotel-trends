@@ -25,7 +25,7 @@ export function PlatformScoreCards({ platforms }: PlatformScoreCardsProps) {
                 <p className="text-xs text-muted-foreground">{p.reviews}</p>
               </div>
             </div>
-            <p className="text-3xl font-bold">{p.score}</p>
+            <p className="text-3xl font-bold tabular-nums">{p.score}</p>
             <StarRating score={p.score} outOf={p.outOf} />
           </CardContent>
         </Card>

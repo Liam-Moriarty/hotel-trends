@@ -24,19 +24,25 @@ const UserFooter = ({ collapsed }: { collapsed: boolean }) => {
     <div
       className={cn('border-t p-3 flex items-center gap-2 shrink-0', collapsed && 'justify-center')}
     >
-      <div className="h-8 w-8 rounded-full bg-primary flex items-center justify-center text-primary-foreground text-xs font-bold shrink-0">
+      <div
+        className="h-8 w-8 rounded-full flex items-center justify-center text-xs font-bold text-white shrink-0"
+        style={{ background: 'var(--accent-gradient)' }}
+      >
         {initials}
       </div>
       {!collapsed && (
         <div className="flex-1 min-w-0">
-          <p className="text-xs font-medium truncate">{name}</p>
+          <p className="text-xs font-medium truncate" style={{ color: 'var(--text-secondary)' }}>
+            {name}
+          </p>
         </div>
       )}
       {!collapsed && (
         <button
           onClick={logout}
           title="Logout"
-          className="text-muted-foreground hover:text-foreground shrink-0 p-1 rounded hover:bg-accent"
+          className="shrink-0 p-1 rounded hover:bg-accent transition-colors"
+          style={{ color: 'var(--text-muted)' }}
         >
           <LogOut className="h-4 w-4" />
         </button>

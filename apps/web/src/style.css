@@ -4,117 +4,138 @@
 
 @layer base {
   :root {
-    --background: 223.8136 -172.5242% 100%;
-    --foreground: 223.8136 0% 3.9388%;
-    --card: 223.8136 -172.5242% 100%;
-    --card-foreground: 223.8136 0% 3.9388%;
-    --popover: 223.8136 -172.5242% 100%;
-    --popover-foreground: 223.8136 0% 3.9388%;
-    --primary: 223.8136 0% 9.0527%;
-    --primary-foreground: 223.8136 0.0004% 98.0256%;
-    --secondary: 223.8136 0.0002% 96.0587%;
-    --secondary-foreground: 223.8136 0% 9.0527%;
-    --muted: 223.8136 0.0002% 96.0587%;
-    --muted-foreground: 223.8136 0% 45.1519%;
-    --accent: 223.8136 0.0002% 96.0587%;
-    --accent-foreground: 223.8136 0% 9.0527%;
-    --destructive: 351.7303 123.6748% 40.5257%;
-    --destructive-foreground: 223.8136 -172.5242% 100%;
-    --border: 223.8136 0.0001% 89.8161%;
-    --input: 223.8136 0.0001% 89.8161%;
-    --ring: 223.8136 0% 63.0163%;
-    --chart-1: 211.788 101.9718% 78.6759%;
-    --chart-2: 217.4076 91.3672% 59.5787%;
-    --chart-3: 221.4336 86.3731% 54.0624%;
-    --chart-4: 223.6587 78.718% 47.8635%;
-    --chart-5: 226.5426 70.0108% 39.9224%;
-    --sidebar: 223.8136 0.0004% 98.0256%;
-    --sidebar-foreground: 223.8136 0% 3.9388%;
-    --sidebar-primary: 223.8136 0% 9.0527%;
-    --sidebar-primary-foreground: 223.8136 0.0004% 98.0256%;
-    --sidebar-accent: 223.8136 0.0002% 96.0587%;
-    --sidebar-accent-foreground: 223.8136 0% 9.0527%;
-    --sidebar-border: 223.8136 0.0001% 89.8161%;
-    --sidebar-ring: 223.8136 0% 63.0163%;
-    --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-      'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-      'Segoe UI Symbol', 'Noto Color Emoji';
-    --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-      'Courier New', monospace;
-    --radius: 0.625rem;
-    --shadow-x: 0;
-    --shadow-y: 1px;
-    --shadow-blur: 3px;
-    --shadow-spread: 0px;
-    --shadow-opacity: 0.1;
-    --shadow-color: oklch(0 0 0);
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
-    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
-    --tracking-normal: 0em;
-    --spacing: 0.25rem;
+    /* ── Design System: Chromatic Neutral Tokens (Light Mode) ─────────── */
+    --surface-void:           #F4F4F8;
+    --surface-base:           #EEEDF5;
+    --surface-container:      #FFFFFF;
+    --surface-container-high: #F0EFF7;
+    --surface-hover:          #E8E7F2;
+    --surface-active:         #DFDEED;
+    --surface-glass:          rgba(255, 255, 255, 0.82);
+    --surface-glass-light:    rgba(248, 247, 253, 0.88);
+
+    --border-subtle:          rgba(0, 0, 0, 0.06);
+    --border-default:         rgba(0, 0, 0, 0.10);
+    --border-emphasis:        rgba(0, 0, 0, 0.16);
+    --border-ai:              rgba(120, 100, 190, 0.30);
+    --scrim:                  rgba(10, 10, 20, 0.50);
+
+    --text-primary:           #0D0E1A;
+    --text-secondary:         #4A4B65;
+    --text-muted:             #8E8FA8;
+    --text-ghost:             #C2C3D4;
+
+    --accent-cool:            #4A72C4;
+    --accent-violet:          #7C6BB8;
+    --accent-cool-muted:      rgba(74, 114, 196, 0.08);
+    --accent-violet-muted:    rgba(124, 107, 184, 0.08);
+    --accent-gradient:        linear-gradient(135deg, #4A72C4, #7C6BB8);
+
+    --status-success:         #16A34A;
+    --status-success-bg:      rgba(22, 163, 74, 0.08);
+    --status-warning:         #D97706;
+    --status-warning-bg:      rgba(217, 119, 6, 0.08);
+    --status-error:           #DC2626;
+    --status-error-bg:        rgba(220, 38, 38, 0.08);
+    --status-info:            #4A72C4;
+    --status-info-bg:         rgba(74, 114, 196, 0.08);
+
+    /* ── Shadcn/Tailwind Compatible Aliases (HSL space-separated) ─────── */
+    --background:             240 6% 96%;      /* surface-void  #F4F4F8 */
+    --foreground:             239 17% 8%;      /* text-primary  #0D0E1A */
+    --card:                   0 0% 100%;       /* surface-container #FFFFFF */
+    --card-foreground:        239 17% 8%;
+    --popover:                0 0% 100%;
+    --popover-foreground:     239 17% 8%;
+    --primary:                220 52% 54%;     /* accent-cool   #4A72C4 */
+    --primary-foreground:     0 0% 100%;
+    --secondary:              245 13% 95%;     /* surface-container-high #F0EFF7 */
+    --secondary-foreground:   239 17% 8%;
+    --muted:                  245 13% 95%;
+    --muted-foreground:       237 9% 61%;      /* text-muted    #8E8FA8 */
+    --accent:                 243 13% 90%;     /* surface-hover #E8E7F2 */
+    --accent-foreground:      239 17% 8%;
+    --destructive:            0 72% 51%;       /* status-error  #DC2626 */
+    --destructive-foreground: 0 0% 100%;
+    --border:                 245 10% 90%;
+    --input:                  245 13% 95%;
+    --ring:                   220 52% 54%;
+    --radius:                 0.375rem;
+    --sidebar:                245 14% 94%;     /* surface-base  #EEEDF5 */
+    --sidebar-foreground:     239 17% 8%;
+    --sidebar-primary:        220 52% 54%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent:         243 13% 90%;
+    --sidebar-accent-foreground: 239 17% 8%;
+    --sidebar-border:         245 10% 90%;
+    --sidebar-ring:           220 52% 54%;
   }
 
-  .dark {
-    --background: 223.8136 0% 3.9388%;
-    --foreground: 223.8136 0.0004% 98.0256%;
-    --card: 223.8136 0% 9.0527%;
-    --card-foreground: 223.8136 0.0004% 98.0256%;
-    --popover: 223.8136 0% 14.9382%;
-    --popover-foreground: 223.8136 0.0004% 98.0256%;
-    --primary: 223.8136 0.0001% 89.8161%;
-    --primary-foreground: 223.8136 0% 9.0527%;
-    --secondary: 223.8136 0% 14.9382%;
-    --secondary-foreground: 223.8136 0.0004% 98.0256%;
-    --muted: 223.8136 0% 14.9382%;
-    --muted-foreground: 223.8136 0% 63.0163%;
-    --accent: 223.8136 0% 25.0471%;
-    --accent-foreground: 223.8136 0.0004% 98.0256%;
-    --destructive: 358.7594 101.8439% 69.8357%;
-    --destructive-foreground: 223.8136 0.0004% 98.0256%;
-    --border: 223.8136 0% 15.5096%;
-    --input: 223.8136 0% 20.3885%;
-    --ring: 223.8136 0% 45.1519%;
-    --chart-1: 211.788 101.9718% 78.6759%;
-    --chart-2: 217.4076 91.3672% 59.5787%;
-    --chart-3: 221.4336 86.3731% 54.0624%;
-    --chart-4: 223.6587 78.718% 47.8635%;
-    --chart-5: 226.5426 70.0108% 39.9224%;
-    --sidebar: 223.8136 0% 9.0527%;
-    --sidebar-foreground: 223.8136 0.0004% 98.0256%;
-    --sidebar-primary: 225.3451 84.0953% 48.9841%;
-    --sidebar-primary-foreground: 223.8136 0.0004% 98.0256%;
-    --sidebar-accent: 223.8136 0% 14.9382%;
-    --sidebar-accent-foreground: 223.8136 0.0004% 98.0256%;
-    --sidebar-border: 223.8136 0% 15.5096%;
-    --sidebar-ring: 223.8136 0% 32.1993%;
-    --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-      'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-      'Segoe UI Symbol', 'Noto Color Emoji';
-    --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-      'Courier New', monospace;
-    --radius: 0.625rem;
-    --shadow-x: 0;
-    --shadow-y: 1px;
-    --shadow-blur: 3px;
-    --shadow-spread: 0px;
-    --shadow-opacity: 0.1;
-    --shadow-color: oklch(0 0 0);
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
-    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+  [data-theme="dark"] {
+    /* ── Design System: Chromatic Neutral Tokens (Dark Mode) ─────────── */
+    --surface-void:           #08090F;
+    --surface-base:           #0D0E18;
+    --surface-container:      #11121E;
+    --surface-container-high: #181927;
+    --surface-hover:          #1E1F30;
+    --surface-active:         #23253A;
+    --surface-glass:          rgba(13, 14, 22, 0.90);
+    --surface-glass-light:    rgba(20, 20, 34, 0.85);
+
+    --border-subtle:          rgba(255, 255, 255, 0.07);
+    --border-default:         rgba(255, 255, 255, 0.11);
+    --border-emphasis:        rgba(255, 255, 255, 0.18);
+    --border-ai:              rgba(139, 120, 210, 0.35);
+    --scrim:                  rgba(0, 0, 0, 0.70);
+
+    --text-primary:           #EEEDF5;
+    --text-secondary:         #8E8FA8;
+    --text-muted:             #4E4F68;
+    --text-ghost:             #2E2F45;
+
+    --accent-cool:            #8BA4D4;
+    --accent-violet:          #9B8EC4;
+    --accent-cool-muted:      rgba(139, 164, 212, 0.10);
+    --accent-violet-muted:    rgba(155, 142, 196, 0.10);
+    --accent-gradient:        linear-gradient(135deg, #8BA4D4, #9B8EC4);
+
+    --status-success:         #22C55E;
+    --status-success-bg:      rgba(34, 197, 94, 0.10);
+    --status-warning:         #F59E0B;
+    --status-warning-bg:      rgba(245, 158, 11, 0.10);
+    --status-error:           #EF4444;
+    --status-error-bg:        rgba(239, 68, 68, 0.10);
+    --status-info:            #8BA4D4;
+    --status-info-bg:         rgba(139, 164, 212, 0.10);
+
+    /* ── Shadcn/Tailwind Compatible Aliases ──────────────────────────── */
+    --background:             238 31% 5%;      /* surface-void  #08090F */
+    --foreground:             245 14% 94%;     /* text-primary  #EEEDF5 */
+    --card:                   237 29% 9%;      /* surface-container #11121E */
+    --card-foreground:        245 14% 94%;
+    --popover:                237 29% 9%;
+    --popover-foreground:     245 14% 94%;
+    --primary:                218 43% 68%;     /* accent-cool   #8BA4D4 */
+    --primary-foreground:     0 0% 100%;
+    --secondary:              238 25% 12%;     /* surface-container-high #181927 */
+    --secondary-foreground:   245 14% 94%;
+    --muted:                  238 25% 12%;
+    --muted-foreground:       237 15% 36%;     /* text-muted    #4E4F68 */
+    --accent:                 238 24% 15%;     /* surface-hover #1E1F30 */
+    --accent-foreground:      245 14% 94%;
+    --destructive:            0 84% 60%;       /* status-error  #EF4444 */
+    --destructive-foreground: 0 0% 100%;
+    --border:                 237 24% 18%;
+    --input:                  238 25% 12%;
+    --ring:                   218 43% 68%;
+    --sidebar:                237 30% 8%;      /* surface-base  #0D0E18 */
+    --sidebar-foreground:     245 14% 94%;
+    --sidebar-primary:        218 43% 68%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent:         238 24% 15%;
+    --sidebar-accent-foreground: 245 14% 94%;
+    --sidebar-border:         237 24% 18%;
+    --sidebar-ring:           218 43% 68%;
   }
 }
 
@@ -122,41 +143,61 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Scrollbar — light mode */
+  /* Tabular nums on all numeric output */
+  .tabular-nums,
+  table td {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 5px;
+    height: 5px;
   }
   ::-webkit-scrollbar-track {
-    background: hsl(var(--muted));
+    background: var(--surface-container-high);
   }
   ::-webkit-scrollbar-thumb {
-    background: hsl(var(--border));
+    background: var(--text-ghost);
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--muted-foreground));
+    background: var(--text-muted);
   }
 
-  /* Scrollbar — dark mode */
-  .dark ::-webkit-scrollbar-track {
-    background: hsl(var(--muted));
-  }
-  .dark ::-webkit-scrollbar-thumb {
-    background: hsl(var(--border));
-    border-radius: 9999px;
-  }
-  .dark ::-webkit-scrollbar-thumb:hover {
-    background: hsl(var(--muted-foreground));
-  }
-
-  /* Firefox */
   * {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--border)) hsl(var(--muted));
+    scrollbar-color: var(--text-ghost) var(--surface-container-high);
+  }
+}
+
+/* ── Heatmap cell helpers (uses CSS vars → auto dark-mode) ──────────── */
+@layer utilities {
+  .heatmap-empty    { background: transparent; color: transparent; }
+  .heatmap-low      { background: var(--surface-active); color: var(--text-muted); }
+  .heatmap-med      { background: color-mix(in srgb, var(--accent-cool) 35%, transparent); color: var(--text-primary); }
+  .heatmap-med-high { background: color-mix(in srgb, var(--accent-cool) 65%, transparent); color: white; }
+  .heatmap-high     { background: var(--accent-cool); color: white; }
+
+  /* Intelligence / AI card accent */
+  .ai-card {
+    border-left: 3px solid var(--border-ai);
+    background: color-mix(in srgb, var(--accent-violet) 4%, var(--surface-container));
+  }
+
+  /* Gradient text utility */
+  .gradient-text {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 }

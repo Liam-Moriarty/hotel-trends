@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { MessageCircle, X, Send, User, Bot, Loader2, RotateCcw } from 'lucide-react'
-import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card'
+import { X, Send, User, Bot, Loader2, RotateCcw, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { trpc } from '@/lib/trpc'
 import ReactMarkdown from 'react-markdown'
@@ -26,7 +25,6 @@ export const FloatingChatbot = () => {
   }, [messages])
 
   const messagesEndRef = useRef<HTMLDivElement>(null)
-
   const askMutation = trpc.dashboard.ask.useMutation()
 
   const scrollToBottom = () => {
@@ -34,9 +32,7 @@ export const FloatingChatbot = () => {
   }
 
   useEffect(() => {
-    if (isOpen) {
-      scrollToBottom()
-    }
+    if (isOpen) scrollToBottom()
   }, [messages, isOpen])
 
   const handleSend = async (e?: React.FormEvent) => {
@@ -59,9 +55,8 @@ export const FloatingChatbot = () => {
         question: userMessage,
         history,
       })
-
       setMessages(prev => [...prev, { role: 'bot', text: response.answer }])
-    } catch (err) {
+    } catch {
       setMessages(prev => [
         ...prev,
         { role: 'bot', text: 'Sorry, I encountered an error connecting to the AI.' },
@@ -71,10 +66,10 @@ export const FloatingChatbot = () => {
 
   const handleReset = () => {
     if (confirm('Are you sure you want to clear the chat history?')) {
-      const initialMessage: Message[] = [
+      const initial: Message[] = [
         { role: 'bot', text: 'Hello! I am your AI assistant. How can I help you today?' },
       ]
-      setMessages(initialMessage)
+      setMessages(initial)
       localStorage.removeItem('chat_history')
     }
   }
@@ -82,50 +77,70 @@ export const FloatingChatbot = () => {
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
       {isOpen && (
-        <Card className="w-80 sm:w-96 mb-4 shadow-xl border-border flex flex-col overflow-hidden animate-in slide-in-from-bottom-5">
-          <CardHeader className="bg-primary text-primary-foreground py-3 px-4 flex flex-row items-center justify-between space-y-0">
-            <CardTitle className="text-md font-medium flex items-center gap-2">
-              <Bot size={18} />
+        <div
+          className="w-80 sm:w-96 mb-4 rounded-xl overflow-hidden flex flex-col animate-in slide-in-from-bottom-5"
+          style={{
+            background: 'var(--surface-glass)',
+            backdropFilter: 'blur(28px) saturate(180%)',
+            border: '1px solid var(--border-default)',
+            boxShadow: '0 20px 50px rgba(10,10,30,0.12)',
+          }}
+        >
+          {/* Header — AI gradient */}
+          <div
+            className="py-3 px-4 flex flex-row items-center justify-between shrink-0"
+            style={{ background: 'var(--accent-gradient)' }}
+          >
+            <div className="flex items-center gap-2 text-white font-medium text-sm">
+              <Sparkles size={16} />
               AI Assistant
-            </CardTitle>
+            </div>
             <div className="flex items-center gap-1">
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-primary-foreground hover:bg-primary/90 h-8 w-8"
+              <button
                 onClick={handleReset}
                 title="Reset Chat"
+                className="text-white/80 hover:text-white p-1.5 rounded transition-colors"
               >
-                <RotateCcw size={16} />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-primary-foreground hover:bg-primary/90 h-8 w-8"
+                <RotateCcw size={15} />
+              </button>
+              <button
                 onClick={() => setIsOpen(false)}
+                className="text-white/80 hover:text-white p-1.5 rounded transition-colors"
               >
-                <X size={18} />
-              </Button>
+                <X size={16} />
+              </button>
             </div>
-          </CardHeader>
+          </div>
 
-          <CardContent className="flex-1 overflow-y-auto p-4 space-y-4 max-h-[400px] min-h-[300px] bg-muted/20">
+          {/* Messages */}
+          <div
+            className="flex-1 overflow-y-auto p-4 space-y-4 max-h-[400px] min-h-[300px]"
+            style={{ background: 'var(--surface-container-high)' }}
+          >
             {messages.map((msg, idx) => (
               <div
                 key={idx}
                 className={`flex gap-2 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 {msg.role === 'bot' && (
-                  <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                    <Bot size={16} className="text-primary" />
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
+                    style={{ background: 'var(--accent-violet-muted)' }}
+                  >
+                    <Bot size={16} style={{ color: 'var(--accent-violet)' }} />
                   </div>
                 )}
                 <div
-                  className={`rounded-lg px-3 py-2 max-w-[80%] text-sm ${
+                  className="rounded-lg px-3 py-2 max-w-[80%] text-sm"
+                  style={
                     msg.role === 'user'
-                      ? 'bg-primary text-primary-foreground'
-                      : 'bg-muted text-foreground'
-                  }`}
+                      ? { background: 'var(--accent-gradient)', color: 'white' }
+                      : {
+                          background: 'var(--surface-container)',
+                          color: 'var(--text-primary)',
+                          border: '1px solid var(--border-default)',
+                        }
+                  }
                 >
                   {msg.role === 'bot' ? (
                     <ReactMarkdown
@@ -137,7 +152,9 @@ export const FloatingChatbot = () => {
                           </div>
                         ),
                         thead: ({ children }) => (
-                          <thead className="bg-primary/10">{children}</thead>
+                          <thead style={{ background: 'var(--accent-cool-muted)' }}>
+                            {children}
+                          </thead>
                         ),
                         th: ({ children }) => (
                           <th className="px-2 py-1 text-left font-semibold border border-border/50 whitespace-nowrap">
@@ -174,8 +191,11 @@ export const FloatingChatbot = () => {
                   )}
                 </div>
                 {msg.role === 'user' && (
-                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0">
-                    <User size={16} className="text-primary-foreground" />
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
+                    style={{ background: 'var(--accent-cool)' }}
+                  >
+                    <User size={16} className="text-white" />
                   </div>
                 )}
               </div>
@@ -183,43 +203,70 @@ export const FloatingChatbot = () => {
 
             {askMutation.isPending && (
               <div className="flex gap-2 justify-start">
-                <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                  <Bot size={16} className="text-primary" />
+                <div
+                  className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
+                  style={{ background: 'var(--accent-violet-muted)' }}
+                >
+                  <Bot size={16} style={{ color: 'var(--accent-violet)' }} />
                 </div>
-                <div className="rounded-lg px-3 py-2 max-w-[80%] text-sm bg-muted text-foreground flex items-center gap-2">
+                <div
+                  className="rounded-lg px-3 py-2 max-w-[80%] text-sm flex items-center gap-2"
+                  style={{ background: 'var(--surface-container)', color: 'var(--text-secondary)' }}
+                >
                   <Loader2 size={16} className="animate-spin" />
                   Thinking...
                 </div>
               </div>
             )}
             <div ref={messagesEndRef} />
-          </CardContent>
+          </div>
 
-          <CardFooter className="p-3 bg-background border-t">
+          {/* Footer input */}
+          <div
+            className="p-3"
+            style={{
+              background: 'var(--surface-container)',
+              borderTop: '1px solid var(--border-default)',
+            }}
+          >
             <form onSubmit={handleSend} className="flex w-full gap-2">
               <input
                 type="text"
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 placeholder="Ask a question..."
-                className="flex-1 bg-transparent px-3 py-2 text-sm outline-none border rounded-md focus:ring-1 focus:ring-primary"
+                className="flex-1 px-3 py-2 text-sm outline-none rounded-md"
+                style={{
+                  background: 'var(--surface-container-high)',
+                  border: '1px solid var(--border-subtle)',
+                  color: 'var(--text-primary)',
+                }}
+                onFocus={e => {
+                  e.currentTarget.style.border = '1px solid var(--accent-cool)'
+                  e.currentTarget.style.boxShadow = '0 0 0 3px var(--accent-cool-muted)'
+                }}
+                onBlur={e => {
+                  e.currentTarget.style.border = '1px solid var(--border-subtle)'
+                  e.currentTarget.style.boxShadow = 'none'
+                }}
                 disabled={askMutation.isPending}
               />
               <Button type="submit" size="icon" disabled={askMutation.isPending || !input.trim()}>
                 <Send size={16} />
               </Button>
             </form>
-          </CardFooter>
-        </Card>
+          </div>
+        </div>
       )}
 
-      <Button
+      {/* FAB */}
+      <button
         onClick={() => setIsOpen(!isOpen)}
-        className="h-14 w-14 rounded-full shadow-xl bg-primary hover:bg-primary/90 transition-transform hover:scale-105"
-        size="icon"
+        className="h-14 w-14 rounded-full shadow-xl flex items-center justify-center transition-transform hover:scale-105 text-white"
+        style={{ background: 'var(--accent-gradient)' }}
       >
-        {isOpen ? <X size={24} /> : <MessageCircle size={24} />}
-      </Button>
+        {isOpen ? <X size={22} /> : <Sparkles size={22} />}
+      </button>
     </div>
   )
 }

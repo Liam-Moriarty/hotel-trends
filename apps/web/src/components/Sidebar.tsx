@@ -31,8 +31,8 @@ const Sidebar = ({ collapsed, onToggleCollapse }: SidebarProps) => {
   return (
     <aside
       className={cn(
-        'flex flex-col h-screen border-r bg-card transition-all duration-300 shrink-0',
-        collapsed ? 'w-16' : 'w-60'
+        'flex flex-col h-screen border-r bg-sidebar transition-all duration-300 shrink-0',
+        collapsed ? 'w-16' : 'w-[220px]'
       )}
     >
       {/* Logo */}
@@ -44,18 +44,23 @@ const Sidebar = ({ collapsed, onToggleCollapse }: SidebarProps) => {
       >
         {!collapsed && (
           <div className="flex items-center gap-2 overflow-hidden">
-            <div className="bg-primary rounded-md p-1.5 shrink-0">
-              <Hotel className="h-4 w-4 text-primary-foreground" />
+            <div
+              className="rounded-md p-1.5 shrink-0"
+              style={{ background: 'var(--accent-gradient)' }}
+            >
+              <Hotel className="h-4 w-4 text-white" />
             </div>
             <div className="leading-none">
-              <div className="font-bold text-sm">HOTEL</div>
-              <div className="text-[9px] text-muted-foreground tracking-widest">TRENDS AI</div>
+              <div className="font-bold text-sm tracking-tight">HOTEL</div>
+              <div className="text-[9px] text-muted-foreground tracking-widest font-bold uppercase">
+                TRENDS AI
+              </div>
             </div>
           </div>
         )}
         {collapsed && (
-          <div className="bg-primary rounded-md p-1.5">
-            <Hotel className="h-4 w-4 text-primary-foreground" />
+          <div className="rounded-md p-1.5" style={{ background: 'var(--accent-gradient)' }}>
+            <Hotel className="h-4 w-4 text-white" />
           </div>
         )}
         {!collapsed && (
@@ -99,8 +104,8 @@ const Sidebar = ({ collapsed, onToggleCollapse }: SidebarProps) => {
                   className={cn(
                     'w-full flex items-center gap-2.5 rounded-md px-2 py-2 text-sm transition-colors',
                     active
-                      ? 'bg-accent text-accent-foreground font-medium'
-                      : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground',
+                      ? 'bg-accent text-foreground font-semibold'
+                      : 'text-muted-foreground hover:bg-accent hover:text-foreground',
                     collapsed && 'justify-center'
                   )}
                 >
@@ -126,8 +131,8 @@ const Sidebar = ({ collapsed, onToggleCollapse }: SidebarProps) => {
                         className={cn(
                           'w-full text-left text-sm px-2 py-1.5 rounded-md transition-colors',
                           location.pathname === child.path
-                            ? 'bg-primary/10 text-primary font-medium'
-                            : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground'
+                            ? 'bg-accent text-foreground font-semibold'
+                            : 'text-muted-foreground hover:bg-accent hover:text-foreground'
                         )}
                       >
                         {child.label}
@@ -147,8 +152,8 @@ const Sidebar = ({ collapsed, onToggleCollapse }: SidebarProps) => {
               className={cn(
                 'w-full flex items-center gap-2.5 rounded-md px-2 py-2 text-sm transition-colors',
                 active
-                  ? 'bg-accent text-accent-foreground font-medium'
-                  : 'text-muted-foreground hover:bg-accent hover:text-accent-foreground',
+                  ? 'bg-accent text-foreground font-semibold'
+                  : 'text-muted-foreground hover:bg-accent hover:text-foreground',
                 collapsed && 'justify-center'
               )}
             >

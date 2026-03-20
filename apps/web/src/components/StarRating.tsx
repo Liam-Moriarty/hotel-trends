@@ -16,7 +16,9 @@ export function StarRating({ score, outOf, className }: StarRatingProps) {
       {[1, 2, 3, 4, 5].map(i => (
         <span
           key={i}
-          className={i <= Math.round(normalised) ? 'text-yellow-400' : 'text-muted-foreground'}
+          style={{
+            color: i <= Math.round(normalised) ? 'var(--status-warning)' : 'var(--text-muted)',
+          }}
         >
           ★
         </span>

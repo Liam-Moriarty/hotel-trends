@@ -34,33 +34,39 @@ export function SentimentSection({ trend, breakdown }: SentimentSectionProps) {
         <CardContent>
           <ResponsiveContainer width="100%" height={220}>
             <LineChart data={trend}>
-              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <CartesianGrid
+                stroke="var(--surface-container-high)"
+                horizontal={true}
+                vertical={false}
+              />
               <XAxis
                 dataKey="month"
-                tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }}
+                tick={{ fontSize: 12, fill: 'var(--text-muted)' }}
                 axisLine={false}
                 tickLine={false}
               />
               <YAxis
                 domain={[6, 10]}
-                tick={{ fontSize: 12, fill: 'hsl(var(--muted-foreground))' }}
+                tick={{ fontSize: 12, fill: 'var(--text-muted)' }}
                 axisLine={false}
                 tickLine={false}
               />
               <Tooltip
                 contentStyle={{
-                  background: 'hsl(var(--card))',
-                  border: '1px solid hsl(var(--border))',
-                  borderRadius: 6,
+                  background: 'var(--surface-glass)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid var(--border-default)',
+                  borderRadius: 8,
+                  color: 'var(--text-primary)',
                   fontSize: 12,
                 }}
               />
               <Line
                 type="monotone"
                 dataKey="score"
-                stroke="#22c55e"
+                stroke="var(--accent-cool)"
                 strokeWidth={2}
-                dot={{ r: 4, fill: '#22c55e' }}
+                dot={{ r: 4, fill: 'var(--accent-cool)' }}
               />
             </LineChart>
           </ResponsiveContainer>
@@ -85,7 +91,7 @@ export function SentimentSection({ trend, breakdown }: SentimentSectionProps) {
                   />
                   <span className="text-muted-foreground">{b.label}</span>
                 </div>
-                <span className="font-semibold" style={{ color: b.color }}>
+                <span className="font-semibold tabular-nums" style={{ color: b.color }}>
                   {b.value}%
                 </span>
               </div>

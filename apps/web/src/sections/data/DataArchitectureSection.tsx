@@ -11,7 +11,12 @@ export function DataArchitectureSection() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 items-center">
           {/* Source Systems */}
           <div className="space-y-2">
-            <p className="text-sm font-semibold text-center text-blue-500">Source Systems</p>
+            <p
+              className="text-sm font-semibold text-center"
+              style={{ color: 'var(--status-info)' }}
+            >
+              Source Systems
+            </p>
             {['PMS', 'CRS', 'POS', 'MICE'].map(s => (
               <div
                 key={s}
@@ -24,11 +29,21 @@ export function DataArchitectureSection() {
 
           {/* Cloud Data Lake */}
           <div className="space-y-2">
-            <p className="text-sm font-semibold text-center text-cyan-500">Cloud Data Lake</p>
+            <p
+              className="text-sm font-semibold text-center"
+              style={{ color: 'var(--accent-cool)' }}
+            >
+              Cloud Data Lake
+            </p>
             {['Raw Zone', 'Transform', 'Curated'].map(s => (
               <div
                 key={s}
-                className="bg-cyan-500/10 border border-cyan-500/30 rounded px-3 py-1.5 text-sm text-center text-cyan-500"
+                className="rounded px-3 py-1.5 text-sm text-center"
+                style={{
+                  background: 'var(--status-info-bg)',
+                  border: '1px solid var(--accent-cool)',
+                  color: 'var(--accent-cool)',
+                }}
               >
                 {s}
               </div>
@@ -37,11 +52,21 @@ export function DataArchitectureSection() {
 
           {/* AI & Analytics */}
           <div className="space-y-2">
-            <p className="text-sm font-semibold text-center text-emerald-500">AI & Analytics</p>
+            <p
+              className="text-sm font-semibold text-center"
+              style={{ color: 'var(--status-success)' }}
+            >
+              AI & Analytics
+            </p>
             {['Forecasting', 'ML Models', 'Dashboards'].map(s => (
               <div
                 key={s}
-                className="bg-emerald-500/10 border border-emerald-500/30 rounded px-3 py-1.5 text-sm text-center text-emerald-500"
+                className="rounded px-3 py-1.5 text-sm text-center"
+                style={{
+                  background: 'var(--status-success-bg)',
+                  border: '1px solid var(--status-success)',
+                  color: 'var(--status-success)',
+                }}
               >
                 {s}
               </div>
@@ -50,11 +75,21 @@ export function DataArchitectureSection() {
 
           {/* Distribution */}
           <div className="space-y-2">
-            <p className="text-sm font-semibold text-center text-yellow-500">Distribution</p>
+            <p
+              className="text-sm font-semibold text-center"
+              style={{ color: 'var(--status-warning)' }}
+            >
+              Distribution
+            </p>
             {['Reports', 'Alerts', 'APIs'].map(s => (
               <div
                 key={s}
-                className="bg-yellow-500/10 border border-yellow-500/30 rounded px-3 py-1.5 text-sm text-center text-yellow-500"
+                className="rounded px-3 py-1.5 text-sm text-center"
+                style={{
+                  background: 'var(--status-warning-bg)',
+                  border: '1px solid var(--status-warning)',
+                  color: 'var(--status-warning)',
+                }}
               >
                 {s}
               </div>

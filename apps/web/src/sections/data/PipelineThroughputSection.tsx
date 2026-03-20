@@ -27,7 +27,10 @@ export function PipelineThroughputSection({ data }: PipelineThroughputSectionPro
               Records/hour processed across all integrations — Today
             </p>
           </div>
-          <Badge variant="outline" className="text-green-500 border-green-500">
+          <Badge
+            variant="outline"
+            style={{ color: 'var(--status-success)', borderColor: 'var(--status-success)' }}
+          >
             <CheckCircle2 className="h-3 w-3 mr-1" />
             Pipeline Healthy
           </Badge>
@@ -42,12 +45,20 @@ export function PipelineThroughputSection({ data }: PipelineThroughputSectionPro
                 <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-            <XAxis dataKey="time" tick={{ fontSize: 12 }} stroke="hsl(var(--muted-foreground))" />
+            <CartesianGrid
+              stroke="var(--surface-container-high)"
+              horizontal={true}
+              vertical={false}
+            />
+            <XAxis
+              dataKey="time"
+              tick={{ fontSize: 12, fill: 'var(--text-muted)' }}
+              stroke="var(--text-muted)"
+            />
             <YAxis
               tickFormatter={v => `${v / 1000}k`}
-              tick={{ fontSize: 12 }}
-              stroke="hsl(var(--muted-foreground))"
+              tick={{ fontSize: 12, fill: 'var(--text-muted)' }}
+              stroke="var(--text-muted)"
             />
             <Tooltip
               formatter={(v: number | undefined) => [
@@ -55,9 +66,11 @@ export function PipelineThroughputSection({ data }: PipelineThroughputSectionPro
                 'Throughput',
               ]}
               contentStyle={{
-                background: 'hsl(var(--card))',
-                border: '1px solid hsl(var(--border))',
-                borderRadius: '8px',
+                background: 'var(--surface-glass)',
+                backdropFilter: 'blur(20px)',
+                border: '1px solid var(--border-default)',
+                borderRadius: 8,
+                color: 'var(--text-primary)',
               }}
             />
             <Area

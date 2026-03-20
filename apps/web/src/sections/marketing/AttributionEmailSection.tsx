@@ -57,7 +57,7 @@ export function AttributionEmailSection({
                   }}
                 />
               </div>
-              <span className="text-xs text-muted-foreground w-8">{d.value}%</span>
+              <span className="text-xs text-muted-foreground w-8 tabular-nums">{d.value}%</span>
             </div>
           ))}
         </CardContent>
@@ -73,20 +73,29 @@ export function AttributionEmailSection({
             <div key={c.name} className="rounded-md border p-3 space-y-1">
               <div className="flex justify-between items-center">
                 <span className="text-sm font-medium">{c.name}</span>
-                <span className="text-sm font-bold text-green-500">{c.revenue}</span>
+                <span
+                  className="text-sm font-bold tabular-nums"
+                  style={{ color: 'var(--status-success)' }}
+                >
+                  {c.revenue}
+                </span>
               </div>
               <div className="flex gap-4 text-xs text-muted-foreground">
                 <span>
-                  {c.sent.toLocaleString()} <span className="block">Sent</span>
+                  <span className="tabular-nums">{c.sent.toLocaleString()}</span>{' '}
+                  <span className="block">Sent</span>
                 </span>
                 <span>
-                  {c.opens} <span className="block">Opens</span>
+                  <span className="tabular-nums">{c.opens}</span>{' '}
+                  <span className="block">Opens</span>
                 </span>
                 <span>
-                  {c.clicks} <span className="block">Clicks</span>
+                  <span className="tabular-nums">{c.clicks}</span>{' '}
+                  <span className="block">Clicks</span>
                 </span>
                 <span>
-                  {c.bookings} <span className="block">Bookings</span>
+                  <span className="tabular-nums">{c.bookings}</span>{' '}
+                  <span className="block">Bookings</span>
                 </span>
               </div>
             </div>

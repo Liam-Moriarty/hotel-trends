@@ -31,7 +31,7 @@ export function TouchpointBreakdown({ touchpoints }: TouchpointBreakdownProps) {
                 }}
               />
             </div>
-            <span className="text-sm font-medium w-6 text-right">{t.score}</span>
+            <span className="text-sm font-medium w-6 text-right tabular-nums">{t.score}</span>
           </div>
         ))}
         <div className="flex justify-between text-xs text-muted-foreground pt-1 pl-32">

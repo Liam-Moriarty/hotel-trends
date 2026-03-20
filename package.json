@@ -27,7 +27,9 @@
     "seed:rag:dev": "tsx scripts/seed-rag-data.ts --env dev",
     "index:rag": "tsx scripts/run-index.ts",
     "index:rag:dev": "tsx scripts/run-index.ts --env dev",
-    "seed:bq": "tsx scripts/seed-bigquery.ts"
+    "seed:bq": "tsx scripts/seed-bigquery.ts",
+    "create:user": "tsx scripts/create-user.ts",
+    "create:user:dev": "tsx scripts/create-user.ts --env dev"
   },
   "pnpm": {
     "overrides": {

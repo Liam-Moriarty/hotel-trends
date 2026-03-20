@@ -11,7 +11,9 @@ export function UserManagementSection({ users }: UserManagementSectionProps) {
   return (
     <>
       <div className="flex justify-between items-center mb-4">
-        <span className="text-sm text-muted-foreground">{users.length} team members</span>
+        <span className="text-sm text-muted-foreground tabular-nums">
+          {users.length} team members
+        </span>
         <button className="inline-flex items-center gap-1.5 bg-primary text-primary-foreground rounded-lg px-4 py-2 text-sm font-medium shadow-sm hover:bg-primary/90 transition-colors">
           <span className="text-base leading-none">+</span>
           Invite User
@@ -21,11 +23,15 @@ export function UserManagementSection({ users }: UserManagementSectionProps) {
       <div className="border rounded-lg overflow-hidden bg-card">
         <table className="w-full border-collapse">
           <thead>
-            <tr className="border-b bg-card">
+            <tr className="border-b">
               {['USER', 'ROLE', 'STATUS', 'LAST LOGIN', 'ACTIONS'].map(h => (
                 <th
                   key={h}
-                  className="px-4 py-3 text-left text-xs font-medium text-muted-foreground tracking-widest h-11"
+                  className="px-4 py-3 text-left text-[11px] font-bold uppercase tracking-widest h-11"
+                  style={{
+                    color: 'var(--text-muted)',
+                    background: 'var(--surface-container-high)',
+                  }}
                 >
                   {h}
                 </th>
@@ -61,9 +67,11 @@ export function UserManagementSection({ users }: UserManagementSectionProps) {
                 <td className="px-4 py-4">
                   <div className="flex items-center gap-2">
                     <span
-                      className={`w-2 h-2 rounded-full shrink-0 ${
-                        u.status === 'Active' ? 'bg-green-500' : 'bg-muted-foreground'
-                      }`}
+                      className="w-2 h-2 rounded-full shrink-0"
+                      style={{
+                        background:
+                          u.status === 'Active' ? 'var(--status-success)' : 'var(--text-muted)',
+                      }}
                     />
                     <span className="text-sm text-foreground">{u.status}</span>
                   </div>

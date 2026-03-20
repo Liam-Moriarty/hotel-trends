@@ -37,9 +37,11 @@ export function DataPageStats({ healthyCount, warningCount, errorCount }: DataPa
 
       <Card>
         <CardContent className="pt-6 flex flex-col items-center justify-center text-center h-full min-h-[160px]">
-          <p className="text-5xl font-bold text-green-500">{healthyCount}</p>
+          <p className="text-5xl font-bold tabular-nums" style={{ color: 'var(--status-success)' }}>
+            {healthyCount}
+          </p>
           <div className="flex items-center gap-1 mt-2 text-muted-foreground">
-            <CheckCircle2 className="h-4 w-4 text-green-500" />
+            <CheckCircle2 className="h-4 w-4" style={{ color: 'var(--status-success)' }} />
             <span className="text-sm">Healthy</span>
           </div>
         </CardContent>
@@ -47,9 +49,11 @@ export function DataPageStats({ healthyCount, warningCount, errorCount }: DataPa
 
       <Card>
         <CardContent className="pt-6 flex flex-col items-center justify-center text-center h-full min-h-[160px]">
-          <p className="text-5xl font-bold text-yellow-500">{warningCount}</p>
+          <p className="text-5xl font-bold tabular-nums" style={{ color: 'var(--status-warning)' }}>
+            {warningCount}
+          </p>
           <div className="flex items-center gap-1 mt-2 text-muted-foreground">
-            <AlertTriangle className="h-4 w-4 text-yellow-500" />
+            <AlertTriangle className="h-4 w-4" style={{ color: 'var(--status-warning)' }} />
             <span className="text-sm">Warnings</span>
           </div>
         </CardContent>
@@ -57,9 +61,11 @@ export function DataPageStats({ healthyCount, warningCount, errorCount }: DataPa
 
       <Card>
         <CardContent className="pt-6 flex flex-col items-center justify-center text-center h-full min-h-[160px]">
-          <p className="text-5xl font-bold text-red-500">{errorCount}</p>
+          <p className="text-5xl font-bold tabular-nums" style={{ color: 'var(--status-error)' }}>
+            {errorCount}
+          </p>
           <div className="flex items-center gap-1 mt-2 text-muted-foreground">
-            <AlertCircle className="h-4 w-4 text-red-500" />
+            <AlertCircle className="h-4 w-4" style={{ color: 'var(--status-error)' }} />
             <span className="text-sm">Errors</span>
           </div>
         </CardContent>

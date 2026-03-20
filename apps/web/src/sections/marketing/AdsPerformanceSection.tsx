@@ -30,20 +30,58 @@ export function AdsPerformanceSection({ adsData, funnelSteps }: AdsPerformanceSe
         <CardContent>
           <ResponsiveContainer width="100%" height={260}>
             <BarChart data={adsData} barCategoryGap="30%">
-              <CartesianGrid strokeDasharray="3 3" vertical={false} />
-              <XAxis dataKey="week" axisLine={false} tickLine={false} />
-              <YAxis tickFormatter={v => `$${v / 1000}k`} axisLine={false} tickLine={false} />
-              <Tooltip formatter={(v: number | undefined) => `$${v?.toLocaleString()}`} />
+              <CartesianGrid
+                stroke="var(--surface-container-high)"
+                horizontal={true}
+                vertical={false}
+              />
+              <XAxis
+                dataKey="week"
+                axisLine={false}
+                tickLine={false}
+                tick={{ fill: 'var(--text-muted)' }}
+              />
+              <YAxis
+                tickFormatter={v => `$${v / 1000}k`}
+                axisLine={false}
+                tickLine={false}
+                tick={{ fill: 'var(--text-muted)' }}
+              />
+              <Tooltip
+                formatter={(v: number | undefined) => `$${v?.toLocaleString()}`}
+                contentStyle={{
+                  background: 'var(--surface-glass)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid var(--border-default)',
+                  borderRadius: 8,
+                  color: 'var(--text-primary)',
+                }}
+              />
               <Legend />
-              <Bar dataKey="googleSpend" name="Google Spend" fill="#3b82f6" radius={[4, 4, 0, 0]} />
-              <Bar dataKey="metaSpend" name="Meta Spend" fill="#60a5fa" radius={[4, 4, 0, 0]} />
+              <Bar
+                dataKey="googleSpend"
+                name="Google Spend"
+                fill="var(--accent-cool)"
+                radius={[4, 4, 0, 0]}
+              />
+              <Bar
+                dataKey="metaSpend"
+                name="Meta Spend"
+                fill="var(--accent-violet)"
+                radius={[4, 4, 0, 0]}
+              />
               <Bar
                 dataKey="googleRevenue"
                 name="Google Revenue"
-                fill="#93c5fd"
+                fill="var(--accent-cool-muted)"
                 radius={[4, 4, 0, 0]}
               />
-              <Bar dataKey="metaRevenue" name="Meta Revenue" fill="#bfdbfe" radius={[4, 4, 0, 0]} />
+              <Bar
+                dataKey="metaRevenue"
+                name="Meta Revenue"
+                fill="var(--accent-violet-muted)"
+                radius={[4, 4, 0, 0]}
+              />
             </BarChart>
           </ResponsiveContainer>
         </CardContent>
@@ -67,15 +105,19 @@ export function AdsPerformanceSection({ adsData, funnelSteps }: AdsPerformanceSe
                   >
                     <span>{step.label}</span>
                   </div>
-                  <span className="text-sm font-semibold ml-2 whitespace-nowrap">
+                  <span className="text-sm font-semibold ml-2 whitespace-nowrap tabular-nums">
                     {step.value.toLocaleString()}
                   </span>
                 </div>
                 {step.dropOff && (
-                  <p className="text-xs text-red-400 ml-1 mt-0.5">▼ {step.dropOff}</p>
+                  <p className="text-xs ml-1 mt-0.5" style={{ color: 'var(--status-error)' }}>
+                    ▼ {step.dropOff}
+                  </p>
                 )}
                 {!step.dropOff && i === funnelSteps.length - 1 && (
-                  <p className="text-xs text-green-400 ml-1 mt-0.5">Overall conv. rate: 1.95%</p>
+                  <p className="text-xs ml-1 mt-0.5" style={{ color: 'var(--status-success)' }}>
+                    Overall conv. rate: 1.95%
+                  </p>
                 )}
               </div>
             )

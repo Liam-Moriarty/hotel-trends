@@ -3,9 +3,9 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 const loyaltyStats = [
-  { label: 'Likely to Return', value: '2,841', pct: '62%', color: 'text-green-400' },
-  { label: 'At-Risk Guests', value: '784', pct: '17%', color: 'text-yellow-400' },
-  { label: 'Likely Churned', value: '412', pct: '9%', color: 'text-red-400' },
+  { label: 'Likely to Return', value: '2,841', pct: '62%', color: 'var(--status-success)' },
+  { label: 'At-Risk Guests', value: '784', pct: '17%', color: 'var(--status-warning)' },
+  { label: 'Likely Churned', value: '412', pct: '9%', color: 'var(--status-error)' },
 ]
 
 export default function LoyaltyChurnPrediction() {
@@ -19,8 +19,12 @@ export default function LoyaltyChurnPrediction() {
         <div className="grid grid-cols-3 gap-3">
           {loyaltyStats.map(s => (
             <div key={s.label} className="rounded-lg border border-border/60 p-3 text-center">
-              <p className={`text-2xl font-bold ${s.color}`}>{s.value}</p>
-              <p className={`text-sm font-medium ${s.color}`}>{s.pct}</p>
+              <p className="text-2xl font-bold tabular-nums" style={{ color: s.color }}>
+                {s.value}
+              </p>
+              <p className="text-sm font-medium tabular-nums" style={{ color: s.color }}>
+                {s.pct}
+              </p>
               <p className="text-xs text-muted-foreground mt-0.5">{s.label}</p>
             </div>
           ))}
@@ -44,7 +48,10 @@ export default function LoyaltyChurnPrediction() {
                     {g.stays} · {g.ltv}
                   </p>
                 </div>
-                <span className="text-sm font-semibold text-yellow-400 shrink-0">
+                <span
+                  className="text-sm font-semibold shrink-0 tabular-nums"
+                  style={{ color: 'var(--status-warning)' }}
+                >
                   {g.churn}% churn
                 </span>
                 <Button size="sm" variant="outline" className="text-xs h-7 px-2 shrink-0">
