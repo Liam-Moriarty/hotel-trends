@@ -179,6 +179,47 @@
   }
 }
 
+/* ── FAB bounce animation ────────────────────────────────────────────── */
+@keyframes fab-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+.fab-bounce {
+  animation: fab-bounce 0.9s ease-in-out infinite;
+}
+
+/* ── FAB shimmer animation ───────────────────────────────────────────── */
+@keyframes fab-shimmer {
+  0%   { transform: translateX(-120%) skewX(-20deg); opacity: 0; }
+  10%  { opacity: 1; }
+  60%  { opacity: 1; }
+  100% { transform: translateX(400%) skewX(-20deg); opacity: 0; }
+}
+
+.fab-shimmer-1,
+.fab-shimmer-2 {
+  position: absolute;
+  top: -20%;
+  height: 140%;
+  background: rgba(255, 255, 255, 0.60);
+  border-radius: 2px;
+  pointer-events: none;
+  /* default: hidden until animation fires */
+  transform: translateX(-120%) skewX(-20deg);
+  opacity: 0;
+}
+
+.fab-shimmer-1 { width: 10px; left: 0; }
+.fab-shimmer-2 { width: 6px;  left: 0; }
+
+.fab-shimmer-active .fab-shimmer-1 {
+  animation: fab-shimmer 0.7s ease-in-out forwards;
+}
+.fab-shimmer-active .fab-shimmer-2 {
+  animation: fab-shimmer 0.7s ease-in-out 0.12s forwards;
+}
+
 /* ── Heatmap cell helpers (uses CSS vars → auto dark-mode) ──────────── */
 @layer utilities {
   .heatmap-empty    { background: transparent; color: transparent; }
@@ -192,6 +233,10 @@
     border-left: 3px solid var(--border-ai);
     background: color-mix(in srgb, var(--accent-violet) 4%, var(--surface-container));
   }
+
+  /* Chatbot sparkle icon — white in light, blends into dark bg */
+  .chatbot-header-sparkle { color: white; }
+  [data-theme="dark"] .chatbot-header-sparkle { color: #090911; }
 
   /* Gradient text utility */
   .gradient-text {

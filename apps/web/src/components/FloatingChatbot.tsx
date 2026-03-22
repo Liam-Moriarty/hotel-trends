@@ -64,6 +64,18 @@ export const FloatingChatbot = () => {
     }
   }
 
+  const [shimmer, setShimmer] = useState(false)
+
+  useEffect(() => {
+    const fire = () => {
+      setShimmer(true)
+      setTimeout(() => setShimmer(false), 900) // longer than animation duration
+    }
+    fire() // fire once on mount
+    const id = setInterval(fire, 6000)
+    return () => clearInterval(id)
+  }, [])
+
   const handleReset = () => {
     if (confirm('Are you sure you want to clear the chat history?')) {
       const initial: Message[] = [
@@ -92,7 +104,7 @@ export const FloatingChatbot = () => {
             style={{ background: 'var(--accent-gradient)' }}
           >
             <div className="flex items-center gap-2 text-white font-medium text-sm">
-              <Sparkles size={16} />
+              <Sparkles size={16} className="chatbot-header-sparkle" />
               AI Assistant
             </div>
             <div className="flex items-center gap-1">
@@ -262,10 +274,12 @@ export const FloatingChatbot = () => {
       {/* FAB */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="h-14 w-14 rounded-full shadow-xl flex items-center justify-center transition-transform hover:scale-105 text-white"
+        className={`h-14 w-14 rounded-full shadow-xl flex items-center justify-center transition-transform hover:scale-105 text-white relative overflow-hidden${!isOpen ? ' fab-bounce' : ''}${!isOpen && shimmer ? ' fab-shimmer-active' : ''}`}
         style={{ background: 'var(--accent-gradient)' }}
       >
-        {isOpen ? <X size={22} /> : <Sparkles size={22} />}
+        <span className="fab-shimmer-1" />
+        <span className="fab-shimmer-2" />
+        {isOpen ? <X size={22} /> : <Sparkles size={22} className="chatbot-header-sparkle" />}
       </button>
     </div>
   )
