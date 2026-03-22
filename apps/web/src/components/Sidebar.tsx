@@ -1,17 +1,20 @@
 import { NAV_ITEMS } from '@/constants'
 import { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { ChevronRight, Hotel, PanelLeftClose, PanelLeftOpen } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import UserFooter from './UserFooter'
+import { HotelTrendsIcon } from './HotelTrendsIcon'
 
-import { NavItem, SidebarProps } from '@/interface'
+import { NavItem } from '@/interface'
 
 function cn(...classes: (string | boolean | undefined | null)[]) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Sidebar = ({ collapsed, onToggleCollapse }: SidebarProps) => {
+const Sidebar = () => {
   const [openGroups, setOpenGroups] = useState(['revenue'])
+  const [hovered, setHovered] = useState(false)
+  const collapsed = !hovered
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -34,56 +37,29 @@ const Sidebar = ({ collapsed, onToggleCollapse }: SidebarProps) => {
         'flex flex-col h-screen border-r bg-sidebar transition-all duration-300 shrink-0',
         collapsed ? 'w-16' : 'w-[220px]'
       )}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
       {/* Logo */}
       <div
         className={cn(
           'flex items-center border-b h-14 px-3 shrink-0',
-          collapsed ? 'justify-center' : 'justify-between'
+          collapsed ? 'justify-center' : 'justify-start'
         )}
       >
+        <HotelTrendsIcon size={30} />
         {!collapsed && (
-          <div className="flex items-center gap-2 overflow-hidden">
-            <div
-              className="rounded-md p-1.5 shrink-0"
-              style={{ background: 'var(--accent-gradient)' }}
-            >
-              <Hotel className="h-4 w-4 text-white" />
-            </div>
-            <div className="leading-none">
-              <div className="font-bold text-sm tracking-tight">HOTEL</div>
-              <div className="text-[9px] text-muted-foreground tracking-widest font-bold uppercase">
-                TRENDS AI
-              </div>
-            </div>
-          </div>
-        )}
-        {collapsed && (
-          <div className="rounded-md p-1.5" style={{ background: 'var(--accent-gradient)' }}>
-            <Hotel className="h-4 w-4 text-white" />
-          </div>
-        )}
-        {!collapsed && (
-          <button
-            onClick={onToggleCollapse}
-            className="text-muted-foreground hover:text-foreground rounded p-1"
+          <span
+            className="ml-2 font-semibold text-sm truncate"
+            style={{ color: 'var(--text-primary)' }}
           >
-            <PanelLeftClose className="h-4 w-4" />
-          </button>
+            Hotel Trends
+          </span>
         )}
       </div>
 
       {/* Nav */}
       <nav className="flex-1 overflow-y-auto py-3 space-y-0.5 px-2">
-        {collapsed && (
-          <button
-            onClick={onToggleCollapse}
-            className="w-full flex justify-center py-2 text-muted-foreground hover:text-foreground hover:bg-accent rounded-md mb-1"
-          >
-            <PanelLeftOpen className="h-4 w-4" />
-          </button>
-        )}
-
         {NAV_ITEMS.map(item => {
           const Icon = item.icon
           const active = isActive(item)

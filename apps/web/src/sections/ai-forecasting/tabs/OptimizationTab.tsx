@@ -1,5 +1,13 @@
 import { useState } from 'react'
-import { ScatterChart, Scatter, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts'
+import {
+  ScatterChart,
+  Scatter,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  CartesianGrid,
+} from 'recharts'
 import { GlassTooltip } from '@/components/GlassTooltip'
 import { clusterData, clusterColors } from '@/mocks'
 
@@ -40,7 +48,7 @@ function SliderRow({
         step={5}
         value={value}
         onChange={e => onChange(Number(e.target.value))}
-        className="w-full h-1 rounded-full appearance-none cursor-pointer"
+        className="w-full cursor-pointer"
         style={{ accentColor: 'var(--accent-cool)' }}
       />
     </div>
@@ -128,9 +136,11 @@ export function OptimizationTab() {
         <div className="flex-1 min-h-0">
           <ResponsiveContainer width="100%" height="100%">
             <ScatterChart margin={{ top: 4, right: 4, left: -16, bottom: 0 }}>
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--border-subtle)" />
               <XAxis
                 dataKey="x"
                 name="Nights"
+                type="number"
                 tick={{ fontSize: 10, fill: 'var(--text-muted)' }}
                 axisLine={false}
                 tickLine={false}
@@ -145,6 +155,7 @@ export function OptimizationTab() {
               <YAxis
                 dataKey="y"
                 name="Spend/Night"
+                type="number"
                 tick={{ fontSize: 10, fill: 'var(--text-muted)' }}
                 axisLine={false}
                 tickLine={false}
