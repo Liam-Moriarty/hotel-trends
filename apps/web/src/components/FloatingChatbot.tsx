@@ -1,14 +1,16 @@
 import { useState, useRef, useEffect } from 'react'
 import { X, Send, User, Bot, Loader2, RotateCcw, Sparkles } from 'lucide-react'
+import { useState } from 'react'
+import { MessageCircle, X, Send, User, Bot, Loader2, RotateCcw } from 'lucide-react'
+import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { trpc } from '@/lib/trpc'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import { useChat } from '@/hooks/useChat'
 
-interface Message {
-  role: 'user' | 'bot'
-  text: string
-}
+// Read from env so this works across any project without touching source code.
+// Falls back to 'SAND01' so existing .env.local files without the var still work.
+const HOTEL_ID = import.meta.env.VITE_HOTEL_ID ?? 'SAND01'
 
 export const FloatingChatbot = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -85,6 +87,8 @@ export const FloatingChatbot = () => {
       localStorage.removeItem('chat_history')
     }
   }
+  const { messages, input, setInput, isPending, messagesEndRef, handleSend, handleReset } =
+    useChat(HOTEL_ID)
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
@@ -213,7 +217,7 @@ export const FloatingChatbot = () => {
               </div>
             ))}
 
-            {askMutation.isPending && (
+            {isPending && (
               <div className="flex gap-2 justify-start">
                 <div
                   className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
@@ -262,8 +266,10 @@ export const FloatingChatbot = () => {
                   e.currentTarget.style.boxShadow = 'none'
                 }}
                 disabled={askMutation.isPending}
+                className="flex-1 bg-transparent px-3 py-2 text-sm outline-none border rounded-md focus:ring-1 focus:ring-primary"
+                disabled={isPending}
               />
-              <Button type="submit" size="icon" disabled={askMutation.isPending || !input.trim()}>
+              <Button type="submit" size="icon" disabled={isPending || !input.trim()}>
                 <Send size={16} />
               </Button>
             </form>

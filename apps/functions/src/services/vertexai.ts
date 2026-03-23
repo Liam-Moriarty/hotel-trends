@@ -1,14 +1,19 @@
-import { PredictionServiceClient } from '@google-cloud/aiplatform'
-import { helpers } from '@google-cloud/aiplatform'
-
 // Embedding Service
-// This helper converts any text string into a 768-dimension vector using Vertex AI
+// This helper converts any text string into a 768-dimension vector using Vertex AI.
+//
+// WHY dynamic import: @google-cloud/aiplatform loads gRPC native bindings and
+// probes for Google credentials (ADC / metadata server) at module load time.
+// On a local dev machine that probe hangs ~10 s before timing out, which causes
+// the Firebase Functions emulator to exceed its 10-second function-discovery
+// timeout. Lazy-loading defers all of that to the first actual call.
 
 const PROJECT = 'hotel-trends-stage'
 const LOCATION = 'us-central1'
 const MODEL = 'text-embedding-004'
 
 export async function embedText(text: string): Promise<number[]> {
+  const { PredictionServiceClient, helpers } = await import('@google-cloud/aiplatform')
+
   const client = new PredictionServiceClient({
     apiEndpoint: `${LOCATION}-aiplatform.googleapis.com`,
   })
@@ -25,7 +30,6 @@ export async function embedText(text: string): Promise<number[]> {
     parameters: helpers.toValue({ outputDimensionality: 768 }),
   })
 
-  //   null check before accessing the predictions
   if (!response.predictions || response.predictions.length === 0) {
     throw new Error('No predictions returned from Vertex AI Embeddings')
   }

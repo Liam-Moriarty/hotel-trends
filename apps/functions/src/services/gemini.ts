@@ -54,7 +54,7 @@ Format your responses using markdown:
 ${BQ_SCHEMA_HINT}`
 
   const model = genai.getGenerativeModel({
-    model: 'gemini-2.5-flash',
+    model: 'gemini-3.1-flash-lite',
     generationConfig: { maxOutputTokens: 1024 },
     tools: [bqTool],
     systemInstruction,
