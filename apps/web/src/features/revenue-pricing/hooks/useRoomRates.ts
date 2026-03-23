@@ -19,8 +19,10 @@ import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore'
 import { z } from 'zod'
 import { db } from '@repo/firebase-config'
 import type { RoomRate } from '@/interface'
+import { MOCK_ROOM_RATES } from '@/mocks/firestore-hooks.mock'
 
 const HOTEL_ID = import.meta.env.VITE_HOTEL_ID as string
+const MOCK = import.meta.env.VITE_MOCK_DATA === 'true'
 
 const RatePlanSchema = z.object({
   ratePlanCode: z.string(),
@@ -54,66 +56,76 @@ const ROOM_TYPE_ORDER = ['STD', 'DLX', 'JNR', 'STE', 'PSTE']
 export function useRoomRates() {
   return useQuery({
     queryKey: ['room-rates', HOTEL_ID],
-    queryFn: async (): Promise<RoomRate[]> => {
-      const [ratePlansSnap, compSetSnap, snapshotSnap] = await Promise.all([
-        getDocs(collection(db, `hotels/${HOTEL_ID}/ratePlans`)),
-        getDocs(collection(db, `hotels/${HOTEL_ID}/compSet`)),
-        getDocs(
-          query(collection(db, `hotels/${HOTEL_ID}/snapshots`), orderBy('date', 'desc'), limit(1))
-        ),
-      ])
+    queryFn: MOCK
+      ? () => Promise.resolve(MOCK_ROOM_RATES)
+      : async (): Promise<RoomRate[]> => {
+          const [ratePlansSnap, compSetSnap, snapshotSnap] = await Promise.all([
+            getDocs(collection(db, `hotels/${HOTEL_ID}/ratePlans`)),
+            getDocs(collection(db, `hotels/${HOTEL_ID}/compSet`)),
+            getDocs(
+              query(
+                collection(db, `hotels/${HOTEL_ID}/snapshots`),
+                orderBy('date', 'desc'),
+                limit(1)
+              )
+            ),
+          ])
 
-      const ratePlans = ratePlansSnap.docs
-        .map(d => RatePlanSchema.safeParse(d.data()))
-        .filter((r): r is { success: true; data: z.infer<typeof RatePlanSchema> } => r.success)
-        .map(r => r.data)
+          const ratePlans = ratePlansSnap.docs
+            .map(d => RatePlanSchema.safeParse(d.data()))
+            .filter((r): r is { success: true; data: z.infer<typeof RatePlanSchema> } => r.success)
+            .map(r => r.data)
 
-      const competitors = compSetSnap.docs
-        .map(d => CompSetDocSchema.safeParse(d.data()))
-        .filter((r): r is { success: true; data: z.infer<typeof CompSetDocSchema> } => r.success)
-        .map(r => r.data)
+          const competitors = compSetSnap.docs
+            .map(d => CompSetDocSchema.safeParse(d.data()))
+            .filter(
+              (r): r is { success: true; data: z.infer<typeof CompSetDocSchema> } => r.success
+            )
+            .map(r => r.data)
 
-      const snapshots = snapshotSnap.docs
-        .map(d => SnapshotSchema.safeParse(d.data()))
-        .filter((r): r is { success: true; data: z.infer<typeof SnapshotSchema> } => r.success)
-        .map(r => r.data)
+          const snapshots = snapshotSnap.docs
+            .map(d => SnapshotSchema.safeParse(d.data()))
+            .filter((r): r is { success: true; data: z.infer<typeof SnapshotSchema> } => r.success)
+            .map(r => r.data)
 
-      const hotelOccupancy = snapshots[0]?.occupancy ?? 75
-      const occupancyFactor = hotelOccupancy > 80 ? 1.06 : hotelOccupancy > 60 ? 1.03 : 0.98
+          const hotelOccupancy = snapshots[0]?.occupancy ?? 75
+          const occupancyFactor = hotelOccupancy > 80 ? 1.06 : hotelOccupancy > 60 ? 1.03 : 0.98
 
-      const directPlan = ratePlans.find(p => p.ratePlanCode === 'DIR')
-      if (!directPlan) throw new Error('Direct rate plan (DIR) not found in Firestore.')
-      if (competitors.length === 0)
-        throw new Error('Comp set is empty. Run the seed script to populate competitor rates.')
+          const directPlan = ratePlans.find(p => p.ratePlanCode === 'DIR')
+          if (!directPlan) throw new Error('Direct rate plan (DIR) not found in Firestore.')
+          if (competitors.length === 0)
+            throw new Error('Comp set is empty. Run the seed script to populate competitor rates.')
 
-      return ROOM_TYPE_ORDER.map(roomType => {
-        const current = directPlan.rates.find(r => r.roomType === roomType)?.ratePerNight ?? 0
+          return ROOM_TYPE_ORDER.map(roomType => {
+            const current = directPlan.rates.find(r => r.roomType === roomType)?.ratePerNight ?? 0
 
-        const competitorRates = competitors
-          .map(c => c.rates[roomType])
-          .filter((r): r is number => typeof r === 'number')
+            const competitorRates = competitors
+              .map(c => c.rates[roomType])
+              .filter((r): r is number => typeof r === 'number')
 
-        const compAvg =
-          competitorRates.length > 0
-            ? Math.round(competitorRates.reduce((sum, r) => sum + r, 0) / competitorRates.length)
-            : (() => {
-                throw new Error(`No competitor rates found for room type ${roomType}.`)
-              })()
+            const compAvg =
+              competitorRates.length > 0
+                ? Math.round(
+                    competitorRates.reduce((sum, r) => sum + r, 0) / competitorRates.length
+                  )
+                : (() => {
+                    throw new Error(`No competitor rates found for room type ${roomType}.`)
+                  })()
 
-        const aiRec = Math.round(compAvg * occupancyFactor)
-        const delta = aiRec - current
+            const aiRec = Math.round(compAvg * occupancyFactor)
+            const delta = aiRec - current
 
-        return {
-          type: ROOM_TYPE_LABELS[roomType] ?? roomType,
-          current,
-          compAvg,
-          aiRec,
-          delta,
-          occupancy: Math.round(hotelOccupancy),
-          applied: false,
-        }
-      })
-    },
+            return {
+              type: ROOM_TYPE_LABELS[roomType] ?? roomType,
+              current,
+              compAvg,
+              aiRec,
+              delta,
+              occupancy: Math.round(hotelOccupancy),
+              applied: false,
+            }
+          })
+        },
     staleTime: 5 * 60 * 1000,
   })
 }

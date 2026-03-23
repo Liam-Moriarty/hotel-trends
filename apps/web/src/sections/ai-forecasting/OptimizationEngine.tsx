@@ -5,18 +5,18 @@ import { Slider } from '@/components/ui/slider'
 const sliders = [
   {
     label: 'Price Optimization Weight',
-    color: 'text-purple-400',
-    sliderClass: '[&_[role=slider]]:bg-purple-500',
+    color: 'var(--accent-violet)',
+    sliderClass: '[&_[role=slider]]:bg-[var(--accent-violet)]',
   },
   {
     label: 'Occupancy Priority',
-    color: 'text-green-400',
-    sliderClass: '[&_[role=slider]]:bg-green-500',
+    color: 'var(--status-success)',
+    sliderClass: '[&_[role=slider]]:bg-[var(--status-success)]',
   },
   {
     label: 'Cost Reduction Target',
-    color: 'text-yellow-400',
-    sliderClass: '[&_[role=slider]]:bg-yellow-500',
+    color: 'var(--status-warning)',
+    sliderClass: '[&_[role=slider]]:bg-[var(--status-warning)]',
   },
 ]
 
@@ -43,7 +43,9 @@ export default function OptimizationEngine() {
           <div key={s.label} className="space-y-1.5">
             <div className="flex justify-between text-sm">
               <span>{s.label}</span>
-              <span className={`font-semibold ${s.color}`}>{values[i]}%</span>
+              <span className="font-semibold tabular-nums" style={{ color: s.color }}>
+                {values[i]}%
+              </span>
             </div>
             <Slider
               value={values[i]}
@@ -59,8 +61,16 @@ export default function OptimizationEngine() {
           <p className="text-xs text-muted-foreground uppercase tracking-wide">
             Optimization Score
           </p>
-          <p className="text-4xl font-bold text-purple-400 mt-1">{optScore}</p>
-          <p className={`text-sm mt-1 ${balanced ? 'text-green-400' : 'text-yellow-400'}`}>
+          <p
+            className="text-4xl font-bold tabular-nums mt-1"
+            style={{ color: 'var(--accent-violet)' }}
+          >
+            {optScore}
+          </p>
+          <p
+            className="text-sm mt-1"
+            style={{ color: balanced ? 'var(--status-success)' : 'var(--status-warning)' }}
+          >
             {balanced ? 'Weights balanced' : 'Adjust weights for balance'}
           </p>
         </div>

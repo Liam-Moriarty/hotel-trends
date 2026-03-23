@@ -33,26 +33,26 @@ function NotificationIcon({ type }: { type: NotificationType }) {
   switch (type) {
     case 'success':
       return (
-        <div className={`${base} bg-green-500/10`}>
-          <CheckCircle2 className="h-4 w-4 text-green-500" />
+        <div className={base} style={{ background: 'var(--status-success-bg)' }}>
+          <CheckCircle2 className="h-4 w-4" style={{ color: 'var(--status-success)' }} />
         </div>
       )
     case 'error':
       return (
-        <div className={`${base} bg-destructive/10`}>
-          <AlertTriangle className="h-4 w-4 text-destructive" />
+        <div className={base} style={{ background: 'var(--status-error-bg)' }}>
+          <AlertTriangle className="h-4 w-4" style={{ color: 'var(--status-error)' }} />
         </div>
       )
     case 'warning':
       return (
-        <div className={`${base} bg-yellow-500/10`}>
-          <AlertTriangle className="h-4 w-4 text-yellow-500" />
+        <div className={base} style={{ background: 'var(--status-warning-bg)' }}>
+          <AlertTriangle className="h-4 w-4" style={{ color: 'var(--status-warning)' }} />
         </div>
       )
     case 'info':
       return (
-        <div className={`${base} bg-blue-500/10`}>
-          <Info className="h-4 w-4 text-blue-500" />
+        <div className={base} style={{ background: 'var(--status-info-bg)' }}>
+          <Info className="h-4 w-4" style={{ color: 'var(--status-info)' }} />
         </div>
       )
     case 'system':
@@ -108,14 +108,18 @@ export function NotificationDropdown({ onViewAll }: NotificationDropdownProps) {
         <div className="flex items-center gap-2">
           <h3 className="text-sm font-semibold">Latest Notifications</h3>
           {unreadCount > 0 && (
-            <span className="h-5 min-w-5 rounded-full bg-destructive text-[10px] text-white flex items-center justify-center font-bold px-1">
+            <span
+              className="h-5 min-w-5 rounded-full text-[10px] text-white flex items-center justify-center font-bold px-1"
+              style={{ background: 'var(--status-error)' }}
+            >
               {unreadCount}
             </span>
           )}
         </div>
         <button
           onClick={markAllRead}
-          className="text-xs text-primary hover:text-primary/80 font-medium transition-colors"
+          className="text-xs font-medium transition-colors"
+          style={{ color: 'var(--accent-cool)' }}
         >
           Mark all as read
         </button>
@@ -135,60 +139,43 @@ export function NotificationDropdown({ onViewAll }: NotificationDropdownProps) {
 
       {/* Notification channels */}
       <div className="px-4 py-3 space-y-3">
-        <p className="text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
+        <p className="text-[10px] font-bold tracking-widest text-muted-foreground uppercase">
           Notification Channels
         </p>
 
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="h-7 w-7 rounded-md bg-muted flex items-center justify-center">
-              <Mail className="h-3.5 w-3.5 text-muted-foreground" />
+        {[
+          {
+            key: 'email' as const,
+            Icon: Mail,
+            label: 'Email Notifications',
+            sub: 'Weekly reports & alerts',
+          },
+          {
+            key: 'text' as const,
+            Icon: MessageSquare,
+            label: 'Text Message (SMS)',
+            sub: 'Critical system warnings',
+          },
+          {
+            key: 'whatsapp' as const,
+            Icon: MessageCircle,
+            label: 'WhatsApp',
+            sub: 'Real-time team updates',
+          },
+        ].map(({ key, Icon, label, sub }) => (
+          <div key={key} className="flex items-center justify-between">
+            <div className="flex items-center gap-2.5">
+              <div className="h-7 w-7 rounded-md bg-muted flex items-center justify-center">
+                <Icon className="h-3.5 w-3.5 text-muted-foreground" />
+              </div>
+              <div>
+                <p className="text-sm font-medium leading-tight">{label}</p>
+                <p className="text-xs text-muted-foreground">{sub}</p>
+              </div>
             </div>
-            <div>
-              <p className="text-sm font-medium leading-tight">Email Notifications</p>
-              <p className="text-xs text-muted-foreground">Weekly reports & alerts</p>
-            </div>
+            <Switch checked={channels[key]} onCheckedChange={() => toggleChannel(key)} />
           </div>
-          <Switch
-            checked={channels.email}
-            onCheckedChange={() => toggleChannel('email')}
-            aria-label="Toggle email notifications"
-          />
-        </div>
-
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="h-7 w-7 rounded-md bg-muted flex items-center justify-center">
-              <MessageSquare className="h-3.5 w-3.5 text-muted-foreground" />
-            </div>
-            <div>
-              <p className="text-sm font-medium leading-tight">Text Message (SMS)</p>
-              <p className="text-xs text-muted-foreground">Critical system warnings</p>
-            </div>
-          </div>
-          <Switch
-            checked={channels.text}
-            onCheckedChange={() => toggleChannel('text')}
-            aria-label="Toggle SMS notifications"
-          />
-        </div>
-
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="h-7 w-7 rounded-md bg-muted flex items-center justify-center">
-              <MessageCircle className="h-3.5 w-3.5 text-muted-foreground" />
-            </div>
-            <div>
-              <p className="text-sm font-medium leading-tight">WhatsApp</p>
-              <p className="text-xs text-muted-foreground">Real-time team updates</p>
-            </div>
-          </div>
-          <Switch
-            checked={channels.whatsapp}
-            onCheckedChange={() => toggleChannel('whatsapp')}
-            aria-label="Toggle WhatsApp notifications"
-          />
-        </div>
+        ))}
       </div>
 
       <Separator />

@@ -13,8 +13,10 @@ import { collection, getDocs, query, where, orderBy } from 'firebase/firestore'
 import { z } from 'zod'
 import { db } from '@repo/firebase-config'
 import type { HeatmapRow } from '@/interface'
+import { MOCK_OCCUPANCY_HEATMAP } from '@/mocks/firestore-hooks.mock'
 
 const HOTEL_ID = import.meta.env.VITE_HOTEL_ID as string
+const MOCK = import.meta.env.VITE_MOCK_DATA === 'true'
 
 const SnapshotSchema = z.object({
   date: z.string(),
@@ -54,22 +56,24 @@ export function useOccupancyHeatmap(year: number, month: number) {
 
   return useQuery({
     queryKey: ['occupancy-heatmap', HOTEL_ID, year, month],
-    queryFn: async (): Promise<HeatmapRow[]> => {
-      const col = collection(db, `hotels/${HOTEL_ID}/snapshots`)
-      const q = query(
-        col,
-        where('date', '>=', startDate),
-        where('date', '<=', endDate),
-        orderBy('date', 'asc')
-      )
-      const snap = await getDocs(q)
-      const snapshots = snap.docs
-        .map(doc => SnapshotSchema.safeParse(doc.data()))
-        .filter((r): r is { success: true; data: Snapshot } => r.success)
-        .map(r => r.data)
+    queryFn: MOCK
+      ? () => Promise.resolve(MOCK_OCCUPANCY_HEATMAP)
+      : async (): Promise<HeatmapRow[]> => {
+          const col = collection(db, `hotels/${HOTEL_ID}/snapshots`)
+          const q = query(
+            col,
+            where('date', '>=', startDate),
+            where('date', '<=', endDate),
+            orderBy('date', 'asc')
+          )
+          const snap = await getDocs(q)
+          const snapshots = snap.docs
+            .map(doc => SnapshotSchema.safeParse(doc.data()))
+            .filter((r): r is { success: true; data: Snapshot } => r.success)
+            .map(r => r.data)
 
-      return buildHeatmapRows(year, month, snapshots)
-    },
+          return buildHeatmapRows(year, month, snapshots)
+        },
     staleTime: 5 * 60 * 1000,
   })
 }

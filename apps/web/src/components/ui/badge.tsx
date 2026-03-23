@@ -10,10 +10,11 @@ const badgeVariants = cva(
       variant: {
         default: 'border-transparent bg-primary text-primary-foreground',
         secondary: 'bg-secondary text-secondary-foreground border-border',
-        destructive: 'bg-destructive/10 text-destructive border-destructive/30',
+        destructive: 'border-destructive/30 text-destructive',
         outline: 'text-foreground',
-        warning: 'bg-yellow-500/10 text-yellow-600 border-yellow-500/30',
-        success: 'bg-green-500/10 text-green-600 border-green-500/30',
+        warning: '',
+        success: '',
+        ai: '',
       },
     },
     defaultVariants: {
@@ -26,8 +27,36 @@ export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof badgeVariants> {}
 
-function Badge({ className, variant, ...props }: BadgeProps) {
-  return <div className={cn(badgeVariants({ variant }), className)} {...props} />
+function Badge({ className, variant, style, ...props }: BadgeProps) {
+  const variantStyle: React.CSSProperties =
+    variant === 'warning'
+      ? {
+          background: 'var(--status-warning-bg)',
+          color: 'var(--status-warning)',
+          borderColor: 'rgba(217,119,6,0.3)',
+          ...style,
+        }
+      : variant === 'success'
+        ? {
+            background: 'var(--status-success-bg)',
+            color: 'var(--status-success)',
+            borderColor: 'rgba(22,163,74,0.3)',
+            ...style,
+          }
+        : variant === 'destructive'
+          ? { background: 'var(--status-error-bg)', ...style }
+          : variant === 'ai'
+            ? {
+                background: 'var(--accent-violet-muted)',
+                color: 'var(--accent-violet)',
+                borderColor: 'var(--border-ai)',
+                ...style,
+              }
+            : style ?? {}
+
+  return (
+    <div className={cn(badgeVariants({ variant }), className)} style={variantStyle} {...props} />
+  )
 }
 
 export { Badge, badgeVariants }

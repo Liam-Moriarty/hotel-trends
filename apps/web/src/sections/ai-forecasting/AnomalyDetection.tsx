@@ -10,7 +10,7 @@ export default function AnomalyDetection() {
       <CardHeader className="pb-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Activity className="h-4 w-4 text-red-400" />
+            <Activity className="h-4 w-4" style={{ color: 'var(--status-error)' }} />
             <CardTitle className="text-base">Anomaly Detection</CardTitle>
           </div>
           <Badge variant="destructive">{activeCount} Active</Badge>
@@ -26,11 +26,15 @@ export default function AnomalyDetection() {
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
                 <span className="font-medium text-sm">{a.title}</span>
-                <span className={`text-sm font-semibold ${a.color}`}>{a.delta}</span>
+                <span className={`text-sm font-semibold tabular-nums ${a.color}`}>{a.delta}</span>
                 {a.resolved && (
                   <Badge
                     variant="outline"
-                    className="text-green-400 border-green-500/40 text-xs py-0"
+                    style={{
+                      color: 'var(--status-success)',
+                      borderColor: 'var(--status-success)',
+                    }}
+                    className="text-xs py-0"
                   >
                     ✓ Resolved
                   </Badge>

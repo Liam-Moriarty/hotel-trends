@@ -25,7 +25,12 @@ export function RoasChannelSection({ channels, wastedSpend }: RoasChannelSection
                     {ch.status}
                   </Badge>
                 )}
-                <span className={`font-bold ${ch.roas >= 3 ? 'text-green-500' : 'text-red-500'}`}>
+                <span
+                  className="font-bold tabular-nums"
+                  style={{
+                    color: ch.roas >= 3 ? 'var(--status-success)' : 'var(--status-error)',
+                  }}
+                >
                   {ch.roas}x
                 </span>
               </div>
@@ -42,12 +47,20 @@ export function RoasChannelSection({ channels, wastedSpend }: RoasChannelSection
         ))}
 
         {/* Wasted spend alert */}
-        <div className="mt-4 rounded-md border border-yellow-600/40 bg-yellow-950/20 p-3 space-y-1">
+        <div
+          className="mt-4 rounded-md border p-3 space-y-1"
+          style={{
+            borderColor: 'var(--status-warning)',
+            background: 'var(--status-warning-bg)',
+          }}
+        >
           <p className="text-sm font-semibold flex items-center gap-1">⚠️ Wasted Ad Spend Alerts</p>
           {wastedSpend.map(w => (
             <div key={w.label} className="flex justify-between text-sm">
               <span className="text-muted-foreground">{w.label}</span>
-              <span className="text-red-500 font-medium">{w.amount}</span>
+              <span className="font-medium tabular-nums" style={{ color: 'var(--status-error)' }}>
+                {w.amount}
+              </span>
             </div>
           ))}
         </div>

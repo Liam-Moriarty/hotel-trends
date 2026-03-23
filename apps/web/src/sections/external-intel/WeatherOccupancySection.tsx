@@ -26,7 +26,7 @@ export function WeatherOccupancySection({
         <CardContent className="space-y-4">
           <div className="flex items-center justify-between rounded-lg border p-4">
             <div>
-              <p className="text-4xl font-bold">22°C</p>
+              <p className="text-4xl font-bold tabular-nums">22°C</p>
               <p className="text-muted-foreground text-sm">Today · Sunny · City Center</p>
             </div>
             <Badge variant="outline">Good for Travel</Badge>
@@ -36,14 +36,14 @@ export function WeatherOccupancySection({
               <div key={d.day} className="flex flex-col items-center gap-1">
                 <p className="text-xs text-muted-foreground">{d.day}</p>
                 <span className="text-xl">{d.icon}</span>
-                <p className="text-xs font-medium">{d.high}°</p>
-                <p className="text-xs text-muted-foreground">{d.low}°</p>
+                <p className="text-xs font-medium tabular-nums">{d.high}°</p>
+                <p className="text-xs text-muted-foreground tabular-nums">{d.low}°</p>
               </div>
             ))}
           </div>
           <div className="rounded-lg border p-3 space-y-1">
             <p className="text-sm font-medium flex items-center gap-1">
-              <Zap className="h-3.5 w-3.5 text-yellow-500" />
+              <Zap className="h-3.5 w-3.5" style={{ color: 'var(--status-warning)' }} />
               AI Weather Package Alert
             </p>
             <p className="text-xs text-muted-foreground">
@@ -65,17 +65,30 @@ export function WeatherOccupancySection({
             <AreaChart data={occupancyData}>
               <defs>
                 <linearGradient id="occGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#22c55e" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="#22c55e" stopOpacity={0} />
+                  <stop offset="5%" stopColor="var(--accent-cool)" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="var(--accent-cool)" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <XAxis dataKey="month" tick={{ fontSize: 12 }} />
-              <YAxis domain={[0, 100]} tickFormatter={v => `${v}%`} tick={{ fontSize: 12 }} />
-              <Tooltip formatter={v => `${v}%`} />
+              <XAxis dataKey="month" tick={{ fontSize: 12, fill: 'var(--text-muted)' }} />
+              <YAxis
+                domain={[0, 100]}
+                tickFormatter={v => `${v}%`}
+                tick={{ fontSize: 12, fill: 'var(--text-muted)' }}
+              />
+              <Tooltip
+                formatter={v => `${v}%`}
+                contentStyle={{
+                  background: 'var(--surface-glass)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid var(--border-default)',
+                  borderRadius: 8,
+                  color: 'var(--text-primary)',
+                }}
+              />
               <Area
                 type="monotone"
                 dataKey="value"
-                stroke="#22c55e"
+                stroke="var(--accent-cool)"
                 fill="url(#occGrad)"
                 strokeWidth={2}
               />
@@ -83,15 +96,24 @@ export function WeatherOccupancySection({
           </ResponsiveContainer>
           <div className="grid grid-cols-3 gap-3">
             <div className="rounded-lg border p-3 text-center">
-              <p className="text-xl font-bold text-blue-600">8.4%</p>
+              <p className="text-xl font-bold tabular-nums" style={{ color: 'var(--status-info)' }}>
+                8.4%
+              </p>
               <p className="text-xs text-muted-foreground">Market Share</p>
             </div>
             <div className="rounded-lg border p-3 text-center">
-              <p className="text-xl font-bold text-green-600">112.3</p>
+              <p
+                className="text-xl font-bold tabular-nums"
+                style={{ color: 'var(--status-success)' }}
+              >
+                112.3
+              </p>
               <p className="text-xs text-muted-foreground">RevPAR Index</p>
             </div>
             <div className="rounded-lg border p-3 text-center">
-              <p className="text-xl font-bold text-blue-600">+6.2pp</p>
+              <p className="text-xl font-bold tabular-nums" style={{ color: 'var(--status-info)' }}>
+                +6.2pp
+              </p>
               <p className="text-xs text-muted-foreground">OCC Premium</p>
             </div>
           </div>

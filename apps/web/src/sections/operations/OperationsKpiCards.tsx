@@ -29,7 +29,7 @@ export function OperationsKpiCards({ rooms, roster, tasks }: OperationsKpiCardsP
             <p className="text-sm text-muted-foreground">Rooms Ready</p>
             <CheckSquare className="w-4 h-4 text-muted-foreground" />
           </div>
-          <p className="text-3xl font-bold mt-2">
+          <p className="text-3xl font-bold mt-2 tabular-nums">
             {readyRooms}/{totalRooms}
           </p>
           <Progress value={roomProgress} className="mt-3 h-1.5" />
@@ -41,7 +41,7 @@ export function OperationsKpiCards({ rooms, roster, tasks }: OperationsKpiCardsP
             <p className="text-sm text-muted-foreground">Staff On Shift</p>
             <Clock className="w-4 h-4 text-muted-foreground" />
           </div>
-          <p className="text-3xl font-bold mt-2">
+          <p className="text-3xl font-bold mt-2 tabular-nums">
             {actualStaff}/{scheduledStaff}
           </p>
           <Progress value={staffProgress} className="mt-3 h-1.5" />
@@ -53,7 +53,7 @@ export function OperationsKpiCards({ rooms, roster, tasks }: OperationsKpiCardsP
             <p className="text-sm text-muted-foreground">Energy vs Budget</p>
             <Zap className="w-4 h-4 text-muted-foreground" />
           </div>
-          <p className="text-3xl font-bold mt-2">+8%</p>
+          <p className="text-3xl font-bold mt-2 tabular-nums">+8%</p>
           <Progress value={58} className="mt-3 h-1.5" />
         </CardContent>
       </Card>
@@ -63,10 +63,10 @@ export function OperationsKpiCards({ rooms, roster, tasks }: OperationsKpiCardsP
             <p className="text-sm text-muted-foreground">Maintenance Open</p>
             <Wrench className="w-4 h-4 text-muted-foreground" />
           </div>
-          <p className="text-3xl font-bold mt-2">
+          <p className="text-3xl font-bold mt-2 tabular-nums">
             {openTasks} {openTasks === 1 ? 'Task' : 'Tasks'}
           </p>
-          <Progress value={taskProgress} className="mt-3 h-1.5 [&>div]:bg-red-500" />
+          <Progress value={taskProgress} className="mt-3 h-1.5 [&>div]:bg-[var(--status-error)]" />
         </CardContent>
       </Card>
     </div>

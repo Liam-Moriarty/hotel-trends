@@ -29,11 +29,13 @@ export function RecentReviewsFeed({ reviews }: RecentReviewsFeedProps) {
                   <span className="text-xs text-muted-foreground ml-1">{r.platform}</span>
                 </div>
               </div>
-              <div className="flex gap-0.5 text-yellow-400 text-sm">
+              <div className="flex gap-0.5 text-sm">
                 {Array.from({ length: 5 }).map((_, idx) => (
                   <span
                     key={idx}
-                    className={idx < r.stars ? 'text-yellow-400' : 'text-muted-foreground'}
+                    style={{
+                      color: idx < r.stars ? 'var(--status-warning)' : 'var(--text-muted)',
+                    }}
                   >
                     ★
                   </span>

@@ -21,7 +21,7 @@ interface EnergyWasteSectionProps {
 }
 
 function WasteFillColor(kg: number) {
-  return kg >= 12 ? '#ef4444' : '#f59e0b'
+  return kg >= 12 ? 'var(--status-error)' : 'var(--status-warning)'
 }
 
 export function EnergyWasteSection({ energyUsage, foodWaste }: EnergyWasteSectionProps) {
@@ -39,7 +39,8 @@ export function EnergyWasteSection({ energyUsage, foodWaste }: EnergyWasteSectio
             </div>
             <Badge
               variant="outline"
-              className="flex items-center gap-1 text-yellow-500 border-yellow-500"
+              style={{ color: 'var(--status-warning)', borderColor: 'var(--status-warning)' }}
+              className="flex items-center gap-1"
             >
               <Zap className="w-3 h-3" /> +8% over budget
             </Badge>
@@ -50,23 +51,37 @@ export function EnergyWasteSection({ energyUsage, foodWaste }: EnergyWasteSectio
             <AreaChart data={energyUsage} margin={{ top: 4, right: 4, left: -10, bottom: 0 }}>
               <defs>
                 <linearGradient id="energyGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#22c55e" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="#22c55e" stopOpacity={0} />
+                  <stop offset="5%" stopColor="var(--accent-cool)" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="var(--accent-cool)" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-              <XAxis dataKey="time" tick={{ fontSize: 11 }} />
-              <YAxis tickFormatter={v => `${v}kWh`} tick={{ fontSize: 11 }} />
+              <CartesianGrid
+                stroke="var(--surface-container-high)"
+                horizontal={true}
+                vertical={false}
+              />
+              <XAxis dataKey="time" tick={{ fontSize: 11, fill: 'var(--text-muted)' }} />
+              <YAxis
+                tickFormatter={v => `${v}kWh`}
+                tick={{ fontSize: 11, fill: 'var(--text-muted)' }}
+              />
               <Tooltip
                 formatter={(v: number | undefined, n: string | undefined) => [
                   `${v} kWh`,
                   n === 'actual' ? 'Actual' : 'Target',
                 ]}
+                contentStyle={{
+                  background: 'var(--surface-glass)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid var(--border-default)',
+                  borderRadius: 8,
+                  color: 'var(--text-primary)',
+                }}
               />
               <Area
                 type="monotone"
                 dataKey="actual"
-                stroke="#22c55e"
+                stroke="var(--accent-cool)"
                 fill="url(#energyGrad)"
                 strokeWidth={2}
                 dot={false}
@@ -74,7 +89,7 @@ export function EnergyWasteSection({ energyUsage, foodWaste }: EnergyWasteSectio
               <Area
                 type="monotone"
                 dataKey="target"
-                stroke="#facc15"
+                stroke="var(--accent-violet)"
                 fill="none"
                 strokeWidth={1.5}
                 strokeDasharray="4 3"
@@ -95,7 +110,8 @@ export function EnergyWasteSection({ energyUsage, foodWaste }: EnergyWasteSectio
             </div>
             <Badge
               variant="outline"
-              className="flex items-center gap-1 text-red-500 border-red-500"
+              style={{ color: 'var(--status-error)', borderColor: 'var(--status-error)' }}
+              className="flex items-center gap-1"
             >
               <ChefHat className="w-3 h-3" /> Avg +44% over target
             </Badge>
@@ -104,15 +120,31 @@ export function EnergyWasteSection({ energyUsage, foodWaste }: EnergyWasteSectio
         <CardContent>
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={foodWaste} margin={{ top: 4, right: 4, left: -10, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-              <XAxis dataKey="day" tick={{ fontSize: 11 }} />
-              <YAxis tickFormatter={v => `${v}kg`} tick={{ fontSize: 11 }} />
-              <Tooltip formatter={(v: number | undefined) => [`${v} kg`, 'Waste']} />
+              <CartesianGrid
+                stroke="var(--surface-container-high)"
+                horizontal={true}
+                vertical={false}
+              />
+              <XAxis dataKey="day" tick={{ fontSize: 11, fill: 'var(--text-muted)' }} />
+              <YAxis
+                tickFormatter={v => `${v}kg`}
+                tick={{ fontSize: 11, fill: 'var(--text-muted)' }}
+              />
+              <Tooltip
+                formatter={(v: number | undefined) => [`${v} kg`, 'Waste']}
+                contentStyle={{
+                  background: 'var(--surface-glass)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid var(--border-default)',
+                  borderRadius: 8,
+                  color: 'var(--text-primary)',
+                }}
+              />
               <ReferenceLine
                 y={8}
-                stroke="#22c55e"
+                stroke="var(--status-success)"
                 strokeDasharray="4 3"
-                label={{ value: 'Target', fill: '#22c55e', fontSize: 11 }}
+                label={{ value: 'Target', fill: 'var(--status-success)', fontSize: 11 }}
               />
               <Bar dataKey="kg" radius={[4, 4, 0, 0]}>
                 {foodWaste.map((entry, i) => (

@@ -11,8 +11,10 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { doc, getDoc, setDoc } from 'firebase/firestore'
 import { z } from 'zod'
 import { db } from '@repo/firebase-config'
+import { MOCK_APPLIED_RATES } from '@/mocks/firestore-hooks.mock'
 
 const HOTEL_ID = import.meta.env.VITE_HOTEL_ID as string
+const MOCK = import.meta.env.VITE_MOCK_DATA === 'true'
 const DOC_PATH = `hotels/${HOTEL_ID}/appliedRates/current`
 
 const AppliedRatesSchema = z.object({
@@ -24,20 +26,24 @@ export function useAppliedRates() {
 
   const query = useQuery({
     queryKey: ['applied-rates', HOTEL_ID],
-    queryFn: async (): Promise<Set<string>> => {
-      const snap = await getDoc(doc(db, DOC_PATH))
-      if (!snap.exists()) return new Set()
-      const parsed = AppliedRatesSchema.safeParse(snap.data())
-      if (!parsed.success) return new Set()
-      return new Set(parsed.data.appliedRoomTypes)
-    },
+    queryFn: MOCK
+      ? () => Promise.resolve(new Set(MOCK_APPLIED_RATES))
+      : async (): Promise<Set<string>> => {
+          const snap = await getDoc(doc(db, DOC_PATH))
+          if (!snap.exists()) return new Set()
+          const parsed = AppliedRatesSchema.safeParse(snap.data())
+          if (!parsed.success) return new Set()
+          return new Set(parsed.data.appliedRoomTypes)
+        },
     staleTime: Infinity,
   })
 
   const mutation = useMutation({
-    mutationFn: async (appliedRoomTypes: Set<string>) => {
-      await setDoc(doc(db, DOC_PATH), { appliedRoomTypes: Array.from(appliedRoomTypes) })
-    },
+    mutationFn: MOCK
+      ? async () => {}
+      : async (appliedRoomTypes: Set<string>) => {
+          await setDoc(doc(db, DOC_PATH), { appliedRoomTypes: Array.from(appliedRoomTypes) })
+        },
     onSuccess: (_data, appliedRoomTypes) => {
       queryClient.setQueryData(['applied-rates', HOTEL_ID], appliedRoomTypes)
     },

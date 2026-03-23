@@ -1,13 +1,13 @@
 export function occupancyColor(occ: number): string {
-  if (occ >= 85) return 'bg-green-500'
-  if (occ >= 60) return 'bg-yellow-500'
-  return 'bg-red-500'
+  if (occ >= 85) return 'bg-status-success'
+  if (occ >= 60) return 'bg-status-warning'
+  return 'bg-status-error'
 }
 
 export function heatmapBg(val: number | null): string {
-  if (val === null) return 'bg-transparent text-transparent'
-  if (val >= 85) return 'bg-indigo-600 text-white'
-  if (val >= 70) return 'bg-indigo-500 text-white'
-  if (val >= 55) return 'bg-indigo-400 text-white'
-  return 'bg-slate-700 text-slate-400'
+  if (val === null) return 'heatmap-empty'
+  if (val >= 85) return 'heatmap-high'
+  if (val >= 70) return 'heatmap-med-high'
+  if (val >= 55) return 'heatmap-med'
+  return 'heatmap-low'
 }

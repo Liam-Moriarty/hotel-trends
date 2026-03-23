@@ -3,9 +3,11 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContaine
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 const tooltipStyle = {
-  background: '#0f172a',
-  border: '1px solid #1e293b',
+  background: 'var(--surface-glass)',
+  backdropFilter: 'blur(20px)',
+  border: '1px solid var(--border-default)',
   borderRadius: 8,
+  color: 'var(--text-primary)',
   fontSize: 12,
 }
 
@@ -19,11 +21,23 @@ export default function LaborDemandForecast() {
       <CardContent>
         <ResponsiveContainer width="100%" height={200}>
           <BarChart data={labourData} margin={{ top: 5, right: 10, left: -20, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
-            <XAxis dataKey="week" tick={{ fontSize: 11 }} stroke="#64748b" />
-            <YAxis domain={[0, 180]} tick={{ fontSize: 11 }} stroke="#64748b" />
+            <CartesianGrid
+              stroke="var(--surface-container-high)"
+              horizontal={true}
+              vertical={false}
+            />
+            <XAxis
+              dataKey="week"
+              tick={{ fontSize: 11, fill: 'var(--text-muted)' }}
+              stroke="var(--text-muted)"
+            />
+            <YAxis
+              domain={[0, 180]}
+              tick={{ fontSize: 11, fill: 'var(--text-muted)' }}
+              stroke="var(--text-muted)"
+            />
             <Tooltip contentStyle={tooltipStyle} />
-            <Bar dataKey="hours" fill="#ef4444" radius={[4, 4, 0, 0]} />
+            <Bar dataKey="hours" fill="var(--accent-cool)" radius={[4, 4, 0, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </CardContent>

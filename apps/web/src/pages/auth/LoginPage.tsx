@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Hotel } from 'lucide-react'
 import { AuthUser } from '@/interface'
+import { HotelTrendsIcon } from '@/components/HotelTrendsIcon'
 import { signInWithEmailAndPassword, getAuth } from 'firebase/auth'
 import { app } from '@repo/firebase-config'
 import { useNavigate } from 'react-router-dom'
@@ -60,17 +60,19 @@ const LoginPage = ({ onLogin }: LoginPageProps) => {
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="w-full max-w-sm">
         {/* Logo */}
-        <div className="flex flex-col items-center mb-8 gap-2">
-          <div className="flex items-center gap-2">
-            <div className="bg-primary rounded-lg p-2">
-              <Hotel className="h-6 w-6 text-primary-foreground" />
+        <div className="flex flex-col items-center mb-8 gap-3">
+          <HotelTrendsIcon size={56} />
+          <div className="text-center">
+            <div
+              className="font-bold text-xl leading-none"
+              style={{ color: 'var(--text-primary)' }}
+            >
+              Hotel Trends
             </div>
-            <div>
-              <div className="font-bold text-xl leading-none">HOTEL</div>
-              <div className="text-xs text-muted-foreground tracking-widest">TRENDS AI</div>
-            </div>
+            <p className="text-sm mt-1" style={{ color: 'var(--text-muted)' }}>
+              Sign in to your account
+            </p>
           </div>
-          <p className="text-muted-foreground text-sm mt-2 text-center">Sign in to your account</p>
         </div>
 
         {/* Card */}

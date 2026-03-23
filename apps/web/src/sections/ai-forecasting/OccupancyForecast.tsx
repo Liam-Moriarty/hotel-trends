@@ -12,9 +12,11 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 const tooltipStyle = {
-  background: '#0f172a',
-  border: '1px solid #1e293b',
+  background: 'var(--surface-glass)',
+  backdropFilter: 'blur(20px)',
+  border: '1px solid var(--border-default)',
   borderRadius: 8,
+  color: 'var(--text-primary)',
   fontSize: 12,
 }
 
@@ -27,19 +29,36 @@ export default function OccupancyForecast() {
             <CardTitle className="text-base">Occupancy Forecast</CardTitle>
             <p className="text-xs text-muted-foreground mt-0.5">With 90% confidence interval</p>
           </div>
-          <Badge className="bg-cyan-500/20 text-cyan-400 border-cyan-500/30">MAPE: 3.2%</Badge>
+          <Badge
+            style={{
+              background: 'var(--status-info-bg)',
+              color: 'var(--accent-cool)',
+              borderColor: 'var(--accent-cool)',
+            }}
+            variant="outline"
+          >
+            MAPE: 3.2%
+          </Badge>
         </div>
       </CardHeader>
       <CardContent>
         <ResponsiveContainer width="100%" height={200}>
           <LineChart data={occupancyData} margin={{ top: 5, right: 10, left: -20, bottom: 0 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
-            <XAxis dataKey="date" tick={{ fontSize: 11 }} stroke="#64748b" />
+            <CartesianGrid
+              stroke="var(--surface-container-high)"
+              horizontal={true}
+              vertical={false}
+            />
+            <XAxis
+              dataKey="date"
+              tick={{ fontSize: 11, fill: 'var(--text-muted)' }}
+              stroke="var(--text-muted)"
+            />
             <YAxis
               domain={[60, 100]}
               tickFormatter={v => `${v}%`}
-              tick={{ fontSize: 11 }}
-              stroke="#64748b"
+              tick={{ fontSize: 11, fill: 'var(--text-muted)' }}
+              stroke="var(--text-muted)"
             />
             <Tooltip
               formatter={(v: number | undefined) => [`${v ?? ''}%`, 'Occupancy']}
@@ -48,9 +67,9 @@ export default function OccupancyForecast() {
             <Line
               type="monotone"
               dataKey="occ"
-              stroke="#06b6d4"
+              stroke="var(--accent-cool)"
               strokeWidth={2.5}
-              dot={{ fill: '#06b6d4', r: 4 }}
+              dot={{ fill: 'var(--accent-cool)', r: 4 }}
               activeDot={{ r: 6 }}
             />
           </LineChart>

@@ -60,10 +60,10 @@ export function EventsFlightSection({ events, flights }: EventsFlightSectionProp
           {flights.map((f, i) => (
             <div key={i} className="flex items-center justify-between rounded-lg border p-3">
               <div className="space-y-0.5">
-                <p className="text-sm font-bold">{f.time}</p>
+                <p className="text-sm font-bold tabular-nums">{f.time}</p>
                 <p className="text-sm">{f.origin}</p>
                 <p className="text-xs text-muted-foreground">
-                  {f.flight} · {f.pax} pax
+                  {f.flight} · <span className="tabular-nums">{f.pax}</span> pax
                 </p>
               </div>
               <span className={`text-xs font-semibold ${f.statusColor}`}>{f.status}</span>

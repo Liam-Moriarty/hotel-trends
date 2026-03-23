@@ -57,7 +57,15 @@ function IntegrationRow({ item }: { item: Integration }) {
       <div className="flex items-center gap-6 shrink-0">
         <div className="text-right hidden md:block">
           <p
-            className={`text-sm font-medium ${item.status === 'error' ? 'text-red-500' : item.status === 'warning' ? 'text-yellow-500' : 'text-green-500'}`}
+            className="text-sm font-medium tabular-nums"
+            style={{
+              color:
+                item.status === 'error'
+                  ? 'var(--status-error)'
+                  : item.status === 'warning'
+                    ? 'var(--status-warning)'
+                    : 'var(--status-success)',
+            }}
           >
             {item.lastSync}
           </p>
@@ -83,34 +91,48 @@ function IntegrationRow({ item }: { item: Integration }) {
 }
 
 function StatusIcon({ status }: { status: IntegrationStatus }) {
-  if (status === 'healthy') return <CheckCircle2 className="h-4 w-4 text-green-500" />
-  if (status === 'warning') return <AlertTriangle className="h-4 w-4 text-yellow-500" />
-  return <XCircle className="h-4 w-4 text-red-500" />
+  if (status === 'healthy')
+    return <CheckCircle2 className="h-4 w-4" style={{ color: 'var(--status-success)' }} />
+  if (status === 'warning')
+    return <AlertTriangle className="h-4 w-4" style={{ color: 'var(--status-warning)' }} />
+  return <XCircle className="h-4 w-4" style={{ color: 'var(--status-error)' }} />
 }
 
 function UptimeBar({ uptime, status }: { uptime: number; status: IntegrationStatus }) {
   const color =
-    status === 'healthy' ? 'bg-green-500' : status === 'warning' ? 'bg-yellow-500' : 'bg-red-500'
+    status === 'healthy'
+      ? 'var(--status-success)'
+      : status === 'warning'
+        ? 'var(--status-warning)'
+        : 'var(--status-error)'
   return (
     <div className="flex items-center gap-2">
       <div className="w-24 h-1.5 bg-muted rounded-full overflow-hidden">
-        <div className={`h-full rounded-full ${color}`} style={{ width: `${uptime}%` }} />
+        <div className="h-full rounded-full" style={{ width: `${uptime}%`, background: color }} />
       </div>
-      <span className="text-sm text-muted-foreground">{uptime}%</span>
+      <span className="text-sm text-muted-foreground tabular-nums">{uptime}%</span>
     </div>
   )
 }
 
 function LatencyBadge({ latency, status }: { latency: string; status: IntegrationStatus }) {
   if (latency === 'Timeout')
-    return <span className="text-sm font-semibold text-red-500">Timeout</span>
+    return (
+      <span className="text-sm font-semibold" style={{ color: 'var(--status-error)' }}>
+        Timeout
+      </span>
+    )
   const color =
     status === 'healthy'
-      ? 'text-green-500'
+      ? 'var(--status-success)'
       : status === 'warning'
-        ? 'text-yellow-500'
-        : 'text-red-500'
-  return <span className={`text-sm font-semibold ${color}`}>{latency}</span>
+        ? 'var(--status-warning)'
+        : 'var(--status-error)'
+  return (
+    <span className="text-sm font-semibold tabular-nums" style={{ color }}>
+      {latency}
+    </span>
+  )
 }
 
 function ActionButton({ status }: { status: IntegrationStatus }) {
@@ -119,7 +141,8 @@ function ActionButton({ status }: { status: IntegrationStatus }) {
       <Button
         size="sm"
         variant="outline"
-        className="text-yellow-500 border-yellow-500 hover:bg-yellow-500/10"
+        style={{ color: 'var(--status-warning)', borderColor: 'var(--status-warning)' }}
+        className="hover:bg-[var(--status-warning-bg)]"
       >
         Investigate
       </Button>
@@ -129,7 +152,8 @@ function ActionButton({ status }: { status: IntegrationStatus }) {
       <Button
         size="sm"
         variant="outline"
-        className="text-red-500 border-red-500 hover:bg-red-500/10"
+        style={{ color: 'var(--status-error)', borderColor: 'var(--status-error)' }}
+        className="hover:bg-[var(--status-error-bg)]"
       >
         Diagnose
       </Button>

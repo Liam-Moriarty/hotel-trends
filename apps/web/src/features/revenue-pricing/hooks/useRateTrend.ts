@@ -16,8 +16,10 @@ import { collection, getDocs, orderBy, limit, query } from 'firebase/firestore'
 import { z } from 'zod'
 import { db } from '@repo/firebase-config'
 import type { RateTrendDataPoint } from '@/interface'
+import { MOCK_RATE_TREND } from '@/mocks/firestore-hooks.mock'
 
 const HOTEL_ID = import.meta.env.VITE_HOTEL_ID as string
+const MOCK = import.meta.env.VITE_MOCK_DATA === 'true'
 
 const RateTrendDocSchema = z.object({
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
@@ -36,16 +38,20 @@ function formatDate(iso: string): string {
 export function useRateTrend() {
   return useQuery({
     queryKey: ['rate-trend', HOTEL_ID],
-    queryFn: async (): Promise<RateTrendDataPoint[]> => {
-      const col = collection(db, `hotels/${HOTEL_ID}/rateTrends`)
-      const q = query(col, orderBy('date', 'asc'), limit(28))
-      const snap = await getDocs(q)
+    queryFn: MOCK
+      ? () => Promise.resolve(MOCK_RATE_TREND)
+      : async (): Promise<RateTrendDataPoint[]> => {
+          const col = collection(db, `hotels/${HOTEL_ID}/rateTrends`)
+          const q = query(col, orderBy('date', 'asc'), limit(28))
+          const snap = await getDocs(q)
 
-      return snap.docs
-        .map(d => RateTrendDocSchema.safeParse(d.data()))
-        .filter((r): r is { success: true; data: z.infer<typeof RateTrendDocSchema> } => r.success)
-        .map(r => ({ ...r.data, date: formatDate(r.data.date) }))
-    },
+          return snap.docs
+            .map(d => RateTrendDocSchema.safeParse(d.data()))
+            .filter(
+              (r): r is { success: true; data: z.infer<typeof RateTrendDocSchema> } => r.success
+            )
+            .map(r => ({ ...r.data, date: formatDate(r.data.date) }))
+        },
     staleTime: 5 * 60 * 1000,
   })
 }

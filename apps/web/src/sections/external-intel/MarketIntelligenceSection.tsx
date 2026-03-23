@@ -33,7 +33,9 @@ export function MarketIntelligenceSection({
                   {c.impact}
                 </Badge>
               </div>
-              <p className="text-sm text-blue-600 font-medium">{c.promo}</p>
+              <p className="text-sm font-medium" style={{ color: 'var(--status-info)' }}>
+                {c.promo}
+              </p>
               <p className="text-xs text-muted-foreground">{c.period}</p>
             </div>
           ))}
@@ -51,9 +53,12 @@ export function MarketIntelligenceSection({
               <div className="flex items-center justify-between py-1">
                 <p className="text-sm text-muted-foreground">{m.label}</p>
                 <div className="text-right">
-                  <p className="text-sm font-bold">{m.value}</p>
+                  <p className="text-sm font-bold tabular-nums">{m.value}</p>
                   <p
-                    className={`text-xs flex items-center justify-end gap-0.5 ${m.up ? 'text-green-600' : 'text-red-600'}`}
+                    className="text-xs flex items-center justify-end gap-0.5"
+                    style={{
+                      color: m.up ? 'var(--status-success)' : 'var(--status-error)',
+                    }}
                   >
                     {m.up ? (
                       <TrendingUp className="h-3 w-3" />
@@ -79,7 +84,7 @@ export function MarketIntelligenceSection({
           {visaAlerts.map((v, i) => (
             <div key={i} className="rounded-lg border p-3 space-y-1">
               <div className="flex items-center gap-2 flex-wrap">
-                <MapPin className="h-3.5 w-3.5 text-green-600" />
+                <MapPin className="h-3.5 w-3.5" style={{ color: 'var(--status-success)' }} />
                 <p className="text-sm font-semibold">{v.country}</p>
                 <Badge variant={v.tagColor} className="text-xs">
                   {v.tag}

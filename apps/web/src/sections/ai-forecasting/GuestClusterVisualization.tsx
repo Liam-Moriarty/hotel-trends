@@ -18,22 +18,29 @@ function ClusterScatter() {
   return (
     <ResponsiveContainer width="100%" height={220}>
       <ScatterChart margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-        <CartesianGrid strokeDasharray="3 3" stroke="#1e293b" />
+        <CartesianGrid stroke="var(--surface-container-high)" horizontal={true} vertical={false} />
         <XAxis
           dataKey="x"
           name="Avg Stay"
           unit=" nights"
-          tick={{ fontSize: 10 }}
-          stroke="#64748b"
+          tick={{ fontSize: 10, fill: 'var(--text-muted)' }}
+          stroke="var(--text-muted)"
         />
-        <YAxis dataKey="y" name="Spend/Night" tick={{ fontSize: 10 }} stroke="#64748b" />
+        <YAxis
+          dataKey="y"
+          name="Spend/Night"
+          tick={{ fontSize: 10, fill: 'var(--text-muted)' }}
+          stroke="var(--text-muted)"
+        />
         <ZAxis dataKey="z" range={[60, 120]} />
         <Tooltip
           cursor={{ strokeDasharray: '3 3' }}
           contentStyle={{
-            background: '#0f172a',
-            border: '1px solid #1e293b',
+            background: 'var(--surface-glass)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid var(--border-default)',
             borderRadius: 8,
+            color: 'var(--text-primary)',
             fontSize: 11,
           }}
         />

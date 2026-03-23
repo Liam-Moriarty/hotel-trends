@@ -23,7 +23,6 @@ export default function RevenueChart() {
       </CardHeader>
       <CardContent className="p-5 pt-4">
         {isLoading ? (
-          // Skeleton matches the chart's 200px height
           <div className="space-y-3 pt-2">
             <div className="flex gap-2">
               <Skeleton className="h-[160px] flex-1" />
@@ -39,35 +38,42 @@ export default function RevenueChart() {
             <AreaChart data={data ?? []} margin={{ top: 4, right: 4, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id="aGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.25} />
-                  <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0} />
+                  <stop offset="5%" stopColor="var(--accent-cool)" stopOpacity={0.08} />
+                  <stop offset="95%" stopColor="var(--accent-cool)" stopOpacity={0} />
                 </linearGradient>
                 <linearGradient id="fGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="hsl(var(--muted-foreground))" stopOpacity={0.15} />
-                  <stop offset="95%" stopColor="hsl(var(--muted-foreground))" stopOpacity={0} />
+                  <stop offset="5%" stopColor="var(--accent-violet)" stopOpacity={0.08} />
+                  <stop offset="95%" stopColor="var(--accent-violet)" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <CartesianGrid
+                strokeDasharray=""
+                stroke="var(--surface-container-high)"
+                horizontal={true}
+                vertical={false}
+              />
               <XAxis
                 dataKey="day"
-                tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 11 }}
+                tick={{ fill: 'var(--text-muted)', fontSize: 11 }}
                 axisLine={false}
                 tickLine={false}
               />
               <YAxis
-                tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 11 }}
+                tick={{ fill: 'var(--text-muted)', fontSize: 11 }}
                 axisLine={false}
                 tickLine={false}
                 tickFormatter={v => `$${v / 1000}k`}
+                stroke="var(--surface-hover)"
               />
               <Tooltip
                 contentStyle={{
-                  background: 'hsl(var(--card))',
-                  border: '1px solid hsl(var(--border))',
+                  background: 'var(--surface-glass)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid var(--border-default)',
                   borderRadius: 8,
                   fontSize: 12,
+                  color: 'var(--text-primary)',
                 }}
-                labelStyle={{ color: 'hsl(var(--foreground))' }}
                 formatter={(v: number | string | undefined) =>
                   typeof v === 'number' ? [`$${(v / 1000).toFixed(1)}k`] : ['']
                 }
@@ -76,7 +82,7 @@ export default function RevenueChart() {
                 iconType="circle"
                 iconSize={8}
                 formatter={(v: string) => (
-                  <span style={{ color: 'hsl(var(--muted-foreground))', fontSize: 11 }}>
+                  <span style={{ color: 'var(--text-muted)', fontSize: 11 }}>
                     {v === 'actual' ? 'Actual Revenue' : 'Forecast'}
                   </span>
                 )}
@@ -84,7 +90,7 @@ export default function RevenueChart() {
               <Area
                 type="monotone"
                 dataKey="actual"
-                stroke="hsl(var(--primary))"
+                stroke="var(--accent-cool)"
                 fill="url(#aGrad)"
                 strokeWidth={2}
                 dot={false}
@@ -93,7 +99,7 @@ export default function RevenueChart() {
               <Area
                 type="monotone"
                 dataKey="forecast"
-                stroke="hsl(var(--muted-foreground))"
+                stroke="var(--accent-violet)"
                 fill="url(#fGrad)"
                 strokeWidth={2}
                 dot={false}

@@ -45,7 +45,7 @@ export default function HealthScore() {
   return (
     <Card className="min-w-[200px]">
       <CardContent className="p-5">
-        <p className="text-xs font-medium text-muted-foreground tracking-widest uppercase mb-3">
+        <p className="text-[10px] font-bold text-muted-foreground tracking-widest uppercase mb-3">
           Daily Health Score
         </p>
         <div className="flex justify-center">
@@ -55,7 +55,7 @@ export default function HealthScore() {
               cy={cy}
               r={r}
               fill="none"
-              stroke="hsl(var(--border))"
+              stroke="var(--surface-active)"
               strokeWidth={8}
               strokeDasharray={`${dashLen} ${circ}`}
               strokeDashoffset={offset}
@@ -67,7 +67,7 @@ export default function HealthScore() {
               cy={cy}
               r={r}
               fill="none"
-              stroke="hsl(var(--primary))"
+              stroke="var(--accent-cool)"
               strokeWidth={8}
               strokeDasharray={`${filled} ${circ}`}
               strokeDashoffset={offset}
@@ -78,9 +78,10 @@ export default function HealthScore() {
               x={cx}
               y={cy - 4}
               textAnchor="middle"
-              fill="hsl(var(--foreground))"
+              fill="var(--text-primary)"
               fontSize={28}
               fontWeight={700}
+              fontVariantNumeric="tabular-nums"
             >
               {score}
             </text>
@@ -88,7 +89,7 @@ export default function HealthScore() {
               x={cx}
               y={cy + 16}
               textAnchor="middle"
-              fill="hsl(var(--primary))"
+              fill="var(--accent-cool)"
               fontSize={11}
               fontWeight={600}
             >
@@ -102,8 +103,15 @@ export default function HealthScore() {
             [`$${adr.toFixed(0)}`, 'RATE'],
           ].map(([v, l]) => (
             <div key={l} className="text-center">
-              <p className="text-sm font-bold text-foreground">{v}</p>
-              <p className="text-xs text-muted-foreground">{l}</p>
+              <p
+                className="text-sm font-bold tabular-nums"
+                style={{ color: 'var(--text-primary)' }}
+              >
+                {v}
+              </p>
+              <p className="text-[10px] font-bold tracking-widest text-muted-foreground uppercase">
+                {l}
+              </p>
             </div>
           ))}
         </div>

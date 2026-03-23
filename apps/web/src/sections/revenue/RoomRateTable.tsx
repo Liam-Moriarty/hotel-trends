@@ -14,40 +14,43 @@ export function RoomRateTableSkeleton() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-base">Room Rate Optimization</CardTitle>
+        <CardTitle className="text-sm">Room Rate Optimization</CardTitle>
         <CardDescription>AI vs competitor vs current rate comparison</CardDescription>
       </CardHeader>
       <CardContent>
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-muted-foreground text-xs uppercase tracking-wide border-b border-border">
-              <th className="text-left pb-3 font-medium">Room Type</th>
-              <th className="text-left pb-3 font-medium">Current Rate</th>
-              <th className="text-left pb-3 font-medium">Comp Set Avg</th>
-              <th className="text-left pb-3 font-medium">AI Recommended</th>
-              <th className="text-left pb-3 font-medium">Occupancy</th>
-              <th className="text-left pb-3 font-medium">Action</th>
+            <tr
+              className="text-[11px] font-bold uppercase tracking-widest"
+              style={{ color: 'var(--text-muted)', background: 'var(--surface-container-high)' }}
+            >
+              <th className="text-left pb-3 pt-2 px-2 font-bold">Room Type</th>
+              <th className="text-left pb-3 pt-2 px-2 font-bold">Current Rate</th>
+              <th className="text-left pb-3 pt-2 px-2 font-bold">Comp Set Avg</th>
+              <th className="text-left pb-3 pt-2 px-2 font-bold">AI Recommended</th>
+              <th className="text-left pb-3 pt-2 px-2 font-bold">Occupancy</th>
+              <th className="text-left pb-3 pt-2 px-2 font-bold">Action</th>
             </tr>
           </thead>
           <tbody>
             {Array.from({ length: 5 }).map((_, i) => (
               <tr key={i} className="border-b border-border last:border-0">
-                <td className="py-3">
+                <td className="py-3 px-2">
                   <Skeleton className="h-4 w-28" />
                 </td>
-                <td className="py-3">
+                <td className="py-3 px-2">
                   <Skeleton className="h-4 w-14" />
                 </td>
-                <td className="py-3">
+                <td className="py-3 px-2">
                   <Skeleton className="h-4 w-14" />
                 </td>
-                <td className="py-3">
+                <td className="py-3 px-2">
                   <Skeleton className="h-4 w-20" />
                 </td>
-                <td className="py-3">
+                <td className="py-3 px-2">
                   <Skeleton className="h-3 w-24 rounded-full" />
                 </td>
-                <td className="py-3">
+                <td className="py-3 px-2">
                   <Skeleton className="h-8 w-16 rounded-md" />
                 </td>
               </tr>
@@ -63,40 +66,48 @@ export default function RoomRateTable({ rooms, onApply }: Props) {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-base">Room Rate Optimization</CardTitle>
+        <CardTitle className="text-sm">Room Rate Optimization</CardTitle>
         <CardDescription>AI vs competitor vs current rate comparison</CardDescription>
       </CardHeader>
       <CardContent>
         <table className="w-full text-sm">
           <thead>
-            <tr className="text-muted-foreground text-xs uppercase tracking-wide border-b border-border">
-              <th className="text-left pb-3 font-medium">Room Type</th>
-              <th className="text-left pb-3 font-medium">Current Rate</th>
-              <th className="text-left pb-3 font-medium">Comp Set Avg</th>
-              <th className="text-left pb-3 font-medium">AI Recommended</th>
-              <th className="text-left pb-3 font-medium">Occupancy</th>
-              <th className="text-left pb-3 font-medium">Action</th>
+            <tr
+              className="text-[11px] font-bold uppercase tracking-widest border-b border-border"
+              style={{ color: 'var(--text-muted)', background: 'var(--surface-container-high)' }}
+            >
+              <th className="text-left pb-3 pt-2 px-2 font-bold">Room Type</th>
+              <th className="text-left pb-3 pt-2 px-2 font-bold">Current Rate</th>
+              <th className="text-left pb-3 pt-2 px-2 font-bold">Comp Set Avg</th>
+              <th className="text-left pb-3 pt-2 px-2 font-bold">AI Recommended</th>
+              <th className="text-left pb-3 pt-2 px-2 font-bold">Occupancy</th>
+              <th className="text-left pb-3 pt-2 px-2 font-bold">Action</th>
             </tr>
           </thead>
           <tbody>
             {rooms.map((room, i) => (
-              <tr key={room.type} className="border-b border-border last:border-0">
-                <td className="py-3 font-medium">{room.type}</td>
-                <td className="py-3 font-bold">${room.current}</td>
-                <td className="py-3 text-muted-foreground">${room.compAvg}</td>
-                <td className="py-3">
-                  <span className="text-green-400 font-semibold">${room.aiRec}</span>
-                  <Badge
-                    variant="secondary"
-                    className="ml-2 text-green-400 bg-green-400/10 text-xs"
+              <tr
+                key={room.type}
+                className="border-b border-border last:border-0 hover:bg-accent transition-colors"
+              >
+                <td className="py-3 px-2 font-medium">{room.type}</td>
+                <td className="py-3 px-2 font-bold tabular-nums">${room.current}</td>
+                <td className="py-3 px-2 text-muted-foreground tabular-nums">${room.compAvg}</td>
+                <td className="py-3 px-2">
+                  <span
+                    className="font-semibold tabular-nums"
+                    style={{ color: 'var(--status-success)' }}
                   >
+                    ${room.aiRec}
+                  </span>
+                  <Badge variant="success" className="ml-2 text-xs">
                     +{room.delta}
                   </Badge>
                 </td>
-                <td className="py-3">
+                <td className="py-3 px-2">
                   <OccupancyBar pct={room.occupancy} />
                 </td>
-                <td className="py-3">
+                <td className="py-3 px-2">
                   <Button
                     size="sm"
                     variant={room.applied ? 'secondary' : 'default'}

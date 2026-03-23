@@ -8,8 +8,10 @@ import { collection, getDocs, orderBy, limit, query } from 'firebase/firestore'
 import { z } from 'zod'
 import { db } from '@repo/firebase-config'
 import type { Department } from '@/interface'
+import { MOCK_DEPT_PERFORMANCE } from '@/mocks/firestore-hooks.mock'
 
 const HOTEL_ID = import.meta.env.VITE_HOTEL_ID as string
+const MOCK = import.meta.env.VITE_MOCK_DATA === 'true'
 
 // Only the fields this hook cares about — other snapshot fields are ignored.
 const DeptSnapshotSchema = z.object({
@@ -25,23 +27,25 @@ const DeptSnapshotSchema = z.object({
 export function useDeptPerformance() {
   return useQuery({
     queryKey: ['dept-performance', HOTEL_ID],
-    queryFn: async (): Promise<Department[]> => {
-      const col = collection(db, `hotels/${HOTEL_ID}/snapshots`)
-      // Only need the single most-recent snapshot.
-      const q = query(col, orderBy('date', 'desc'), limit(1))
-      const snap = await getDocs(q)
+    queryFn: MOCK
+      ? () => Promise.resolve(MOCK_DEPT_PERFORMANCE)
+      : async (): Promise<Department[]> => {
+          const col = collection(db, `hotels/${HOTEL_ID}/snapshots`)
+          // Only need the single most-recent snapshot.
+          const q = query(col, orderBy('date', 'desc'), limit(1))
+          const snap = await getDocs(q)
 
-      if (snap.empty) return []
+          if (snap.empty) return []
 
-      const result = DeptSnapshotSchema.safeParse(snap.docs[0].data())
-      if (!result.success) return []
+          const result = DeptSnapshotSchema.safeParse(snap.docs[0].data())
+          if (!result.success) return []
 
-      // Convert the deptScores object into a Department[] array.
-      return Object.entries(result.data.deptScores).map(([name, score]) => ({
-        name,
-        score,
-      }))
-    },
+          // Convert the deptScores object into a Department[] array.
+          return Object.entries(result.data.deptScores).map(([name, score]) => ({
+            name,
+            score,
+          }))
+        },
     staleTime: 5 * 60 * 1000,
   })
 }

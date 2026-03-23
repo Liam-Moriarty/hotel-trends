@@ -5,10 +5,8 @@ import { useMaintenanceTasks } from '@/features/operations/hooks/useMaintenanceT
 import { useHubOsEnergy } from '@/features/operations/hooks/useHubOsEnergy'
 import { useHubOsFoodWaste } from '@/features/operations/hooks/useHubOsFoodWaste'
 import { OperationsHeader } from '@/sections/operations/OperationsHeader'
-import { OperationsKpiCards } from '@/sections/operations/OperationsKpiCards'
-import { LaborHousekeepingSection } from '@/sections/operations/LaborHousekeepingSection'
-import { EnergyWasteSection } from '@/sections/operations/EnergyWasteSection'
-import { ProcurementSupplierSection } from '@/sections/operations/ProcurementSupplierSection'
+import { OpsStatusStrip } from '@/sections/operations/OpsStatusStrip'
+import { OperationsPanel } from '@/sections/operations/OperationsPanel'
 import { OperationsPageSkeleton } from '@/sections/operations/OperationsPageSkeleton'
 
 // MOCK: hardcoded to the seeded date — replace with dynamic date when live
@@ -43,21 +41,40 @@ export default function OperationsPage() {
   const foodWaste = foodWasteData ?? []
 
   const understaffedCount = roster.filter(d => d.staffingStatus === 'Understaffed').length
+  const roomsReady = rooms.filter(r => r.status === 'Clean').length
+  const maintenanceOpen = tasks.filter(t => t.status === 'Open' || t.status === 'InProgress').length
+  const totalStaffed = roster.reduce((s, d) => s + d.actual, 0)
+  const totalScheduled = roster.reduce((s, d) => s + d.scheduled, 0)
 
   return (
-    <div className="p-6 space-y-6">
-      <OperationsHeader understaffedCount={understaffedCount} />
-
-      <OperationsKpiCards roster={roster} rooms={rooms} tasks={tasks} />
-
-      <LaborHousekeepingSection roster={roster} rooms={rooms} />
-
-      <EnergyWasteSection energyUsage={energyUsage} foodWaste={foodWaste} />
-
-      <ProcurementSupplierSection
-        inventory={operationsInventory}
-        suppliers={supplierInsightsData}
-      />
+    <div
+      className="flex flex-col"
+      style={{ height: '100%', overflow: 'hidden', background: 'var(--surface-void)' }}
+    >
+      <main className="flex flex-col gap-4 p-6 flex-1 min-h-0 overflow-hidden">
+        <OperationsHeader
+          roomsReady={roomsReady}
+          totalRooms={rooms.length}
+          totalStaffed={totalStaffed}
+          totalScheduled={totalScheduled}
+          maintenanceOpen={maintenanceOpen}
+        />
+        <OpsStatusStrip
+          understaffedCount={understaffedCount}
+          roomsReady={roomsReady}
+          totalRooms={rooms.length}
+          maintenanceOpen={maintenanceOpen}
+        />
+        <OperationsPanel
+          className="flex-1 min-h-0 max-h-[65%]"
+          roster={roster}
+          rooms={rooms}
+          energyUsage={energyUsage}
+          foodWaste={foodWaste}
+          inventory={operationsInventory}
+          suppliers={supplierInsightsData}
+        />
+      </main>
     </div>
   )
 }

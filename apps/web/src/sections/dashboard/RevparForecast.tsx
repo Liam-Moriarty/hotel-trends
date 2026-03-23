@@ -11,6 +11,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useRevparForecast } from '@/features/dashboard/hooks/useRevparForecast'
+import { Sparkles } from 'lucide-react'
 
 export default function RevparForecast() {
   const { data, isLoading } = useRevparForecast()
@@ -23,8 +24,9 @@ export default function RevparForecast() {
             <CardTitle className="text-sm">RevPAR Forecast</CardTitle>
             <CardDescription>Actual vs AI-predicted trend (H1 2026)</CardDescription>
           </div>
-          <Badge variant="secondary" className="rounded-full text-[11px]">
-            ✦ Confidence 91%
+          <Badge variant="ai" className="rounded-full text-[11px] gap-1">
+            <Sparkles className="h-3 w-3" />
+            Confidence 91%
           </Badge>
         </div>
       </CardHeader>
@@ -41,28 +43,35 @@ export default function RevparForecast() {
         ) : (
           <ResponsiveContainer width="100%" height={200}>
             <LineChart data={data ?? []} margin={{ top: 4, right: 4, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <CartesianGrid
+                strokeDasharray=""
+                stroke="var(--surface-container-high)"
+                horizontal={true}
+                vertical={false}
+              />
               <XAxis
                 dataKey="month"
-                tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 11 }}
+                tick={{ fill: 'var(--text-muted)', fontSize: 11 }}
                 axisLine={false}
                 tickLine={false}
               />
               <YAxis
-                tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 11 }}
+                tick={{ fill: 'var(--text-muted)', fontSize: 11 }}
                 axisLine={false}
                 tickLine={false}
                 tickFormatter={v => `$${v}`}
                 domain={[170, 270]}
+                stroke="var(--surface-hover)"
               />
               <Tooltip
                 contentStyle={{
-                  background: 'hsl(var(--card))',
-                  border: '1px solid hsl(var(--border))',
+                  background: 'var(--surface-glass)',
+                  backdropFilter: 'blur(20px)',
+                  border: '1px solid var(--border-default)',
                   borderRadius: 8,
                   fontSize: 12,
+                  color: 'var(--text-primary)',
                 }}
-                labelStyle={{ color: 'hsl(var(--foreground))' }}
                 formatter={(v: number | string | undefined) =>
                   typeof v === 'number' ? [`$${v}`] : ['']
                 }
@@ -70,16 +79,17 @@ export default function RevparForecast() {
               <Line
                 type="monotone"
                 dataKey="actual"
-                stroke="hsl(var(--primary))"
-                strokeWidth={2.5}
-                dot={{ r: 4, fill: 'hsl(var(--primary))' }}
+                stroke="var(--accent-cool)"
+                strokeWidth={2}
+                dot={{ r: 3, fill: 'var(--accent-cool)' }}
+                activeDot={{ r: 4 }}
                 connectNulls={false}
                 name="Actual"
               />
               <Line
                 type="monotone"
                 dataKey="forecast"
-                stroke="hsl(var(--muted-foreground))"
+                stroke="var(--accent-violet)"
                 strokeWidth={2}
                 dot={false}
                 strokeDasharray="6 3"

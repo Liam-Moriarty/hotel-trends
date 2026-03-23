@@ -12,7 +12,7 @@ export function RingIndicator({ pct, color, size = 40 }: Props) {
   const dash = (pct / 100) * circ
   return (
     <svg width={size} height={size} viewBox="0 0 40 40">
-      <circle cx={cx} cy={cy} r={r} fill="none" stroke="#334155" strokeWidth={4} />
+      <circle cx={cx} cy={cy} r={r} fill="none" stroke="var(--surface-active)" strokeWidth={4} />
       <circle
         cx={cx}
         cy={cy}
@@ -31,7 +31,7 @@ export function RingIndicator({ pct, color, size = 40 }: Props) {
         dominantBaseline="central"
         fontSize="9"
         fontWeight="bold"
-        fill="white"
+        fill="var(--text-primary)"
       >
         {pct}%
       </text>

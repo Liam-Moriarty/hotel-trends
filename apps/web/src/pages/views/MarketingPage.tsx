@@ -1,36 +1,18 @@
-import {
-  marketingKpis,
-  adsPerformanceData,
-  marketingFunnelSteps,
-  roasChannels,
-  wastedSpend,
-  attributionData,
-  attributionColors,
-  emailCampaigns,
-} from '@/mocks'
-import { MarketingKpiCards } from '@/sections/marketing/MarketingKpiCards'
-import { AdsPerformanceSection } from '@/sections/marketing/AdsPerformanceSection'
-import { RoasChannelSection } from '@/sections/marketing/RoasChannelSection'
-import { AttributionEmailSection } from '@/sections/marketing/AttributionEmailSection'
+import { MarketingHeader } from '@/sections/marketing/MarketingHeader'
+import { MarketingStatusStrip } from '@/sections/marketing/MarketingStatusStrip'
+import { MarketingPanel } from '@/sections/marketing/MarketingPanel'
 
 export default function MarketingPage() {
   return (
-    <div className="p-6 space-y-6">
-      {/* KPI Cards */}
-      <MarketingKpiCards kpis={marketingKpis} />
-
-      {/* Ads Performance + Funnel */}
-      <AdsPerformanceSection adsData={adsPerformanceData} funnelSteps={marketingFunnelSteps} />
-
-      {/* ROAS + Attribution & Email */}
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
-        <RoasChannelSection channels={roasChannels} wastedSpend={wastedSpend} />
-        <AttributionEmailSection
-          attributionData={attributionData}
-          attributionColors={attributionColors}
-          emailCampaigns={emailCampaigns}
-        />
-      </div>
+    <div
+      className="flex flex-col"
+      style={{ height: '100%', overflow: 'hidden', background: 'var(--surface-void)' }}
+    >
+      <main className="flex flex-col gap-4 p-6 flex-1 min-h-0 overflow-hidden">
+        <MarketingHeader />
+        <MarketingStatusStrip />
+        <MarketingPanel className="flex-1 min-h-0 max-h-[65%]" />
+      </main>
     </div>
   )
 }

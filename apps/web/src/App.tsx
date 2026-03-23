@@ -22,11 +22,17 @@ import AdminPage from './pages/views/AdminPage'
 import AlertsPage from './pages/views/AlertsPage'
 import NotFoundPage from './pages/views/NotFoundPage'
 
+const MOCK_USER: AuthUser | null =
+  import.meta.env.VITE_MOCK_AUTH === 'true'
+    ? { uid: 'mock-uid', email: 'user.staff@hotel.com', displayName: 'Staff User' }
+    : null
+
 const App = () => {
-  const [user, setUser] = useState<AuthUser | null>(null)
-  const [authLoading, setAuthLoading] = useState(true)
+  const [user, setUser] = useState<AuthUser | null>(MOCK_USER)
+  const [authLoading, setAuthLoading] = useState(!MOCK_USER)
 
   useEffect(() => {
+    if (MOCK_USER) return
     const auth = getAuth(app)
     const unsubscribe = onAuthStateChanged(auth, firebaseUser => {
       setUser(
